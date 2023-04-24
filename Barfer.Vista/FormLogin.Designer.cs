@@ -33,16 +33,17 @@
             txtBoxNombreUsuario = new TextBox();
             txtBoxContraseñaUsuario = new TextBox();
             btnLogin = new Button();
-            groupBox1 = new GroupBox();
             btnAdmin = new Button();
-            groupBox1.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Tai Le", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(75, 89);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(241, 106);
             label1.Name = "label1";
             label1.Size = new Size(183, 23);
             label1.TabIndex = 0;
@@ -52,7 +53,8 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(75, 205);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(264, 203);
             label2.Name = "label2";
             label2.Size = new Size(119, 26);
             label2.TabIndex = 1;
@@ -60,7 +62,7 @@
             // 
             // txtBoxNombreUsuario
             // 
-            txtBoxNombreUsuario.Location = new Point(92, 145);
+            txtBoxNombreUsuario.Location = new Point(241, 163);
             txtBoxNombreUsuario.Name = "txtBoxNombreUsuario";
             txtBoxNombreUsuario.PlaceholderText = "Nombre de usuario";
             txtBoxNombreUsuario.Size = new Size(166, 23);
@@ -69,7 +71,7 @@
             // 
             // txtBoxContraseñaUsuario
             // 
-            txtBoxContraseñaUsuario.Location = new Point(92, 262);
+            txtBoxContraseñaUsuario.Location = new Point(241, 268);
             txtBoxContraseñaUsuario.Name = "txtBoxContraseñaUsuario";
             txtBoxContraseñaUsuario.PlaceholderText = "Contraseña";
             txtBoxContraseñaUsuario.Size = new Size(166, 23);
@@ -79,7 +81,7 @@
             // 
             btnLogin.BackColor = Color.FromArgb(255, 128, 0);
             btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Location = new Point(361, 188);
+            btnLogin.Location = new Point(282, 349);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(101, 32);
             btnLogin.TabIndex = 4;
@@ -87,43 +89,47 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
-            // groupBox1
-            // 
-            groupBox1.BackColor = Color.CornflowerBlue;
-            groupBox1.Controls.Add(btnAdmin);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(btnLogin);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(txtBoxContraseñaUsuario);
-            groupBox1.Controls.Add(txtBoxNombreUsuario);
-            groupBox1.Location = new Point(21, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(612, 397);
-            groupBox1.TabIndex = 5;
-            groupBox1.TabStop = false;
-            // 
             // btnAdmin
             // 
-            btnAdmin.Location = new Point(20, 368);
+            btnAdmin.BackColor = Color.FromArgb(255, 128, 0);
+            btnAdmin.FlatStyle = FlatStyle.Flat;
+            btnAdmin.Location = new Point(24, 380);
             btnAdmin.Name = "btnAdmin";
-            btnAdmin.Size = new Size(140, 23);
+            btnAdmin.Size = new Size(140, 34);
             btnAdmin.TabIndex = 5;
             btnAdmin.Text = "Ingresar directo";
-            btnAdmin.UseVisualStyleBackColor = true;
+            btnAdmin.UseVisualStyleBackColor = false;
             btnAdmin.Click += btnAdmin_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Barfer.Vista.Properties.Resources.LogoAzul;
+            pictureBox1.Location = new Point(157, 1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(337, 74);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(26, 32, 40);
             ClientSize = new Size(657, 426);
-            Controls.Add(groupBox1);
+            Controls.Add(pictureBox1);
+            Controls.Add(btnAdmin);
+            Controls.Add(txtBoxContraseñaUsuario);
+            Controls.Add(btnLogin);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(txtBoxNombreUsuario);
             Name = "FormLogin";
             Text = "FormLogin";
             Load += FormLogin_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -133,7 +139,7 @@
         private TextBox txtBoxNombreUsuario;
         private TextBox txtBoxContraseñaUsuario;
         private Button btnLogin;
-        private GroupBox groupBox1;
         private Button btnAdmin;
+        private PictureBox pictureBox1;
     }
 }

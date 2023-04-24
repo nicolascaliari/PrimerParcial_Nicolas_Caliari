@@ -89,13 +89,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(983, 624);
+            ClientSize = new Size(993, 624);
             Controls.Add(button2);
             Controls.Add(btnBaja);
             Controls.Add(btnAltaStock);
             Controls.Add(label1);
             Controls.Add(dataGrid);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Location = new Point(200, 200);
             Name = "FormStock";
             StartPosition = FormStartPosition.Manual;

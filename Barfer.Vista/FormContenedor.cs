@@ -22,73 +22,45 @@ namespace Vistas
             hijo.Height = 100;
             hijo.MdiParent = this;
 
-            if (usuario == 1)
-            {
-                verStockToolStripMenuItem.Visible = true;
-                gestionDeUsuariosToolStripMenuItem.Visible = true;
-                calculadoraToolStripMenuItem.Visible = true;
-                verCatalogoToolStripMenuItem.Visible = false;
 
-            }
-            else
-            {
-                gestionDeUsuariosToolStripMenuItem.Visible = false;
-                calculadoraToolStripMenuItem.Visible = true;
-                productoToolStripMenuItem.Visible = false;
-                verCatalogoToolStripMenuItem.Visible = true;
-            }
         }
 
-
-        private void verStockToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnProducto_Click(object sender, EventArgs e)
         {
-
             if (usuario == 1)
             {
-                var hijo = new FormStock();
-                hijo.MdiParent = this;
-                hijo.Show();
+                FormStock formStock = new FormStock();
+                // formStock.MdiParent = this;
+                formStock.Show();
             }
             else
             {
                 MessageBox.Show("debes ser administrados");
             }
-
-
         }
 
+        private void btnGestor_Click(object sender, EventArgs e)
+        {
+            var formGestionUsuarios = new FormGestionUsuarios();
+            formGestionUsuarios.Show();
+        }
 
-        private void homeToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void btnCalculadora_Click(object sender, EventArgs e)
+        {
+            var formCalculadora = new FormCalculadora();
+            formCalculadora.Show();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
         {
             var formContenedor = new FormContenedor(usuario);
             formContenedor.Show();
             this.Hide();
         }
 
-        private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var formCalculadora = new FormCalculadora();
-            formCalculadora.Show();
-
-        }
-
-        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
-
-            var formGestionUsuarios = new FormGestionUsuarios();
-            formGestionUsuarios.Show();
-        }
-
-        private void barfToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void verCatalogoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var catalogo = new FormCatalogo();
-            catalogo.Show();
         }
     }
 }

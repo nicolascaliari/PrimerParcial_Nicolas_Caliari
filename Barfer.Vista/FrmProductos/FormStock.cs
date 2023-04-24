@@ -44,7 +44,7 @@ namespace Vistas
             var altaProducto = new FormALta();
             if (altaProducto.ShowDialog() == DialogResult.OK)
             {
-               // GestorProductos.AltaProducto(altaProducto.nuevoProductoGato);
+                // GestorProductos.AltaProducto(altaProducto.nuevoProductoGato);
                 ActualizarStock(dataGrid);
             }
         }

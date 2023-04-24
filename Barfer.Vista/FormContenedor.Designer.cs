@@ -28,101 +28,180 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormContenedor));
+            panel1 = new Panel();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
             pictureBox1 = new PictureBox();
-            menuStrip1 = new MenuStrip();
-            productoToolStripMenuItem = new ToolStripMenuItem();
-            verStockToolStripMenuItem = new ToolStripMenuItem();
-            verTodoToolStripMenuItem = new ToolStripMenuItem();
-            gestionDeUsuariosToolStripMenuItem = new ToolStripMenuItem();
-            calculadoraToolStripMenuItem = new ToolStripMenuItem();
-            homeToolStripMenuItem = new ToolStripMenuItem();
-            verCatalogoToolStripMenuItem = new ToolStripMenuItem();
-            barfToolStripMenuItem = new ToolStripMenuItem();
+            btnGestor = new Button();
+            btnHome = new Button();
+            btnProducto = new Button();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            btnCalculadora = new Button();
+            panel2 = new Panel();
+            label1 = new Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(26, 32, 40);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Controls.Add(pictureBox5);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnGestor);
+            panel1.Controls.Add(btnHome);
+            panel1.Controls.Add(btnProducto);
+            panel1.Controls.Add(pictureBox3);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(btnCalculadora);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 450);
+            panel1.TabIndex = 5;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(19, 383);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(59, 41);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 3;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(21, 206);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(59, 37);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 4;
+            pictureBox5.TabStop = false;
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            //pictureBox1.Image = Properties.Resources.LogoAzul;
-            pictureBox1.Location = new Point(270, 179);
+            pictureBox1.Image = Barfer.Vista.Properties.Resources.Logo;
+            pictureBox1.Location = new Point(19, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(209, 76);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 3;
+            pictureBox1.Size = new Size(160, 90);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // menuStrip1
+            // btnGestor
             // 
-            menuStrip1.BackColor = Color.CornflowerBlue;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { productoToolStripMenuItem, gestionDeUsuariosToolStripMenuItem, homeToolStripMenuItem, verCatalogoToolStripMenuItem, barfToolStripMenuItem, calculadoraToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 28);
-            menuStrip1.TabIndex = 4;
-            menuStrip1.Text = "menuStrip1";
+            btnGestor.BackColor = Color.FromArgb(26, 32, 40);
+            btnGestor.FlatAppearance.BorderSize = 0;
+            btnGestor.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            btnGestor.FlatStyle = FlatStyle.Flat;
+            btnGestor.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGestor.ForeColor = SystemColors.ButtonHighlight;
+            btnGestor.Location = new Point(84, 206);
+            btnGestor.Name = "btnGestor";
+            btnGestor.Size = new Size(116, 37);
+            btnGestor.TabIndex = 1;
+            btnGestor.Text = " Usuarios";
+            btnGestor.UseVisualStyleBackColor = false;
+            btnGestor.Click += btnGestor_Click;
             // 
-            // productoToolStripMenuItem
+            // btnHome
             // 
-            productoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verStockToolStripMenuItem, verTodoToolStripMenuItem });
-            productoToolStripMenuItem.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            productoToolStripMenuItem.Size = new Size(89, 24);
-            productoToolStripMenuItem.Text = "Producto";
+            btnHome.BackColor = Color.FromArgb(26, 32, 40);
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnHome.ForeColor = SystemColors.ButtonHighlight;
+            btnHome.Location = new Point(84, 387);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(116, 37);
+            btnHome.TabIndex = 3;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
-            // verStockToolStripMenuItem
+            // btnProducto
             // 
-            verStockToolStripMenuItem.Name = "verStockToolStripMenuItem";
-            verStockToolStripMenuItem.Size = new Size(147, 24);
-            verStockToolStripMenuItem.Text = "Ver stock";
-            verStockToolStripMenuItem.Click += verStockToolStripMenuItem_Click;
+            btnProducto.BackColor = Color.FromArgb(26, 32, 40);
+            btnProducto.FlatAppearance.BorderSize = 0;
+            btnProducto.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            btnProducto.FlatStyle = FlatStyle.Flat;
+            btnProducto.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnProducto.ForeColor = SystemColors.ButtonHighlight;
+            btnProducto.Location = new Point(84, 124);
+            btnProducto.Name = "btnProducto";
+            btnProducto.RightToLeft = RightToLeft.No;
+            btnProducto.Size = new Size(116, 37);
+            btnProducto.TabIndex = 0;
+            btnProducto.Text = "Productos";
+            btnProducto.UseVisualStyleBackColor = false;
+            btnProducto.Click += btnProducto_Click;
             // 
-            // verTodoToolStripMenuItem
+            // pictureBox3
             // 
-            verTodoToolStripMenuItem.Name = "verTodoToolStripMenuItem";
-            verTodoToolStripMenuItem.Size = new Size(147, 24);
-            verTodoToolStripMenuItem.Text = "Ver todo";
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(19, 299);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(59, 37);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 2;
+            pictureBox3.TabStop = false;
             // 
-            // gestionDeUsuariosToolStripMenuItem
+            // pictureBox2
             // 
-            gestionDeUsuariosToolStripMenuItem.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
-            gestionDeUsuariosToolStripMenuItem.Size = new Size(169, 24);
-            gestionDeUsuariosToolStripMenuItem.Text = "Gestion de usuarios";
-            gestionDeUsuariosToolStripMenuItem.Click += gestionDeUsuariosToolStripMenuItem_Click;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(21, 124);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(54, 37);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
             // 
-            // calculadoraToolStripMenuItem
+            // btnCalculadora
             // 
-            calculadoraToolStripMenuItem.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            calculadoraToolStripMenuItem.Name = "calculadoraToolStripMenuItem";
-            calculadoraToolStripMenuItem.Size = new Size(111, 24);
-            calculadoraToolStripMenuItem.Text = "Calculadora";
-            calculadoraToolStripMenuItem.Click += calculadoraToolStripMenuItem_Click;
+            btnCalculadora.BackColor = Color.FromArgb(26, 32, 40);
+            btnCalculadora.FlatAppearance.BorderSize = 0;
+            btnCalculadora.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            btnCalculadora.FlatStyle = FlatStyle.Flat;
+            btnCalculadora.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCalculadora.ForeColor = SystemColors.ButtonHighlight;
+            btnCalculadora.Location = new Point(84, 299);
+            btnCalculadora.Name = "btnCalculadora";
+            btnCalculadora.Size = new Size(116, 37);
+            btnCalculadora.TabIndex = 2;
+            btnCalculadora.Text = "Calculadora";
+            btnCalculadora.UseVisualStyleBackColor = false;
+            btnCalculadora.Click += btnCalculadora_Click;
             // 
-            // homeToolStripMenuItem
+            // panel2
             // 
-            homeToolStripMenuItem.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            homeToolStripMenuItem.Size = new Size(66, 24);
-            homeToolStripMenuItem.Text = "Home";
-            homeToolStripMenuItem.Click += homeToolStripMenuItem_Click_1;
+            panel2.BackColor = Color.FromArgb(49, 66, 82);
+            panel2.Controls.Add(label1);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(200, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(600, 450);
+            panel2.TabIndex = 6;
             // 
-            // verCatalogoToolStripMenuItem
+            // label1
             // 
-            verCatalogoToolStripMenuItem.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            verCatalogoToolStripMenuItem.Name = "verCatalogoToolStripMenuItem";
-            verCatalogoToolStripMenuItem.Size = new Size(118, 24);
-            verCatalogoToolStripMenuItem.Text = "Ver catalogo";
-            verCatalogoToolStripMenuItem.Click += verCatalogoToolStripMenuItem_Click;
-            // 
-            // barfToolStripMenuItem
-            // 
-            barfToolStripMenuItem.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            barfToolStripMenuItem.Name = "barfToolStripMenuItem";
-            barfToolStripMenuItem.Size = new Size(52, 24);
-            barfToolStripMenuItem.Text = "Barf";
-            barfToolStripMenuItem.Click += barfToolStripMenuItem_Click;
+            label1.AutoSize = true;
+            label1.Font = new Font("Showcard Gothic", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(96, 58);
+            label1.Name = "label1";
+            label1.Size = new Size(409, 44);
+            label1.TabIndex = 1;
+            label1.Text = "Bienvenido a Barfer";
             // 
             // FormContenedor
             // 
@@ -130,29 +209,34 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox1);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Name = "FormContenedor";
             Text = "Form1";
             Load += Form1_Load;
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
+        private Panel panel1;
+        private Panel panel2;
+        private Button btnHome;
+        private Button btnProducto;
+        private Button btnGestor;
+        private Button btnCalculadora;
         private PictureBox pictureBox1;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem productoToolStripMenuItem;
-        private ToolStripMenuItem verStockToolStripMenuItem;
-        private ToolStripMenuItem verTodoToolStripMenuItem;
-        private ToolStripMenuItem gestionDeUsuariosToolStripMenuItem;
-        private ToolStripMenuItem homeToolStripMenuItem;
-        private ToolStripMenuItem calculadoraToolStripMenuItem;
-        private ToolStripMenuItem barfToolStripMenuItem;
-        private ToolStripMenuItem verCatalogoToolStripMenuItem;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private Label label1;
     }
 }
