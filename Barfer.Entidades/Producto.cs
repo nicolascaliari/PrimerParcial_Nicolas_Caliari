@@ -1,11 +1,12 @@
-﻿namespace Barfer.Entidades
+﻿using System.Text;
+
+namespace Barfer.Entidades
 {
     public class Producto
     {
         private string _nombre;
         private decimal _precio;
         private decimal _cantidad;
-        // public static List<Producto> _products;
         private decimal _id;
         private SaborAlimento _sabor;
         private CantidadKilos _cantidadKilos;
@@ -16,6 +17,8 @@
             cerdo,
             vaca,
             pollo,
+            cornalito,
+            sardinas,
         }
 
         public enum CantidadKilos
@@ -71,12 +74,31 @@
 
         public Producto(string nombre, decimal precio, decimal cantidad, decimal id, SaborAlimento saborAlimento, CantidadKilos kilos)
         {
+            _cantidadKilos = kilos;
             _nombre = nombre;
             _precio = precio;
             _cantidad = cantidad;
             _id = id;
             _sabor = saborAlimento;
-            _cantidadKilos = kilos;
+           
+        }
+
+
+
+        public virtual string MostrarProducto(Producto producto)
+        {
+            StringBuilder sb = new StringBuilder();
+
+
+            sb.AppendLine($"Nombre: {_nombre}");
+            sb.AppendLine($"Precio: {_precio}");
+            sb.AppendLine($"Cantidad: {_cantidad}");
+            sb.AppendLine($"Sabor: {_sabor}");
+            sb.AppendLine($"Cantidad de kilos: {_cantidadKilos}");
+
+
+            return sb.ToString();
+
         }
 
 

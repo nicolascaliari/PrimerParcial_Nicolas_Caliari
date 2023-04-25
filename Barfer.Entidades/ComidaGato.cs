@@ -12,13 +12,11 @@ namespace Barfer.Entidades
         {
 
         }
-        //public override string ToString()
-        //{
-        //    StringBuilder sb = new StringBuilder();
-        //    sb.AppendLine(base.ToString());
-        //    sb.AppendLine($"Sabor: {this.sabor}");
-        //    return sb.ToString();
-        //}
+
+        public override string MostrarProducto(Producto producto)
+        {
+            return base.MostrarProducto(producto);
+        }
 
 
 

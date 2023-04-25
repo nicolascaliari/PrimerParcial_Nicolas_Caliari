@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades
 {
-    public class Complementos
+    public class Alimento
     {
     }
 }

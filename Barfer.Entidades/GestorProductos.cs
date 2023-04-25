@@ -34,7 +34,9 @@ namespace Barfer.Entidades
                     new ComidaPerro("Comida Perro", 100, 10, 10, Producto.SaborAlimento.pollo, Producto.CantidadKilos.diezKilos),
                     new ComidaGato("Comida Gato", 100, 10, 11, Producto.SaborAlimento.cerdo, Producto.CantidadKilos.diezKilos),
                     new ComidaPerro("Comida Perro", 100, 10, 12, Producto.SaborAlimento.vaca, Producto.CantidadKilos.cincoKilos),
-
+                    new Complemento("Complemento", 100, 10, 13, Producto.SaborAlimento.cornalito, Producto.CantidadKilos.diezKilos),
+                    new Complemento("Complemento", 100, 10, 14, Producto.SaborAlimento.sardinas, Producto.CantidadKilos.diezKilos),
+                    new Complemento("Complemento", 100, 10, 15, Producto.SaborAlimento.cornalito, Producto.CantidadKilos.diezKilos),
 
 
 

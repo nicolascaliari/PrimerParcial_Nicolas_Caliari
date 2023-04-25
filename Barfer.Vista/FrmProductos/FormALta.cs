@@ -16,6 +16,12 @@ namespace Vistas
     {
         private ComidaGato _nuevoProductoGato;
         private ComidaPerro _nuevoProductoPerro;
+        private Complemento _complemento;
+
+        public Complemento nuevoComplemento
+        {
+            get { return _complemento; }
+        }
 
         public ComidaGato nuevoProductoGato
         {
