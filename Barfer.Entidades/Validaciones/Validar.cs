@@ -76,6 +76,20 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
+
+        public static decimal EncontrarIdUsuario(string nombre, string pass)
+        {
+            foreach (Usuario item in GestorDeUsuarios.usuarios)
+            {
+                if (item.nombreUsuario == nombre && item.contraseñaUsuario == pass)
+                {
+                    return item.idUsuario;
+
+                }
+            }
+            return -1;
+        }
+
         public static int VerificarUsuarioContrasenia(string nombreUsuario, string contrasenia)
         {
 

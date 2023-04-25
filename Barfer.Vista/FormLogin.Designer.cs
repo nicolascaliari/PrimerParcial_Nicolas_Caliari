@@ -28,62 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
             txtBoxNombreUsuario = new TextBox();
             txtBoxContraseñaUsuario = new TextBox();
             btnLogin = new Button();
             btnAdmin = new Button();
             pictureBox1 = new PictureBox();
+            panel1 = new Panel();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Tai Le", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(241, 106);
-            label1.Name = "label1";
-            label1.Size = new Size(183, 23);
-            label1.TabIndex = 0;
-            label1.Text = "Nombre de usuario";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft YaHei", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(264, 203);
-            label2.Name = "label2";
-            label2.Size = new Size(119, 26);
-            label2.TabIndex = 1;
-            label2.Text = "Contraseña";
             // 
             // txtBoxNombreUsuario
             // 
-            txtBoxNombreUsuario.Location = new Point(241, 163);
+            txtBoxNombreUsuario.BackColor = Color.FromArgb(15, 15, 15);
+            txtBoxNombreUsuario.BorderStyle = BorderStyle.FixedSingle;
+            txtBoxNombreUsuario.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBoxNombreUsuario.ForeColor = SystemColors.Menu;
+            txtBoxNombreUsuario.Location = new Point(339, 131);
+            txtBoxNombreUsuario.Margin = new Padding(7);
             txtBoxNombreUsuario.Name = "txtBoxNombreUsuario";
-            txtBoxNombreUsuario.PlaceholderText = "Nombre de usuario";
-            txtBoxNombreUsuario.Size = new Size(166, 23);
+            txtBoxNombreUsuario.PlaceholderText = "Usuario";
+            txtBoxNombreUsuario.Size = new Size(345, 25);
             txtBoxNombreUsuario.TabIndex = 2;
             txtBoxNombreUsuario.TextChanged += txtBoxNombreUsuario_TextChanged;
             // 
             // txtBoxContraseñaUsuario
             // 
-            txtBoxContraseñaUsuario.Location = new Point(241, 268);
+            txtBoxContraseñaUsuario.BackColor = Color.FromArgb(15, 15, 15);
+            txtBoxContraseñaUsuario.BorderStyle = BorderStyle.FixedSingle;
+            txtBoxContraseñaUsuario.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            txtBoxContraseñaUsuario.ForeColor = SystemColors.Menu;
+            txtBoxContraseñaUsuario.Location = new Point(339, 229);
             txtBoxContraseñaUsuario.Name = "txtBoxContraseñaUsuario";
             txtBoxContraseñaUsuario.PlaceholderText = "Contraseña";
-            txtBoxContraseñaUsuario.Size = new Size(166, 23);
+            txtBoxContraseñaUsuario.Size = new Size(345, 25);
             txtBoxContraseñaUsuario.TabIndex = 3;
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = Color.FromArgb(255, 128, 0);
+            btnLogin.BackColor = Color.FromArgb(40, 40, 40);
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Location = new Point(282, 349);
+            btnLogin.ForeColor = SystemColors.ButtonFace;
+            btnLogin.Location = new Point(339, 344);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(101, 32);
+            btnLogin.Size = new Size(345, 41);
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Ingresar";
             btnLogin.UseVisualStyleBackColor = false;
@@ -91,9 +82,12 @@
             // 
             // btnAdmin
             // 
-            btnAdmin.BackColor = Color.FromArgb(255, 128, 0);
+            btnAdmin.BackColor = Color.FromArgb(40, 40, 40);
+            btnAdmin.FlatAppearance.BorderSize = 0;
+            btnAdmin.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btnAdmin.FlatStyle = FlatStyle.Flat;
-            btnAdmin.Location = new Point(24, 380);
+            btnAdmin.ForeColor = SystemColors.ButtonFace;
+            btnAdmin.Location = new Point(42, 378);
             btnAdmin.Name = "btnAdmin";
             btnAdmin.Size = new Size(140, 34);
             btnAdmin.TabIndex = 5;
@@ -104,42 +98,62 @@
             // pictureBox1
             // 
             pictureBox1.Image = Barfer.Vista.Properties.Resources.LogoAzul;
-            pictureBox1.Location = new Point(157, 1);
+            pictureBox1.Location = new Point(3, 172);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(337, 74);
+            pictureBox1.Size = new Size(243, 62);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(26, 32, 40);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnAdmin);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(246, 426);
+            panel1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Showcard Gothic", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(455, 27);
+            label1.Name = "label1";
+            label1.Size = new Size(122, 44);
+            label1.TabIndex = 8;
+            label1.Text = "LOGIN";
             // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(26, 32, 40);
-            ClientSize = new Size(657, 426);
-            Controls.Add(pictureBox1);
-            Controls.Add(btnAdmin);
+            BackColor = Color.FromArgb(15, 15, 15);
+            ClientSize = new Size(781, 426);
+            Controls.Add(label1);
+            Controls.Add(panel1);
             Controls.Add(txtBoxContraseñaUsuario);
             Controls.Add(btnLogin);
-            Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(txtBoxNombreUsuario);
             Name = "FormLogin";
             Text = "FormLogin";
             Load += FormLogin_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
-        private Label label2;
         private TextBox txtBoxNombreUsuario;
         private TextBox txtBoxContraseñaUsuario;
         private Button btnLogin;
         private Button btnAdmin;
         private PictureBox pictureBox1;
+        private Panel panel1;
+        private Label label1;
     }
 }

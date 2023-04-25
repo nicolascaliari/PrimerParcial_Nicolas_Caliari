@@ -63,9 +63,9 @@ namespace Barfer.Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _12506835751543238941_128 {
+        internal static System.Drawing.Bitmap _11116362331667487186_128 {
             get {
-                object obj = ResourceManager.GetObject("12506835751543238941-128", resourceCulture);
+                object obj = ResourceManager.GetObject("11116362331667487186-128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Barfer.Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _12835259751537184103_128 {
+        internal static System.Drawing.Bitmap _11239908661557740331_128 {
             get {
-                object obj = ResourceManager.GetObject("12835259751537184103-128", resourceCulture);
+                object obj = ResourceManager.GetObject("11239908661557740331-128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Barfer.Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _18787262051536039565_128 {
+        internal static System.Drawing.Bitmap _12506835751543238941_128__1_ {
             get {
-                object obj = ResourceManager.GetObject("18787262051536039565-128", resourceCulture);
+                object obj = ResourceManager.GetObject("12506835751543238941-128 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,29 @@ namespace Barfer.Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _9088447631595156046_128 {
+        internal static System.Drawing.Bitmap _13163802951582793675_128 {
             get {
-                object obj = ResourceManager.GetObject("9088447631595156046-128", resourceCulture);
+                object obj = ResourceManager.GetObject("13163802951582793675-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _15536420761558096328_128 {
+            get {
+                object obj = ResourceManager.GetObject("15536420761558096328-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _16817612971678726805_128 {
+            get {
+                object obj = ResourceManager.GetObject("16817612971678726805-128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

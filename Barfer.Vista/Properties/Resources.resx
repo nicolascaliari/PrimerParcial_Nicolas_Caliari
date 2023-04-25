@@ -118,17 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="12506835751543238941-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\12506835751543238941-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="11116362331667487186-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\11116362331667487186-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="12835259751537184103-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\12835259751537184103-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="11239908661557740331-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\11239908661557740331-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="18787262051536039565-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\18787262051536039565-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="12506835751543238941-128 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\12506835751543238941-128 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="9088447631595156046-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\9088447631595156046-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="13163802951582793675-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13163802951582793675-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="15536420761558096328-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\15536420761558096328-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="16817612971678726805-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\16817612971678726805-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

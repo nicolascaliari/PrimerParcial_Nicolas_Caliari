@@ -33,12 +33,14 @@
             btnModificacionUsuario = new Button();
             dataGridView1 = new DataGridView();
             label1 = new Label();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnAltaUsuario
             // 
-            btnAltaUsuario.Location = new Point(26, 119);
+            btnAltaUsuario.Location = new Point(31, 68);
             btnAltaUsuario.Name = "btnAltaUsuario";
             btnAltaUsuario.Size = new Size(139, 46);
             btnAltaUsuario.TabIndex = 0;
@@ -48,7 +50,7 @@
             // 
             // btnBajaUsuario
             // 
-            btnBajaUsuario.Location = new Point(26, 227);
+            btnBajaUsuario.Location = new Point(31, 238);
             btnBajaUsuario.Name = "btnBajaUsuario";
             btnBajaUsuario.Size = new Size(139, 47);
             btnBajaUsuario.TabIndex = 1;
@@ -58,9 +60,9 @@
             // 
             // btnModificacionUsuario
             // 
-            btnModificacionUsuario.Location = new Point(26, 337);
+            btnModificacionUsuario.Location = new Point(31, 435);
             btnModificacionUsuario.Name = "btnModificacionUsuario";
-            btnModificacionUsuario.Size = new Size(130, 47);
+            btnModificacionUsuario.Size = new Size(139, 47);
             btnModificacionUsuario.TabIndex = 2;
             btnModificacionUsuario.Text = "Modificar usuario";
             btnModificacionUsuario.UseVisualStyleBackColor = true;
@@ -69,37 +71,49 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(269, 119);
+            dataGridView1.Location = new Point(291, 131);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(470, 265);
+            dataGridView1.Size = new Size(571, 370);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(404, 46);
+            label1.Font = new Font("Showcard Gothic", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(402, 37);
             label1.Name = "label1";
-            label1.Size = new Size(197, 30);
+            label1.Size = new Size(359, 40);
             label1.TabIndex = 4;
             label1.Text = "Gestion de usuario";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(26, 32, 40);
+            panel1.Controls.Add(btnAltaUsuario);
+            panel1.Controls.Add(btnBajaUsuario);
+            panel1.Controls.Add(btnModificacionUsuario);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(218, 536);
+            panel1.TabIndex = 5;
             // 
             // FormGestionUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.FromArgb(49, 66, 82);
+            ClientSize = new Size(936, 536);
+            Controls.Add(panel1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
-            Controls.Add(btnModificacionUsuario);
-            Controls.Add(btnBajaUsuario);
-            Controls.Add(btnAltaUsuario);
             Name = "FormGestionUsuarios";
             Text = "FormGestionUsuarios";
             Load += FormGestionUsuarios_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -112,5 +126,6 @@
         private DataGridView dataGridView1;
         private Label label1;
         private Button btnBajaUsuario;
+        private Panel panel1;
     }
 }

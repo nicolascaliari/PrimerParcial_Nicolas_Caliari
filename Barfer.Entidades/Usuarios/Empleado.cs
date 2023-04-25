@@ -8,8 +8,8 @@ namespace Barfer.Entidades.Usuarios
 {
     public class Empleado : Usuario
     {
-        public Empleado(string nombreUsuario, string contraseñaUsuario, string apellidoUsuario, decimal edadUsuario, TipoUsuario tipo)
-            : base(nombreUsuario, contraseñaUsuario, apellidoUsuario, edadUsuario, tipo)
+        public Empleado(string nombreUsuario, string contraseñaUsuario, string apellidoUsuario, decimal edadUsuario, TipoUsuario tipo, decimal id)
+            : base(nombreUsuario, contraseñaUsuario, apellidoUsuario, edadUsuario, tipo, id)
         {
         }
 

@@ -36,7 +36,7 @@ namespace Vistas
         {
 
             string item = comboBox1.Text;
-
+        
 
             if (item == "perro")
             {

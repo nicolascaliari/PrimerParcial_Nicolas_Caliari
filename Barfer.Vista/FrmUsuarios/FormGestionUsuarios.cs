@@ -22,11 +22,6 @@ namespace Vistas
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
             ActualizarUsuarios(dataGridView1);
@@ -69,18 +64,24 @@ namespace Vistas
 
         private void btnModificacionUsuario_Click(object sender, EventArgs e)
         {
-            if(this.dataGridView1.RowCount == 0)
+            if (this.dataGridView1.RowCount == 0)
             {
                 //MessageBox.Show("No hay usuarios para modificar");
             }
             else
             {
-                    var formModificacion = new FormEditarUsuario((Usuario)dataGridView1.CurrentRow.DataBoundItem);
-                    if (formModificacion.ShowDialog() == DialogResult.OK)
+                var formModificacion = new FormEditarUsuario((Usuario)dataGridView1.CurrentRow.DataBoundItem);
+                if (formModificacion.ShowDialog() == DialogResult.OK)
                 {
-                        ActualizarUsuarios(dataGridView1);
-                    }
+                    ActualizarUsuarios(dataGridView1);
+                }
             }
+        }
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

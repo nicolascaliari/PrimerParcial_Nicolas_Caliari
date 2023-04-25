@@ -22,6 +22,7 @@ namespace Barfer.Entidades.Usuarios
         private decimal _edadUsuario;
         private string _contraseñaUsuario;
         private TipoUsuario _tipoUsuario;
+        private decimal _idUsuario;
         //  private List<Usuario> _usuarios;
 
 
@@ -30,6 +31,11 @@ namespace Barfer.Entidades.Usuarios
             get { return _tipoUsuario; }
         }
 
+        public decimal idUsuario
+        {
+            get { return _idUsuario; }
+            set { _idUsuario = value; }
+        }
 
 
         //public List<Usuario> usuarios
@@ -70,14 +76,14 @@ namespace Barfer.Entidades.Usuarios
         //}
 
 
-        public Usuario(string nombreUsuario, string contraseñaUsuario, string apellido, decimal edad, TipoUsuario tipoUsuario)
+        public Usuario(string nombreUsuario, string contraseñaUsuario, string apellido, decimal edad, TipoUsuario tipoUsuario, decimal idUsuario)
         {
             _nombreUsuario = nombreUsuario;
             _contraseñaUsuario = contraseñaUsuario;
             _tipoUsuario = tipoUsuario;
             _apellidoUsuario = apellido;
             _edadUsuario = edad;
-
+            this.idUsuario = idUsuario;
         }
 
     }

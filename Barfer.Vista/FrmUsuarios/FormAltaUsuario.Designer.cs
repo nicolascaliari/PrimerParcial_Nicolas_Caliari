@@ -39,6 +39,8 @@
             comboBoxAltaTipo = new ComboBox();
             label5 = new Label();
             txtBoxAltaEdad = new TextBox();
+            numericUpDownIdUsuario = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownIdUsuario).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -137,11 +139,19 @@
             txtBoxAltaEdad.Size = new Size(148, 23);
             txtBoxAltaEdad.TabIndex = 11;
             // 
+            // numericUpDownIdUsuario
+            // 
+            numericUpDownIdUsuario.Location = new Point(112, 365);
+            numericUpDownIdUsuario.Name = "numericUpDownIdUsuario";
+            numericUpDownIdUsuario.Size = new Size(120, 23);
+            numericUpDownIdUsuario.TabIndex = 12;
+            // 
             // FormAltaUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(390, 582);
+            Controls.Add(numericUpDownIdUsuario);
             Controls.Add(txtBoxAltaEdad);
             Controls.Add(label5);
             Controls.Add(comboBoxAltaTipo);
@@ -155,6 +165,8 @@
             Controls.Add(label1);
             Name = "FormAltaUsuario";
             Text = "FormAltaUsuario";
+            Load += FormAltaUsuario_Load;
+            ((System.ComponentModel.ISupportInitialize)numericUpDownIdUsuario).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -172,5 +184,6 @@
         private ComboBox comboBoxAltaTipo;
         private Label label5;
         private TextBox txtBoxAltaEdad;
+        private NumericUpDown numericUpDownIdUsuario;
     }
 }

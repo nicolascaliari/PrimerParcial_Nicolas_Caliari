@@ -38,16 +38,21 @@ namespace Vistas.FrmUsuarios
 
             if (tipo == "administrador")
             {
-                _nuevoUsuarioAdministrador = new Administrador(txtBoxAltaNombre.Text, txtBoxAltaApellido.Text, txtBoxAltaPassword.Text, int.Parse(txtBoxAltaEdad.Text),(TipoUsuario)comboBoxAltaTipo.SelectedIndex);
+                _nuevoUsuarioAdministrador = new Administrador(txtBoxAltaNombre.Text, txtBoxAltaApellido.Text, txtBoxAltaPassword.Text, int.Parse(txtBoxAltaEdad.Text), (TipoUsuario)comboBoxAltaTipo.SelectedIndex, numericUpDownIdUsuario.Value);
                 GestorDeUsuarios.AltaUsuarioAdministrador(_nuevoUsuarioAdministrador);
                 this.DialogResult = DialogResult.OK;
             }
             else if (tipo == "empleado")
             {
-                _nuevoUsuarioEmpleado = new Empleado(txtBoxAltaNombre.Text, txtBoxAltaApellido.Text, txtBoxAltaPassword.Text, int.Parse(txtBoxAltaEdad.Text),(TipoUsuario)comboBoxAltaTipo.SelectedIndex);
+                _nuevoUsuarioEmpleado = new Empleado(txtBoxAltaNombre.Text, txtBoxAltaApellido.Text, txtBoxAltaPassword.Text, int.Parse(txtBoxAltaEdad.Text), (TipoUsuario)comboBoxAltaTipo.SelectedIndex, numericUpDownIdUsuario.Value);
                 GestorDeUsuarios.AltaUsuarioEmpleado(_nuevoUsuarioEmpleado);
                 this.DialogResult = DialogResult.OK;
             }
+
+        }
+
+        private void FormAltaUsuario_Load(object sender, EventArgs e)
+        {
 
         }
     }

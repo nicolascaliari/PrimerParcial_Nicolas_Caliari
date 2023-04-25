@@ -39,9 +39,11 @@ namespace Vistas
 
             int validar = Validar.VerificarUsuarioContrasenia(nombre, contrasenia);
 
+            decimal id = Validar.EncontrarIdUsuario(nombre, contrasenia);
+
             if (validar != -1)
             {
-                AccederMenuPrincipal(validar);
+                AccederMenuPrincipal(validar, id);
             }
             else
             {
@@ -52,24 +54,23 @@ namespace Vistas
         }
 
 
-        private void AccederMenuPrincipal(int usuario)
+        private void AccederMenuPrincipal(int usuario, decimal id)
         {
-            FormContenedor menuPrincipal = new FormContenedor(usuario);
+            FormContenedor menuPrincipal = new FormContenedor(usuario, id);
             this.Hide();
             menuPrincipal.ShowDialog();
-        }
-
-
-
-        private void txtBoxNombreUsuario_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             txtBoxNombreUsuario.Text = "nicolas";
             txtBoxContraseñaUsuario.Text = "agunic";
+        }
+
+
+        private void txtBoxNombreUsuario_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -23,8 +23,8 @@ namespace Barfer.Entidades
             usuarios = new List<Usuario>()
             {
 
-                new Administrador("nicolas", "agunic", "caliari", 30, Usuario.TipoUsuario.Administrador),
-                new Empleado("malena", "elrojo", "illan", 30, Usuario.TipoUsuario.Empleado),
+                new Administrador("nicolas", "agunic", "caliari", 30, Usuario.TipoUsuario.Administrador, 1),
+                new Empleado("malena", "elrojo", "illan", 30, Usuario.TipoUsuario.Empleado, 2),
 
             };
         }
