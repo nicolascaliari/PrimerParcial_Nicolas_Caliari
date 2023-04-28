@@ -11,9 +11,9 @@ namespace Barfer.Entidades.Validaciones
     public class Validar
     {
 
-        public bool ValidarPassword(string password)
+        public static bool ValidarPassword(string password)
         {
-            if (string.IsNullOrEmpty(password) || password.Length < 9)
+            if (string.IsNullOrEmpty(password) || password.Length < 4)
                 return false;
 
             if (!password.Any(char.IsUpper) || !password.Any(char.IsLower) || !password.Any(char.IsDigit))
@@ -23,9 +23,9 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
-        public bool ValidarUsuario(string usuario)
+        public static bool ValidarUsuario(string usuario)
         {
-            if (string.IsNullOrEmpty(usuario) || usuario.Length < 5)
+            if (string.IsNullOrEmpty(usuario) || usuario.Length < 3)
                 return false;
 
             return true;

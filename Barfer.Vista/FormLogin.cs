@@ -19,6 +19,8 @@ namespace Vistas
         public FormLogin()
         {
             InitializeComponent();
+            Archivo.CrearArchivoUsuario();
+            Archivo.CrearArchivoAlimentos();
 
         }
 
@@ -26,7 +28,6 @@ namespace Vistas
         {
             if (GestorDeUsuarios.usuarios.Count < 0)
             {
-
                 MessageBox.Show("No hay usuarios cargados al sistema");
                 Application.Exit();
             }
@@ -37,26 +38,33 @@ namespace Vistas
             string nombre = txtBoxNombreUsuario.Text;
             string contrasenia = txtBoxContraseñaUsuario.Text;
 
-            int validar = Validar.VerificarUsuarioContrasenia(nombre, contrasenia);
-
-            decimal id = Validar.EncontrarIdUsuario(nombre, contrasenia);
-
-            if (validar != -1)
+           if(Validar.ValidarUsuario(nombre) && Validar.ValidarPassword(contrasenia))
             {
-                AccederMenuPrincipal(validar, id);
+                decimal id = Validar.EncontrarIdUsuario(nombre, contrasenia);
+
+                if (id != -1)
+                {
+                    AccederMenuPrincipal(id, contrasenia);
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos");
+                }
             }
             else
             {
-                MessageBox.Show("Usuario o contraseña incorrectos");
+                MessageBox.Show("Usuario o contraseña incorrecto");
             }
+
+
 
 
         }
 
 
-        private void AccederMenuPrincipal(int usuario, decimal id)
+        private void AccederMenuPrincipal(decimal id, string pass)
         {
-            FormContenedor menuPrincipal = new FormContenedor(usuario, id);
+            FormContenedor menuPrincipal = new FormContenedor(id, pass);
             this.Hide();
             menuPrincipal.ShowDialog();
         }
@@ -64,7 +72,7 @@ namespace Vistas
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             txtBoxNombreUsuario.Text = "nicolas";
-            txtBoxContraseñaUsuario.Text = "agunic";
+            txtBoxContraseñaUsuario.Text = "Agunic1004";
         }
 
 

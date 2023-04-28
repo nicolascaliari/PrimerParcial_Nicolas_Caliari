@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades
 {
-    public class ComidaPerro : Producto
+    public class ComidaPerro : Alimento
     {
-        public ComidaPerro(string nombre, decimal precio, decimal stock, decimal id, SaborAlimento saborAlimento, CantidadKilos kilos) : base(nombre, precio, stock, id, saborAlimento, kilos)
+        public ComidaPerro(decimal id, string nombre, decimal precio, decimal stock, SaborAlimento saborAlimento, CantidadKilos kilos, TipoAlimento tipo) : base(id , nombre, precio, stock, saborAlimento, kilos, tipo)
         {
 
         }

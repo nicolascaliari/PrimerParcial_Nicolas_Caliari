@@ -33,12 +33,15 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             dataGrid = new DataGridView();
             label1 = new Label();
-            btnAltaStock = new Button();
-            btnBaja = new Button();
-            button2 = new Button();
             panel1 = new Panel();
+            btnBajaProducto = new PictureBox();
+            btnEditarProducto = new PictureBox();
+            btnAltaProducto = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnBajaProducto).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnEditarProducto).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnAltaProducto).BeginInit();
             SuspendLayout();
             // 
             // dataGrid
@@ -97,46 +100,50 @@
             label1.Text = "Listado de productos en stock";
             label1.Click += label1_Click;
             // 
-            // btnAltaStock
-            // 
-            btnAltaStock.Location = new Point(42, 87);
-            btnAltaStock.Name = "btnAltaStock";
-            btnAltaStock.Size = new Size(171, 43);
-            btnAltaStock.TabIndex = 2;
-            btnAltaStock.Text = "Alta de producto";
-            btnAltaStock.UseVisualStyleBackColor = true;
-            btnAltaStock.Click += btnAltaStock_Click;
-            // 
-            // btnBaja
-            // 
-            btnBaja.Location = new Point(42, 284);
-            btnBaja.Name = "btnBaja";
-            btnBaja.Size = new Size(171, 45);
-            btnBaja.TabIndex = 3;
-            btnBaja.Text = "Baja de producto";
-            btnBaja.UseVisualStyleBackColor = true;
-            btnBaja.Click += btnBaja_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(42, 487);
-            button2.Name = "button2";
-            button2.Size = new Size(170, 48);
-            button2.TabIndex = 4;
-            button2.Text = "Modificacion de producto";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(26, 32, 40);
-            panel1.Controls.Add(btnAltaStock);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(btnBaja);
+            panel1.Controls.Add(btnBajaProducto);
+            panel1.Controls.Add(btnEditarProducto);
+            panel1.Controls.Add(btnAltaProducto);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(241, 624);
             panel1.TabIndex = 5;
+            // 
+            // btnBajaProducto
+            // 
+            btnBajaProducto.Image = Barfer.Vista.Properties.Resources.basura;
+            btnBajaProducto.Location = new Point(69, 266);
+            btnBajaProducto.Name = "btnBajaProducto";
+            btnBajaProducto.Size = new Size(111, 62);
+            btnBajaProducto.SizeMode = PictureBoxSizeMode.Zoom;
+            btnBajaProducto.TabIndex = 7;
+            btnBajaProducto.TabStop = false;
+            btnBajaProducto.Click += btnBajaProducto_Click;
+            // 
+            // btnEditarProducto
+            // 
+            btnEditarProducto.Image = Barfer.Vista.Properties.Resources.editarProducto;
+            btnEditarProducto.Location = new Point(69, 490);
+            btnEditarProducto.Name = "btnEditarProducto";
+            btnEditarProducto.Size = new Size(111, 62);
+            btnEditarProducto.SizeMode = PictureBoxSizeMode.Zoom;
+            btnEditarProducto.TabIndex = 6;
+            btnEditarProducto.TabStop = false;
+            btnEditarProducto.Click += btnEditarProducto_Click;
+            // 
+            // btnAltaProducto
+            // 
+            btnAltaProducto.Image = Barfer.Vista.Properties.Resources.AgregarProducto;
+            btnAltaProducto.Location = new Point(69, 57);
+            btnAltaProducto.Name = "btnAltaProducto";
+            btnAltaProducto.Size = new Size(111, 62);
+            btnAltaProducto.SizeMode = PictureBoxSizeMode.Zoom;
+            btnAltaProducto.TabIndex = 5;
+            btnAltaProducto.TabStop = false;
+            btnAltaProducto.Click += btnAltaProducto_Click;
             // 
             // FormStock
             // 
@@ -155,6 +162,9 @@
             Load += FormStock_Load;
             ((System.ComponentModel.ISupportInitialize)dataGrid).EndInit();
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnBajaProducto).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnEditarProducto).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnAltaProducto).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -163,9 +173,11 @@
 
         private DataGridView dataGrid;
         private Label label1;
-        private Button btnAltaStock;
         private Button btnBaja;
         private Button button2;
         private Panel panel1;
+        private PictureBox btnBajaProducto;
+        private PictureBox btnEditarProducto;
+        private PictureBox btnAltaProducto;
     }
 }

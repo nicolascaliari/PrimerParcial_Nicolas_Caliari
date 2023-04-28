@@ -9,42 +9,22 @@ namespace Barfer.Entidades
 {
     public class GestorProductos
     {
-        public static List<Producto> producto;
+        public static List<Alimento> alimento;
 
 
         static GestorProductos()
         {
-            CargarProductos();
+            CargarAlimentoDesdeArchivo();
         }
 
 
-        public static void CargarProductos()
+        public static List<Alimento> CargarAlimentoDesdeArchivo()
         {
-            producto = new List<Producto>()
-            {
-                    new ComidaGato("Comida Gato", 100, 10, 1, Producto.SaborAlimento.cerdo, Producto.CantidadKilos.diezKilos),
-                    new ComidaPerro("Comida Perro", 100, 10, 2, Producto.SaborAlimento.cerdo, Producto.CantidadKilos.diezKilos),
-                    new ComidaGato("Comida Gato", 100, 10, 3, Producto.SaborAlimento.vaca, Producto.CantidadKilos.cincoKilos),
-                    new ComidaPerro("Comida Perro", 100, 10, 4, Producto.SaborAlimento.cerdo, Producto.CantidadKilos.diezKilos),
-                    new ComidaGato("Comida Gato", 100, 10, 5, Producto.SaborAlimento.cerdo, Producto.CantidadKilos.diezKilos),
-                    new ComidaPerro("Comida Perro", 100, 10, 6, Producto.SaborAlimento.pollo, Producto.CantidadKilos.cincoKilos),
-                    new ComidaGato("Comida Gato", 100, 10, 7, Producto.SaborAlimento.vaca, Producto.CantidadKilos.diezKilos),
-                    new ComidaPerro("Comida Perro", 100, 10, 8, Producto.SaborAlimento.cerdo, Producto.CantidadKilos.diezKilos),
-                    new ComidaGato("Comida Gato", 100, 10, 9, Producto.SaborAlimento.cerdo, Producto.CantidadKilos.cincoKilos),
-                    new ComidaPerro("Comida Perro", 100, 10, 10, Producto.SaborAlimento.pollo, Producto.CantidadKilos.diezKilos),
-                    new ComidaGato("Comida Gato", 100, 10, 11, Producto.SaborAlimento.cerdo, Producto.CantidadKilos.diezKilos),
-                    new ComidaPerro("Comida Perro", 100, 10, 12, Producto.SaborAlimento.vaca, Producto.CantidadKilos.cincoKilos),
-                    new Complemento("Complemento", 100, 10, 13, Producto.SaborAlimento.cornalito, Producto.CantidadKilos.diezKilos),
-                    new Complemento("Complemento", 100, 10, 14, Producto.SaborAlimento.sardinas, Producto.CantidadKilos.diezKilos),
-                    new Complemento("Complemento", 100, 10, 15, Producto.SaborAlimento.cornalito, Producto.CantidadKilos.diezKilos),
-
-
-
-            };
+            return alimento = Archivo.LeerDesdeArchivoAlimento();
         }
 
 
-        public static void AltaProductoGato(ComidaGato producto)
+        public static void AltaAlimento(Alimento producto)
         {
             if (producto == null)
             {
@@ -52,31 +32,19 @@ namespace Barfer.Entidades
             }
             else
             {
-                GestorProductos.producto.Add(producto);
-            }
-
-        }
-
-        public static void AltaProductoPerro(ComidaPerro producto)
-        {
-            if (producto == null)
-            {
-                throw new Exception("No se pudo dar de alta");
-            }
-            else
-            {
-                GestorProductos.producto.Add(producto);
+                GestorProductos.alimento.Add(producto);
             }
 
         }
 
 
 
-        public static void BajaProducto(Producto producto)
+
+        public static void BajaProducto(Alimento producto)
         {
             if (producto is not null)
             {
-                GestorProductos.producto.Remove(producto);
+                GestorProductos.alimento.Remove(producto);
             }
             else
             {

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades
 {
-    public class ComidaGato : Producto
+    public class ComidaGato : Alimento
     {
-        public ComidaGato(string nombre, decimal precio, decimal stock, decimal id, SaborAlimento saborAlimento, CantidadKilos kilos) : base(nombre, precio, stock, id, saborAlimento, kilos)
+        public ComidaGato(decimal id, string nombre, decimal precio, decimal stock, SaborAlimento saborAlimento, CantidadKilos kilos, TipoAlimento tipo) : base(id ,nombre, precio, stock, saborAlimento, kilos , tipo)
         {
 
         }
 
-        public override string MostrarProducto(Producto producto)
+        public override string MostrarProducto(Alimento producto)
         {
             return base.MostrarProducto(producto);
         }

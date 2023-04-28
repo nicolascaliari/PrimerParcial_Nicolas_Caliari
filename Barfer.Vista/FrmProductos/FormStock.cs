@@ -8,29 +8,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Barfer.Entidades;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace Vistas
 {
     public partial class FormStock : Form
     {
+        private int _id;
 
-        public FormStock()
+
+        public FormStock(int id)
         {
             InitializeComponent();
+            _id = id;
         }
 
         private void FormStock_Load(object sender, EventArgs e)
         {
-            ActualizarStock(dataGrid);
+
+            dataGrid.DataSource = GestorProductos.CargarAlimentoDesdeArchivo();
+
+            //ActualizarStock(dataGrid);
         }
 
 
         private static void ActualizarStock(DataGridView dtg)
         {
-            if (GestorProductos.producto.Count > 0)
+            if (GestorProductos.alimento.Count > 0)
             {
                 dtg.DataSource = null;
-                dtg.DataSource = GestorProductos.producto;
+                dtg.DataSource = GestorProductos.alimento;
                 dtg.Visible = true;
             }
             else
@@ -39,34 +46,64 @@ namespace Vistas
             }
         }
 
-        private void btnAltaStock_Click(object sender, EventArgs e)
+
+
+        private void btnAltaProducto_Click(object sender, EventArgs e)
         {
-            var altaProducto = new FormALta();
-            if (altaProducto.ShowDialog() == DialogResult.OK)
+
+            if (_id == 1)
             {
-                // GestorProductos.AltaProducto(altaProducto.nuevoProductoGato);
-                ActualizarStock(dataGrid);
+                var altaProducto = new FormALta();
+                if (altaProducto.ShowDialog() == DialogResult.OK)
+                {
+                    GestorProductos.AltaAlimento(altaProducto.nuevoAlimento);
+                    Archivo.GuardarEnArchivoAlimento(GestorProductos.alimento);
+                    ActualizarStock(dataGrid);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debes ser administrador para manipular este boton");
             }
         }
 
-        private void btnBaja_Click(object sender, EventArgs e)
+
+
+
+        private void btnBajaProducto_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show("¿Desea eliminar el producto?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (respuesta == DialogResult.Yes)
+            if (_id == 1)
             {
-                GestorProductos.BajaProducto((Producto)dataGrid.CurrentRow.DataBoundItem);
-                ActualizarStock(dataGrid);
+                DialogResult respuesta = MessageBox.Show("¿Desea eliminar el producto?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    GestorProductos.BajaProducto((Alimento)dataGrid.CurrentRow.DataBoundItem);
+                    ActualizarStock(dataGrid);
+                }
             }
+            else
+            {
+                MessageBox.Show("Debes ser administrador");
+            }
+        }
 
 
+        private void btnEditarProducto_Click(object sender, EventArgs e)
+        {
 
         }
+
+
+
+
+
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
+
 
     }
 }

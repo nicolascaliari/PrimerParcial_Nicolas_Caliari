@@ -7,14 +7,14 @@ namespace Vistas
 {
     public partial class FormContenedor : Form
     {
-        private int usuario;
         private decimal id;
+        private string pass;
 
-        public FormContenedor(int usuario, decimal id)
+        public FormContenedor(decimal id, string pass)
         {
             InitializeComponent();
-            this.usuario = usuario;
             this.id = id;
+            this.pass = pass;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -29,20 +29,15 @@ namespace Vistas
             labelNombre.Text = GestorDeUsuarios.usuarios.Find(x => x.idUsuario == id).nombreUsuario;
             labelApellido.Text = GestorDeUsuarios.usuarios.Find(x => x.idUsuario == id).apellidoUsuario;
             labelTipo.Text = GestorDeUsuarios.usuarios.Find(x => x.idUsuario == id).tipoUsuario.ToString();
+
         }
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            if (usuario == 1)
-            {
-                FormStock formStock = new FormStock();
+                int validar = Validar.VerificarUsuarioContrasenia(labelNombre.Text, pass);
+                 FormStock formStock = new FormStock(validar);
                 // formStock.MdiParent = this;
                 formStock.Show();
-            }
-            else
-            {
-                MessageBox.Show("debes ser administrados");
-            }
         }
 
         private void btnGestor_Click(object sender, EventArgs e)
@@ -59,7 +54,7 @@ namespace Vistas
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            var formContenedor = new FormContenedor(usuario, id);
+            var formContenedor = new FormContenedor(id, pass);
             formContenedor.Show();
             this.Hide();
         }

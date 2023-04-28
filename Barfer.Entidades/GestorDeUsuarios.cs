@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Barfer.Entidades.Usuarios;
+using DocumentFormat.OpenXml.Drawing;
 
 namespace Barfer.Entidades
 {
@@ -14,23 +15,17 @@ namespace Barfer.Entidades
 
         static GestorDeUsuarios()
         {
-            CargarUsuario();
+            CargarUsuariosDesdeArchivo();
         }
 
 
-        public static void CargarUsuario()
+        public static List<Usuario> CargarUsuariosDesdeArchivo()
         {
-            usuarios = new List<Usuario>()
-            {
-
-                new Administrador("nicolas", "agunic", "caliari", 30, Usuario.TipoUsuario.Administrador, 1),
-                new Empleado("malena", "elrojo", "illan", 30, Usuario.TipoUsuario.Empleado, 2),
-
-            };
+            return usuarios = Archivo.LeerUsuariosDesdeArchivo();
         }
 
 
-        public static void AltaUsuarioEmpleado(Empleado usuario)
+        public static void AltaUsuario(Usuario usuario)
         {
             if (usuario == null)
             {
@@ -42,20 +37,6 @@ namespace Barfer.Entidades
             }
 
         }
-
-        public static void AltaUsuarioAdministrador(Administrador usuario)
-        {
-            if (usuario == null)
-            {
-                throw new Exception("No se pudo dar de alta");
-            }
-            else
-            {
-                usuarios.Add(usuario);
-            }
-
-        }
-
 
 
 

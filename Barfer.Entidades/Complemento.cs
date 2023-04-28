@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades
 {
-    public class Complemento: Producto
+    public class Complemento: Alimento
     {
 
-        public Complemento(string nombre, decimal precio, decimal stock, decimal id, SaborAlimento saborAlimento, CantidadKilos kilos) : base(nombre, precio, stock, id, saborAlimento, kilos)
+        public Complemento(decimal id, string nombre, decimal precio, decimal stock,SaborAlimento saborAlimento, CantidadKilos kilos, TipoAlimento tipo) : base(id, nombre, precio, stock, saborAlimento, kilos, tipo)
         {
         }
        

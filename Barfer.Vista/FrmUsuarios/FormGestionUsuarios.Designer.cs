@@ -28,45 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnAltaUsuario = new Button();
-            btnBajaUsuario = new Button();
-            btnModificacionUsuario = new Button();
             dataGridView1 = new DataGridView();
             label1 = new Label();
             panel1 = new Panel();
+            btnEditarUsuario = new PictureBox();
+            btnAltaUsuario = new PictureBox();
+            btnBajaUsuario = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnEditarUsuario).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnAltaUsuario).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnBajaUsuario).BeginInit();
             SuspendLayout();
-            // 
-            // btnAltaUsuario
-            // 
-            btnAltaUsuario.Location = new Point(31, 68);
-            btnAltaUsuario.Name = "btnAltaUsuario";
-            btnAltaUsuario.Size = new Size(139, 46);
-            btnAltaUsuario.TabIndex = 0;
-            btnAltaUsuario.Text = "Dar de alta usuario";
-            btnAltaUsuario.UseVisualStyleBackColor = true;
-            btnAltaUsuario.Click += btnAltaUsuario_Click;
-            // 
-            // btnBajaUsuario
-            // 
-            btnBajaUsuario.Location = new Point(31, 238);
-            btnBajaUsuario.Name = "btnBajaUsuario";
-            btnBajaUsuario.Size = new Size(139, 47);
-            btnBajaUsuario.TabIndex = 1;
-            btnBajaUsuario.Text = "Dar de baja usuario";
-            btnBajaUsuario.UseVisualStyleBackColor = true;
-            btnBajaUsuario.Click += btnBajaUsuario_Click;
-            // 
-            // btnModificacionUsuario
-            // 
-            btnModificacionUsuario.Location = new Point(31, 435);
-            btnModificacionUsuario.Name = "btnModificacionUsuario";
-            btnModificacionUsuario.Size = new Size(139, 47);
-            btnModificacionUsuario.TabIndex = 2;
-            btnModificacionUsuario.Text = "Modificar usuario";
-            btnModificacionUsuario.UseVisualStyleBackColor = true;
-            btnModificacionUsuario.Click += btnModificacionUsuario_Click;
             // 
             // dataGridView1
             // 
@@ -91,14 +64,47 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(26, 32, 40);
+            panel1.Controls.Add(btnEditarUsuario);
             panel1.Controls.Add(btnAltaUsuario);
             panel1.Controls.Add(btnBajaUsuario);
-            panel1.Controls.Add(btnModificacionUsuario);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(218, 536);
             panel1.TabIndex = 5;
+            // 
+            // btnEditarUsuario
+            // 
+            btnEditarUsuario.Image = Barfer.Vista.Properties.Resources.editarUsuario;
+            btnEditarUsuario.Location = new Point(65, 435);
+            btnEditarUsuario.Name = "btnEditarUsuario";
+            btnEditarUsuario.Size = new Size(94, 60);
+            btnEditarUsuario.SizeMode = PictureBoxSizeMode.Zoom;
+            btnEditarUsuario.TabIndex = 7;
+            btnEditarUsuario.TabStop = false;
+            btnEditarUsuario.Click += btnEditarUsuario_Click;
+            // 
+            // btnAltaUsuario
+            // 
+            btnAltaUsuario.Image = Barfer.Vista.Properties.Resources.personaAgregar;
+            btnAltaUsuario.Location = new Point(65, 37);
+            btnAltaUsuario.Name = "btnAltaUsuario";
+            btnAltaUsuario.Size = new Size(94, 60);
+            btnAltaUsuario.SizeMode = PictureBoxSizeMode.Zoom;
+            btnAltaUsuario.TabIndex = 6;
+            btnAltaUsuario.TabStop = false;
+            btnAltaUsuario.Click += btnAltaUsuario_Click;
+            // 
+            // btnBajaUsuario
+            // 
+            btnBajaUsuario.Image = Barfer.Vista.Properties.Resources.basura;
+            btnBajaUsuario.Location = new Point(65, 234);
+            btnBajaUsuario.Name = "btnBajaUsuario";
+            btnBajaUsuario.Size = new Size(94, 60);
+            btnBajaUsuario.SizeMode = PictureBoxSizeMode.Zoom;
+            btnBajaUsuario.TabIndex = 6;
+            btnBajaUsuario.TabStop = false;
+            btnBajaUsuario.Click += btnBajaUsuario_Click;
             // 
             // FormGestionUsuarios
             // 
@@ -114,18 +120,20 @@
             Load += FormGestionUsuarios_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnEditarUsuario).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnAltaUsuario).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnBajaUsuario).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button btnAltaUsuario;
         private Button button2;
-        private Button btnModificacionUsuario;
         private DataGridView dataGridView1;
         private Label label1;
-        private Button btnBajaUsuario;
         private Panel panel1;
+        private PictureBox btnBajaUsuario;
+        private PictureBox btnAltaUsuario;
+        private PictureBox btnEditarUsuario;
     }
 }

@@ -16,17 +16,17 @@ namespace Vistas.FrmUsuarios
 {
     public partial class FormAltaUsuario : Form
     {
-        private Empleado _nuevoUsuarioEmpleado;
-        private Administrador _nuevoUsuarioAdministrador;
 
-        public Administrador nuevoUsuarioAdministrador
+        private Usuario _nuevoUsuario;
+
+        public Usuario nuevoUsuario
         {
-            get { return _nuevoUsuarioAdministrador; }
+            get { return _nuevoUsuario; }
+            set { _nuevoUsuario = value; }
         }
-        public Usuario nuevoUsuarioEmpleado
-        {
-            get { return _nuevoUsuarioEmpleado; }
-        }
+
+
+
         public FormAltaUsuario()
         {
             InitializeComponent();
@@ -35,19 +35,9 @@ namespace Vistas.FrmUsuarios
         private void btnAltaUsuario_Click(object sender, EventArgs e)
         {
             string tipo = comboBoxAltaTipo.Text;
+            _nuevoUsuario = new Usuario(numericUpDownIdUsuario.Value, txtBoxAltaNombre.Text, txtBoxAltaApellido.Text, txtBoxAltaPassword.Text, decimal.Parse(txtBoxAltaEdad.Text), (TipoUsuario)comboBoxAltaTipo.SelectedIndex);
+            this.DialogResult = DialogResult.OK;
 
-            if (tipo == "administrador")
-            {
-                _nuevoUsuarioAdministrador = new Administrador(txtBoxAltaNombre.Text, txtBoxAltaApellido.Text, txtBoxAltaPassword.Text, int.Parse(txtBoxAltaEdad.Text), (TipoUsuario)comboBoxAltaTipo.SelectedIndex, numericUpDownIdUsuario.Value);
-                GestorDeUsuarios.AltaUsuarioAdministrador(_nuevoUsuarioAdministrador);
-                this.DialogResult = DialogResult.OK;
-            }
-            else if (tipo == "empleado")
-            {
-                _nuevoUsuarioEmpleado = new Empleado(txtBoxAltaNombre.Text, txtBoxAltaApellido.Text, txtBoxAltaPassword.Text, int.Parse(txtBoxAltaEdad.Text), (TipoUsuario)comboBoxAltaTipo.SelectedIndex, numericUpDownIdUsuario.Value);
-                GestorDeUsuarios.AltaUsuarioEmpleado(_nuevoUsuarioEmpleado);
-                this.DialogResult = DialogResult.OK;
-            }
 
         }
 

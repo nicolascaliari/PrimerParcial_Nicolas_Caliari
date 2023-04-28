@@ -32,15 +32,15 @@
             label2 = new Label();
             label3 = new Label();
             txtBoxNombreAlta = new TextBox();
-            numericUpDownAlta = new NumericUpDown();
+            numericUpDownCantidad = new NumericUpDown();
             txtBoxPrecioAlta = new TextBox();
             btnAlta = new Button();
             numericUpDownId = new NumericUpDown();
             label4 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            comboBox3 = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownAlta).BeginInit();
+            cboTipos = new ComboBox();
+            cboCantidades = new ComboBox();
+            cboSabores = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownCantidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownId).BeginInit();
             SuspendLayout();
             // 
@@ -56,7 +56,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(147, 96);
+            label2.Location = new Point(147, 67);
             label2.Name = "label2";
             label2.Size = new Size(111, 15);
             label2.TabIndex = 1;
@@ -65,7 +65,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(147, 191);
+            label3.Location = new Point(147, 141);
             label3.Name = "label3";
             label3.Size = new Size(126, 15);
             label3.TabIndex = 2;
@@ -73,21 +73,21 @@
             // 
             // txtBoxNombreAlta
             // 
-            txtBoxNombreAlta.Location = new Point(138, 44);
+            txtBoxNombreAlta.Location = new Point(138, 27);
             txtBoxNombreAlta.Name = "txtBoxNombreAlta";
             txtBoxNombreAlta.Size = new Size(145, 23);
             txtBoxNombreAlta.TabIndex = 3;
             // 
-            // numericUpDownAlta
+            // numericUpDownCantidad
             // 
-            numericUpDownAlta.Location = new Point(138, 237);
-            numericUpDownAlta.Name = "numericUpDownAlta";
-            numericUpDownAlta.Size = new Size(145, 23);
-            numericUpDownAlta.TabIndex = 5;
+            numericUpDownCantidad.Location = new Point(138, 172);
+            numericUpDownCantidad.Name = "numericUpDownCantidad";
+            numericUpDownCantidad.Size = new Size(145, 23);
+            numericUpDownCantidad.TabIndex = 5;
             // 
             // txtBoxPrecioAlta
             // 
-            txtBoxPrecioAlta.Location = new Point(138, 136);
+            txtBoxPrecioAlta.Location = new Point(138, 99);
             txtBoxPrecioAlta.Name = "txtBoxPrecioAlta";
             txtBoxPrecioAlta.Size = new Size(145, 23);
             txtBoxPrecioAlta.TabIndex = 4;
@@ -109,7 +109,7 @@
             // 
             // numericUpDownId
             // 
-            numericUpDownId.Location = new Point(138, 306);
+            numericUpDownId.Location = new Point(138, 235);
             numericUpDownId.Name = "numericUpDownId";
             numericUpDownId.Size = new Size(145, 23);
             numericUpDownId.TabIndex = 7;
@@ -118,54 +118,54 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(147, 288);
+            label4.Location = new Point(147, 208);
             label4.Name = "label4";
             label4.Size = new Size(18, 15);
             label4.TabIndex = 8;
             label4.Text = "ID";
             // 
-            // comboBox1
+            // cboTipos
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "perro", "gato" });
-            comboBox1.Location = new Point(29, 366);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(145, 23);
-            comboBox1.TabIndex = 9;
-            comboBox1.Text = "Tipo";
+            cboTipos.FormattingEnabled = true;
+            cboTipos.Items.AddRange(new object[] { "perro", "gato", "complemento" });
+            cboTipos.Location = new Point(138, 294);
+            cboTipos.Name = "cboTipos";
+            cboTipos.Size = new Size(145, 23);
+            cboTipos.TabIndex = 9;
+            cboTipos.Text = "Tipo";
             // 
-            // comboBox2
+            // cboCantidades
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "cincoKilos", "diezKilos" });
-            comboBox2.Location = new Point(138, 437);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(145, 23);
-            comboBox2.TabIndex = 10;
-            comboBox2.Text = "Cantidad";
+            cboCantidades.FormattingEnabled = true;
+            cboCantidades.Items.AddRange(new object[] { " cincoKilos", "diezKilos" });
+            cboCantidades.Location = new Point(138, 419);
+            cboCantidades.Name = "cboCantidades";
+            cboCantidades.Size = new Size(145, 23);
+            cboCantidades.TabIndex = 10;
+            cboCantidades.Text = "Cantidad";
             // 
-            // comboBox3
+            // cboSabores
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "cerdo", "vaca", "pollo" });
-            comboBox3.Location = new Point(257, 366);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(145, 23);
-            comboBox3.TabIndex = 11;
-            comboBox3.Text = "Sabor";
+            cboSabores.FormattingEnabled = true;
+            cboSabores.Items.AddRange(new object[] { "cerdo", "vaca", "pollo", "cornalitos", "sardinas" });
+            cboSabores.Location = new Point(138, 357);
+            cboSabores.Name = "cboSabores";
+            cboSabores.Size = new Size(145, 23);
+            cboSabores.TabIndex = 11;
+            cboSabores.Text = "Sabor";
             // 
             // FormALta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(432, 600);
-            Controls.Add(comboBox3);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            Controls.Add(cboSabores);
+            Controls.Add(cboCantidades);
+            Controls.Add(cboTipos);
             Controls.Add(label4);
             Controls.Add(numericUpDownId);
             Controls.Add(btnAlta);
-            Controls.Add(numericUpDownAlta);
+            Controls.Add(numericUpDownCantidad);
             Controls.Add(txtBoxPrecioAlta);
             Controls.Add(txtBoxNombreAlta);
             Controls.Add(label3);
@@ -174,7 +174,7 @@
             Name = "FormALta";
             Text = "FormALta";
             Load += FormALta_Load;
-            ((System.ComponentModel.ISupportInitialize)numericUpDownAlta).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownCantidad).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownId).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -186,13 +186,13 @@
         private Label label2;
         private Label label3;
         private TextBox txtBoxNombreAlta;
-        private NumericUpDown numericUpDownAlta;
+        private NumericUpDown numericUpDownCantidad;
         private TextBox txtBoxPrecioAlta;
         private Button btnAlta;
         private NumericUpDown numericUpDownId;
         private Label label4;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
+        private ComboBox cboTipos;
+        private ComboBox cboCantidades;
+        private ComboBox cboSabores;
     }
 }

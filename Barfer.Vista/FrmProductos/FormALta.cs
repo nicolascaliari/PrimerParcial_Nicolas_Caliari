@@ -8,30 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Barfer.Entidades.Producto;
+using static Barfer.Entidades.Alimento;
 
 namespace Vistas
 {
     public partial class FormALta : Form
     {
-        private ComidaGato _nuevoProductoGato;
-        private ComidaPerro _nuevoProductoPerro;
-        private Complemento _complemento;
+        private Alimento _nuevoAlimento;
 
-        public Complemento nuevoComplemento
+        public Alimento nuevoAlimento
         {
-            get { return _complemento; }
+            get { return _nuevoAlimento; }
+            set { _nuevoAlimento = value; }
         }
 
-        public ComidaGato nuevoProductoGato
-        {
-            get { return _nuevoProductoGato; }
-        }
-
-        public ComidaPerro nuevoProductoPerro
-        {
-            get { return _nuevoProductoPerro; }
-        }
 
         public FormALta()
         {
@@ -40,25 +30,10 @@ namespace Vistas
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
+            _nuevoAlimento = new Alimento(numericUpDownId.Value, txtBoxNombreAlta.Text, decimal.Parse(txtBoxPrecioAlta.Text), numericUpDownCantidad.Value, (SaborAlimento)cboCantidades.SelectedItem, (CantidadKilos)cboSabores.SelectedItem, (TipoAlimento)cboTipos.SelectedItem);
+            this.DialogResult = DialogResult.OK;
 
-            string item = comboBox1.Text;
-        
-
-            if (item == "perro")
-            {
-                
-                _nuevoProductoPerro = new ComidaPerro(txtBoxNombreAlta.Text, int.Parse(txtBoxPrecioAlta.Text), numericUpDownAlta.Value, numericUpDownId.Value, (SaborAlimento)comboBox2.SelectedIndex, (CantidadKilos)comboBox3.SelectedIndex);
-                GestorProductos.AltaProductoPerro(_nuevoProductoPerro);
-
-                this.DialogResult = DialogResult.OK;
-            }
-            else if (item == "gato")
-            {
-                _nuevoProductoGato = new ComidaGato(txtBoxNombreAlta.Text, int.Parse(txtBoxPrecioAlta.Text), numericUpDownAlta.Value, numericUpDownId.Value, (SaborAlimento)comboBox2.SelectedIndex, (CantidadKilos)comboBox3.SelectedIndex);
-                GestorProductos.AltaProductoGato(_nuevoProductoGato);
-
-                this.DialogResult = DialogResult.OK;
-            }
+            MessageBox.Show(cboCantidades.SelectedIndex.ToString());
 
 
 
