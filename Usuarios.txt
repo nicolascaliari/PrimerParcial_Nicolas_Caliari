@@ -1,0 +1,3 @@
+id,nombre,apellido,contrasenia,edad,tipo de usuario
+1,nicolas,caliari,Agunic1004,21,Administrador
+2,malena,illan,elrojo,20,Empleado

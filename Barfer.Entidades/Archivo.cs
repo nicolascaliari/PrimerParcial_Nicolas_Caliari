@@ -13,8 +13,8 @@ namespace Barfer.Entidades
     public class Archivo
     {
 
-        private static string path = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\\Barfer.Vista\\bin\\Debug\\net6.0-windows\Usuarios.txt";
-        private static string pathAlimento = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\\Barfer.Vista\\bin\\Debug\\net6.0-windows\Alimento.txt";
+        private static string path = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Usuarios.txt";
+        private static string pathAlimento = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Alimento.txt";
 
         public static void CrearArchivoUsuario()
         {

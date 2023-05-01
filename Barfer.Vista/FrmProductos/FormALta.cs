@@ -1,4 +1,5 @@
 ﻿using Barfer.Entidades;
+using Barfer.Entidades.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,33 +31,105 @@ namespace Vistas
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-            _nuevoAlimento = new Alimento(numericUpDownId.Value, txtBoxNombreAlta.Text, decimal.Parse(txtBoxPrecioAlta.Text), numericUpDownCantidad.Value, (SaborAlimento)cboCantidades.SelectedItem, (CantidadKilos)cboSabores.SelectedItem, (TipoAlimento)cboTipos.SelectedItem);
-            this.DialogResult = DialogResult.OK;
+            try
+            {
+                decimal id = numericUpDownId.Value;
+                string nombre = txtBoxNombreAlta.Text;
+                decimal precio = numericPrecioAlta.Value;
+                decimal cantidad = numericUpDownCantidad.Value;
 
-            MessageBox.Show(cboCantidades.SelectedIndex.ToString());
+                if (Validar.ValidarAlta(id,nombre,precio,cantidad,cboSabores.SelectedIndex, cboCantidades.SelectedIndex, cboTipos.SelectedIndex))
+                {
+                    SaborAlimento sabor = (SaborAlimento)Enum.Parse(typeof(SaborAlimento), cboSabores.SelectedItem.ToString());
+                    CantidadKilos cantidadKilos = (CantidadKilos)Enum.Parse(typeof(CantidadKilos), cboCantidades.SelectedItem.ToString());
+                    TipoAlimento tipoAlimento = (TipoAlimento)Enum.Parse(typeof(TipoAlimento), cboTipos.SelectedItem.ToString());
+                    _nuevoAlimento = new Alimento(id, nombre, precio, cantidad, sabor, cantidadKilos, tipoAlimento);
+                    this.DialogResult = DialogResult.OK;
+                    MessageBox.Show(sabor.ToString());
+                }
+                else
+                {
+                    lblError.Visible = true;
+                }
 
 
-
-            //if (txtBoxNombreAlta.Text == "" || txtBoxPrecioAlta.Text == "")
-            //{
-            //    MessageBox.Show("Debe completar todos los campos");
-            //    return;
-            //}
-            //else
-            //{
-            //    //_nuevoProducto = new Producto(txtBoxNombreAlta.Text, int.Parse(txtBoxPrecioAlta.Text), numericUpDownAlta.Value, numericUpDownId.Value);
-            //    this.DialogResult = DialogResult.OK;
-            //}
-
+              
+            }
+            catch (Exception ex)
+            {
+                lblError.Visible = true;
+                lblError.Text = ex.Message;
+            }
 
         }
 
-        private void numericUpDownId_ValueChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void FormALta_Load(object sender, EventArgs e)
+        {
+            lblError.Visible = false;
+            cboTipos.Items.Clear();
+            cboSabores.Items.Clear();
+            cboCantidades.Items.Clear();
+
+            foreach (TipoAlimento item in Enum.GetValues(typeof(TipoAlimento)))
+            {
+                cboTipos.Items.Add(item);
+            }
+
+            foreach (SaborAlimento item in Enum.GetValues(typeof(SaborAlimento)))
+            {
+                cboSabores.Items.Add(item);
+            }
+
+            foreach (CantidadKilos item in Enum.GetValues(typeof(CantidadKilos)))
+            {
+                cboCantidades.Items.Add(item);
+            }
+
+        }
+
+        private void cboTipos_Validating(object sender, CancelEventArgs e)
+        {
+            if (cboTipos.SelectedIndex == -1)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(cboTipos, "Debe seleccionar un elemento.");
+            }
+            else
+            {
+                errorProvider1.SetError(cboTipos, "");
+            }
+        }
+
+        private void cboSabores_Validating(object sender, CancelEventArgs e)
+        {
+            if (cboSabores.SelectedIndex == -1)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(cboSabores, "Debe seleccionar un elemento.");
+            }
+            else
+            {
+                errorProvider1.SetError(cboSabores, "");
+            }
+        }
+
+        private void cboCantidades_Validating(object sender, CancelEventArgs e)
+        {
+            if (cboCantidades.SelectedIndex == -1)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(cboCantidades, "Debe seleccionar un elemento.");
+            }
+            else
+            {
+                errorProvider1.SetError(cboCantidades, "");
+            }
+        }
+
+
+        private void numericUpDownId_ValueChanged(object sender, EventArgs e)
         {
 
         }

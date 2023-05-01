@@ -46,6 +46,7 @@
             pictureBox2 = new PictureBox();
             btnCalculadora = new Button();
             panel2 = new Panel();
+            pictureBox7 = new PictureBox();
             label1 = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -57,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -263,6 +265,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(49, 66, 82);
+            panel2.Controls.Add(pictureBox7);
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(216, 0);
@@ -270,11 +273,21 @@
             panel2.Size = new Size(987, 688);
             panel2.TabIndex = 6;
             // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = Barfer.Vista.Properties.Resources.fondoPrincipal;
+            pictureBox7.Location = new Point(-22, 120);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(1036, 557);
+            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox7.TabIndex = 2;
+            pictureBox7.TabStop = false;
+            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Showcard Gothic", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(96, 58);
+            label1.Location = new Point(289, 33);
             label1.Name = "label1";
             label1.Size = new Size(409, 44);
             label1.TabIndex = 1;
@@ -303,6 +316,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
         }
 
@@ -325,5 +339,6 @@
         private Label labelNombre;
         private Label labelTipo;
         private PictureBox pictureBox6;
+        private PictureBox pictureBox7;
     }
 }

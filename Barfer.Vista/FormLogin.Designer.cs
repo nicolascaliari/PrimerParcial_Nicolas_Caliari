@@ -45,7 +45,7 @@
             txtBoxNombreUsuario.BorderStyle = BorderStyle.FixedSingle;
             txtBoxNombreUsuario.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             txtBoxNombreUsuario.ForeColor = SystemColors.Menu;
-            txtBoxNombreUsuario.Location = new Point(339, 131);
+            txtBoxNombreUsuario.Location = new Point(339, 142);
             txtBoxNombreUsuario.Margin = new Padding(7);
             txtBoxNombreUsuario.Name = "txtBoxNombreUsuario";
             txtBoxNombreUsuario.PlaceholderText = "Usuario";
@@ -135,9 +135,9 @@
             ClientSize = new Size(781, 426);
             Controls.Add(label1);
             Controls.Add(panel1);
+            Controls.Add(txtBoxNombreUsuario);
             Controls.Add(txtBoxContraseñaUsuario);
             Controls.Add(btnLogin);
-            Controls.Add(txtBoxNombreUsuario);
             Name = "FormLogin";
             Text = "FormLogin";
             Load += FormLogin_Load;

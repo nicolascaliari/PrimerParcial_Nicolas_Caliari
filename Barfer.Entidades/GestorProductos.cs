@@ -20,7 +20,9 @@ namespace Barfer.Entidades
 
         public static List<Alimento> CargarAlimentoDesdeArchivo()
         {
-            return alimento = Archivo.LeerDesdeArchivoAlimento();
+           alimento = Archivo.LeerDesdeArchivoAlimento();
+
+            return alimento;
         }
 
 
@@ -32,7 +34,7 @@ namespace Barfer.Entidades
             }
             else
             {
-                GestorProductos.alimento.Add(producto);
+                alimento.Add(producto);
             }
 
         }
@@ -44,7 +46,7 @@ namespace Barfer.Entidades
         {
             if (producto is not null)
             {
-                GestorProductos.alimento.Remove(producto);
+                alimento.Remove(producto);
             }
             else
             {

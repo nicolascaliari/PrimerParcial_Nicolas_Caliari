@@ -28,7 +28,7 @@ namespace Vistas
 
             dataGrid.DataSource = GestorProductos.CargarAlimentoDesdeArchivo();
 
-            //ActualizarStock(dataGrid);
+          //  ActualizarStock(dataGrid);
         }
 
 
@@ -74,12 +74,22 @@ namespace Vistas
         {
             if (_id == 1)
             {
-                DialogResult respuesta = MessageBox.Show("¿Desea eliminar el producto?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (respuesta == DialogResult.Yes)
+                if(GestorProductos.alimento.Count >= 2)
                 {
-                    GestorProductos.BajaProducto((Alimento)dataGrid.CurrentRow.DataBoundItem);
-                    ActualizarStock(dataGrid);
+                    DialogResult respuesta = MessageBox.Show("¿Desea eliminar el producto?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        GestorProductos.BajaProducto((Alimento)dataGrid.CurrentRow.DataBoundItem);
+                        ActualizarStock(dataGrid);
+                        Archivo.GuardarEnArchivoAlimento(GestorProductos.alimento);
+                        string mostrar = Alimento.MostrarProductoEliminado((Alimento)dataGrid.CurrentRow.DataBoundItem);
+                        MessageBox.Show(mostrar);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debes tener mas de un producto para poder eliminar");                
                 }
             }
             else

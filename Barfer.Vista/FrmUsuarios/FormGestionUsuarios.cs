@@ -67,6 +67,7 @@ namespace Vistas
                 GestorDeUsuarios.BajaUsuario((Usuario)dataGridView1.CurrentRow.DataBoundItem);
                 Archivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
                 ActualizarUsuarios(dataGridView1);
+                
             }
         }
 

@@ -38,7 +38,7 @@ namespace Vistas
             string nombre = txtBoxNombreUsuario.Text;
             string contrasenia = txtBoxContraseñaUsuario.Text;
 
-           if(Validar.ValidarUsuario(nombre) && Validar.ValidarPassword(contrasenia))
+            if (Validar.ValidarUsuario(nombre) && Validar.ValidarPassword(contrasenia))
             {
                 decimal id = Validar.EncontrarIdUsuario(nombre, contrasenia);
 

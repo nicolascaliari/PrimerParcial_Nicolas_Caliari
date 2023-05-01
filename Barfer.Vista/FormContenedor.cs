@@ -34,10 +34,10 @@ namespace Vistas
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-                int validar = Validar.VerificarUsuarioContrasenia(labelNombre.Text, pass);
-                 FormStock formStock = new FormStock(validar);
-                // formStock.MdiParent = this;
-                formStock.Show();
+            int validar = Validar.VerificarUsuarioContrasenia(labelNombre.Text, pass);
+            FormStock formStock = new FormStock(validar);
+            // formStock.MdiParent = this;
+            formStock.Show();
         }
 
         private void btnGestor_Click(object sender, EventArgs e)

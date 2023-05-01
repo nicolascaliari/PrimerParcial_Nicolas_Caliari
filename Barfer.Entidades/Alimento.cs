@@ -9,11 +9,11 @@ namespace Barfer.Entidades
     public class Alimento
     {
         private string _nombre;
-        private decimal _precio;
+       private decimal _precio;
         private decimal _cantidad;
-        private decimal _id;
+         private decimal _id;
         private SaborAlimento _sabor;
-        private CantidadKilos _cantidadKilos;
+         private CantidadKilos _cantidadKilos;
         private TipoAlimento _tipoAlimento;
 
 
@@ -23,6 +23,7 @@ namespace Barfer.Entidades
             perro,
             gato,
             complemento,
+            pepe,
         }
 
 
@@ -100,8 +101,7 @@ namespace Barfer.Entidades
         }
 
 
-
-        public Alimento(decimal id, string nombre, decimal precio, decimal cantidad, SaborAlimento saborAlimento, CantidadKilos kilos, TipoAlimento tipo)
+        public Alimento(decimal id, string nombre, decimal precio, decimal cantidad, SaborAlimento saborAlimento, CantidadKilos kilos, TipoAlimento tipo):this()
         {
             _id = id;
             _nombre = nombre;         
@@ -115,17 +115,25 @@ namespace Barfer.Entidades
         }
 
 
+        //public void OrdenarAlimentos()
+        //{
 
-        public virtual string MostrarProducto(Alimento producto)
+        //}
+
+
+
+
+
+        public static string MostrarProductoEliminado(Alimento producto)
         {
             StringBuilder sb = new StringBuilder();
 
-
-            sb.AppendLine($"Nombre: {_nombre}");
-            sb.AppendLine($"Precio: {_precio}");
-            sb.AppendLine($"Cantidad: {_cantidad}");
-            sb.AppendLine($"Sabor: {_sabor}");
-            sb.AppendLine($"Cantidad de kilos: {_cantidadKilos}");
+            sb.AppendLine("Usted elimino el siguiente producto");
+            sb.AppendLine($"Nombre: {producto.nombre}");
+            sb.AppendLine($"Precio: {producto.precio}");
+            sb.AppendLine($"Cantidad: {producto.cantidad}");
+            sb.AppendLine($"Sabor: {producto.sabor}");
+            sb.AppendLine($"Cantidad de kilos: {producto.cantidadKilos}");
 
 
             return sb.ToString();
