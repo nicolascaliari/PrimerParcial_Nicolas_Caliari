@@ -67,7 +67,7 @@ namespace Vistas
                 GestorDeUsuarios.BajaUsuario((Usuario)dataGridView1.CurrentRow.DataBoundItem);
                 Archivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
                 ActualizarUsuarios(dataGridView1);
-                
+
             }
         }
 
@@ -76,7 +76,7 @@ namespace Vistas
         {
             if (this.dataGridView1.RowCount == 0)
             {
-                //MessageBox.Show("No hay usuarios para modificar");
+                MessageBox.Show("No hay usuarios para modificar");
             }
             else
             {

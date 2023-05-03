@@ -37,6 +37,7 @@
             btnBajaProducto = new PictureBox();
             btnEditarProducto = new PictureBox();
             btnAltaProducto = new PictureBox();
+            lblTotalStock = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnBajaProducto).BeginInit();
@@ -145,12 +146,24 @@
             btnAltaProducto.TabStop = false;
             btnAltaProducto.Click += btnAltaProducto_Click;
             // 
+            // lblTotalStock
+            // 
+            lblTotalStock.AutoSize = true;
+            lblTotalStock.Font = new Font("Showcard Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotalStock.ForeColor = SystemColors.ButtonFace;
+            lblTotalStock.Location = new Point(338, 573);
+            lblTotalStock.Name = "lblTotalStock";
+            lblTotalStock.Size = new Size(86, 23);
+            lblTotalStock.TabIndex = 6;
+            lblTotalStock.Text = "Total : ";
+            // 
             // FormStock
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(49, 66, 82);
             ClientSize = new Size(993, 624);
+            Controls.Add(lblTotalStock);
             Controls.Add(panel1);
             Controls.Add(label1);
             Controls.Add(dataGrid);
@@ -179,5 +192,6 @@
         private PictureBox btnBajaProducto;
         private PictureBox btnEditarProducto;
         private PictureBox btnAltaProducto;
+        private Label lblTotalStock;
     }
 }

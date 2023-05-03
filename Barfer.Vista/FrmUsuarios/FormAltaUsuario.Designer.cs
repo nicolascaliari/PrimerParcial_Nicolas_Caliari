@@ -38,12 +38,9 @@
             btnAltaUsuario = new Button();
             comboBoxAltaTipo = new ComboBox();
             label5 = new Label();
-            numericUpDownIdUsuario = new NumericUpDown();
             label6 = new Label();
-            label7 = new Label();
             numericUpDownAltaEdad = new NumericUpDown();
             lblError = new Label();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownIdUsuario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownAltaEdad).BeginInit();
             SuspendLayout();
             // 
@@ -85,7 +82,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(135, 502);
+            label4.Location = new Point(136, 439);
             label4.Name = "label4";
             label4.Size = new Size(161, 20);
             label4.TabIndex = 3;
@@ -133,8 +130,7 @@
             // comboBoxAltaTipo
             // 
             comboBoxAltaTipo.FormattingEnabled = true;
-            comboBoxAltaTipo.Items.AddRange(new object[] { "administrador", "empleado" });
-            comboBoxAltaTipo.Location = new Point(89, 540);
+            comboBoxAltaTipo.Location = new Point(89, 505);
             comboBoxAltaTipo.Name = "comboBoxAltaTipo";
             comboBoxAltaTipo.Size = new Size(248, 23);
             comboBoxAltaTipo.TabIndex = 9;
@@ -151,14 +147,6 @@
             label5.TabIndex = 10;
             label5.Text = "Edad";
             // 
-            // numericUpDownIdUsuario
-            // 
-            numericUpDownIdUsuario.Location = new Point(89, 459);
-            numericUpDownIdUsuario.Name = "numericUpDownIdUsuario";
-            numericUpDownIdUsuario.Size = new Size(248, 23);
-            numericUpDownIdUsuario.TabIndex = 12;
-            numericUpDownIdUsuario.ValueChanged += numericUpDownIdUsuario_ValueChanged;
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -169,16 +157,6 @@
             label6.Size = new Size(143, 23);
             label6.TabIndex = 13;
             label6.Text = "Alta usuario";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.ForeColor = SystemColors.ButtonFace;
-            label7.Location = new Point(200, 424);
-            label7.Name = "label7";
-            label7.Size = new Size(18, 15);
-            label7.TabIndex = 14;
-            label7.Text = "ID";
             // 
             // numericUpDownAltaEdad
             // 
@@ -192,7 +170,7 @@
             lblError.AutoSize = true;
             lblError.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblError.ForeColor = Color.Red;
-            lblError.Location = new Point(145, 578);
+            lblError.Location = new Point(143, 555);
             lblError.Name = "lblError";
             lblError.Size = new Size(146, 20);
             lblError.TabIndex = 16;
@@ -206,9 +184,7 @@
             ClientSize = new Size(435, 653);
             Controls.Add(lblError);
             Controls.Add(numericUpDownAltaEdad);
-            Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(numericUpDownIdUsuario);
             Controls.Add(label5);
             Controls.Add(comboBoxAltaTipo);
             Controls.Add(btnAltaUsuario);
@@ -222,7 +198,6 @@
             Name = "FormAltaUsuario";
             Text = "FormAltaUsuario";
             Load += FormAltaUsuario_Load;
-            ((System.ComponentModel.ISupportInitialize)numericUpDownIdUsuario).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownAltaEdad).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -240,9 +215,7 @@
         private Button btnAltaUsuario;
         private ComboBox comboBoxAltaTipo;
         private Label label5;
-        private NumericUpDown numericUpDownIdUsuario;
         private Label label6;
-        private Label label7;
         private NumericUpDown numericUpDownAltaEdad;
         private Label lblError;
     }

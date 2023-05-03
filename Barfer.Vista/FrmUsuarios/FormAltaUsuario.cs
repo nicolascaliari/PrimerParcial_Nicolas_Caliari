@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Barfer.Entidades.Alimento;
 using static Barfer.Entidades.Usuarios.Usuario;
 using static System.Windows.Forms.DataFormats;
 
@@ -26,42 +27,41 @@ namespace Vistas.FrmUsuarios
             set { _nuevoUsuario = value; }
         }
 
-
-
         public FormAltaUsuario()
         {
             InitializeComponent();
         }
 
+        private void FormAltaUsuario_Load(object sender, EventArgs e)
+        {
+            lblError.Visible = false;
+            foreach (TipoUsuario item in Enum.GetValues(typeof(TipoUsuario)))
+            {
+                comboBoxAltaTipo.Items.Add(item);
+            }
+        }
+
         private void btnAltaUsuario_Click(object sender, EventArgs e)
         {
-            decimal id = numericUpDownIdUsuario.Value;
+          //  decimal id = numericUpDownIdUsuario.Value;
             string nombre = txtBoxAltaNombre.Text;
             string apellido = txtBoxAltaApellido.Text;
             string password = txtBoxAltaPassword.Text;
             decimal edad = numericUpDownAltaEdad.Value;
 
-            if (Validar.ValidarAltaUsuario(id, nombre, apellido, password, edad, comboBoxAltaTipo.SelectedIndex))
+            if (Validar.ValidarAltaUsuario(nombre, apellido, password, edad, comboBoxAltaTipo.SelectedIndex))
             {
                 TipoUsuario usuario = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), comboBoxAltaTipo.SelectedItem.ToString());
-                _nuevoUsuario = new Usuario(id, nombre, apellido, password, edad, usuario);
+                _nuevoUsuario = new Usuario(nombre, password, apellido, edad, usuario);
+                _nuevoUsuario.idUsuario = _nuevoUsuario.ObtenerUltimoId(GestorDeUsuarios.usuarios) + 1;
                 this.DialogResult = DialogResult.OK;
             }
             else
             {
                 lblError.Visible = true;
             }
-
-
-
-
-
         }
 
-        private void FormAltaUsuario_Load(object sender, EventArgs e)
-        {
-            lblError.Visible = false;
-        }
 
         private void numericUpDownIdUsuario_ValueChanged(object sender, EventArgs e)
         {

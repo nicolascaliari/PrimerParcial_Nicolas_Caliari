@@ -27,6 +27,9 @@ namespace Vistas.FrmUsuarios
             txtBoxEditarApellido.Text = editarUsuario.apellidoUsuario;
             txtBoxEditarContrasenia.Text = editarUsuario.contraseñaUsuario;
             txtBoxEditarEdad.Text = editarUsuario.edadUsuario.ToString();
+            //  cmbTipo.Items.Add(cmbTipo.SelectedText  = editarUsuario.tipoUsuario.ToString());
+            // cmbTipo.Items.Add(TipoUsuario.Empleado);
+            // cmbTipo.Items.Add(TipoUsuario.Administrador);
             //comboBoxEditarTipo.Text = editarUsuario.Tipo.ToString();
 
         }
@@ -37,8 +40,8 @@ namespace Vistas.FrmUsuarios
             editarUsuario.apellidoUsuario = txtBoxEditarApellido.Text;
             editarUsuario.contraseñaUsuario = txtBoxEditarContrasenia.Text;
             editarUsuario.edadUsuario = int.Parse(txtBoxEditarEdad.Text);
-            //editarUsuario.Tipo = (TipoUsuario)comboBoxEditarTipo.SelectedIndex;
-           // GestorDeUsuarios.EditarUsuario(editarUsuario);
+            // editarUsuario.tipoUsuario = (TipoUsuario)cmbTipo.SelectedIndex;
+            // GestorDeUsuarios.EditarUsuario(editarUsuario);
             this.DialogResult = DialogResult.OK;
 
         }

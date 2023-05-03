@@ -9,8 +9,8 @@ namespace Barfer.Entidades.Usuarios
     public class Administrador : Usuario
     {
 
-        public Administrador(string nombreUsuario, string contraseñaUsuario, string apellidoUsuario, decimal edadUsuario, TipoUsuario tipo, decimal id)
-            : base(id ,nombreUsuario, contraseñaUsuario, apellidoUsuario, edadUsuario, tipo)
+        public Administrador(string nombreUsuario, string contraseñaUsuario, string apellidoUsuario, decimal edadUsuario, TipoUsuario tipo)
+            : base(nombreUsuario, contraseñaUsuario, apellidoUsuario, edadUsuario, tipo)
         {
 
         }

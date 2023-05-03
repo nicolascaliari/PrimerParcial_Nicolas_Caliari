@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Barfer.Entidades.Usuarios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,11 @@ namespace Barfer.Entidades
     public class Alimento
     {
         private string _nombre;
-       private decimal _precio;
+        private decimal _precio;
         private decimal _cantidad;
-         private decimal _id;
+        private int _id;
         private SaborAlimento _sabor;
-         private CantidadKilos _cantidadKilos;
+        private CantidadKilos _cantidadKilos;
         private TipoAlimento _tipoAlimento;
 
 
@@ -88,7 +89,7 @@ namespace Barfer.Entidades
         }
 
 
-        public decimal id
+        public int id
         {
             get { return _id; }
             set { _id = value; }
@@ -101,9 +102,8 @@ namespace Barfer.Entidades
         }
 
 
-        public Alimento(decimal id, string nombre, decimal precio, decimal cantidad, SaborAlimento saborAlimento, CantidadKilos kilos, TipoAlimento tipo):this()
+        public Alimento(string nombre, decimal precio, decimal cantidad, SaborAlimento saborAlimento, CantidadKilos kilos, TipoAlimento tipo):this()
         {
-            _id = id;
             _nombre = nombre;         
             _precio = precio;
             _cantidad = cantidad;
@@ -120,7 +120,23 @@ namespace Barfer.Entidades
 
         //}
 
+        public int ObtenerUltimoIdAlimentos(List<Alimento> listaAlimento)
+        {
+            int ultimoId = 0;
 
+            if (listaAlimento is not null)
+            {
+                foreach (Alimento alimento in listaAlimento)
+                {
+                    if (alimento.id > ultimoId)
+                    {
+                        ultimoId = alimento.id;
+                    }
+                }
+            }
+
+            return ultimoId;
+        }
 
 
 

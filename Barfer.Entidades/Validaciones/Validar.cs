@@ -5,12 +5,19 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Barfer.Entidades.Usuarios;
-
+using static Barfer.Entidades.Usuarios.Usuario;
 
 namespace Barfer.Entidades.Validaciones
 {
     public class Validar
     {
+
+        public enum OpcionTipo
+        {
+            administrador = 0,
+            empleado = 1,
+            error = -1,
+        }
 
         public static bool ValidarPassword(string password)
         {
@@ -24,6 +31,7 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
+
         public static bool ValidarUsuario(string usuario)
         {
             if (string.IsNullOrEmpty(usuario) || usuario.Length < 3)
@@ -33,52 +41,8 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
-        public static bool UsuarioExistente(string nombreUsuario, List<Usuario> _usuario)
-        {
-            foreach (Usuario item in _usuario)
-            {
-                if (item.nombreUsuario == nombreUsuario)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
 
-
-        public static bool PasswordExistente(string passwordUsuario, List<Usuario> _usuario)
-        {
-            foreach (Usuario item in _usuario)
-            {
-                if (item.contraseñaUsuario == passwordUsuario)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-
-
-        public static bool ValidarSiEsAdmin(string nombreUsuario, List<Usuario> _usuario)
-        {
-
-            foreach (Usuario item in _usuario)
-            {
-                if (item.nombreUsuario == nombreUsuario)
-                {
-                    if (item.tipoUsuario == Usuario.TipoUsuario.Administrador)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-
-
-        public static decimal EncontrarIdUsuario(string nombre, string pass)
+        public static int EncontrarIdUsuario(string nombre, string pass)
         {
             foreach (Usuario item in GestorDeUsuarios.usuarios)
             {
@@ -90,6 +54,54 @@ namespace Barfer.Entidades.Validaciones
             }
             return -1;
         }
+
+
+        public static string GetNombreApellido(int userId, List<Usuario> usuarios)
+        {
+            StringBuilder sb  = new StringBuilder();
+
+            Usuario usuario = usuarios.FirstOrDefault(u => u.idUsuario == userId);
+            if (usuario != null)
+            {
+                sb.AppendLine(usuario.tipoUsuario.ToString());
+                sb.AppendLine();
+                sb.AppendLine(usuario.nombreUsuario);
+                sb.AppendLine();
+                sb.AppendLine(usuario.apellidoUsuario);
+
+                
+                return sb.ToString();
+            }
+            else
+            {
+                return "No se encontró ningún usuario con ese ID";
+            }
+        }
+
+
+
+        public static OpcionTipo VerificarSiEsAdmin(int userId, List<Usuario> usuarios)
+        {
+            Usuario usuario = usuarios.FirstOrDefault(u => u.idUsuario == userId);
+            if(usuario != null)
+            {
+                if (usuario.tipoUsuario == TipoUsuario.Administrador)
+                {
+                    return OpcionTipo.administrador;
+                }
+                else
+                {
+                    return OpcionTipo.empleado;
+                }
+            }
+            else
+            {
+                return OpcionTipo.error;
+            }
+
+
+        }
+
 
         public static int VerificarUsuarioContrasenia(string nombreUsuario, string contrasenia)
         {
@@ -166,9 +178,9 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
-        public static bool ValidarAlta(decimal id, string nombre, decimal precio, decimal cantidad, int sabor, int cantidadKilos, int tipo)
+        public static bool ValidarAlta( string nombre, decimal precio, decimal cantidad, int sabor, int cantidadKilos, int tipo)
         {
-            if(EsDecimalValido(id) && ValidarString(nombre) && EsDecimalValido(precio) && EsDecimalValido(cantidad) && ValidarEnumsAlimento(sabor, cantidadKilos, tipo))
+            if(ValidarString(nombre) && EsDecimalValido(precio) && EsDecimalValido(cantidad) && ValidarEnumsAlimento(sabor, cantidadKilos, tipo))
             {
                 return true;
             }
@@ -177,10 +189,10 @@ namespace Barfer.Entidades.Validaciones
 
 
 
-        public static bool ValidarAltaUsuario(decimal id ,string nombre,string apellido,string password, decimal edad ,int tipo)
+        public static bool ValidarAltaUsuario(string nombre,string apellido,string password, decimal edad ,int tipo)
         {
             
-            if (EsDecimalValido(id) && ValidarString(nombre) && ValidarString(apellido) && ValidarPassword(password) && EsDecimalValido(edad) && ValidarEnumsUsuario(tipo))
+            if (ValidarString(nombre) && ValidarString(apellido) && ValidarPassword(password) && EsDecimalValido(edad) && ValidarEnumsUsuario(tipo))
             {
                 return true;
             }

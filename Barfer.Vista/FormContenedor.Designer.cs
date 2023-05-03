@@ -32,9 +32,7 @@
             panel1 = new Panel();
             panel3 = new Panel();
             pictureBox6 = new PictureBox();
-            labelTipo = new Label();
-            labelApellido = new Label();
-            labelNombre = new Label();
+            lblDatosUsuario = new Label();
             btnSalir = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -78,16 +76,14 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(216, 688);
+            panel1.Size = new Size(216, 748);
             panel1.TabIndex = 5;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(26, 32, 40);
             panel3.Controls.Add(pictureBox6);
-            panel3.Controls.Add(labelTipo);
-            panel3.Controls.Add(labelApellido);
-            panel3.Controls.Add(labelNombre);
+            panel3.Controls.Add(lblDatosUsuario);
             panel3.Location = new Point(12, 120);
             panel3.Name = "panel3";
             panel3.Size = new Size(198, 100);
@@ -103,38 +99,16 @@
             pictureBox6.TabIndex = 2;
             pictureBox6.TabStop = false;
             // 
-            // labelTipo
+            // lblDatosUsuario
             // 
-            labelTipo.AutoSize = true;
-            labelTipo.Font = new Font("Segoe UI Symbol", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            labelTipo.ForeColor = SystemColors.ButtonFace;
-            labelTipo.Location = new Point(98, 11);
-            labelTipo.Name = "labelTipo";
-            labelTipo.Size = new Size(31, 17);
-            labelTipo.TabIndex = 2;
-            labelTipo.Text = "tipo";
-            // 
-            // labelApellido
-            // 
-            labelApellido.AutoSize = true;
-            labelApellido.Font = new Font("Segoe UI Symbol", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            labelApellido.ForeColor = SystemColors.ButtonFace;
-            labelApellido.Location = new Point(98, 71);
-            labelApellido.Name = "labelApellido";
-            labelApellido.Size = new Size(56, 17);
-            labelApellido.TabIndex = 1;
-            labelApellido.Text = "Apellido";
-            // 
-            // labelNombre
-            // 
-            labelNombre.AutoSize = true;
-            labelNombre.Font = new Font("Segoe UI Symbol", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            labelNombre.ForeColor = SystemColors.ButtonFace;
-            labelNombre.Location = new Point(98, 40);
-            labelNombre.Name = "labelNombre";
-            labelNombre.Size = new Size(57, 17);
-            labelNombre.TabIndex = 0;
-            labelNombre.Text = "Nombre";
+            lblDatosUsuario.AutoSize = true;
+            lblDatosUsuario.Font = new Font("Segoe UI Symbol", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDatosUsuario.ForeColor = SystemColors.ButtonFace;
+            lblDatosUsuario.Location = new Point(94, 11);
+            lblDatosUsuario.Name = "lblDatosUsuario";
+            lblDatosUsuario.Size = new Size(41, 17);
+            lblDatosUsuario.TabIndex = 0;
+            lblDatosUsuario.Text = "datos";
             // 
             // btnSalir
             // 
@@ -270,7 +244,7 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(216, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(987, 688);
+            panel2.Size = new Size(1163, 748);
             panel2.TabIndex = 6;
             // 
             // pictureBox7
@@ -278,7 +252,7 @@
             pictureBox7.Image = Barfer.Vista.Properties.Resources.fondoPrincipal;
             pictureBox7.Location = new Point(-22, 120);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(1036, 557);
+            pictureBox7.Size = new Size(1173, 557);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 2;
             pictureBox7.TabStop = false;
@@ -298,7 +272,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1203, 688);
+            ClientSize = new Size(1379, 748);
+            ControlBox = false;
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FormContenedor";
@@ -335,9 +310,7 @@
         private Label label1;
         private PictureBox btnSalir;
         private Panel panel3;
-        private Label labelApellido;
-        private Label labelNombre;
-        private Label labelTipo;
+        private Label lblDatosUsuario;
         private PictureBox pictureBox6;
         private PictureBox pictureBox7;
     }

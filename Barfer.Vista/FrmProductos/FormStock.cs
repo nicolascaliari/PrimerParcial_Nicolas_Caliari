@@ -14,21 +14,20 @@ namespace Vistas
 {
     public partial class FormStock : Form
     {
-        private int _id;
+        private int _tipo;
 
 
-        public FormStock(int id)
+        public FormStock(int tipo)
         {
             InitializeComponent();
-            _id = id;
+            _tipo = tipo;
         }
 
         private void FormStock_Load(object sender, EventArgs e)
         {
-
             dataGrid.DataSource = GestorProductos.CargarAlimentoDesdeArchivo();
+            lblTotalStock.Text = GestorProductos.TotalStock();
 
-          //  ActualizarStock(dataGrid);
         }
 
 
@@ -51,7 +50,7 @@ namespace Vistas
         private void btnAltaProducto_Click(object sender, EventArgs e)
         {
 
-            if (_id == 1)
+            if (_tipo == 0)
             {
                 var altaProducto = new FormALta();
                 if (altaProducto.ShowDialog() == DialogResult.OK)
@@ -72,9 +71,9 @@ namespace Vistas
 
         private void btnBajaProducto_Click(object sender, EventArgs e)
         {
-            if (_id == 1)
+            if (_tipo == 0)
             {
-                if(GestorProductos.alimento.Count >= 2)
+                if (GestorProductos.alimento.Count >= 2)
                 {
                     DialogResult respuesta = MessageBox.Show("¿Desea eliminar el producto?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -89,7 +88,7 @@ namespace Vistas
                 }
                 else
                 {
-                    MessageBox.Show("Debes tener mas de un producto para poder eliminar");                
+                    MessageBox.Show("Debes tener mas de un producto para poder eliminar");
                 }
             }
             else

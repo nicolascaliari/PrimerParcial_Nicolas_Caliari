@@ -29,11 +29,19 @@ namespace Barfer.Vista.FrmCalculadora
 
         private void FormMostrarMascota_Load(object sender, EventArgs e)
         {
-            txtNombre.Text = _nombre;
-            txtEdad.Text = _edad.ToString();
-            txtPeso.Text = _peso.ToString();
-            txtCantidadComida.Text = _cantidadKilos.ToString();
-            txtTipo.Text = _tipo;
+            txtNombre.Text = MostrarMascota();
+        }
+
+        private string MostrarMascota()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            double _cantidadKilosRedondeado = Math.Round(_cantidadKilos, 2);
+
+            sb.AppendLine($"mi nombre es {_nombre} tengo {_edad} años");
+            sb.AppendLine($"mi peso es {_peso} y soy un {_tipo}");
+            sb.AppendLine($"mi cantidad de comida diaria es {_cantidadKilosRedondeado}");
+            return sb.ToString();
         }
     }
 }

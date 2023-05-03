@@ -25,7 +25,7 @@ namespace Barfer.Entidades
                 {
                     streamWriter.WriteLine("id,nombre,apellido,contrasenia,edad,tipo de usuario");
                     streamWriter.WriteLine("1,nicolas,caliari,Agunic1004,21,Administrador");
-                    streamWriter.WriteLine("2,malena,illan,elrojo,20,Empleado");
+                    streamWriter.WriteLine("2,malena,illan,Elrojo12,20,Empleado");
                 }
             }
         }
@@ -45,7 +45,7 @@ namespace Barfer.Entidades
 
                 usuarios.Add(new Usuario
                 {
-                    idUsuario = Decimal.Parse(datoUsuario[0]),
+                    idUsuario = int.Parse(datoUsuario[0]),
                     nombreUsuario = datoUsuario[1],
                     apellidoUsuario = datoUsuario[2],
                     contraseñaUsuario = datoUsuario[3],
@@ -145,7 +145,7 @@ namespace Barfer.Entidades
 
                 alimentos.Add(new Alimento
                 {
-                    id = Decimal.Parse(datoUsuario[0]),
+                    id = int.Parse(datoUsuario[0]),
                     nombre = datoUsuario[1],
                     precio = Decimal.Parse((datoUsuario[2])),
                     cantidad = Decimal.Parse(((datoUsuario[3]))),

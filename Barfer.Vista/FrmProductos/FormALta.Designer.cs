@@ -35,8 +35,6 @@
             txtBoxNombreAlta = new TextBox();
             numericUpDownCantidad = new NumericUpDown();
             btnAlta = new Button();
-            numericUpDownId = new NumericUpDown();
-            label4 = new Label();
             cboTipos = new ComboBox();
             cboCantidades = new ComboBox();
             cboSabores = new ComboBox();
@@ -45,7 +43,6 @@
             lblError = new Label();
             errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)numericUpDownCantidad).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericPrecioAlta).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -77,7 +74,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(157, 227);
+            label3.Location = new Point(157, 248);
             label3.Name = "label3";
             label3.Size = new Size(159, 20);
             label3.TabIndex = 2;
@@ -93,7 +90,7 @@
             // 
             // numericUpDownCantidad
             // 
-            numericUpDownCantidad.Location = new Point(123, 267);
+            numericUpDownCantidad.Location = new Point(123, 291);
             numericUpDownCantidad.Name = "numericUpDownCantidad";
             numericUpDownCantidad.Size = new Size(226, 23);
             numericUpDownCantidad.TabIndex = 5;
@@ -114,30 +111,11 @@
             btnAlta.UseVisualStyleBackColor = false;
             btnAlta.Click += btnAlta_Click;
             // 
-            // numericUpDownId
-            // 
-            numericUpDownId.Location = new Point(123, 358);
-            numericUpDownId.Name = "numericUpDownId";
-            numericUpDownId.Size = new Size(226, 23);
-            numericUpDownId.TabIndex = 7;
-            numericUpDownId.ValueChanged += numericUpDownId_ValueChanged;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(224, 308);
-            label4.Name = "label4";
-            label4.Size = new Size(24, 20);
-            label4.TabIndex = 8;
-            label4.Text = "ID";
-            // 
             // cboTipos
             // 
             cboTipos.FormattingEnabled = true;
             cboTipos.Items.AddRange(new object[] { "perro", "gato", "complemento" });
-            cboTipos.Location = new Point(123, 419);
+            cboTipos.Location = new Point(123, 386);
             cboTipos.Name = "cboTipos";
             cboTipos.Size = new Size(226, 23);
             cboTipos.TabIndex = 9;
@@ -148,7 +126,7 @@
             // 
             cboCantidades.FormattingEnabled = true;
             cboCantidades.Items.AddRange(new object[] { " cincoKilos", "diezKilos" });
-            cboCantidades.Location = new Point(123, 553);
+            cboCantidades.Location = new Point(123, 542);
             cboCantidades.Name = "cboCantidades";
             cboCantidades.Size = new Size(226, 23);
             cboCantidades.TabIndex = 10;
@@ -159,7 +137,7 @@
             // 
             cboSabores.FormattingEnabled = true;
             cboSabores.Items.AddRange(new object[] { "cerdo", "vaca", "pollo", "cornalitos", "sardinas" });
-            cboSabores.Location = new Point(123, 486);
+            cboSabores.Location = new Point(123, 466);
             cboSabores.Name = "cboSabores";
             cboSabores.Size = new Size(226, 23);
             cboSabores.TabIndex = 11;
@@ -189,7 +167,7 @@
             lblError.AutoSize = true;
             lblError.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblError.ForeColor = Color.IndianRed;
-            lblError.Location = new Point(172, 579);
+            lblError.Location = new Point(172, 583);
             lblError.Name = "lblError";
             lblError.Size = new Size(133, 20);
             lblError.TabIndex = 14;
@@ -211,8 +189,6 @@
             Controls.Add(cboSabores);
             Controls.Add(cboCantidades);
             Controls.Add(cboTipos);
-            Controls.Add(label4);
-            Controls.Add(numericUpDownId);
             Controls.Add(btnAlta);
             Controls.Add(numericUpDownCantidad);
             Controls.Add(txtBoxNombreAlta);
@@ -223,7 +199,6 @@
             Text = "FormALta";
             Load += FormALta_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDownCantidad).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownId).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericPrecioAlta).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
@@ -238,8 +213,6 @@
         private TextBox txtBoxNombreAlta;
         private NumericUpDown numericUpDownCantidad;
         private Button btnAlta;
-        private NumericUpDown numericUpDownId;
-        private Label label4;
         private ComboBox cboTipos;
         private ComboBox cboCantidades;
         private ComboBox cboSabores;

@@ -33,17 +33,17 @@ namespace Vistas
         {
             try
             {
-                decimal id = numericUpDownId.Value;
                 string nombre = txtBoxNombreAlta.Text;
                 decimal precio = numericPrecioAlta.Value;
                 decimal cantidad = numericUpDownCantidad.Value;
 
-                if (Validar.ValidarAlta(id,nombre,precio,cantidad,cboSabores.SelectedIndex, cboCantidades.SelectedIndex, cboTipos.SelectedIndex))
+                if (Validar.ValidarAlta(nombre, precio, cantidad, cboSabores.SelectedIndex, cboCantidades.SelectedIndex, cboTipos.SelectedIndex))
                 {
                     SaborAlimento sabor = (SaborAlimento)Enum.Parse(typeof(SaborAlimento), cboSabores.SelectedItem.ToString());
                     CantidadKilos cantidadKilos = (CantidadKilos)Enum.Parse(typeof(CantidadKilos), cboCantidades.SelectedItem.ToString());
                     TipoAlimento tipoAlimento = (TipoAlimento)Enum.Parse(typeof(TipoAlimento), cboTipos.SelectedItem.ToString());
-                    _nuevoAlimento = new Alimento(id, nombre, precio, cantidad, sabor, cantidadKilos, tipoAlimento);
+                    _nuevoAlimento = new Alimento(nombre, precio, cantidad, sabor, cantidadKilos, tipoAlimento);
+                    _nuevoAlimento.id = _nuevoAlimento.ObtenerUltimoIdAlimentos(GestorProductos.alimento) + 1;
                     this.DialogResult = DialogResult.OK;
                     MessageBox.Show(sabor.ToString());
                 }
@@ -53,7 +53,7 @@ namespace Vistas
                 }
 
 
-              
+
             }
             catch (Exception ex)
             {

@@ -26,7 +26,7 @@ namespace Vistas
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            if (GestorDeUsuarios.usuarios.Count < 0)
+            if (GestorDeUsuarios.usuarios.Count <= 0)
             {
                 MessageBox.Show("No hay usuarios cargados al sistema");
                 Application.Exit();
@@ -40,7 +40,7 @@ namespace Vistas
 
             if (Validar.ValidarUsuario(nombre) && Validar.ValidarPassword(contrasenia))
             {
-                decimal id = Validar.EncontrarIdUsuario(nombre, contrasenia);
+                int id = Validar.EncontrarIdUsuario(nombre, contrasenia);
 
                 if (id != -1)
                 {
@@ -59,10 +59,11 @@ namespace Vistas
 
 
 
+
         }
 
 
-        private void AccederMenuPrincipal(decimal id, string pass)
+        private void AccederMenuPrincipal(int id, string pass)
         {
             FormContenedor menuPrincipal = new FormContenedor(id, pass);
             this.Hide();

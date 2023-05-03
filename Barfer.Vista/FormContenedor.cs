@@ -7,10 +7,10 @@ namespace Vistas
 {
     public partial class FormContenedor : Form
     {
-        private decimal id;
+        private int id;
         private string pass;
 
-        public FormContenedor(decimal id, string pass)
+        public FormContenedor(int id, string pass)
         {
             InitializeComponent();
             this.id = id;
@@ -20,30 +20,39 @@ namespace Vistas
         private void Form1_Load(object sender, EventArgs e)
         {
             var hijo = new FormLogin();
-            IsMdiContainer = true;
+            this.IsMdiContainer = true;
             hijo.BackColor = Color.Black;
             hijo.Height = 100;
             hijo.MdiParent = this;
 
-
-            labelNombre.Text = GestorDeUsuarios.usuarios.Find(x => x.idUsuario == id).nombreUsuario;
-            labelApellido.Text = GestorDeUsuarios.usuarios.Find(x => x.idUsuario == id).apellidoUsuario;
-            labelTipo.Text = GestorDeUsuarios.usuarios.Find(x => x.idUsuario == id).tipoUsuario.ToString();
-
+            lblDatosUsuario.Text = Validar.GetNombreApellido(id, GestorDeUsuarios.usuarios);
         }
+
+
+
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            int validar = Validar.VerificarUsuarioContrasenia(labelNombre.Text, pass);
-            FormStock formStock = new FormStock(validar);
+            int tipo = (int)Validar.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
+            MessageBox.Show(tipo.ToString());
+            FormStock formStock = new FormStock(tipo);
             // formStock.MdiParent = this;
-            formStock.Show();
+            formStock.ShowDialog();
         }
 
         private void btnGestor_Click(object sender, EventArgs e)
         {
-            var formGestionUsuarios = new FormGestionUsuarios();
-            formGestionUsuarios.Show();
+            int tipo = (int)Validar.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
+            if (tipo == 0)
+            {
+                var formGestionUsuarios = new FormGestionUsuarios();
+                formGestionUsuarios.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos para acceder a esta seccion");
+            }
+
         }
 
         private void btnCalculadora_Click(object sender, EventArgs e)
@@ -62,7 +71,9 @@ namespace Vistas
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            var formLogin = new FormLogin();
+            formLogin.Show();
+            this.Hide();
         }
 
 

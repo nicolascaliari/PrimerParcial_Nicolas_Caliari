@@ -62,7 +62,16 @@ namespace Vistas
         }
 
 
+        private void btnAbrir_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "Elige foto de tu peludo";
+            openFileDialog1.ShowDialog();
 
+            if (File.Exists(openFileDialog1.FileName))
+            {
+                pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+            }
+        }
 
 
         private void cmbEdad_SelectedIndexChanged(object sender, EventArgs e)

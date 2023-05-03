@@ -53,6 +53,21 @@ namespace Barfer.Entidades
                 throw new Exception("No se pudo eliminar");
             }
         }
+
+
+        public static string TotalStock()
+        {
+            StringBuilder sb = new StringBuilder();
+            decimal total = 0;
+            foreach (Alimento item in alimento)
+            {
+                total += item.cantidad;
+            }
+
+            sb.AppendLine($"Total:{total.ToString()}");
+
+            return sb.ToString();
+        }
     }
 
 }

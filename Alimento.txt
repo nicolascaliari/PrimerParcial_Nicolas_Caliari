@@ -1,3 +1,5 @@
 id,nombre producto,precio,cantidad,sabor,kilos,tipo
 1,perro pollo,2000,5,pollo,cincoKilos,perro
 2,gato vaca,2000,5,vaca,diezKilos,gato
+3,perro pollo,3,5,pollo,cincoKilos,gato
+4,perro cerdo,100,10,cerdo,cincoKilos,perro

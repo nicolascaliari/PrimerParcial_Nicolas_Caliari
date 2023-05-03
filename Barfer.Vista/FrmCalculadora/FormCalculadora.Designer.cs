@@ -31,10 +31,15 @@
             label1 = new Label();
             cmbMascota = new ComboBox();
             txtPeso = new TextBox();
-            txtResultado = new TextBox();
             btnCalcular = new Button();
             txtBoxEdad = new TextBox();
             txtBoxNombre = new TextBox();
+            openFileDialog1 = new OpenFileDialog();
+            btnAbrir = new Button();
+            btnGuardar = new Button();
+            richTextBox1 = new RichTextBox();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -55,7 +60,7 @@
             cmbMascota.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             cmbMascota.ForeColor = SystemColors.Info;
             cmbMascota.FormattingEnabled = true;
-            cmbMascota.Location = new Point(34, 114);
+            cmbMascota.Location = new Point(34, 130);
             cmbMascota.Name = "cmbMascota";
             cmbMascota.Size = new Size(263, 28);
             cmbMascota.TabIndex = 1;
@@ -68,24 +73,11 @@
             txtPeso.BorderStyle = BorderStyle.FixedSingle;
             txtPeso.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             txtPeso.ForeColor = SystemColors.Info;
-            txtPeso.Location = new Point(34, 243);
+            txtPeso.Location = new Point(34, 312);
             txtPeso.Name = "txtPeso";
             txtPeso.PlaceholderText = "Ingrese el peso de su mascota";
             txtPeso.Size = new Size(263, 27);
             txtPeso.TabIndex = 3;
-            // 
-            // txtResultado
-            // 
-            txtResultado.BackColor = Color.FromArgb(26, 32, 40);
-            txtResultado.BorderStyle = BorderStyle.FixedSingle;
-            txtResultado.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtResultado.ForeColor = SystemColors.Info;
-            txtResultado.Location = new Point(34, 331);
-            txtResultado.Name = "txtResultado";
-            txtResultado.PlaceholderText = "Resultado";
-            txtResultado.ReadOnly = true;
-            txtResultado.Size = new Size(263, 27);
-            txtResultado.TabIndex = 4;
             // 
             // btnCalcular
             // 
@@ -107,7 +99,7 @@
             txtBoxEdad.BackColor = Color.FromArgb(26, 32, 40);
             txtBoxEdad.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtBoxEdad.ForeColor = SystemColors.Info;
-            txtBoxEdad.Location = new Point(34, 184);
+            txtBoxEdad.Location = new Point(34, 217);
             txtBoxEdad.Name = "txtBoxEdad";
             txtBoxEdad.PlaceholderText = "Edad";
             txtBoxEdad.Size = new Size(263, 27);
@@ -124,22 +116,67 @@
             txtBoxNombre.Size = new Size(263, 27);
             txtBoxNombre.TabIndex = 7;
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnAbrir
+            // 
+            btnAbrir.Location = new Point(384, 52);
+            btnAbrir.Name = "btnAbrir";
+            btnAbrir.Size = new Size(111, 26);
+            btnAbrir.TabIndex = 8;
+            btnAbrir.Text = "Abrir";
+            btnAbrir.UseVisualStyleBackColor = true;
+            btnAbrir.Click += btnAbrir_Click;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(550, 53);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(111, 27);
+            btnGuardar.TabIndex = 9;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(384, 105);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(277, 253);
+            richTextBox1.TabIndex = 10;
+            richTextBox1.Text = "";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(224, 224, 224);
+            pictureBox1.Location = new Point(384, 105);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(277, 253);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
+            // 
             // FormCalculadora
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 32, 40);
-            ClientSize = new Size(320, 434);
+            ClientSize = new Size(705, 503);
+            Controls.Add(pictureBox1);
+            Controls.Add(richTextBox1);
+            Controls.Add(btnGuardar);
+            Controls.Add(btnAbrir);
             Controls.Add(txtBoxNombre);
             Controls.Add(txtBoxEdad);
             Controls.Add(btnCalcular);
-            Controls.Add(txtResultado);
             Controls.Add(txtPeso);
             Controls.Add(cmbMascota);
             Controls.Add(label1);
             Name = "FormCalculadora";
             Text = "FormCalculadora";
             Load += FormCalculadora_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -149,9 +186,13 @@
         private Label label1;
         private ComboBox cmbMascota;
         private TextBox txtPeso;
-        private TextBox txtResultado;
         private Button btnCalcular;
         private TextBox txtBoxEdad;
         private TextBox txtBoxNombre;
+        private OpenFileDialog openFileDialog1;
+        private Button btnAbrir;
+        private Button btnGuardar;
+        private RichTextBox richTextBox1;
+        private PictureBox pictureBox1;
     }
 }
