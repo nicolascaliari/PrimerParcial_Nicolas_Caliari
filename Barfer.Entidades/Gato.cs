@@ -46,10 +46,10 @@ namespace Barfer.Entidades
             return 0;
         }
 
-        public override string MostrarMascota()
-        {
-            return base.MostrarMascota();
-        }
+        //public override string MostrarMascota()
+        //{
+        //    return base.MostrarMascota();
+        //}
 
 
     }

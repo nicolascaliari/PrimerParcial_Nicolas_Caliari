@@ -139,6 +139,7 @@
             Controls.Add(txtBoxContraseñaUsuario);
             Controls.Add(btnLogin);
             Name = "FormLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormLogin";
             Load += FormLogin_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

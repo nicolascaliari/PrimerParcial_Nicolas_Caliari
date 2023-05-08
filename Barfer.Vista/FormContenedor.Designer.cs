@@ -30,22 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormContenedor));
             panel1 = new Panel();
+            btnReporte = new Button();
             panel3 = new Panel();
             pictureBox6 = new PictureBox();
             lblDatosUsuario = new Label();
             btnSalir = new PictureBox();
             pictureBox4 = new PictureBox();
+            btnCalculadora = new Button();
             pictureBox5 = new PictureBox();
             pictureBox1 = new PictureBox();
             btnGestor = new Button();
-            btnHome = new Button();
             btnProducto = new Button();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
-            btnCalculadora = new Button();
             panel2 = new Panel();
             pictureBox7 = new PictureBox();
             label1 = new Label();
+            btnGestorVentas = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -62,22 +63,37 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(26, 32, 40);
+            panel1.Controls.Add(btnGestorVentas);
+            panel1.Controls.Add(btnReporte);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(btnSalir);
             panel1.Controls.Add(pictureBox4);
+            panel1.Controls.Add(btnCalculadora);
             panel1.Controls.Add(pictureBox5);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnGestor);
-            panel1.Controls.Add(btnHome);
             panel1.Controls.Add(btnProducto);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(btnCalculadora);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(216, 748);
             panel1.TabIndex = 5;
+            // 
+            // btnReporte
+            // 
+            btnReporte.BackColor = Color.FromArgb(26, 32, 40);
+            btnReporte.FlatAppearance.BorderSize = 0;
+            btnReporte.FlatStyle = FlatStyle.Flat;
+            btnReporte.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnReporte.ForeColor = SystemColors.ButtonHighlight;
+            btnReporte.Location = new Point(94, 498);
+            btnReporte.Name = "btnReporte";
+            btnReporte.Size = new Size(116, 41);
+            btnReporte.TabIndex = 3;
+            btnReporte.Text = "Reportes";
+            btnReporte.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -113,7 +129,7 @@
             // btnSalir
             // 
             btnSalir.Image = Barfer.Vista.Properties.Resources._13163802951582793675_128;
-            btnSalir.Location = new Point(12, 645);
+            btnSalir.Location = new Point(12, 696);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(48, 31);
             btnSalir.SizeMode = PictureBoxSizeMode.Zoom;
@@ -123,18 +139,35 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(12, 552);
+            pictureBox4.Image = Barfer.Vista.Properties.Resources.reportes;
+            pictureBox4.Location = new Point(12, 498);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(59, 41);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 3;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
+            // 
+            // btnCalculadora
+            // 
+            btnCalculadora.BackColor = Color.FromArgb(26, 32, 40);
+            btnCalculadora.FlatAppearance.BorderSize = 0;
+            btnCalculadora.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            btnCalculadora.FlatStyle = FlatStyle.Flat;
+            btnCalculadora.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCalculadora.ForeColor = SystemColors.ButtonHighlight;
+            btnCalculadora.Location = new Point(84, 412);
+            btnCalculadora.Name = "btnCalculadora";
+            btnCalculadora.Size = new Size(116, 37);
+            btnCalculadora.TabIndex = 2;
+            btnCalculadora.Text = "Calculadora";
+            btnCalculadora.UseVisualStyleBackColor = false;
+            btnCalculadora.Click += btnCalculadora_Click;
             // 
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(12, 341);
+            pictureBox5.Location = new Point(12, 329);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(59, 37);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -159,29 +192,13 @@
             btnGestor.FlatStyle = FlatStyle.Flat;
             btnGestor.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnGestor.ForeColor = SystemColors.ButtonHighlight;
-            btnGestor.Location = new Point(81, 341);
+            btnGestor.Location = new Point(84, 329);
             btnGestor.Name = "btnGestor";
             btnGestor.Size = new Size(116, 37);
             btnGestor.TabIndex = 1;
             btnGestor.Text = " Usuarios";
             btnGestor.UseVisualStyleBackColor = false;
             btnGestor.Click += btnGestor_Click;
-            // 
-            // btnHome
-            // 
-            btnHome.BackColor = Color.FromArgb(26, 32, 40);
-            btnHome.FlatAppearance.BorderSize = 0;
-            btnHome.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
-            btnHome.FlatStyle = FlatStyle.Flat;
-            btnHome.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnHome.ForeColor = SystemColors.ButtonHighlight;
-            btnHome.Location = new Point(77, 552);
-            btnHome.Name = "btnHome";
-            btnHome.Size = new Size(116, 41);
-            btnHome.TabIndex = 3;
-            btnHome.Text = "Home";
-            btnHome.UseVisualStyleBackColor = false;
-            btnHome.Click += btnHome_Click;
             // 
             // btnProducto
             // 
@@ -203,7 +220,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(12, 440);
+            pictureBox3.Location = new Point(12, 412);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(59, 37);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -220,22 +237,6 @@
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
-            // btnCalculadora
-            // 
-            btnCalculadora.BackColor = Color.FromArgb(26, 32, 40);
-            btnCalculadora.FlatAppearance.BorderSize = 0;
-            btnCalculadora.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
-            btnCalculadora.FlatStyle = FlatStyle.Flat;
-            btnCalculadora.Font = new Font("Segoe UI Symbol", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCalculadora.ForeColor = SystemColors.ButtonHighlight;
-            btnCalculadora.Location = new Point(84, 440);
-            btnCalculadora.Name = "btnCalculadora";
-            btnCalculadora.Size = new Size(116, 37);
-            btnCalculadora.TabIndex = 2;
-            btnCalculadora.Text = "Calculadora";
-            btnCalculadora.UseVisualStyleBackColor = false;
-            btnCalculadora.Click += btnCalculadora_Click;
-            // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(49, 66, 82);
@@ -249,10 +250,10 @@
             // 
             // pictureBox7
             // 
-            pictureBox7.Image = Barfer.Vista.Properties.Resources.fondoPrincipal;
-            pictureBox7.Location = new Point(-22, 120);
+            pictureBox7.Image = Barfer.Vista.Properties.Resources.a20c4957_7df7_4574_92d0_d2c95067f156;
+            pictureBox7.Location = new Point(469, -2);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(1173, 557);
+            pictureBox7.Size = new Size(525, 678);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 2;
             pictureBox7.TabStop = false;
@@ -260,12 +261,23 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Showcard Gothic", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(289, 33);
+            label1.Font = new Font("Cascadia Mono", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ActiveCaption;
+            label1.Location = new Point(6, 322);
             label1.Name = "label1";
-            label1.Size = new Size(409, 44);
+            label1.Size = new Size(459, 52);
             label1.TabIndex = 1;
             label1.Text = "Bienvenido a Barfer";
+            // 
+            // btnGestorVentas
+            // 
+            btnGestorVentas.Location = new Point(88, 600);
+            btnGestorVentas.Name = "btnGestorVentas";
+            btnGestorVentas.Size = new Size(112, 23);
+            btnGestorVentas.TabIndex = 5;
+            btnGestorVentas.Text = "Gestor de ventas";
+            btnGestorVentas.UseVisualStyleBackColor = true;
+            btnGestorVentas.Click += btnGestorVentas_Click;
             // 
             // FormContenedor
             // 
@@ -277,6 +289,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FormContenedor";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
@@ -298,7 +311,6 @@
         #endregion
         private Panel panel1;
         private Panel panel2;
-        private Button btnHome;
         private Button btnProducto;
         private Button btnGestor;
         private Button btnCalculadora;
@@ -313,5 +325,7 @@
         private Label lblDatosUsuario;
         private PictureBox pictureBox6;
         private PictureBox pictureBox7;
+        private Button btnReporte;
+        private Button btnGestorVentas;
     }
 }

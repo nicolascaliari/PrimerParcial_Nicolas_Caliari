@@ -155,6 +155,19 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
+        public static bool ValidarDouble(double valor)
+        {
+            // Verificar si el valor es válido
+            if (double.IsNaN(valor) || double.IsInfinity(valor))
+            {
+                return false;
+            }
+
+            // Si el valor es válido, retornar true
+            return true;
+        }
+
+
 
         public static bool ValidarEnumsAlimento(int sabor, int cantidad, int tipo)
         {
@@ -189,6 +202,7 @@ namespace Barfer.Entidades.Validaciones
 
 
 
+
         public static bool ValidarAltaUsuario(string nombre,string apellido,string password, decimal edad ,int tipo)
         {
             
@@ -199,5 +213,31 @@ namespace Barfer.Entidades.Validaciones
             return false;
 
         }
+
+
+
+
+
+        public static bool ValidarEdicionUsuario(string nombre, string apellido, string password, decimal edad)
+        {
+
+            if (ValidarString(nombre) && ValidarString(apellido) && ValidarPassword(password) && EsDecimalValido(edad))
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+        public static bool ValidarCalculadora(string nombre, decimal edad, double peso, int tipo)
+        {
+            if(ValidarString(nombre) && EsDecimalValido(edad) && ValidarDouble(peso) && ValidarEnumsUsuario(tipo))
+            {
+                return true;
+            }
+         return false;
+        }
+
+
     }
 }

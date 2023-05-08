@@ -113,6 +113,54 @@ namespace Vistas
 
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void txtBoxBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.txtBoxBuscar.Text))
+            {
+                List<Alimento> filtrado = new List<Alimento>();
+                FiltrarDatosDeVuelo(filtrado);
+                this.dataGrid.DataSource = filtrado;
+            }
+            else
+            {
+                if (GestorProductos.alimento.Count > 0)
+                {
+                    dataGrid.DataSource = GestorProductos.alimento;
+                }
+            }
+        }
+
+
+
+        private void FiltrarDatosDeVuelo(List<Alimento> filtrado)
+        {
+            foreach (Alimento item in GestorProductos.alimento)
+            {
+                if (item.sabor.ToString().ToUpper().StartsWith(this.txtBoxBuscar.Text.ToUpper()))
+                {
+                    filtrado.Add(item);
+                }
+                else if (item.tipoAlimento.ToString().ToUpper().StartsWith(this.txtBoxBuscar.Text.ToUpper()))
+                {
+                    filtrado.Add(item);
+                }
+                else if (item.id.ToString().ToUpper().StartsWith(this.txtBoxBuscar.Text.ToUpper()))
+                {
+                    filtrado.Add(item);
+                }
+
+            }
+        }
+
+
+
+
+
 
     }
 }

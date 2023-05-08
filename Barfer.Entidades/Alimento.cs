@@ -24,7 +24,6 @@ namespace Barfer.Entidades
             perro,
             gato,
             complemento,
-            pepe,
         }
 
 

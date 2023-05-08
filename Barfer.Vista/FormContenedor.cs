@@ -1,6 +1,7 @@
 using Barfer.Entidades;
 using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
+using Barfer.Vista.Ventas;
 using static Barfer.Entidades.Usuarios.Usuario;
 
 namespace Vistas
@@ -34,9 +35,7 @@ namespace Vistas
         private void btnProducto_Click(object sender, EventArgs e)
         {
             int tipo = (int)Validar.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
-            MessageBox.Show(tipo.ToString());
             FormStock formStock = new FormStock(tipo);
-            // formStock.MdiParent = this;
             formStock.ShowDialog();
         }
 
@@ -61,13 +60,12 @@ namespace Vistas
             formCalculadora.Show();
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            var formContenedor = new FormContenedor(id, pass);
-            formContenedor.Show();
-            this.Hide();
-        }
 
+        private void btnGestorVentas_Click(object sender, EventArgs e)
+        {
+            var formGestorVentas = new FormGestorVentas();
+            formGestorVentas.Show();
+        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -81,5 +79,12 @@ namespace Vistas
         {
 
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

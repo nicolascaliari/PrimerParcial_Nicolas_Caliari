@@ -42,10 +42,10 @@ namespace Vistas
                     SaborAlimento sabor = (SaborAlimento)Enum.Parse(typeof(SaborAlimento), cboSabores.SelectedItem.ToString());
                     CantidadKilos cantidadKilos = (CantidadKilos)Enum.Parse(typeof(CantidadKilos), cboCantidades.SelectedItem.ToString());
                     TipoAlimento tipoAlimento = (TipoAlimento)Enum.Parse(typeof(TipoAlimento), cboTipos.SelectedItem.ToString());
+
                     _nuevoAlimento = new Alimento(nombre, precio, cantidad, sabor, cantidadKilos, tipoAlimento);
                     _nuevoAlimento.id = _nuevoAlimento.ObtenerUltimoIdAlimentos(GestorProductos.alimento) + 1;
                     this.DialogResult = DialogResult.OK;
-                    MessageBox.Show(sabor.ToString());
                 }
                 else
                 {
@@ -67,6 +67,7 @@ namespace Vistas
 
         private void FormALta_Load(object sender, EventArgs e)
         {
+
             lblError.Visible = false;
             cboTipos.Items.Clear();
             cboSabores.Items.Clear();
@@ -88,6 +89,11 @@ namespace Vistas
             }
 
         }
+
+
+
+
+
 
         private void cboTipos_Validating(object sender, CancelEventArgs e)
         {
@@ -127,6 +133,9 @@ namespace Vistas
                 errorProvider1.SetError(cboCantidades, "");
             }
         }
+
+
+
 
 
         private void numericUpDownId_ValueChanged(object sender, EventArgs e)

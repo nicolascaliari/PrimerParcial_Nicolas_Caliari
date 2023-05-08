@@ -1,4 +1,5 @@
 ﻿using Barfer.Entidades;
+using Barfer.Entidades.Validaciones;
 using Barfer.Vista.FrmCalculadora;
 using DocumentFormat.OpenXml.Presentation;
 using System;
@@ -41,23 +42,26 @@ namespace Vistas
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            string tipoAnimal = cmbMascota.SelectedItem.ToString();
             string nombre = txtBoxNombre.Text;
-            int edad = int.Parse(txtBoxEdad.Text);
-            int peso = int.Parse(txtPeso.Text);
+            int edad = (int)numericUpDownEdad.Value;
+            double peso = (double)numericUpDownPeso.Value;
 
+            if(Validar.ValidarCalculadora(nombre, edad , peso , cmbMascota.SelectedIndex))
+            {
+                string tipoAnimal = cmbMascota.SelectedItem.ToString();
+                mascota = FactoryMethod.CrearMascota(tipoAnimal);
+                mascota.Nombre = nombre;
+                mascota.Edad = edad;
+                mascota.Peso = peso;
 
-            mascota = Creador.CrearMascota(tipoAnimal);
-            mascota.Nombre = nombre;
-            mascota.Edad = edad;
-            mascota.Peso = peso;
-
-            double cantidadAlimento = mascota.CalcularAlimento(tipoAnimal);
-
-
-
-            FormMostrarMascota mostrarComida = new FormMostrarMascota(nombre, edad, peso, cantidadAlimento, tipoAnimal);
-            mostrarComida.ShowDialog();
+                double cantidadAlimento = mascota.CalcularAlimento(tipoAnimal);
+                FormMostrarMascota mostrarComida = new FormMostrarMascota(nombre, edad, peso, cantidadAlimento, tipoAnimal);
+                mostrarComida.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Faltan datos o ingreso algo por error");
+            }
 
         }
 
@@ -80,6 +84,9 @@ namespace Vistas
 
         }
 
-
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

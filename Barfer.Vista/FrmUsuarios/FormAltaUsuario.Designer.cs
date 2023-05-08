@@ -39,9 +39,9 @@
             comboBoxAltaTipo = new ComboBox();
             label5 = new Label();
             label6 = new Label();
-            numericUpDownAltaEdad = new NumericUpDown();
             lblError = new Label();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownAltaEdad).BeginInit();
+            numericUpDownEdad = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownEdad).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -158,13 +158,6 @@
             label6.TabIndex = 13;
             label6.Text = "Alta usuario";
             // 
-            // numericUpDownAltaEdad
-            // 
-            numericUpDownAltaEdad.Location = new Point(89, 379);
-            numericUpDownAltaEdad.Name = "numericUpDownAltaEdad";
-            numericUpDownAltaEdad.Size = new Size(248, 23);
-            numericUpDownAltaEdad.TabIndex = 15;
-            // 
             // lblError
             // 
             lblError.AutoSize = true;
@@ -176,14 +169,21 @@
             lblError.TabIndex = 16;
             lblError.Text = "Error al crear usuario";
             // 
+            // numericUpDownEdad
+            // 
+            numericUpDownEdad.Location = new Point(89, 386);
+            numericUpDownEdad.Name = "numericUpDownEdad";
+            numericUpDownEdad.Size = new Size(248, 23);
+            numericUpDownEdad.TabIndex = 17;
+            // 
             // FormAltaUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 32, 40);
             ClientSize = new Size(435, 653);
+            Controls.Add(numericUpDownEdad);
             Controls.Add(lblError);
-            Controls.Add(numericUpDownAltaEdad);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(comboBoxAltaTipo);
@@ -198,7 +198,7 @@
             Name = "FormAltaUsuario";
             Text = "FormAltaUsuario";
             Load += FormAltaUsuario_Load;
-            ((System.ComponentModel.ISupportInitialize)numericUpDownAltaEdad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownEdad).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -216,7 +216,7 @@
         private ComboBox comboBoxAltaTipo;
         private Label label5;
         private Label label6;
-        private NumericUpDown numericUpDownAltaEdad;
         private Label lblError;
+        private NumericUpDown numericUpDownEdad;
     }
 }

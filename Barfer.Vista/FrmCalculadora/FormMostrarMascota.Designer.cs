@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             txtNombre = new Label();
+            btnBack = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnBack).BeginInit();
             SuspendLayout();
             // 
             // txtNombre
@@ -42,16 +44,29 @@
             txtNombre.TabIndex = 0;
             txtNombre.Text = "nombre";
             // 
+            // btnBack
+            // 
+            btnBack.Image = Properties.Resources.back;
+            btnBack.Location = new Point(26, 166);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(69, 28);
+            btnBack.SizeMode = PictureBoxSizeMode.Zoom;
+            btnBack.TabIndex = 1;
+            btnBack.TabStop = false;
+            btnBack.Click += btnBack_Click;
+            // 
             // FormMostrarMascota
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(26, 32, 40);
+            BackColor = Color.FromArgb(49, 66, 82);
             ClientSize = new Size(326, 206);
+            Controls.Add(btnBack);
             Controls.Add(txtNombre);
             Name = "FormMostrarMascota";
             Text = "FormMostrarMascota";
             Load += FormMostrarMascota_Load;
+            ((System.ComponentModel.ISupportInitialize)btnBack).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -59,5 +74,6 @@
         #endregion
 
         private Label txtNombre;
+        private PictureBox btnBack;
     }
 }

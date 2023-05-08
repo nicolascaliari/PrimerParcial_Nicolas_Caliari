@@ -63,6 +63,16 @@ namespace Barfer.Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _0e0aa447_cfe3_4a35_b56e_80198d93d452 {
+            get {
+                object obj = ResourceManager.GetObject("0e0aa447-cfe3-4a35-b56e-80198d93d452", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _11116362331667487186_128 {
             get {
                 object obj = ResourceManager.GetObject("11116362331667487186-128", resourceCulture);
@@ -123,9 +133,69 @@ namespace Barfer.Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1ea64d8c_bc2c_4a61_b4a3_f06e72b02145 {
+            get {
+                object obj = ResourceManager.GetObject("1ea64d8c-bc2c-4a61-b4a3-f06e72b02145", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _218af47e_2679_41f8_8028_a91fd9074be6 {
+            get {
+                object obj = ResourceManager.GetObject("218af47e-2679-41f8-8028-a91fd9074be6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _726eef73_b4c8_4f99_9365_5c047204534a {
+            get {
+                object obj = ResourceManager.GetObject("726eef73-b4c8-4f99-9365-5c047204534a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap a140af1d_aaf6_4b5f_897c_d487272b114a {
+            get {
+                object obj = ResourceManager.GetObject("a140af1d-aaf6-4b5f-897c-d487272b114a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap a20c4957_7df7_4574_92d0_d2c95067f156 {
+            get {
+                object obj = ResourceManager.GetObject("a20c4957-7df7-4574-92d0-d2c95067f156", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AgregarProducto {
             get {
                 object obj = ResourceManager.GetObject("AgregarProducto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap back {
+            get {
+                object obj = ResourceManager.GetObject("back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +266,26 @@ namespace Barfer.Vista.Properties {
         internal static System.Drawing.Bitmap personaAgregar {
             get {
                 object obj = ResourceManager.GetObject("personaAgregar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reportes {
+            get {
+                object obj = ResourceManager.GetObject("reportes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search {
+            get {
+                object obj = ResourceManager.GetObject("search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

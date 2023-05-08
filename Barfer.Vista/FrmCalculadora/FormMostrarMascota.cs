@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vistas;
 
 namespace Barfer.Vista.FrmCalculadora
 {
@@ -14,10 +15,10 @@ namespace Barfer.Vista.FrmCalculadora
     {
         private string _nombre;
         private int _edad;
-        private int _peso;
+        private double _peso;
         private double _cantidadKilos;
         private string _tipo;
-        public FormMostrarMascota(string nombre, int edad, int peso, double cantidadKilos, string tipo)
+        public FormMostrarMascota(string nombre, int edad, double peso, double cantidadKilos, string tipo)
         {
             InitializeComponent();
             _nombre = nombre;
@@ -42,6 +43,11 @@ namespace Barfer.Vista.FrmCalculadora
             sb.AppendLine($"mi peso es {_peso} y soy un {_tipo}");
             sb.AppendLine($"mi cantidad de comida diaria es {_cantidadKilosRedondeado}");
             return sb.ToString();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

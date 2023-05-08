@@ -1,4 +1,5 @@
 ﻿using Barfer.Entidades.Usuarios;
+using Barfer.Entidades.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,23 +27,34 @@ namespace Vistas.FrmUsuarios
             txtBoxEditarNombre.Text = editarUsuario.nombreUsuario;
             txtBoxEditarApellido.Text = editarUsuario.apellidoUsuario;
             txtBoxEditarContrasenia.Text = editarUsuario.contraseñaUsuario;
-            txtBoxEditarEdad.Text = editarUsuario.edadUsuario.ToString();
-            //  cmbTipo.Items.Add(cmbTipo.SelectedText  = editarUsuario.tipoUsuario.ToString());
-            // cmbTipo.Items.Add(TipoUsuario.Empleado);
-            // cmbTipo.Items.Add(TipoUsuario.Administrador);
-            //comboBoxEditarTipo.Text = editarUsuario.Tipo.ToString();
+            txtBoxEdad.Text = editarUsuario.edadUsuario.ToString();
+            lblError.Visible = false;
 
+            cmbTipo.Text = editarUsuario.tipoUsuario.ToString();
+            cmbTipo.Items.Add(TipoUsuario.Empleado);
+            cmbTipo.Items.Add(TipoUsuario.Administrador);
         }
 
         private void btnEditarUsuario_Click(object sender, EventArgs e)
         {
-            editarUsuario.nombreUsuario = txtBoxEditarNombre.Text;
-            editarUsuario.apellidoUsuario = txtBoxEditarApellido.Text;
-            editarUsuario.contraseñaUsuario = txtBoxEditarContrasenia.Text;
-            editarUsuario.edadUsuario = int.Parse(txtBoxEditarEdad.Text);
+            string nombre = editarUsuario.nombreUsuario = txtBoxEditarNombre.Text;
+            string apellido = editarUsuario.apellidoUsuario = txtBoxEditarApellido.Text;
+            string password = editarUsuario.contraseñaUsuario = txtBoxEditarContrasenia.Text;
+            decimal edad = editarUsuario.edadUsuario = int.Parse(txtBoxEdad.Text);
+            //TipoUsuario tipo = editarUsuario.tipoUsuario = (TipoUsuario)cmbTipo.SelectedIndex;
+
+            if (Validar.ValidarEdicionUsuario(nombre, apellido, password, edad))
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                lblError.Visible = true;
+            }
+
             // editarUsuario.tipoUsuario = (TipoUsuario)cmbTipo.SelectedIndex;
             // GestorDeUsuarios.EditarUsuario(editarUsuario);
-            this.DialogResult = DialogResult.OK;
+
 
         }
     }

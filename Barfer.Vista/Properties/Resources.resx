@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="0e0aa447-cfe3-4a35-b56e-80198d93d452" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\0e0aa447-cfe3-4a35-b56e-80198d93d452.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="11116362331667487186-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\11116362331667487186-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,8 +139,26 @@
   <data name="16817612971678726805-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\16817612971678726805-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1ea64d8c-bc2c-4a61-b4a3-f06e72b02145" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1ea64d8c-bc2c-4a61-b4a3-f06e72b02145.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="218af47e-2679-41f8-8028-a91fd9074be6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\218af47e-2679-41f8-8028-a91fd9074be6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="726eef73-b4c8-4f99-9365-5c047204534a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\726eef73-b4c8-4f99-9365-5c047204534a.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a140af1d-aaf6-4b5f-897c-d487272b114a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\a140af1d-aaf6-4b5f-897c-d487272b114a.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a20c4957-7df7-4574-92d0-d2c95067f156" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\a20c4957-7df7-4574-92d0-d2c95067f156.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AgregarProducto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AgregarProducto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="basura" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\basura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -159,5 +180,11 @@
   </data>
   <data name="personaAgregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\personaAgregar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

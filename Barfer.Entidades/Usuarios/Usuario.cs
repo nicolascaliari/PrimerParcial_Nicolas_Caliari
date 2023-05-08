@@ -63,7 +63,6 @@ namespace Barfer.Entidades.Usuarios
             set { _edadUsuario = value; }
         }
 
-     //   private static int ultimoId = ObtenerUltimoId(GestorDeUsuarios.usuarios);
 
         public Usuario()
         {
@@ -99,6 +98,16 @@ namespace Barfer.Entidades.Usuarios
                 return ultimoId;
         }
 
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append($"{nombreUsuario}");
+            sb.Append($" {apellidoUsuario}");
+
+            return sb.ToString();
+        }
 
     }
 }

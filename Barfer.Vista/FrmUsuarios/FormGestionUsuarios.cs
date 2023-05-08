@@ -18,7 +18,6 @@ namespace Vistas
 {
     public partial class FormGestionUsuarios : Form
     {
-        private string path = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\\Barfer.Vista\\bin\\Debug\\net6.0-windows\miExcel.xlsx";
         public FormGestionUsuarios()
         {
             InitializeComponent();
@@ -68,6 +67,7 @@ namespace Vistas
                 Archivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
                 ActualizarUsuarios(dataGridView1);
 
+
             }
         }
 
@@ -96,8 +96,9 @@ namespace Vistas
 
         }
 
-
-
-
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

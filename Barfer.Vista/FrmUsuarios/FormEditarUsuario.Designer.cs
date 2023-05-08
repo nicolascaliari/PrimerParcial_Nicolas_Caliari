@@ -36,8 +36,10 @@
             txtBoxEditarNombre = new TextBox();
             txtBoxEditarApellido = new TextBox();
             txtBoxEditarContrasenia = new TextBox();
-            txtBoxEditarEdad = new TextBox();
             label5 = new Label();
+            lblError = new Label();
+            cmbTipo = new ComboBox();
+            txtBoxEdad = new TextBox();
             SuspendLayout();
             // 
             // btnEditarUsuario
@@ -120,13 +122,6 @@
             txtBoxEditarContrasenia.Size = new Size(269, 23);
             txtBoxEditarContrasenia.TabIndex = 7;
             // 
-            // txtBoxEditarEdad
-            // 
-            txtBoxEditarEdad.Location = new Point(115, 440);
-            txtBoxEditarEdad.Name = "txtBoxEditarEdad";
-            txtBoxEditarEdad.Size = new Size(269, 23);
-            txtBoxEditarEdad.TabIndex = 8;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -138,14 +133,42 @@
             label5.TabIndex = 9;
             label5.Text = "Editar usuario";
             // 
+            // lblError
+            // 
+            lblError.AutoSize = true;
+            lblError.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblError.ForeColor = Color.Red;
+            lblError.Location = new Point(145, 535);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(196, 25);
+            lblError.TabIndex = 10;
+            lblError.Text = "Error al editar usuario";
+            // 
+            // cmbTipo
+            // 
+            cmbTipo.FormattingEnabled = true;
+            cmbTipo.Location = new Point(115, 490);
+            cmbTipo.Name = "cmbTipo";
+            cmbTipo.Size = new Size(269, 23);
+            cmbTipo.TabIndex = 11;
+            // 
+            // txtBoxEdad
+            // 
+            txtBoxEdad.Location = new Point(115, 422);
+            txtBoxEdad.Name = "txtBoxEdad";
+            txtBoxEdad.Size = new Size(269, 23);
+            txtBoxEdad.TabIndex = 12;
+            // 
             // FormEditarUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 32, 40);
             ClientSize = new Size(481, 654);
+            Controls.Add(txtBoxEdad);
+            Controls.Add(cmbTipo);
+            Controls.Add(lblError);
             Controls.Add(label5);
-            Controls.Add(txtBoxEditarEdad);
             Controls.Add(txtBoxEditarContrasenia);
             Controls.Add(txtBoxEditarApellido);
             Controls.Add(txtBoxEditarNombre);
@@ -171,7 +194,9 @@
         private TextBox txtBoxEditarNombre;
         private TextBox txtBoxEditarApellido;
         private TextBox txtBoxEditarContrasenia;
-        private TextBox txtBoxEditarEdad;
         private Label label5;
+        private Label lblError;
+        private ComboBox cmbTipo;
+        private TextBox txtBoxEdad;
     }
 }

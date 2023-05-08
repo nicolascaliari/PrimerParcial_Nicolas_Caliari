@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades
 {
-    public abstract class Mascota
+    public  class Mascota
     {
         private string _nombre;
         private int _edad;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades
 {
-    public class Creador
+    public class FactoryMethod
     {
         public const int perro = 1;
         public const int gato = 2;

@@ -9,20 +9,36 @@ namespace Barfer.Entidades.Usuarios
     public class Administrador : Usuario
     {
 
+
+        public Administrador(TipoUsuario administrador) : this("", "", "", 1, administrador)
+        {
+        }
+
         public Administrador(string nombreUsuario, string contraseñaUsuario, string apellidoUsuario, decimal edadUsuario, TipoUsuario tipo)
             : base(nombreUsuario, contraseñaUsuario, apellidoUsuario, edadUsuario, tipo)
         {
 
         }
-        //public override string ToString()
+
+
+
+        public void CrearReporte()
+        {
+
+        }
+
+
+        //public static explicit operator Administrador(Empleado empleado)
         //{
-        //    StringBuilder sb = new StringBuilder();
-        //    sb.AppendLine("Nombre: " + this._nombreUsuario);
-        //    sb.AppendLine("Apellido: " + this._apellidoUsuario);
-        //    sb.AppendLine("Edad: " + this._edadUsuario);
-        //    sb.AppendLine("Contraseña: " + this._contraseñaUsuario);
-        //    sb.AppendLine("Tipo de usuario: " + this._tipoUsuario);
-        //    return sb.ToString();
+        //    return new Administrador();
         //}
+
+
+
+
+        //public override string MostrarUsuario()
+        //  {
+        //      return base.MostrarUsuario();
+        //  }
     }
 }
