@@ -1,6 +1,7 @@
 using Barfer.Entidades;
 using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
+using Barfer.Vista.FormVentas;
 using Barfer.Vista.Ventas;
 using static Barfer.Entidades.Usuarios.Usuario;
 
@@ -67,12 +68,31 @@ namespace Vistas
             formGestorVentas.Show();
         }
 
+
+        private void btnPreparacion_Click(object sender, EventArgs e)
+        {
+            FormPreparacion formPreparacion = new FormPreparacion();
+            formPreparacion.Show();
+
+        }
+
+        private void btnEnvio_Click(object sender, EventArgs e)
+        {
+            var formEnvio = new FormEnvio();
+            formEnvio.Show();
+
+        }
+
+
+
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             var formLogin = new FormLogin();
             formLogin.Show();
             this.Hide();
         }
+
 
 
         private void panel3_Paint(object sender, PaintEventArgs e)

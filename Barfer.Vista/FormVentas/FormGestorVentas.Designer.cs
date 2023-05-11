@@ -31,7 +31,9 @@
             label1 = new Label();
             dataGridView1 = new DataGridView();
             btnPreparacion = new Button();
+            btnBack = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnBack).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -50,36 +52,51 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.FromArgb(45, 66, 91);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(37, 117);
+            dataGridView1.Location = new Point(21, 113);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(769, 321);
+            dataGridView1.Size = new Size(1508, 536);
             dataGridView1.TabIndex = 2;
+            dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             // 
             // btnPreparacion
             // 
-            btnPreparacion.Location = new Point(286, 478);
+            btnPreparacion.Location = new Point(672, 737);
             btnPreparacion.Name = "btnPreparacion";
-            btnPreparacion.Size = new Size(147, 23);
+            btnPreparacion.Size = new Size(196, 49);
             btnPreparacion.TabIndex = 3;
             btnPreparacion.Text = "Enviar a preparacion";
             btnPreparacion.UseVisualStyleBackColor = true;
             btnPreparacion.Click += btnPreparacion_Click;
+            // 
+            // btnBack
+            // 
+            btnBack.Image = Properties.Resources.back;
+            btnBack.Location = new Point(12, 830);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(100, 51);
+            btnBack.SizeMode = PictureBoxSizeMode.Zoom;
+            btnBack.TabIndex = 4;
+            btnBack.TabStop = false;
+            btnBack.Click += btnBack_Click;
             // 
             // FormGestorVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(49, 66, 82);
-            ClientSize = new Size(874, 554);
+            ClientSize = new Size(1568, 893);
+            Controls.Add(btnBack);
             Controls.Add(btnPreparacion);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Name = "FormGestorVentas";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormGestorVentas";
             Load += FormGestorVentas_Load;
             Paint += FormGestorVentas_Paint;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnBack).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -88,5 +105,6 @@
         private Label label1;
         private DataGridView dataGridView1;
         private Button btnPreparacion;
+        private PictureBox btnBack;
     }
 }

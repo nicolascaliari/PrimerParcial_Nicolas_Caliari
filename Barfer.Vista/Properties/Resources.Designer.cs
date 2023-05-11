@@ -233,9 +233,29 @@ namespace Barfer.Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Envio {
+            get {
+                object obj = ResourceManager.GetObject("Envio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondoPrincipal {
             get {
                 object obj = ResourceManager.GetObject("fondoPrincipal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GestorVentas {
+            get {
+                object obj = ResourceManager.GetObject("GestorVentas", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,6 +286,16 @@ namespace Barfer.Vista.Properties {
         internal static System.Drawing.Bitmap personaAgregar {
             get {
                 object obj = ResourceManager.GetObject("personaAgregar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Preparacion {
+            get {
+                object obj = ResourceManager.GetObject("Preparacion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

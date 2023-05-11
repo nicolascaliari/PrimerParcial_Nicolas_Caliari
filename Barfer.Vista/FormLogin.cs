@@ -21,6 +21,7 @@ namespace Vistas
             InitializeComponent();
             Archivo.CrearArchivoUsuario();
             Archivo.CrearArchivoAlimentos();
+            Archivo.CrearArchivoClientes();
 
         }
 

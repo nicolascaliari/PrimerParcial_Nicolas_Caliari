@@ -1,5 +1,6 @@
 ﻿using Barfer.Entidades;
 using Barfer.Entidades.Usuarios;
+using Barfer.Vista.FormVentas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,10 +18,6 @@ namespace Barfer.Vista.Ventas
 {
     public partial class FormGestorVentas : Form
     {
-        private List<Usuario> clientes;
-        private List<Alimento> alimentos;
-        private Random random;
-
 
         public FormGestorVentas()
         {
@@ -29,62 +26,73 @@ namespace Barfer.Vista.Ventas
 
         private void FormGestorVentas_Load(object sender, EventArgs e)
         {
-            //checkedListBox1.ForeColor = Color.Black;
-            //checkedListBox1.Font = new Font("Arial", 10);
-            //checkedListBox1.Padding = new Padding(10);
-            //listBox1.ItemHeight = 50;
-
             // Generar 10 ventas aleatorias
-            Venta.GenerarVentasAleatorias(10, GestorDeUsuarios.usuarios, GestorProductos.alimento);
+            Venta.GenerarVentasAleatorias(10, GestorDeUsuarios.clientes, GestorProductos.alimento);
 
             // Llenar el ListBox con las ventas generadas
             foreach (Venta venta in Venta.ventas)
             {
                 dataGridView1.DataSource = Venta.ventas;
-                // MessageBox.Show(venta.ToString());
             }
         }
 
 
-        private List<DataGridViewRow> GetSelectedRows()
+        private void btnPreparacion_Click(object sender, EventArgs e)
         {
-            List<DataGridViewRow> selectedRows = new List<DataGridViewRow>();
+            FormPreparacion frmPreparacion = new FormPreparacion();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                DataGridViewCheckBoxCell checkBoxCell = row.Cells[5] as DataGridViewCheckBoxCell;
-                if (checkBoxCell != null && (bool)checkBoxCell.Value)
+                
+                DataGridViewCheckBoxCell checkBoxCell = row.Cells[8] as DataGridViewCheckBoxCell;
+                if (checkBoxCell != null && (bool)checkBoxCell.Value == true)
                 {
-                    selectedRows.Add(row);
+                    Venta venta = new Venta();
+                    // Obtener la fila correspondiente al checkbox
+                    DataGridViewRow selectedRow = checkBoxCell.OwningRow;
+                    // Seleccionar la fila
+                    selectedRow.Selected = true;
+
+                    venta._idVenta = Convert.ToInt32(row.Cells[0].Value);
+                    venta.Cliente = (Cliente)row.Cells[1].Value;
+                    venta.Localidades = (Cliente.Localidades)row.Cells[2].Value;
+                    venta.Alimento = (Alimento.TipoAlimento)row.Cells[3].Value;
+                    venta.Cantidad = Convert.ToInt32(row.Cells[4].Value);
+                    venta.PrecioTotal = Convert.ToDecimal(row.Cells[5].Value);
+                    venta.Fecha = Convert.ToDateTime(row.Cells[6].Value);
+                    row.Cells[7].Value = "en preparacion";
+                    venta.Estado = "en preparacion";
+                    venta.Enviar = (bool)row.Cells[8].Value;
+
+                    Venta.ventasPreparacion.Add(venta);
+                    Venta.ventas.Remove((Venta)row.DataBoundItem);
+                    ActualizarDataGrid(dataGridView1);
+
                 }
             }
-            return selectedRows;
+            frmPreparacion.ShowDialog();
         }
 
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+        }
 
         private void FormGestorVentas_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void btnPreparacion_Click(object sender, EventArgs e)
+
+        private static void ActualizarDataGrid(DataGridView dtg)
         {
-            Reportes reporte = new Reportes();
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                Venta venta = new Venta();
-                DataGridViewCheckBoxCell checkBoxCell = row.Cells[5] as DataGridViewCheckBoxCell;
-                if (checkBoxCell != null && (bool)checkBoxCell.Value)
-                { 
-                    venta.Cliente = (Usuario)row.Cells[0].Value;
-                    venta.Alimento = (Alimento.TipoAlimento)row.Cells[1].Value;
-                    venta.Cantidad = Convert.ToInt32(row.Cells[2].Value);
-                    venta.PrecioTotal = Convert.ToDecimal(row.Cells[3].Value);
-                    venta.Fecha = Convert.ToDateTime(row.Cells[4].Value);
-                    venta.Estado = (bool)row.Cells[5].Value;
-                    reporte.venta.Add(venta);
-                }
-            }
-            reporte.ShowDialog();
+
+            dtg.DataSource = null;
+            dtg.DataSource = Venta.ventas;
+            dtg.Refresh();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 

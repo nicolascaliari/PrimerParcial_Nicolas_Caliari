@@ -1,5 +1,4 @@
-﻿using Barfer.Entidades;
-using Barfer.Entidades.Validaciones;
+﻿using Barfer.Entidades.Validaciones;
 using Barfer.Vista.FrmCalculadora;
 using DocumentFormat.OpenXml.Presentation;
 using System;
@@ -15,6 +14,7 @@ using static Barfer.Entidades.Alimento;
 using static Barfer.Entidades.Gato;
 using static Barfer.Entidades.Mascota;
 using static Barfer.Entidades.Perro;
+using Barfer.Entidades;
 
 namespace Vistas
 {

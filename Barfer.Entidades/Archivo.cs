@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Barfer.Entidades.Alimento;
+using static Barfer.Entidades.Cliente;
 using static Barfer.Entidades.Usuarios.Usuario;
 
 namespace Barfer.Entidades
@@ -15,7 +16,7 @@ namespace Barfer.Entidades
 
         private static string path = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Usuarios.csv";
         private static string pathAlimento = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Alimento.csv";
-        private static string pathVenta = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Ventas.csv";
+        private static string pathClientes = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Clientes.csv";
         public static void CrearArchivoUsuario()
         {
 
@@ -78,7 +79,6 @@ namespace Barfer.Entidades
             bool respuesta = false;
             if (!File.Exists(rutas))
             {
-                // Archivo.CrearArchivoUsuario();
                 respuesta = true;
             }
 
@@ -221,6 +221,87 @@ namespace Barfer.Entidades
 
 
 
+        /////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///
+
+
+
+        public static void CrearArchivoClientes()
+        {
+
+            if (VerificarSiArchivoEstaCreadoClientes(pathClientes) == true)
+            {
+                using (StreamWriter streamWriter = new StreamWriter(pathClientes))
+                {
+
+                    streamWriter.WriteLine("nombre,apellido,localidad");
+                    streamWriter.WriteLine("nicolas,caliari,CABA");
+                    streamWriter.WriteLine("pedro,fernandez,ZonaNorte");
+                    streamWriter.WriteLine("matias,ruiz,CABA");
+                    streamWriter.WriteLine("esteban,gonzales,ZonaSur");
+                    streamWriter.WriteLine("richard,garcia,ZonaSur");
+                    streamWriter.WriteLine("leonardo,perez,ZonaNorte");
+                    streamWriter.WriteLine("gustavo,rojas,ZonaOeste");
+                    streamWriter.WriteLine("mauro,rivera,ZonaNorte");
+                    streamWriter.WriteLine("tomas,sanchez,ZonaOeste");
+                    streamWriter.WriteLine("ulises,rodriguez,ZonaOeste");
+                    streamWriter.WriteLine("nicolas,caliari,ZonaOeste");
+                    streamWriter.WriteLine("malena,illan,ZonaSur");
+                }
+            }
+        }
+
+
+
+        public static List<Cliente> LeerClienteDesdeArchivo()
+        {
+            List<Cliente> clientes = new List<Cliente>();
+
+            string[] lineas = File.ReadAllLines(pathClientes);
+
+            for (int i = 1; i < lineas.Length; i++)
+            {
+                string[] datoUsuario = lineas[i].Split(',');
+
+
+                clientes.Add(new Cliente
+                {
+                    NombreCliente = datoUsuario[0],
+                    Apellido = datoUsuario[1],
+                    Localidad = (Localidades)Enum.Parse(typeof(Localidades), datoUsuario[2]),
+                });
+            }
+
+            return clientes;
+        }
+
+
+        public static void GuardarClientesEnArchivo(List<Cliente> clienteNuevo)
+        {
+            using (StreamWriter sw = new StreamWriter(pathClientes))
+            {
+                sw.WriteLine("nombre,apellido,localidad");
+
+                foreach (Cliente cliente in clienteNuevo)
+                {
+                    sw.WriteLine($"{cliente.NombreCliente},{cliente.Apellido},{cliente.Localidad}");
+                }
+            }
+        }
+
+
+        public static bool VerificarSiArchivoEstaCreadoClientes(string rutas)
+        {
+            bool respuesta = false;
+            if (!File.Exists(rutas))
+            {
+                respuesta = true;
+            }
+
+            return respuesta;
+        }
 
 
     }

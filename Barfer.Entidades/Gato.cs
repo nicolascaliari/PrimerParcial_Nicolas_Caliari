@@ -14,7 +14,7 @@ namespace Barfer.Entidades
         }
 
 
-        public Gato(string nombre, int edad, double peso, TipoMascota tipo) : base(nombre,edad,peso, tipo)
+        public Gato(string nombre, int edad, double peso, TipoMascota tipo) : base(nombre, edad, peso, tipo)
         {
         }
 

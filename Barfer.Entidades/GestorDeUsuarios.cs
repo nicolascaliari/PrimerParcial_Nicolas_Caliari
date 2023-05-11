@@ -11,13 +11,20 @@ namespace Barfer.Entidades
     public class GestorDeUsuarios
     {
         public static List<Usuario> usuarios;
+        public static List<Cliente> clientes;
 
 
         static GestorDeUsuarios()
         {
             CargarUsuariosDesdeArchivo();
+            CargarClientesDesdeArchivo();
         }
 
+
+        public static List<Cliente> CargarClientesDesdeArchivo()
+        {
+            return clientes = Archivo.LeerClienteDesdeArchivo();
+        }
 
         public static List<Usuario> CargarUsuariosDesdeArchivo()
         {
@@ -51,6 +58,8 @@ namespace Barfer.Entidades
                 throw new Exception("No se pudo eliminar");
             }
         }
+
+
 
 
 

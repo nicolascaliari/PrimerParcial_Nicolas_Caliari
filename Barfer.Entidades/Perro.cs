@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades
 {
-    public class Perro:Mascota
+    public class Perro : Mascota
     {
 
-        public Perro(TipoMascota perro):this("",1,1, perro)
+        public Perro(TipoMascota perro) : this("", 1, 1, perro)
         {
         }
 
-        public Perro(string nombre, int edad, double peso, TipoMascota tipo) : base(nombre, edad,peso, tipo)
+        public Perro(string nombre, int edad, double peso, TipoMascota tipo) : base(nombre, edad, peso, tipo)
         {
         }
 
