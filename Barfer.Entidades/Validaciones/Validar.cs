@@ -19,6 +19,12 @@ namespace Barfer.Entidades.Validaciones
             error = -1,
         }
 
+
+        /// <summary>
+        /// Metodo que valida password
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns>Retorna bool</returns>
         public static bool ValidarPassword(string password)
         {
             if (string.IsNullOrEmpty(password) || password.Length < 4)
@@ -32,6 +38,11 @@ namespace Barfer.Entidades.Validaciones
 
 
 
+        /// <summary>
+        /// Metodo que valida el nombre de usuario
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns>Retorna bool</returns>
         public static bool ValidarUsuario(string usuario)
         {
             if (string.IsNullOrEmpty(usuario) || usuario.Length < 3)
@@ -41,7 +52,12 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
-
+        /// <summary>
+        /// Metodo que verifica si el usuario existe
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="pass"></param>
+        /// <returns>Retorna el id del usuario encontrado</returns>
         public static int EncontrarIdUsuario(string nombre, string pass)
         {
             foreach (Usuario item in GestorDeUsuarios.usuarios)
@@ -55,7 +71,12 @@ namespace Barfer.Entidades.Validaciones
             return -1;
         }
 
-
+        /// <summary>
+        /// Metodo que busca a un usuaruo por su id y retorna su nombre y apellido
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="usuarios"></param>
+        /// <returns>Retorna string</returns>
         public static string GetNombreApellido(int userId, List<Usuario> usuarios)
         {
             StringBuilder sb  = new StringBuilder();
@@ -79,7 +100,12 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
-
+        /// <summary>
+        /// Metodo que verifica si el usuario es admin o empleado
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="usuarios"></param>
+        /// <returns>Retorna el tipo de usuario</returns>
         public static OpcionTipo VerificarSiEsAdmin(int userId, List<Usuario> usuarios)
         {
             Usuario usuario = usuarios.FirstOrDefault(u => u.idUsuario == userId);
@@ -103,28 +129,11 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
-        public static int VerificarUsuarioContrasenia(string nombreUsuario, string contrasenia)
-        {
-
-            foreach (Usuario item in GestorDeUsuarios.usuarios)
-            {
-                if (item.nombreUsuario == nombreUsuario && item.contraseñaUsuario == contrasenia)
-                {
-                    if (item.tipoUsuario == Usuario.TipoUsuario.Administrador)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 2;
-                    }
-                }
-            }
-            return -1;
-
-        }
-
-
+        /// <summary>
+        /// Metodo que valida un decimal
+        /// </summary>
+        /// <param name="valor"></param>
+        /// <returns>Retorna bool</returns>
         public static bool EsDecimalValido(decimal valor)
         {
             bool esValido = false;
@@ -136,6 +145,12 @@ namespace Barfer.Entidades.Validaciones
             return esValido;
         }
 
+
+        /// <summary>
+        /// Metodo que valida un string
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns>Retorna bool</returns>
         public static bool ValidarString(string str)
         {
             // Verificar si el string está vacío
@@ -150,11 +165,15 @@ namespace Barfer.Entidades.Validaciones
                 return false;
             }
 
-            // El string es válido
             return true;
         }
 
 
+        /// <summary>
+        /// Metodo que valida un double
+        /// </summary>
+        /// <param name="valor"></param>
+        /// <returns>Retorna un bool</returns>
         public static bool ValidarDouble(double valor)
         {
             // Verificar si el valor es válido
@@ -168,7 +187,13 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
-
+        /// <summary>
+        /// Metodo que valida enums de alimento
+        /// </summary>
+        /// <param name="sabor"></param>
+        /// <param name="cantidad"></param>
+        /// <param name="tipo"></param>
+        /// <returns>Retorna bool</returns>
         public static bool ValidarEnumsAlimento(int sabor, int cantidad, int tipo)
         {
 
@@ -180,6 +205,11 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
+        /// <summary>
+        /// Metodo que valida enums de usuario
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns>Retorna bool</returns>
         public static bool ValidarEnumsUsuario(int usuario)
         {
 
@@ -190,7 +220,16 @@ namespace Barfer.Entidades.Validaciones
             return true;
         }
 
-
+        /// <summary>
+        /// Metodo que valida al alta de alimento
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="precio"></param>
+        /// <param name="cantidad"></param>
+        /// <param name="sabor"></param>
+        /// <param name="cantidadKilos"></param>
+        /// <param name="tipo"></param>
+        /// <returns>Retorna bool</returns>
         public static bool ValidarAlta( string nombre, decimal precio, decimal cantidad, int sabor, int cantidadKilos, int tipo)
         {
             if(ValidarString(nombre) && EsDecimalValido(precio) && EsDecimalValido(cantidad) && ValidarEnumsAlimento(sabor, cantidadKilos, tipo))
@@ -202,8 +241,16 @@ namespace Barfer.Entidades.Validaciones
 
 
 
-
-        public static bool ValidarAltaUsuario(string nombre,string apellido,string password, decimal edad ,int tipo)
+        /// <summary>
+        /// Metodo que valida el alta de un usuario
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="password"></param>
+        /// <param name="edad"></param>
+        /// <param name="tipo"></param>
+        /// <returns>Retorna bool</returns>
+        public static bool ValidarAlta(string nombre,string apellido,string password, decimal edad ,int tipo)
         {
             
             if (ValidarString(nombre) && ValidarString(apellido) && ValidarPassword(password) && EsDecimalValido(edad) && ValidarEnumsUsuario(tipo))
@@ -217,7 +264,14 @@ namespace Barfer.Entidades.Validaciones
 
 
 
-
+        /// <summary>
+        /// Metodo que valida los nuevos datos del usuario a editar
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="password"></param>
+        /// <param name="edad"></param>
+        /// <returns>Retorna bool</returns>
         public static bool ValidarEdicionUsuario(string nombre, string apellido, string password, decimal edad)
         {
 
@@ -229,6 +283,15 @@ namespace Barfer.Entidades.Validaciones
 
         }
 
+
+        /// <summary>
+        /// Metodo que valida los datos que se ingresaro en la calculadora
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="edad"></param>
+        /// <param name="peso"></param>
+        /// <param name="tipo"></param>
+        /// <returns>Retorna bool</returns>
         public static bool ValidarCalculadora(string nombre, decimal edad, double peso, int tipo)
         {
             if(ValidarString(nombre) && EsDecimalValido(edad) && ValidarDouble(peso) && ValidarEnumsUsuario(tipo))

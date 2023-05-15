@@ -48,7 +48,7 @@ namespace Vistas.FrmUsuarios
             string password = txtBoxAltaPassword.Text;
             decimal edad = numericUpDownEdad.Value;
 
-            if (Validar.ValidarAltaUsuario(nombre, apellido, password, edad, comboBoxAltaTipo.SelectedIndex))
+            if (Validar.ValidarAlta(nombre, apellido, password, edad, comboBoxAltaTipo.SelectedIndex))
             {
                 TipoUsuario usuario = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), comboBoxAltaTipo.SelectedItem.ToString());
 

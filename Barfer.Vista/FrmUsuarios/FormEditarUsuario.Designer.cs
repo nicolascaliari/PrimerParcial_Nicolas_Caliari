@@ -33,8 +33,8 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            txtBoxEditarNombre = new TextBox();
-            txtBoxEditarApellido = new TextBox();
+            txtBoxNombre = new TextBox();
+            txtBoxApellido = new TextBox();
             txtBoxEditarContrasenia = new TextBox();
             label5 = new Label();
             lblError = new Label();
@@ -101,19 +101,19 @@
             label4.TabIndex = 4;
             label4.Text = "Edad usuario";
             // 
-            // txtBoxEditarNombre
+            // txtBoxNombre
             // 
-            txtBoxEditarNombre.Location = new Point(115, 113);
-            txtBoxEditarNombre.Name = "txtBoxEditarNombre";
-            txtBoxEditarNombre.Size = new Size(269, 23);
-            txtBoxEditarNombre.TabIndex = 5;
+            txtBoxNombre.Location = new Point(115, 113);
+            txtBoxNombre.Name = "txtBoxNombre";
+            txtBoxNombre.Size = new Size(269, 23);
+            txtBoxNombre.TabIndex = 5;
             // 
-            // txtBoxEditarApellido
+            // txtBoxApellido
             // 
-            txtBoxEditarApellido.Location = new Point(115, 216);
-            txtBoxEditarApellido.Name = "txtBoxEditarApellido";
-            txtBoxEditarApellido.Size = new Size(269, 23);
-            txtBoxEditarApellido.TabIndex = 6;
+            txtBoxApellido.Location = new Point(115, 216);
+            txtBoxApellido.Name = "txtBoxApellido";
+            txtBoxApellido.Size = new Size(269, 23);
+            txtBoxApellido.TabIndex = 6;
             // 
             // txtBoxEditarContrasenia
             // 
@@ -170,8 +170,8 @@
             Controls.Add(lblError);
             Controls.Add(label5);
             Controls.Add(txtBoxEditarContrasenia);
-            Controls.Add(txtBoxEditarApellido);
-            Controls.Add(txtBoxEditarNombre);
+            Controls.Add(txtBoxApellido);
+            Controls.Add(txtBoxNombre);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -191,8 +191,8 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private TextBox txtBoxEditarNombre;
-        private TextBox txtBoxEditarApellido;
+        private TextBox txtBoxNombre;
+        private TextBox txtBoxApellido;
         private TextBox txtBoxEditarContrasenia;
         private Label label5;
         private Label lblError;

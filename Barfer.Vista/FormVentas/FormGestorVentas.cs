@@ -40,6 +40,8 @@ namespace Barfer.Vista.Ventas
         private void btnPreparacion_Click(object sender, EventArgs e)
         {
             FormPreparacion frmPreparacion = new FormPreparacion();
+            var ventasEliminar = new List<Venta>();
+
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 
@@ -51,7 +53,6 @@ namespace Barfer.Vista.Ventas
                     DataGridViewRow selectedRow = checkBoxCell.OwningRow;
                     // Seleccionar la fila
                     selectedRow.Selected = true;
-
                     venta._idVenta = Convert.ToInt32(row.Cells[0].Value);
                     venta.Cliente = (Cliente)row.Cells[1].Value;
                     venta.Localidades = (Cliente.Localidades)row.Cells[2].Value;
@@ -64,11 +65,15 @@ namespace Barfer.Vista.Ventas
                     venta.Enviar = (bool)row.Cells[8].Value;
 
                     Venta.ventasPreparacion.Add(venta);
-                    Venta.ventas.Remove((Venta)row.DataBoundItem);
-                    ActualizarDataGrid(dataGridView1);
-
+                    ventasEliminar.Add((Venta)row.DataBoundItem);
+                   
                 }
             }
+            foreach (Venta venta in ventasEliminar)
+            {
+                Venta.ventas.Remove(venta);
+            }
+            ActualizarDataGrid(dataGridView1);
             frmPreparacion.ShowDialog();
         }
 

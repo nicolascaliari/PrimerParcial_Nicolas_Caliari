@@ -8,7 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Barfer.Entidades;
+using Barfer.Entidades.Usuarios;
+using Barfer.Vista.FrmProductos;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using Vistas.FrmUsuarios;
 
 namespace Vistas
 {
@@ -58,6 +61,8 @@ namespace Vistas
                     GestorProductos.AltaAlimento(altaProducto.nuevoAlimento);
                     Archivo.GuardarEnArchivoAlimento(GestorProductos.alimento);
                     ActualizarStock(dataGrid);
+                    lblTotalStock.Text = GestorProductos.TotalStock();
+                   
                 }
             }
             else
@@ -82,6 +87,7 @@ namespace Vistas
                         GestorProductos.BajaProducto((Alimento)dataGrid.CurrentRow.DataBoundItem);
                         ActualizarStock(dataGrid);
                         Archivo.GuardarEnArchivoAlimento(GestorProductos.alimento);
+                        lblTotalStock.Text = GestorProductos.TotalStock();
                         string mostrar = Alimento.MostrarProductoEliminado((Alimento)dataGrid.CurrentRow.DataBoundItem);
                         MessageBox.Show(mostrar);
                     }
@@ -100,18 +106,21 @@ namespace Vistas
 
         private void btnEditarProducto_Click(object sender, EventArgs e)
         {
-
+            if (this.dataGrid.RowCount == 0)
+            {
+                MessageBox.Show("No hay usuarios para modificar");
+            }
+            else
+            {
+                var formModificacion = new FormEditarAlimento((Alimento)dataGrid.CurrentRow.DataBoundItem);
+                if (formModificacion.ShowDialog() == DialogResult.OK)
+                {
+                    ActualizarStock(dataGrid);
+                    Archivo.GuardarEnArchivoAlimento(GestorProductos.alimento);
+                }
+            }
         }
 
-
-
-
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -123,7 +132,7 @@ namespace Vistas
             if (!string.IsNullOrEmpty(this.txtBoxBuscar.Text))
             {
                 List<Alimento> filtrado = new List<Alimento>();
-                FiltrarDatosDeVuelo(filtrado);
+                FiltrarDatosDeAlimento(filtrado);
                 this.dataGrid.DataSource = filtrado;
             }
             else
@@ -137,7 +146,7 @@ namespace Vistas
 
 
 
-        private void FiltrarDatosDeVuelo(List<Alimento> filtrado)
+        private void FiltrarDatosDeAlimento(List<Alimento> filtrado)
         {
             foreach (Alimento item in GestorProductos.alimento)
             {
@@ -158,7 +167,10 @@ namespace Vistas
         }
 
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
 
 
 

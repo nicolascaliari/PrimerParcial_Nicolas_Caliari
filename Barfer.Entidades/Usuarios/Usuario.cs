@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades.Usuarios
 {
-    public class Usuario
+    public abstract class Usuario
     {
 
         public enum TipoUsuario
@@ -64,11 +64,23 @@ namespace Barfer.Entidades.Usuarios
         }
 
 
+        /// <summary>
+        /// Constructor de la clase Usuario
+        /// </summary>
         public Usuario()
         {
         
         }
 
+
+        /// <summary>
+        /// Constructor de la clase Usuario
+        /// </summary>
+        /// <param name="nombreUsuario"></param>
+        /// <param name="contraseñaUsuario"></param>
+        /// <param name="apellido"></param>
+        /// <param name="edad"></param>
+        /// <param name="tipoUsuario"></param>
         public Usuario(string nombreUsuario, string contraseñaUsuario, string apellido, decimal edad, TipoUsuario tipoUsuario):this()
         {
             _nombreUsuario = nombreUsuario;
@@ -80,6 +92,11 @@ namespace Barfer.Entidades.Usuarios
         }
 
 
+        /// <summary>
+        /// Metodo que obtiene el ultimo id de la lista de usuarios
+        /// </summary>
+        /// <param name="listaUsuarios"></param>
+        /// <returns>Retorna un int</returns>
         public int ObtenerUltimoId(List<Usuario> listaUsuarios)
         {
             int ultimoId = 0;
@@ -99,6 +116,10 @@ namespace Barfer.Entidades.Usuarios
         }
 
 
+        /// <summary>
+        /// Metodo override de ToString para mostrar el nombre y apellido del usuario
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

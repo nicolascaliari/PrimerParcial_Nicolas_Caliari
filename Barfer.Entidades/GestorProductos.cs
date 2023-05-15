@@ -18,6 +18,11 @@ namespace Barfer.Entidades
         }
 
 
+
+        /// <summary>
+        /// Metodo que carga los productos desde el archivo a la lista alimento
+        /// </summary>
+        /// <returns>Retorna la lista</returns>
         public static List<Alimento> CargarAlimentoDesdeArchivo()
         {
            alimento = Archivo.LeerDesdeArchivoAlimento();
@@ -26,6 +31,12 @@ namespace Barfer.Entidades
         }
 
 
+
+        /// <summary>
+        /// Metodo que agrega un producto a la lista alimento
+        /// </summary>
+        /// <param name="producto"></param>
+        /// <exception cref="Exception"></exception>
         public static void AltaAlimento(Alimento producto)
         {
             if (producto == null)
@@ -41,7 +52,11 @@ namespace Barfer.Entidades
 
 
 
-
+        /// <summary>
+        /// Metodo que elimina un producto de la lista alimento
+        /// </summary>
+        /// <param name="producto"></param>
+        /// <exception cref="Exception"></exception>
         public static void BajaProducto(Alimento producto)
         {
             if (producto is not null)
@@ -54,7 +69,10 @@ namespace Barfer.Entidades
             }
         }
 
-
+        /// <summary>
+        /// Metodo que devuelve el total de stock que tiene la lista alimento
+        /// </summary>
+        /// <returns>Retorna string</returns>
         public static string TotalStock()
         {
             StringBuilder sb = new StringBuilder();

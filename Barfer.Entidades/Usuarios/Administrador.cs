@@ -9,11 +9,23 @@ namespace Barfer.Entidades.Usuarios
     public class Administrador : Usuario
     {
 
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="administrador"></param>
         public Administrador(TipoUsuario administrador) : this("", "", "", 1, administrador)
         {
         }
 
+
+        /// <summary>
+        /// Constrcutor parametrizado
+        /// </summary>
+        /// <param name="nombreUsuario"></param>
+        /// <param name="contraseñaUsuario"></param>
+        /// <param name="apellidoUsuario"></param>
+        /// <param name="edadUsuario"></param>
+        /// <param name="tipo"></param>
         public Administrador(string nombreUsuario, string contraseñaUsuario, string apellidoUsuario, decimal edadUsuario, TipoUsuario tipo)
             : base(nombreUsuario, contraseñaUsuario, apellidoUsuario, edadUsuario, tipo)
         {
@@ -21,24 +33,14 @@ namespace Barfer.Entidades.Usuarios
         }
 
 
-
-        public void CrearReporte()
+        /// <summary>
+        /// Operador explicito que convierte un empleado en un administrador
+        /// </summary>
+        /// <param name="empleado"></param>
+        public static explicit operator Administrador(Empleado empleado)
         {
-
+            return new Administrador(empleado.nombreUsuario, empleado.contraseñaUsuario, empleado.apellidoUsuario, empleado.edadUsuario, empleado.tipoUsuario);
         }
 
-
-        //public static explicit operator Administrador(Empleado empleado)
-        //{
-        //    return new Administrador();
-        //}
-
-
-
-
-        //public override string MostrarUsuario()
-        //  {
-        //      return base.MostrarUsuario();
-        //  }
     }
 }

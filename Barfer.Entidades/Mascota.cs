@@ -34,12 +34,22 @@ namespace Barfer.Entidades
             _tipo = tipo;
         }
 
+
+        /// <summary>
+        /// Metodo virtual para calcular el alimento de la mascota
+        /// </summary>
+        /// <param name="tipoAnimal"></param>
+        /// <returns>Retorna 0</returns>
         public  virtual double CalcularAlimento(string tipoAnimal)
         {
             return 0;
         }
 
 
+        /// <summary>
+        /// Metodo virtual para mostrar la mascota
+        /// </summary>
+        /// <returns>Retorna string</returns>
         public virtual string MostrarMascota()
         {
             StringBuilder sb = new StringBuilder();

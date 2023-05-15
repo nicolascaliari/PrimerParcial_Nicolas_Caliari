@@ -17,6 +17,12 @@ namespace Barfer.Entidades
         {
         }
 
+
+        /// <summary>
+        /// Metodo para calcular el alimento del perro
+        /// </summary>
+        /// <param name="tipoAnimal"></param>
+        /// <returns>Retorna un double</returns>
         public override double CalcularAlimento(string tipoAnimal)
         {
             if (tipoAnimal == "Perro")
@@ -45,7 +51,10 @@ namespace Barfer.Entidades
             return 0;
         }
 
-
+        /// <summary>
+        /// Metodo para mostrar la mascota
+        /// </summary>
+        /// <returns>Retorna string</returns>
         public override string MostrarMascota()
         {
             return base.MostrarMascota();

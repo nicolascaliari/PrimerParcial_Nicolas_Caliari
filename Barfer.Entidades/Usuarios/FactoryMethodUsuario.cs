@@ -12,6 +12,12 @@ namespace Barfer.Entidades.Usuarios
         public const int Administrador = 1;
         public const int Empleado = 2;
 
+
+        /// <summary>
+        /// Meotodo que crea un usuario dependiendo su tipo
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <returns>Retorna el usuario</returns>
         public static Usuario CrearUsuario(TipoUsuario tipo)
         {
             Usuario usuario = null;

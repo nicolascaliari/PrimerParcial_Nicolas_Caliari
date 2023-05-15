@@ -9,27 +9,41 @@ namespace Barfer.Entidades.Usuarios
     public class Empleado : Usuario
     {
 
-        public Empleado(TipoUsuario empleado):this("","","",1,empleado,1)
+
+
+        /// <summary>
+        /// Constructor para el factory
+        /// </summary>
+        /// <param name="empleado"></param>
+        public Empleado(TipoUsuario empleado):this("","","",1,empleado)
         {
         }
 
-        public Empleado(string nombreUsuario, string contraseñaUsuario, string apellidoUsuario, decimal edadUsuario, TipoUsuario tipo, int salario)
+
+
+        /// <summary>
+        /// Constructor parametrizado
+        /// </summary>
+        /// <param name="nombreUsuario"></param>
+        /// <param name="contraseñaUsuario"></param>
+        /// <param name="apellidoUsuario"></param>
+        /// <param name="edadUsuario"></param>
+        /// <param name="tipo"></param>
+        public Empleado(string nombreUsuario, string contraseñaUsuario, string apellidoUsuario, decimal edadUsuario, TipoUsuario tipo)
             : base(nombreUsuario, contraseñaUsuario, apellidoUsuario, edadUsuario, tipo)
         {
         }
 
-        
-        //public override string MostrarUsuario()
-        //{        
-        //   return base.MostrarUsuario();
-        //}
 
 
-
-        //public static explicit operator Empleado(Administrador administrador)
-        //{
-        //    return new Empleado();
-        //}
+        /// <summary>
+        /// operador explicito que convierte un administrador en un empleado
+        /// </summary>
+        /// <param name="administrador"></param>
+        public static explicit operator Empleado(Administrador administrador)
+        {
+            return new Empleado(administrador.nombreUsuario, administrador.contraseñaUsuario, administrador.apellidoUsuario, administrador.edadUsuario, administrador.tipoUsuario);
+        }
 
     }
 }

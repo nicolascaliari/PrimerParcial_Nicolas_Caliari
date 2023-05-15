@@ -1,5 +1,5 @@
 id,nombre producto,precio,cantidad,sabor,kilos,tipo
-1,perro pollo,2000,5,pollo,cincoKilos,perro
+1,perro pollo,2000,5,pollo,diezKilos,perro
 2,gato vaca,2000,5,vaca,diezKilos,gato
 3,perro pollo,2000,5,pollo,cincoKilos,perro
 4,gato vaca,2000,5,vaca,diezKilos,gato
@@ -47,3 +47,6 @@ id,nombre producto,precio,cantidad,sabor,kilos,tipo
 46,gato vaca,2000,5,vaca,diezKilos,gato
 47,gato vaca,2000,5,vaca,diezKilos,gato
 48,gato vaca,2000,5,vaca,diezKilos,gato
+49,perro polloo,100,10,cerdo,diezKilos,gato
+50,rgeg,100,10,vaca,cincoKilos,gato
+51,weww,33,20,vaca,diezKilos,gato

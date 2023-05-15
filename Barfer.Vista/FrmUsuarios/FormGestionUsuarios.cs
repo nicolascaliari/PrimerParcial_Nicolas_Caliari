@@ -71,7 +71,6 @@ namespace Vistas
             }
         }
 
-
         private void btnEditarUsuario_Click(object sender, EventArgs e)
         {
             if (this.dataGridView1.RowCount == 0)

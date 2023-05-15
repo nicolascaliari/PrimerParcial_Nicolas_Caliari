@@ -1,4 +1,6 @@
 ﻿using Barfer.Entidades.Usuarios;
+using DocumentFormat.OpenXml.Math;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -113,12 +115,11 @@ namespace Barfer.Entidades
 
         }
 
-
-        //public void OrdenarAlimentos()
-        //{
-
-        //}
-
+        /// <summary>
+        /// Metodo para obtener el ultimo id de la lista de alimentos
+        /// </summary>
+        /// <param name="listaAlimento"></param>
+        /// <returns>Retorna un entero</returns>
         public int ObtenerUltimoIdAlimentos(List<Alimento> listaAlimento)
         {
             int ultimoId = 0;
@@ -139,6 +140,11 @@ namespace Barfer.Entidades
 
 
 
+        /// <summary>
+        /// Metodo para mostrar el producto eliminado
+        /// </summary>
+        /// <param name="producto"></param>
+        /// <returns>Retorna los datos del alimento eliminado</returns>
         public static string MostrarProductoEliminado(Alimento producto)
         {
             StringBuilder sb = new StringBuilder();
@@ -154,5 +160,8 @@ namespace Barfer.Entidades
             return sb.ToString();
 
         }
+
+
+     
     }
 }

@@ -44,16 +44,16 @@ namespace Barfer.Entidades
             {
                 string[] datoUsuario = lineas[i].Split(',');
 
+                TipoUsuario tipo = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), datoUsuario[5]);
 
-                usuarios.Add(new Usuario
-                {
-                    idUsuario = int.Parse(datoUsuario[0]),
-                    nombreUsuario = datoUsuario[1],
-                    apellidoUsuario = datoUsuario[2],
-                    contraseñaUsuario = datoUsuario[3],
-                    edadUsuario = Decimal.Parse(datoUsuario[4]),
-                    tipoUsuario = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), datoUsuario[5]),
-                });
+                var usuario = FactoryMethodUsuario.CrearUsuario(tipo);
+                usuario.idUsuario = int.Parse(datoUsuario[0]);
+                usuario.nombreUsuario = datoUsuario[1];
+                usuario.apellidoUsuario = datoUsuario[2];
+                usuario.contraseñaUsuario = datoUsuario[3];
+                usuario.edadUsuario = Decimal.Parse(datoUsuario[4]);
+                usuario.tipoUsuario = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), datoUsuario[5]);
+                usuarios.Add(usuario);
             }
 
             return usuarios;
@@ -193,8 +193,8 @@ namespace Barfer.Entidades
                 {
                     id = int.Parse(datoUsuario[0]),
                     nombre = datoUsuario[1],
-                    precio = Decimal.Parse((datoUsuario[2])),
-                    cantidad = Decimal.Parse(((datoUsuario[3]))),
+                    precio = decimal.Parse((datoUsuario[2])),
+                    cantidad = decimal.Parse(((datoUsuario[3]))),
                     sabor = (SaborAlimento)Enum.Parse(typeof(SaborAlimento) , datoUsuario[4]),
                     cantidadKilos = (CantidadKilos)Enum.Parse(typeof(CantidadKilos), datoUsuario[5]),
                     tipoAlimento = (TipoAlimento)Enum.Parse(typeof(TipoAlimento), datoUsuario[6]),
