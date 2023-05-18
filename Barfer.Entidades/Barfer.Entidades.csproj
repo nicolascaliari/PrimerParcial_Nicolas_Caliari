@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Archivos\**" />
-    <EmbeddedResource Remove="Archivos\**" />
-    <None Remove="Archivos\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="SpreadsheetLight" Version="3.5.0" />
   </ItemGroup>
 

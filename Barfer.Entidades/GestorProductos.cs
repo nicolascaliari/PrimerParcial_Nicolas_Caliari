@@ -1,4 +1,5 @@
-﻿using Barfer.Entidades.Usuarios;
+﻿using Barfer.Entidades.Archivos;
+using Barfer.Entidades.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +26,7 @@ namespace Barfer.Entidades
         /// <returns>Retorna la lista</returns>
         public static List<Alimento> CargarAlimentoDesdeArchivo()
         {
-           alimento = Archivo.LeerDesdeArchivoAlimento();
-
-            return alimento;
+           return alimento = Controlador.CargarAlimentoDesdeArchivo();
         }
 
 

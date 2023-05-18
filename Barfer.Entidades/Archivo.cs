@@ -51,7 +51,7 @@ namespace Barfer.Entidades
                 usuario.nombreUsuario = datoUsuario[1];
                 usuario.apellidoUsuario = datoUsuario[2];
                 usuario.contraseñaUsuario = datoUsuario[3];
-                usuario.edadUsuario = Decimal.Parse(datoUsuario[4]);
+                usuario.edadUsuario = decimal.Parse(datoUsuario[4]);
                 usuario.tipoUsuario = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), datoUsuario[5]);
                 usuarios.Add(usuario);
             }

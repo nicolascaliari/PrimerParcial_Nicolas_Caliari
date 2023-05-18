@@ -25,15 +25,12 @@ namespace Barfer.Entidades.Validaciones
         /// </summary>
         /// <param name="password"></param>
         /// <returns>Retorna bool</returns>
-        public static bool ValidarPassword(string password)
+        public static void ValidarPassword(string password)
         {
-            if (string.IsNullOrEmpty(password) || password.Length < 4)
-                return false;
-
-            if (!password.Any(char.IsUpper) || !password.Any(char.IsLower) || !password.Any(char.IsDigit))
-                return false;
-
-            return true;
+            if (string.IsNullOrEmpty(password) || password.Length < 4 || (!password.Any(char.IsUpper) || !password.Any(char.IsLower) || !password.Any(char.IsDigit)))
+            {
+                throw new LoginFallidoException("password de usuario incorrecto");
+            }
         }
 
 
@@ -43,12 +40,12 @@ namespace Barfer.Entidades.Validaciones
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns>Retorna bool</returns>
-        public static bool ValidarUsuario(string usuario)
+        public static void ValidarUsuario(string usuario)
         {
-            if (string.IsNullOrEmpty(usuario) || usuario.Length < 3)
-                return false;
-
-            return true;
+              if (string.IsNullOrEmpty(usuario) || usuario.Length < 3)
+              {
+                throw new LoginFallidoException("nombre de usuario incorrecto");
+              }
         }
 
 
@@ -68,7 +65,7 @@ namespace Barfer.Entidades.Validaciones
 
                 }
             }
-            return -1;
+            throw new LoginFallidoException("usuario no encontrado");
         }
 
         /// <summary>
@@ -253,11 +250,11 @@ namespace Barfer.Entidades.Validaciones
         public static bool ValidarAlta(string nombre,string apellido,string password, decimal edad ,int tipo)
         {
             
-            if (ValidarString(nombre) && ValidarString(apellido) && ValidarPassword(password) && EsDecimalValido(edad) && ValidarEnumsUsuario(tipo))
-            {
-                return true;
-            }
-            return false;
+            //if (ValidarString(nombre) && ValidarString(apellido) && ValidarPassword(password) && EsDecimalValido(edad) && ValidarEnumsUsuario(tipo))
+            //{
+            //    return true;
+            //}
+            return true;
 
         }
 
@@ -275,10 +272,10 @@ namespace Barfer.Entidades.Validaciones
         public static bool ValidarEdicionUsuario(string nombre, string apellido, string password, decimal edad)
         {
 
-            if (ValidarString(nombre) && ValidarString(apellido) && ValidarPassword(password) && EsDecimalValido(edad))
-            {
-                return true;
-            }
+            //if (ValidarString(nombre) && ValidarString(apellido) && ValidarPassword(password) && EsDecimalValido(edad))
+            //{
+            //    return true;
+            //}
             return false;
 
         }

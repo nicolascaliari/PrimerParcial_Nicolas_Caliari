@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Barfer.Entidades;
+using Barfer.Entidades.Archivos;
 using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
 
@@ -19,8 +20,10 @@ namespace Vistas
         public FormLogin()
         {
             InitializeComponent();
-            Archivo.CrearArchivoUsuario();
-            Archivo.CrearArchivoAlimentos();
+
+            GestorDeUsuarios.CargarUsuariosDesdeArchivo();
+            GestorProductos.CargarAlimentoDesdeArchivo();
+            //Archivo.CrearArchivoAlimentos();
             Archivo.CrearArchivoClientes();
 
         }
@@ -39,28 +42,19 @@ namespace Vistas
             string nombre = txtBoxNombreUsuario.Text;
             string contrasenia = txtBoxContraseñaUsuario.Text;
 
-            if (Validar.ValidarUsuario(nombre) && Validar.ValidarPassword(contrasenia))
+            try
             {
+                Validar.ValidarUsuario(nombre);
+                Validar.ValidarPassword(contrasenia);
+
                 int id = Validar.EncontrarIdUsuario(nombre, contrasenia);
+                AccederMenuPrincipal(id, contrasenia);
 
-                if (id != -1)
-                {
-                    AccederMenuPrincipal(id, contrasenia);
-                }
-                else
-                {
-                    MessageBox.Show("Usuario o contraseña incorrectos");
-                }
             }
-            else
+            catch(LoginFallidoException ex)
             {
-                MessageBox.Show("Usuario o contraseña incorrecto");
+                MessageBox.Show($"Error {ex.Message}");
             }
-
-
-
-
-
         }
 
 

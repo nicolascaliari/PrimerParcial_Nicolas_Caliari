@@ -130,5 +130,24 @@ namespace Barfer.Entidades.Usuarios
             return sb.ToString();
         }
 
+        public static explicit operator Usuario(string linea)
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+            string[] datos = linea.Split(',');
+            TipoUsuario tipo = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), datos[5]);
+
+            var usuario = FactoryMethodUsuario.CrearUsuario(tipo);
+            usuario.idUsuario = int.Parse(datos[0]);
+            usuario.nombreUsuario = datos[1];
+            usuario.apellidoUsuario = datos[2];
+            usuario.contraseñaUsuario = datos[3];
+            usuario.edadUsuario = Decimal.Parse(datos[4]);
+            usuario.tipoUsuario = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), datos[5]);
+            usuarios.Add(usuario);
+
+
+            return usuario;
+        
+        }
     }
 }

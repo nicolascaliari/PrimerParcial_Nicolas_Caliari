@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Barfer.Entidades;
+using Barfer.Entidades.Archivos;
 using Barfer.Entidades.Usuarios;
 using Barfer.Vista.FrmProductos;
 using DocumentFormat.OpenXml.Office2010.Excel;
@@ -59,7 +60,8 @@ namespace Vistas
                 if (altaProducto.ShowDialog() == DialogResult.OK)
                 {
                     GestorProductos.AltaAlimento(altaProducto.nuevoAlimento);
-                    Archivo.GuardarEnArchivoAlimento(GestorProductos.alimento);
+                    GuardarArchivo.GuardarAlimentoEnArchivo(GestorProductos.alimento);
+                    // Archivo.GuardarEnArchivoAlimento(GestorProductos.alimento);
                     ActualizarStock(dataGrid);
                     lblTotalStock.Text = GestorProductos.TotalStock();
                    
@@ -86,7 +88,7 @@ namespace Vistas
                     {
                         GestorProductos.BajaProducto((Alimento)dataGrid.CurrentRow.DataBoundItem);
                         ActualizarStock(dataGrid);
-                        Archivo.GuardarEnArchivoAlimento(GestorProductos.alimento);
+                        GuardarArchivo.GuardarAlimentoEnArchivo(GestorProductos.alimento);
                         lblTotalStock.Text = GestorProductos.TotalStock();
                         string mostrar = Alimento.MostrarProductoEliminado((Alimento)dataGrid.CurrentRow.DataBoundItem);
                         MessageBox.Show(mostrar);
@@ -116,7 +118,7 @@ namespace Vistas
                 if (formModificacion.ShowDialog() == DialogResult.OK)
                 {
                     ActualizarStock(dataGrid);
-                    Archivo.GuardarEnArchivoAlimento(GestorProductos.alimento);
+                    GuardarArchivo.GuardarAlimentoEnArchivo(GestorProductos.alimento);
                 }
             }
         }

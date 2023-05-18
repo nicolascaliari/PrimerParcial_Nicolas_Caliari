@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Barfer.Entidades;
+using Barfer.Entidades.Archivos;
 using Barfer.Entidades.Usuarios;
 using SpreadsheetLight;
 using Vistas.FrmUsuarios;
@@ -51,7 +52,8 @@ namespace Vistas
             if (formAlta.ShowDialog() == DialogResult.OK)
             {
                 GestorDeUsuarios.AltaUsuario(formAlta.nuevoUsuario);
-                Archivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
+                GuardarArchivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
+                //Archivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
                 ActualizarUsuarios(dataGridView1);
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Barfer.Entidades.Archivos;
 using Barfer.Entidades.Usuarios;
 using DocumentFormat.OpenXml.Drawing;
 
@@ -12,7 +13,7 @@ namespace Barfer.Entidades
     {
         public static List<Usuario> usuarios;
         public static List<Cliente> clientes;
-
+        private static string path = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Usuarios.csv";
 
         static GestorDeUsuarios()
         {
@@ -37,10 +38,20 @@ namespace Barfer.Entidades
         /// <returns>una lista  de Usuario</returns>
         public static List<Usuario> CargarUsuariosDesdeArchivo()
         {
-            return usuarios = Archivo.LeerUsuariosDesdeArchivo();
+            return usuarios = Controlador.CargarUsuariosDesdeArchivo();
         }
 
 
+        public static bool VerificarSiArchivoEstaCreado(string rutas)
+        {
+            bool respuesta = false;
+            if (!File.Exists(rutas))
+            {
+                respuesta = true;
+            }
+
+            return respuesta;
+        }
 
         /// <summary>
         /// Metodo que agrega un usuario a la lista
