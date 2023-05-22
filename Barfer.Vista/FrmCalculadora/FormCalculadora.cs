@@ -46,7 +46,7 @@ namespace Vistas
             int edad = (int)numericUpDownEdad.Value;
             double peso = (double)numericUpDownPeso.Value;
 
-            if(Validar.ValidarCalculadora(nombre, edad , peso , cmbMascota.SelectedIndex))
+            if(Validador.ValidarCalculadora(nombre, edad , peso , cmbMascota.SelectedIndex))
             {
                 string tipoAnimal = cmbMascota.SelectedItem.ToString();
                 mascota = FactoryMethod.CrearMascota(tipoAnimal);

@@ -53,15 +53,15 @@ namespace Barfer.Entidades.Archivos
 
 
 
-        public static void GuardarClienteEnArchivo(List<Usuario> usuarioNuevo)
+        public static void GuardarClienteEnArchivo(List<Cliente> clienteNuevo)
         {
             using (StreamWriter sw = new StreamWriter(pathAlimento))
             {
                 sw.WriteLine("id,nombre,apellido,contrasenia,edad,tipo de usuario");
 
-                foreach (Usuario usuario in usuarioNuevo)
+                foreach (Cliente cliente in clienteNuevo)
                 {
-                    sw.WriteLine($"{usuario.idUsuario},{usuario.nombreUsuario},{usuario.apellidoUsuario},{usuario.contraseñaUsuario},{usuario.edadUsuario},{usuario.tipoUsuario}");
+                    sw.WriteLine($"{cliente.NombreCliente},{cliente.Apellido},{cliente.Localidad}");
                 }
             }
         }

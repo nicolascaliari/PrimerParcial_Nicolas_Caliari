@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades
 {
-
-
     public class Cliente
     {
 
@@ -30,7 +28,6 @@ namespace Barfer.Entidades
 
         public string NombreCliente { get => _nombreCliente; set => _nombreCliente = value; }
         public string Apellido { get => _apellido; set => _apellido = value; }
-
         public Localidades Localidad { get => _localidad; set => _localidad = value; }
         
 
@@ -41,7 +38,7 @@ namespace Barfer.Entidades
         }
 
 
-        public Cliente(string nombre, string apellido, Localidades localidad)
+        public Cliente(string nombre, string apellido, Localidades localidad):this()
         {
 
             _nombreCliente = nombre;

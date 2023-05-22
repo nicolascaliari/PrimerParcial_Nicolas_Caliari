@@ -66,7 +66,7 @@ namespace Vistas
             if (respuesta == DialogResult.Yes)
             {
                 GestorDeUsuarios.BajaUsuario((Usuario)dataGridView1.CurrentRow.DataBoundItem);
-                Archivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
+                GuardarArchivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
                 ActualizarUsuarios(dataGridView1);
 
 
@@ -85,7 +85,7 @@ namespace Vistas
                 if (formModificacion.ShowDialog() == DialogResult.OK)
                 {
                     ActualizarUsuarios(dataGridView1);
-                    Archivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
+                    GuardarArchivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
                 }
             }
         }

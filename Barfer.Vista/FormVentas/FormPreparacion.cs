@@ -31,7 +31,7 @@ namespace Barfer.Vista.FormVentas
                 lblNoHayPreparaciones.Visible = false;
                 foreach (var row in Venta.ventasPreparacion)
                 {
-                    dtgPreparacion.Rows.Add(row.Cliente, row.Alimento, row.Cantidad, row.PrecioTotal, row.Fecha, row.Estado);
+                    dtgPreparacion.Rows.Add(row.cliente, row.alimento, row.cantidad, row.precioTotal, row.fecha, row.estado);
                 }
             }
         }

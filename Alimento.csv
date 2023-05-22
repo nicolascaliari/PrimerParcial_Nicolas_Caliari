@@ -1,49 +1,9 @@
 id,nombre producto,precio,cantidad,sabor,kilos,tipo
-1,perro pollo,2000,5,pollo,cincoKilos,perro
-2,gato vaca,2000,5,vaca,diezKilos,gato
-3,perro pollo,2000,5,pollo,cincoKilos,perro
-4,gato vaca,2000,5,vaca,diezKilos,gato
-5,perro pollo,2000,5,pollo,cincoKilos,perro
-6,gato vaca,2000,5,vaca,diezKilos,gato
-7,perro pollo,2000,5,pollo,cincoKilos,perro
-8,gato vaca,2000,5,vaca,diezKilos,gato
-9,perro pollo,2000,5,pollo,cincoKilos,perro
-10,gato vaca,2000,5,vaca,diezKilos,gato
-11,perro pollo,2000,5,pollo,cincoKilos,perro
-12,gato vaca,2000,5,vaca,diezKilos,gato
-13,perro pollo,2000,5,pollo,cincoKilos,perro
-14,gato vaca,2000,5,vaca,diezKilos,gato
-15,perro pollo,2000,5,pollo,cincoKilos,perro
-16,perro pollo,2000,5,pollo,cincoKilos,perro
-17,gato vaca,2000,5,vaca,diezKilos,gato
-18,perro pollo,2000,5,pollo,cincoKilos,perro
-19,perro pollo,2000,5,pollo,cincoKilos,perro
-20,perro pollo,2000,5,pollo,cincoKilos,perro
-21,perro pollo,2000,5,pollo,cincoKilos,perro
-22,gato vaca,2000,5,vaca,diezKilos,gato
-23,perro pollo,2000,5,pollo,cincoKilos,perro
-24,gato vaca,2000,5,vaca,diezKilos,gato
-25,perro pollo,2000,5,pollo,cincoKilos,perro
-26,gato vaca,2000,5,vaca,diezKilos,gato
-27,perro pollo,2000,5,pollo,cincoKilos,perro
-28,perro pollo,2000,5,pollo,cincoKilos,perro
-29,perro pollo,2000,5,pollo,cincoKilos,perro
-30,gato vaca,2000,5,vaca,diezKilos,gato
-31,perro pollo,2000,5,pollo,cincoKilos,perro
-32,gato vaca,2000,5,vaca,diezKilos,gato
-33,perro pollo,2000,5,pollo,cincoKilos,perro
-34,perro pollo,2000,5,pollo,cincoKilos,perro
-35,gato vaca,2000,5,vaca,diezKilos,gato
-36,perro pollo,2000,5,pollo,cincoKilos,perro
-37,perro pollo,2000,5,pollo,cincoKilos,perro
-38,perro pollo,2000,5,pollo,cincoKilos,perro
-39,gato vaca,2000,5,vaca,diezKilos,gato
-40,gato vaca,2000,5,vaca,diezKilos,gato
-41,gato vaca,2000,5,vaca,diezKilos,gato
-42,gato vaca,2000,5,vaca,diezKilos,gato
-43,gato vaca,2000,5,vaca,diezKilos,gato
-44,gato vaca,2000,5,vaca,diezKilos,gato
-45,gato vaca,2000,5,vaca,diezKilos,gato
-46,gato vaca,2000,5,vaca,diezKilos,gato
-47,gato vaca,2000,5,vaca,diezKilos,gato
-48,gato vaca,2000,5,vaca,diezKilos,gato
+1,perro pollo con vegetales,1000,1,cerdo,diezKilos,perro
+2,gato vaca con vegetales,2000,3,vaca,diezKilos,gato
+3,perro pollo sin vegetales,2000,5,pollo,cincoKilos,perro
+5,Cornalitos,2000,0,pollo,cincoKilos,complemento
+6,Sardinas,2000,2,vaca,diezKilos,complemento
+7,perro pollo,2000,0,pollo,cincoKilos,perro
+8,snack de pollo,2000,1,vaca,diezKilos,gato
+9,pepe,2000,2,vaca,cincoKilos,complemento

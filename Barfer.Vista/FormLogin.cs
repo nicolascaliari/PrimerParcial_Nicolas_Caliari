@@ -23,8 +23,9 @@ namespace Vistas
 
             GestorDeUsuarios.CargarUsuariosDesdeArchivo();
             GestorProductos.CargarAlimentoDesdeArchivo();
+            GestorDeUsuarios.CargarClientesDesdeArchivo();
             //Archivo.CrearArchivoAlimentos();
-            Archivo.CrearArchivoClientes();
+           // Archivo.CrearArchivoClientes();
 
         }
 
@@ -44,10 +45,10 @@ namespace Vistas
 
             try
             {
-                Validar.ValidarUsuario(nombre);
-                Validar.ValidarPassword(contrasenia);
+                Validador.ValidarUsuario(nombre);
+                Validador.ValidarPassword(contrasenia);
 
-                int id = Validar.EncontrarIdUsuario(nombre, contrasenia);
+                int id = Validador.EncontrarIdUsuario(nombre, contrasenia);
                 AccederMenuPrincipal(id, contrasenia);
 
             }

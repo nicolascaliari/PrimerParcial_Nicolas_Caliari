@@ -91,6 +91,7 @@
             // numericUpDownCantidad
             // 
             numericUpDownCantidad.Location = new Point(123, 291);
+            numericUpDownCantidad.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             numericUpDownCantidad.Name = "numericUpDownCantidad";
             numericUpDownCantidad.Size = new Size(226, 23);
             numericUpDownCantidad.TabIndex = 5;
@@ -158,16 +159,18 @@
             // numericPrecioAlta
             // 
             numericPrecioAlta.Location = new Point(123, 192);
+            numericPrecioAlta.Maximum = new decimal(new int[] { 3000, 0, 0, 0 });
             numericPrecioAlta.Name = "numericPrecioAlta";
             numericPrecioAlta.Size = new Size(226, 23);
             numericPrecioAlta.TabIndex = 13;
+            numericPrecioAlta.Value = new decimal(new int[] { 1000, 0, 0, 0 });
             // 
             // lblError
             // 
             lblError.AutoSize = true;
             lblError.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblError.ForeColor = Color.IndianRed;
-            lblError.Location = new Point(172, 583);
+            lblError.Location = new Point(59, 582);
             lblError.Name = "lblError";
             lblError.Size = new Size(133, 20);
             lblError.TabIndex = 14;

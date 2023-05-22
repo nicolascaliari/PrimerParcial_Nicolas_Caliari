@@ -1,4 +1,5 @@
-﻿using Barfer.Entidades.Usuarios;
+﻿using Barfer.Entidades.Archivos;
+using Barfer.Entidades.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,54 +17,51 @@ namespace Barfer.Entidades
 
 
 
-        public int _idVenta { get; set; }
-        public Cliente Cliente { get; set; }
+        private int _idVenta;
+        private Cliente _cliente;
+        public Cliente.Localidades _localidades;
+        private Alimento _alimento;
+        private int _cantidad;
+        private decimal _precioTotal;
+        private DateTime _fecha;
+        private string _estado;
+        private bool _enviar;
 
-        public Cliente.Localidades Localidades { get; set; }
-        public Alimento.TipoAlimento Alimento { get; set; }
-        public int Cantidad { get; set; }
-        public decimal PrecioTotal { get; set; }
-        public DateTime Fecha { get; set; }
-        public string Estado { get; set; }
-        public bool Enviar { get; set; }
+
+
+
+        public int idVenta { get => _idVenta; set => _idVenta = value; }
+        public Cliente cliente { get => _cliente; set => _cliente = value; }
+        public Cliente.Localidades localidades { get => _localidades; set => _localidades = value; }
+        public Alimento alimento { get => _alimento; set => _alimento = value; }
+        public int cantidad { get => _cantidad; set => _cantidad = value; }
+        public decimal precioTotal { get => _precioTotal; set => _precioTotal = value; }
+        public DateTime fecha { get => _fecha; set => _fecha = value; }
+        public string estado { get => _estado; set => _estado = value; }
+        public bool enviar { get => _enviar; set => _enviar = value; }
+
+
+
+
 
         public Venta()
         {
 
         }
 
-        public Venta(int idVenta,Cliente cliente, Cliente.Localidades localidad,Alimento.TipoAlimento alimento, int cantidad, decimal precioTotal, DateTime fecha)
+        public Venta(int idVenta,Cliente cliente, Cliente.Localidades localidad, Alimento alimento, int cantidad, decimal precioTotal, DateTime fecha)
         {
             _idVenta = idVenta;
-            Cliente = cliente;
-            Localidades = localidad;
-            Alimento = alimento;
-            Cantidad = cantidad;
-            PrecioTotal = precioTotal;
-            Fecha = fecha;
-            Estado = "Sin preparar";
-            Enviar = false;
+            _cliente = cliente;
+            _localidades = localidad;
+            _alimento = alimento;
+            _cantidad = cantidad;
+            _precioTotal = precioTotal;
+            _fecha = fecha;
+            _estado = "Sin preparar";
+            _enviar = false;
         }
 
-        public static string Mostrar(List<Venta> venta)
-        {
-            foreach (Venta item in venta)
-            {
-
-                StringBuilder sb = new StringBuilder();
-                sb.Append($"ID: {item._idVenta}");
-                sb.Append($"{item.Cliente.NombreCliente.ToString()}");
-                sb.Append($"{item.Alimento}");
-                sb.Append($" {item.Cantidad}");
-                sb.Append($" ${item.PrecioTotal}");
-                sb.AppendLine($"");
-                return sb.ToString();
-            }
-
-
-            return null;
-
-        }
 
         public static Venta GenerarVentas(List<Cliente> clientes, List<Alimento> alimentos)
         {
@@ -84,7 +82,12 @@ namespace Barfer.Entidades
 
             // Generar una fecha aleatoria en el último mes
             DateTime fecha = DateTime.Now.AddDays(-random.Next(1, 31));
-            Venta venta = new Venta(idVenta,cliente,cliente.Localidad ,alimento.tipoAlimento, cantidad, precio,fecha);
+
+
+            DescontarDelStock(alimentos, alimento, cantidad);
+
+
+            Venta venta = new Venta(idVenta,cliente,cliente.Localidad ,alimento, cantidad, precio,fecha);
 
             return venta;
         }
@@ -99,6 +102,18 @@ namespace Barfer.Entidades
         }
 
 
+
+        private static void DescontarDelStock(List<Alimento> alimentos, Alimento alimento, int cantidad)
+        {
+            Alimento productoVendido = alimentos.FirstOrDefault(p => p.nombre == alimento.nombre);
+            if (productoVendido != null)
+            {
+                decimal nuevoStock = productoVendido.cantidad -= cantidad;
+                alimento.cantidad = nuevoStock;
+                GuardarArchivo.GuardarAlimentoEnArchivo(GestorProductos.alimento);
+
+            }
+        }
 
     }
 }

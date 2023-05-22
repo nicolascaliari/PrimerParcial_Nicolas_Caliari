@@ -48,8 +48,15 @@ namespace Vistas.FrmUsuarios
             string password = txtBoxAltaPassword.Text;
             decimal edad = numericUpDownEdad.Value;
 
-            if (Validar.ValidarAlta(nombre, apellido, password, edad, comboBoxAltaTipo.SelectedIndex))
+
+            try
             {
+                Validador.ValidarUsuario(nombre);
+                Validador.ValidarApellidoUsuario(apellido);
+                Validador.ValidarPassword(password);
+                Validador.ValidarEdadUsuario(edad);
+                Validador.ValidarEnumsUsuario(comboBoxAltaTipo.SelectedIndex);
+
                 TipoUsuario usuario = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), comboBoxAltaTipo.SelectedItem.ToString());
 
                 _nuevoUsuario = FactoryMethodUsuario.CrearUsuario(usuario);
@@ -60,9 +67,15 @@ namespace Vistas.FrmUsuarios
                 _nuevoUsuario.idUsuario = _nuevoUsuario.ObtenerUltimoId(GestorDeUsuarios.usuarios) + 1;
                 this.DialogResult = DialogResult.OK;
             }
-            else
+            catch (AltaFallidoException ex)
             {
                 lblError.Visible = true;
+                lblError.Text = $"{ex.Message}";
+            }
+            catch (LoginFallidoException ex)
+            {
+                lblError.Visible = true;
+                lblError.Text = $"{ex.Message}";
             }
         }
 

@@ -38,7 +38,7 @@ namespace Barfer.Vista.FormVentas
 
             foreach (Venta cliente in Venta.ventasPreparacion)
             {
-                string nombreCompleto = cliente.Cliente + " " + cliente.Alimento + " - " + cliente.Localidades + " - " + cliente.PrecioTotal;
+                string nombreCompleto = cliente.cliente + " " + cliente.alimento + " - " + cliente.localidades + " - " + cliente.precioTotal;
 
                 LbVentas.Items.Add(nombreCompleto);
 

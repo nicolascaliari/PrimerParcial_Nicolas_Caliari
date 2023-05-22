@@ -61,7 +61,6 @@ namespace Vistas
                 {
                     GestorProductos.AltaAlimento(altaProducto.nuevoAlimento);
                     GuardarArchivo.GuardarAlimentoEnArchivo(GestorProductos.alimento);
-                    // Archivo.GuardarEnArchivoAlimento(GestorProductos.alimento);
                     ActualizarStock(dataGrid);
                     lblTotalStock.Text = GestorProductos.TotalStock();
                    

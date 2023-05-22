@@ -23,9 +23,11 @@ namespace Barfer.Vista.FrmProductos
             this._editarAlimento = alimento;
         }
 
+
         private void FormEditarAlimento_Load(object sender, EventArgs e)
         {
-            MostrarDatos();
+            lblError.Visible = false;
+
             foreach (TipoAlimento item in Enum.GetValues(typeof(TipoAlimento)))
             {
                 cboTipo.Items.Add(item);
@@ -40,6 +42,9 @@ namespace Barfer.Vista.FrmProductos
             {
                 cboCantidad.Items.Add(item);
             }
+
+            MostrarDatos();
+
         }
 
 
@@ -52,7 +57,7 @@ namespace Barfer.Vista.FrmProductos
             cboCantidad.Text = _editarAlimento.cantidadKilos.ToString();
             cboTipo.Text = _editarAlimento.tipoAlimento.ToString();
 
-      
+
             cboTipo.SelectedItem = _editarAlimento.tipoAlimento;
             cboSabor.SelectedItem = _editarAlimento.sabor;
             cboCantidad.SelectedItem = _editarAlimento.cantidadKilos;
@@ -61,22 +66,28 @@ namespace Barfer.Vista.FrmProductos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
-            _editarAlimento.nombre = txtBoxNombre.Text;
-            _editarAlimento.precio = decimal.Parse(txtBoxPrecio.Text);
-            _editarAlimento.cantidad = decimal.Parse(txtBoxCantidad.Text);
-            _editarAlimento.sabor = (SaborAlimento)cboSabor.SelectedIndex;
-            _editarAlimento.cantidadKilos = (CantidadKilos)cboCantidad.SelectedIndex;
-            _editarAlimento.tipoAlimento = (TipoAlimento)cboTipo.SelectedIndex;
-
+            string nombre = _editarAlimento.nombre = txtBoxNombre.Text;
+            decimal precio = _editarAlimento.precio = decimal.Parse(txtBoxPrecio.Text);
+            decimal cantidad = _editarAlimento.cantidad = decimal.Parse(txtBoxCantidad.Text);
+            SaborAlimento sabor = _editarAlimento.sabor = (SaborAlimento)cboSabor.SelectedIndex;
+            CantidadKilos cantidadKilos = _editarAlimento.cantidadKilos = (CantidadKilos)cboCantidad.SelectedIndex;
+            TipoAlimento tipoAlimento = _editarAlimento.tipoAlimento = (TipoAlimento)cboTipo.SelectedIndex;
 
 
 
-            // if (Validar.ValidarEdicionUsuario(nombre, apellido, password, edad))
-            // {
-            this.DialogResult = DialogResult.OK;
-        
- 
+            try
+            {
+                Validador.ValidarNombreProducto(nombre);
+                Validador.ValidarPrecioProducto(precio);
+                Validador.ValidarCantidadProducto(cantidad);
+                Validador.ValidarEnumsAlimento(cboSabor.SelectedIndex, cboCantidad.SelectedIndex, cboTipo.SelectedIndex);
+                this.DialogResult = DialogResult.OK;
+            }
+            catch (AltaFallidoException ex)
+            {
+                lblError.Visible = true;
+                lblError.Text = ex.Message;
+            }
         }
     }
 }

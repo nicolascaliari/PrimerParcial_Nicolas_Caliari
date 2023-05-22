@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -130,24 +130,32 @@ namespace Barfer.Entidades.Usuarios
             return sb.ToString();
         }
 
-        public static explicit operator Usuario(string linea)
+        /// <summary>
+        /// Metodo que busca a un usuaruo por su id y retorna su nombre y apellido
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="usuarios"></param>
+        /// <returns>Retorna string</returns>
+        public static string GetNombreApellido(int userId, List<Usuario> usuarios)
         {
-            List<Usuario> usuarios = new List<Usuario>();
-            string[] datos = linea.Split(',');
-            TipoUsuario tipo = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), datos[5]);
+            StringBuilder sb = new StringBuilder();
 
-            var usuario = FactoryMethodUsuario.CrearUsuario(tipo);
-            usuario.idUsuario = int.Parse(datos[0]);
-            usuario.nombreUsuario = datos[1];
-            usuario.apellidoUsuario = datos[2];
-            usuario.contraseñaUsuario = datos[3];
-            usuario.edadUsuario = Decimal.Parse(datos[4]);
-            usuario.tipoUsuario = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), datos[5]);
-            usuarios.Add(usuario);
+            Usuario usuario = usuarios.FirstOrDefault(u => u.idUsuario == userId);
+            if (usuario != null)
+            {
+                sb.AppendLine(usuario.tipoUsuario.ToString());
+                sb.AppendLine();
+                sb.AppendLine(usuario.nombreUsuario);
+                sb.AppendLine();
+                sb.AppendLine(usuario.apellidoUsuario);
 
 
-            return usuario;
-        
+                return sb.ToString();
+            }
+            else
+            {
+                return "No se encontró ningún usuario con ese ID";
+            }
         }
     }
 }

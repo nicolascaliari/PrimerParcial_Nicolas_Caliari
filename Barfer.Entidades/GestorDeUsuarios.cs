@@ -13,7 +13,6 @@ namespace Barfer.Entidades
     {
         public static List<Usuario> usuarios;
         public static List<Cliente> clientes;
-        private static string path = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Usuarios.csv";
 
         static GestorDeUsuarios()
         {
@@ -27,7 +26,7 @@ namespace Barfer.Entidades
         /// <returns>una lista de Cliente</returns>
         public static List<Cliente> CargarClientesDesdeArchivo()
         {
-            return clientes = Archivo.LeerClienteDesdeArchivo();
+            return clientes = Controlador.CargarClienteDesdeArchivo();
         }
 
 
@@ -97,7 +96,7 @@ namespace Barfer.Entidades
         /// <param name="id"></param>
         /// <param name="datos"></param>
         /// <returns>Retorna un usuario modificado</returns>
-        public static Usuario ModificarUsuario(int id, Usuario datos)
+        public static Usuario ModificarUsuario(int id, Usuario datos , Usuario.TipoUsuario tipo)
         {
             var usuario = usuarios.FirstOrDefault(x => x.idUsuario == id);
 
@@ -109,7 +108,10 @@ namespace Barfer.Entidades
             usuario.idUsuario = datos.idUsuario;
 
 
-            datos = CambiarRol(datos);
+            if (tipo != usuario.tipoUsuario)
+            {
+                datos = CambiarRol(datos);
+            }
 
            
             int indice = usuarios.IndexOf(usuario);

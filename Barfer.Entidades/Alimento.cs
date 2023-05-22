@@ -139,6 +139,19 @@ namespace Barfer.Entidades
         }
 
 
+        public override string ToString()
+        {
+           
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"{nombre}");
+
+
+            return sb.ToString();
+        }
+
+
+
 
         /// <summary>
         /// Metodo para mostrar el producto eliminado

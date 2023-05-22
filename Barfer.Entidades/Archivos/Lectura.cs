@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Barfer.Entidades.Alimento;
+using static Barfer.Entidades.Cliente;
 using static Barfer.Entidades.Usuarios.Usuario;
 
 namespace Barfer.Entidades.Archivos
@@ -13,6 +14,7 @@ namespace Barfer.Entidades.Archivos
     {
         private static string path = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Usuarios.csv";
         private static string pathAlimento = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Alimento.csv";
+        private static string pathClientes = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Clientes.csv";
         public static string[] LeerUsuariosDeArchivo()
         {
             string[] textoUsuario = File.ReadAllLines(path);
@@ -84,6 +86,31 @@ namespace Barfer.Entidades.Archivos
 
 
 
+        public static string[] LeerClienteDeArchivo()
+        {
+            string[] lineas = File.ReadAllLines(pathClientes);
+            return lineas;
+        }
+
+        public static List<Cliente> CrearListaStringCliente()
+        {
+            List<Cliente> listaCliente = new List<Cliente>();
+
+            string[] lineas = LeerClienteDeArchivo();
+
+            for (int i = 1; i < lineas.Length; i++)
+            {
+                string[] datoCliente = lineas[i].Split(',');
+
+                listaCliente.Add(new Cliente
+                {
+                    NombreCliente = datoCliente[0],
+                    Apellido = datoCliente[1],
+                    Localidad = (Localidades)Enum.Parse(typeof(Localidades), datoCliente[2]),
+                });
+            }
+            return listaCliente;
+        }
 
 
 

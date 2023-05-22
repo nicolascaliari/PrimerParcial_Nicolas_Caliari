@@ -1,8 +1,3 @@
 id,nombre,apellido,contrasenia,edad,tipo de usuario
-1,nicolas,caliari,Agunic1004,21,Administrador
+1,nicolas,caliari,Agunic1004,21,Empleado
 2,malena,illan,Elrojo12,20,Empleado
-3,pedro,PEPE,Err22,22,Empleado
-4,PEPEITO,DWQW,PPee222,22,Administrador
-5,wffw,wefwef,PPee33,22,Empleado
-6,wefwe,PPee33,Pepe22,33,Empleado
-7,Agsutina,Caliari,Agus1234,25,Administrador

@@ -24,6 +24,10 @@ namespace Vistas.FrmUsuarios
         }
 
 
+
+        /// <summary>
+        /// Metodo que obtiene los datos en los campos
+        /// </summary>
         private void ObtenerDatos()
         {
             txtBoxNombre.Text = editarUsuario.nombreUsuario;
@@ -35,38 +39,44 @@ namespace Vistas.FrmUsuarios
 
         private void FormEditarUsuario_Load(object sender, EventArgs e)
         {
+            lblError.Visible = false;
             ObtenerDatos();
-            cmbTipo.Items.Add(TipoUsuario.Empleado);
             cmbTipo.Items.Add(TipoUsuario.Administrador);
+            cmbTipo.Items.Add(TipoUsuario.Empleado);
+            int id = Validador.EncontrarIdUsuario(editarUsuario.nombreUsuario, editarUsuario.contraseñaUsuario);
+            var usuario = GestorDeUsuarios.usuarios.FirstOrDefault(x => x.idUsuario == id);
+
         }
 
         private void btnEditarUsuario_Click(object sender, EventArgs e)
         {
+           string nombre = editarUsuario.nombreUsuario = txtBoxNombre.Text;
+           string apellido = editarUsuario.apellidoUsuario = txtBoxApellido.Text;
+           string password =  editarUsuario.contraseñaUsuario = txtBoxEditarContrasenia.Text;
+           decimal edad =  editarUsuario.edadUsuario = int.Parse(txtBoxEdad.Text);
+           TipoUsuario tipo = (TipoUsuario)cmbTipo.SelectedIndex;
+            int id = Validador.EncontrarIdUsuario(nombre, password);
 
-            MessageBox.Show(editarUsuario.idUsuario.ToString());
-            editarUsuario.nombreUsuario = txtBoxNombre.Text;
-            editarUsuario.apellidoUsuario = txtBoxApellido.Text;
-            editarUsuario.contraseñaUsuario = txtBoxEditarContrasenia.Text;
-            editarUsuario.edadUsuario = int.Parse(txtBoxEdad.Text);
-            int id = Validar.EncontrarIdUsuario(editarUsuario.nombreUsuario, editarUsuario.contraseñaUsuario);
+            try
+            {
+                Validador.ValidarUsuario(nombre);
+                Validador.ValidarPassword(password);
+                Validador.ValidarApellidoUsuario(apellido);
+                Validador.ValidarEdadUsuario(edad);
+                GestorDeUsuarios.ModificarUsuario(id, editarUsuario,tipo);
 
-            MessageBox.Show(id.ToString());
-
-            GestorDeUsuarios.ModificarUsuario(id, editarUsuario);
-
-
-            // if (Validar.ValidarEdicionUsuario(nombre, apellido, password, edad))
-            // {
-            this.DialogResult = DialogResult.OK;
-            // }
-            //else
-            // {
-            //  lblError.Visible = true;
-            // }
-
-            // editarUsuario.tipoUsuario = (TipoUsuario)cmbTipo.SelectedIndex;
-            // GestorDeUsuarios.EditarUsuario(editarUsuario);
-
+                this.DialogResult = DialogResult.OK;
+            }
+            catch(AltaFallidoException ex)
+            {
+                lblError.Visible = true;
+                lblError.Text = ex.Message;
+            }catch(LoginFallidoException ex)
+            {
+                lblError.Visible = true;
+                lblError.Text = ex.Message;
+            }
+               
 
         }
     }

@@ -119,7 +119,7 @@
             btnAltaUsuario.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btnAltaUsuario.FlatStyle = FlatStyle.Flat;
             btnAltaUsuario.ForeColor = SystemColors.ButtonFace;
-            btnAltaUsuario.Location = new Point(112, 601);
+            btnAltaUsuario.Location = new Point(107, 662);
             btnAltaUsuario.Name = "btnAltaUsuario";
             btnAltaUsuario.Size = new Size(204, 38);
             btnAltaUsuario.TabIndex = 8;
@@ -163,7 +163,7 @@
             lblError.AutoSize = true;
             lblError.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblError.ForeColor = Color.Red;
-            lblError.Location = new Point(143, 555);
+            lblError.Location = new Point(89, 545);
             lblError.Name = "lblError";
             lblError.Size = new Size(146, 20);
             lblError.TabIndex = 16;
@@ -181,7 +181,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 32, 40);
-            ClientSize = new Size(435, 653);
+            ClientSize = new Size(421, 712);
             Controls.Add(numericUpDownEdad);
             Controls.Add(lblError);
             Controls.Add(label6);

@@ -36,6 +36,7 @@
             cboTipo = new ComboBox();
             cboCantidad = new ComboBox();
             btnEditar = new Button();
+            lblError = new Label();
             SuspendLayout();
             // 
             // label1
@@ -107,12 +108,24 @@
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
             // 
+            // lblError
+            // 
+            lblError.AutoSize = true;
+            lblError.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblError.ForeColor = Color.Red;
+            lblError.Location = new Point(131, 573);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(54, 25);
+            lblError.TabIndex = 8;
+            lblError.Text = "error";
+            // 
             // FormEditarAlimento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 32, 40);
             ClientSize = new Size(583, 692);
+            Controls.Add(lblError);
             Controls.Add(btnEditar);
             Controls.Add(cboCantidad);
             Controls.Add(cboTipo);
@@ -138,5 +151,6 @@
         private ComboBox cboTipo;
         private ComboBox cboCantidad;
         private Button btnEditar;
+        private Label lblError;
     }
 }

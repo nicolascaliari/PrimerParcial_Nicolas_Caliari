@@ -27,7 +27,7 @@ namespace Vistas
             hijo.Height = 100;
             hijo.MdiParent = this;
 
-            lblDatosUsuario.Text = Validar.GetNombreApellido(id, GestorDeUsuarios.usuarios);
+            lblDatosUsuario.Text = Usuario.GetNombreApellido(id, GestorDeUsuarios.usuarios);
         }
 
 
@@ -35,14 +35,14 @@ namespace Vistas
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            int tipo = (int)Validar.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
+            int tipo = (int)Validador.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
             FormStock formStock = new FormStock(tipo);
             formStock.ShowDialog();
         }
 
         private void btnGestor_Click(object sender, EventArgs e)
         {
-            int tipo = (int)Validar.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
+            int tipo = (int)Validador.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
             if (tipo == 0)
             {
                 var formGestionUsuarios = new FormGestionUsuarios();
