@@ -1,5 +1,6 @@
 ﻿using Barfer.Entidades.Archivos;
 using Barfer.Entidades.Usuarios;
+using Barfer.Entidades.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,9 @@ namespace Barfer.Entidades
         public static List<Alimento> alimento;
 
 
+        /// <summary>
+        /// constructor estatico que carga los alimentos desde el archivo
+        /// </summary>
         static GestorProductos()
         {
             CargarAlimentoDesdeArchivo();
@@ -40,7 +44,7 @@ namespace Barfer.Entidades
         {
             if (producto == null)
             {
-                throw new Exception("No se pudo dar de alta");
+                throw new ExceptionCampos("Hubo un error al dar de alta");
             }
             else
             {
@@ -64,7 +68,7 @@ namespace Barfer.Entidades
             }
             else
             {
-                throw new Exception("No se pudo eliminar");
+                throw new ExceptionCampos("Hubo un error al eliminar un producto");
             }
         }
 

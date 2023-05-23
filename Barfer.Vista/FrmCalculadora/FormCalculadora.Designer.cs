@@ -33,16 +33,11 @@
             btnCalcular = new Button();
             txtBoxNombre = new TextBox();
             openFileDialog1 = new OpenFileDialog();
-            btnAbrir = new Button();
-            btnGuardar = new Button();
-            richTextBox1 = new RichTextBox();
-            pictureBox1 = new PictureBox();
             btnBack = new PictureBox();
             numericUpDownEdad = new NumericUpDown();
             numericUpDownPeso = new NumericUpDown();
             label2 = new Label();
             label3 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownEdad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPeso).BeginInit();
@@ -102,43 +97,6 @@
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnAbrir
-            // 
-            btnAbrir.Location = new Point(384, 52);
-            btnAbrir.Name = "btnAbrir";
-            btnAbrir.Size = new Size(111, 26);
-            btnAbrir.TabIndex = 8;
-            btnAbrir.Text = "Abrir";
-            btnAbrir.UseVisualStyleBackColor = true;
-            btnAbrir.Click += btnAbrir_Click;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Location = new Point(550, 53);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(111, 27);
-            btnGuardar.TabIndex = 9;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.Location = new Point(384, 105);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(277, 253);
-            richTextBox1.TabIndex = 10;
-            richTextBox1.Text = "";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.FromArgb(224, 224, 224);
-            pictureBox1.Location = new Point(384, 105);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(277, 253);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 11;
-            pictureBox1.TabStop = false;
             // 
             // btnBack
             // 
@@ -200,10 +158,6 @@
             Controls.Add(numericUpDownPeso);
             Controls.Add(numericUpDownEdad);
             Controls.Add(btnBack);
-            Controls.Add(pictureBox1);
-            Controls.Add(richTextBox1);
-            Controls.Add(btnGuardar);
-            Controls.Add(btnAbrir);
             Controls.Add(txtBoxNombre);
             Controls.Add(btnCalcular);
             Controls.Add(cmbMascota);
@@ -213,7 +167,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCalculadora";
             Load += FormCalculadora_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownEdad).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPeso).EndInit();
@@ -228,10 +181,6 @@
         private Button btnCalcular;
         private TextBox txtBoxNombre;
         private OpenFileDialog openFileDialog1;
-        private Button btnAbrir;
-        private Button btnGuardar;
-        private RichTextBox richTextBox1;
-        private PictureBox pictureBox1;
         private PictureBox btnBack;
         private NumericUpDown numericUpDownEdad;
         private NumericUpDown numericUpDownPeso;

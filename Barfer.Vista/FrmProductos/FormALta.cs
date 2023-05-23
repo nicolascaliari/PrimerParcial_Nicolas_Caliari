@@ -29,40 +29,14 @@ namespace Vistas
             InitializeComponent();
         }
 
-        private void btnAlta_Click(object sender, EventArgs e)
-        {
-
-            string nombre = txtBoxNombreAlta.Text;
-            decimal precio = numericPrecioAlta.Value;
-            decimal cantidad = numericUpDownCantidad.Value;
 
 
 
-            try
-            {
-                Validador.ValidarNombreProducto(nombre);
-                Validador.ValidarPrecioProducto(precio); ;
-                Validador.ValidarCantidadProducto(cantidad);
-                Validador.ValidarEnumsAlimento(cboSabores.SelectedIndex, cboCantidades.SelectedIndex, cboTipos.SelectedIndex);
-                SaborAlimento sabor = (SaborAlimento)Enum.Parse(typeof(SaborAlimento), cboSabores.SelectedItem.ToString());
-                CantidadKilos cantidadKilos = (CantidadKilos)Enum.Parse(typeof(CantidadKilos), cboCantidades.SelectedItem.ToString());
-                TipoAlimento tipoAlimento = (TipoAlimento)Enum.Parse(typeof(TipoAlimento), cboTipos.SelectedItem.ToString());
-
-
-
-                _nuevoAlimento = new Alimento(nombre, precio, cantidad, sabor, cantidadKilos, tipoAlimento);
-                _nuevoAlimento.id = _nuevoAlimento.ObtenerUltimoIdAlimentos(GestorProductos.alimento) + 1;
-                this.DialogResult = DialogResult.OK;
-            }
-            catch (AltaFallidoException ex)
-            {
-                lblError.Visible = true;
-                lblError.Text = $"{ex.Message}";
-            }
-        }
-
-
-
+        /// <summary>
+        /// Se cargan todos los camboBox y el label se oculta.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormALta_Load(object sender, EventArgs e)
         {
 
@@ -90,9 +64,52 @@ namespace Vistas
 
 
 
+        /// <summary>
+        /// Evento que da de alta un alimento si es que todos los campos estan correctamente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+
+            string nombre = txtBoxNombreAlta.Text;
+            decimal precio = numericPrecioAlta.Value;
+            decimal cantidad = numericUpDownCantidad.Value;
 
 
 
+            try
+            {
+                Validador.ValidarNombre(nombre);
+                Validador.ValidarPrecioProducto(precio); ;
+                Validador.ValidarCantidadProducto(cantidad);
+                Validador.ValidarEnumsAlimento(cboSabores.SelectedIndex, cboCantidades.SelectedIndex, cboTipos.SelectedIndex);
+                SaborAlimento sabor = (SaborAlimento)Enum.Parse(typeof(SaborAlimento), cboSabores.SelectedItem.ToString());
+                CantidadKilos cantidadKilos = (CantidadKilos)Enum.Parse(typeof(CantidadKilos), cboCantidades.SelectedItem.ToString());
+                TipoAlimento tipoAlimento = (TipoAlimento)Enum.Parse(typeof(TipoAlimento), cboTipos.SelectedItem.ToString());
+
+
+
+                _nuevoAlimento = new Alimento(nombre, precio, cantidad, sabor, cantidadKilos, tipoAlimento);
+                _nuevoAlimento.id = _nuevoAlimento.ObtenerUltimoIdAlimentos(GestorProductos.alimento) + 1;
+                this.DialogResult = DialogResult.OK;
+            }
+            catch (ExceptionCampos ex)
+            {
+                lblError.Visible = true;
+                lblError.Text = $"{ex.Message}";
+            }
+        }
+
+
+
+
+
+        /// <summary>
+        /// Evento que valida que se seleccione un elemento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cboTipos_Validating(object sender, CancelEventArgs e)
         {
             if (cboTipos.SelectedIndex == -1)
@@ -106,6 +123,13 @@ namespace Vistas
             }
         }
 
+
+
+        /// <summary>
+        /// Evento que valida que se seleccione un elemento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cboSabores_Validating(object sender, CancelEventArgs e)
         {
             if (cboSabores.SelectedIndex == -1)
@@ -119,6 +143,13 @@ namespace Vistas
             }
         }
 
+
+
+        /// <summary>
+        /// Evento que valida que se seleccione un elemento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cboCantidades_Validating(object sender, CancelEventArgs e)
         {
             if (cboCantidades.SelectedIndex == -1)

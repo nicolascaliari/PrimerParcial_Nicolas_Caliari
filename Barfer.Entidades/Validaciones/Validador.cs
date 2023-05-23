@@ -42,24 +42,16 @@ namespace Barfer.Entidades.Validaciones
 
 
         /// <summary>
-        /// Metodo que valida un string
+        /// Metodo que valida un string que no sea vacio y solo contenga letras o numeros
         /// </summary>
         /// <param name="str"></param>
         /// <returns>Retorna bool</returns>
         public static bool ValidarString(string str)
         {
-            // Verificar si el string está vacío
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(str) || !Regex.IsMatch(str, @"^[a-zA-Z\s]+$"))
             {
                 return false;
             }
-
-            // Verificar si el string contiene algún carácter que no sea una letra o un espacio en blanco
-            if (!Regex.IsMatch(str, @"^[a-zA-Z\s]+$"))
-            {
-                return false;
-            }
-
             return true;
         }
 
@@ -71,25 +63,12 @@ namespace Barfer.Entidades.Validaciones
         /// <returns>Retorna un bool</returns>
         public static bool ValidarDouble(double valor)
         {
-            // Verificar si el valor es válido
             if (double.IsNaN(valor) || double.IsInfinity(valor))
             {
                 return false;
             }
-
-            // Si el valor es válido, retornar true
             return true;
         }
-
-
-
-
-        /// <summary>
-        /// Metodo que valida enums de usuario
-        /// </summary>
-        /// <param name="usuario"></param>
-        /// <returns>Retorna bool</returns>
-
 
 
 
@@ -97,11 +76,11 @@ namespace Barfer.Entidades.Validaciones
 
 
 
-        /// <summary>
-        /// Metodo que valida password
-        /// </summary>
-        /// <param name="password"></param>
-        /// <returns>Retorna bool</returns>
+   /// <summary>
+   /// Metodo que valida la password
+   /// </summary>
+   /// <param name="password"></param>
+   /// <exception cref="LoginFallidoException"></exception>
         public static void ValidarPassword(string password)
         {
             if (string.IsNullOrEmpty(password) || password.Length < 4 || (!password.Any(char.IsUpper) || !password.Any(char.IsLower) || !password.Any(char.IsDigit)))
@@ -112,11 +91,11 @@ namespace Barfer.Entidades.Validaciones
 
 
 
-        /// <summary>
-        /// Metodo que valida el nombre de usuario
-        /// </summary>
-        /// <param name="usuario"></param>
-        /// <returns>Retorna bool</returns>
+/// <summary>
+/// Metodo que valida el usuario
+/// </summary>
+/// <param name="usuario"></param>
+/// <exception cref="LoginFallidoException"></exception>
         public static void ValidarUsuario(string usuario)
         {
               if (string.IsNullOrEmpty(usuario) || usuario.Length < 3)
@@ -126,12 +105,13 @@ namespace Barfer.Entidades.Validaciones
         }
 
 
-        /// <summary>
-        /// Metodo que verifica si el usuario existe
-        /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="pass"></param>
-        /// <returns>Retorna el id del usuario encontrado</returns>
+/// <summary>
+/// Metodo que encuentra el id del usuario en caso contrario lanza error
+/// </summary>
+/// <param name="nombre"></param>
+/// <param name="pass"></param>
+/// <returns></returns>
+/// <exception cref="LoginFallidoException"></exception>
         public static int EncontrarIdUsuario(string nombre, string pass)
         {
             foreach (Usuario item in GestorDeUsuarios.usuarios)
@@ -147,48 +127,123 @@ namespace Barfer.Entidades.Validaciones
 
 
 
-
+        /// <summary>
+        /// Metodo que valida el precio de un producto
+        /// </summary>
+        /// <param name="precio"></param>
+        /// <exception cref="ExceptionCampos"></exception>
         public static void ValidarPrecioProducto(decimal precio)
         {
             if (!EsDecimalValido(precio) || precio < 1000 || precio > 6000)
             {
-                throw new AltaFallidoException("Error de precio, el precio debe ser mayor a 1000\n y menor a 6000");
+                throw new ExceptionCampos("Error de precio, el precio debe ser mayor a 1000\n y menor a 6000");
             }
         }
 
 
-
-        public static void ValidarNombreProducto(string nombre)
+        /// <summary>
+        /// Metodo que valida el nombre del producto
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <exception cref="ExceptionCampos"></exception>
+        public static void ValidarNombre(string nombre)
         {
             if (!ValidarString(nombre))
             {
-                throw new AltaFallidoException("Error de nombre, el nombre no debe contener\n caracteres ni estar vacio el campo");
+                throw new ExceptionCampos("Error de nombre, el nombre no debe contener\n caracteres ni estar vacio el campo");
             }
         }
 
+
+        /// <summary>
+        /// Metodo que valida la cantidad de un producto
+        /// </summary>
+        /// <param name="cantidad"></param>
+        /// <exception cref="ExceptionCampos"></exception>
         public static void ValidarCantidadProducto(decimal cantidad)
         {
             if (!EsDecimalValido(cantidad) || cantidad < 0)
             {
-                throw new AltaFallidoException("Error de cantidad, la cantidad no puede ser 0");
+                throw new ExceptionCampos("Error de cantidad, la cantidad no puede ser 0");
             }
         }
 
 
-        public static void ValidarEdadUsuario(decimal edad)
+
+        /// <summary>
+        /// Metodo que valida la edad de un usuario.
+        /// </summary>
+        /// <param name="edad"></param>
+        /// <exception cref="ExceptionCampos"></exception>
+        public static void ValidarEdad(decimal edad)
         {
             if(!EsDecimalValido(edad) || edad <=18 || edad >70)
             {
-                throw new AltaFallidoException("Error de edad, la edad no puede ser\n menor a 18 o mayor a 70");
+                throw new ExceptionCampos("Error de edad, la edad no puede ser\n menor a 18 o mayor a 70");
             }
         }
 
 
+
+        /// <summary>
+        /// Metodo que valida el apellido del usuario
+        /// </summary>
+        /// <param name="apellido"></param>
+        /// <exception cref="ExceptionCampos"></exception>
         public static void ValidarApellidoUsuario(string apellido)
         {
             if(!ValidarString(apellido) )
             {
-                throw new AltaFallidoException("Error de apellido, no puede ser vacio\n y no debe contener signos");
+                throw new ExceptionCampos("Error de apellido, no puede ser vacio\n y no debe contener signos");
+            }
+        }
+
+
+
+
+
+  
+       /// <summary>
+       /// Metodo que verifica que los comboBox del alta de un alimento esten seleccionados
+       /// </summary>
+       /// <param name="sabor"></param>
+       /// <param name="cantidad"></param>
+       /// <param name="tipo"></param>
+       /// <exception cref="ExceptionCampos"></exception>
+        public static void ValidarEnumsAlimento(int sabor, int cantidad, int tipo)
+        {
+
+            if (sabor == -1 || cantidad == -1 || tipo == -1)
+            {
+                throw new ExceptionCampos("Error debe seleccionar un tipo, \n un sabor y una cantidad");
+            }
+        }
+
+
+        /// <summary>
+        /// Metodo que verifica que el comboBox del alta de un usuario este seleccionado.
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <exception cref="ExceptionCampos"></exception>
+        public static void ValidarEnumsUsuario(int usuario)
+        {
+            if (usuario == -1)
+            {
+                throw new ExceptionCampos("Error debe seleccionar un tipo.");
+            }
+        }
+
+
+        /// <summary>
+        /// Metodo que verifica el peso de la mascota
+        /// </summary>
+        /// <param name="peso"></param>
+        /// <exception cref="ExceptionCampos"></exception>
+        public static void ValidarPesoMascota(double peso)
+        {
+            if (!ValidarDouble(peso) || peso <= 1 || peso > 40)
+            {
+                throw new ExceptionCampos("Error de peso, el peso no puede ser\n menor a 1 o mayor a 40");
             }
         }
 
@@ -197,29 +252,20 @@ namespace Barfer.Entidades.Validaciones
 
 
         /// <summary>
-        /// Metodo que valida enums de alimento
+        /// Metodo que verifica que este cargada una fecha de entrega y qye haya ventas en preparacion
         /// </summary>
-        /// <param name="sabor"></param>
-        /// <param name="cantidad"></param>
-        /// <param name="tipo"></param>
-        /// <returns>Retorna bool</returns>
-        public static void ValidarEnumsAlimento(int sabor, int cantidad, int tipo)
+        /// <exception cref="preparacionesCargadasException"></exception>
+        public static void VerificarSiSeCargoFechaYHayEntregas()
         {
-
-            if (sabor == -1 || cantidad == -1 || tipo == -1)
+            if (Venta.ventasPreparacion.Count <= 0)
             {
-                throw new AltaFallidoException("Error debe seleccionar un tipo, \n un sabor y una cantidad");
+                throw new preparacionesCargadasException("Error, debes tener ventas en preparacion");
             }
-        }
-
-
-
-        public static void ValidarEnumsUsuario(int usuario)
-        {
-            if (usuario == -1)
+            if (Venta.entregasProgramadas.Count <= 0)
             {
-                throw new AltaFallidoException("Error debe seleccionar un tipo.");
+                throw new preparacionesCargadasException("Error, debes tener una fecha programada");
             }
+            
         }
 
 
@@ -255,48 +301,6 @@ namespace Barfer.Entidades.Validaciones
 
 
 
-        /// <summary>
-        /// Metodo que valida el alta de un usuario
-        /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="apellido"></param>
-        /// <param name="password"></param>
-        /// <param name="edad"></param>
-        /// <param name="tipo"></param>
-        /// <returns>Retorna bool</returns>
-        public static bool ValidarAlta(string nombre,string apellido,string password, decimal edad ,int tipo)
-        {
-            
-            //if (ValidarString(nombre) && ValidarString(apellido) && ValidarPassword(password) && EsDecimalValido(edad) && ValidarEnumsUsuario(tipo))
-            //{
-            //    return true;
-            //}
-            return true;
-
-        }
-
-
-
-
-        /// <summary>
-        /// Metodo que valida los nuevos datos del usuario a editar
-        /// </summary>
-        /// <param name="nombre"></param>
-        /// <param name="apellido"></param>
-        /// <param name="password"></param>
-        /// <param name="edad"></param>
-        /// <returns>Retorna bool</returns>
-        public static bool ValidarEdicionUsuario(string nombre, string apellido, string password, decimal edad)
-        {
-
-            //if (ValidarString(nombre) && ValidarString(apellido) && ValidarPassword(password) && EsDecimalValido(edad))
-            //{
-            //    return true;
-            //}
-            return false;
-
-        }
-
 
         /// <summary>
         /// Metodo que valida los datos que se ingresaro en la calculadora
@@ -314,6 +318,7 @@ namespace Barfer.Entidades.Validaciones
             //}
             return false;
         }
+
 
 
     }

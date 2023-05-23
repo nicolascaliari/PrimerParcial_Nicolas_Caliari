@@ -9,6 +9,11 @@ namespace Barfer.Entidades.Archivos
 {
     public class Escritura
     {
+
+        /// <summary>
+        /// Este metodo crea el archivo de usuarios y lo escribe.
+        /// </summary>
+        /// <param name="path"></param>
         public static void EscribirUsuariosEnArchivo(string path)
         {
             using (StreamWriter streamWriter = new StreamWriter(path))
@@ -21,26 +26,33 @@ namespace Barfer.Entidades.Archivos
 
 
 
-
+        /// <summary>
+        /// Este metodo crea el archivo de alimento y lo escribe.
+        /// </summary>
+        /// <param name="path"></param>
         public static void EscribirAlimentoEnArchivo(string path)
         {
             using (StreamWriter streamWriter = new StreamWriter(path))
             {
                 streamWriter.WriteLine("id,nombre producto,precio,cantidad,sabor,kilos,tipo");
-                streamWriter.WriteLine("1,perro pollo con vegetales,2000,5,pollo,cincoKilos,perro");
-                streamWriter.WriteLine("2,gato vaca con vegetales,2000,5,vaca,diezKilos,gato");
-                streamWriter.WriteLine("3,perro pollo sin vegetales,2000,5,pollo,cincoKilos,perro");
-                streamWriter.WriteLine("4,gato vaca sin vegetales,2000,5,vaca,diezKilos,gato");
-                streamWriter.WriteLine("5,Cornalitos,2000,5,pollo,cincoKilos,complemento");
-                streamWriter.WriteLine("6,Sardinas,2000,5,vaca,diezKilos,complemento");
-                streamWriter.WriteLine("7,perro pollo,2000,5,pollo,cincoKilos,perro");
-                streamWriter.WriteLine("8,snack de pollo,2000,5,vaca,diezKilos,gato");
-                streamWriter.WriteLine("9,snack de higado,2000,5,pollo,cincoKilos,perro");
-                streamWriter.WriteLine("10,hueso recreativo,2000,5,vaca,diezKilos,gato");
+                streamWriter.WriteLine("1,perro pollo con vegetales,2000,100,pollo,cincoKilos,perro");
+                streamWriter.WriteLine("2,gato vaca con vegetales,2000,120,vaca,diezKilos,gato");
+                streamWriter.WriteLine("3,perro pollo sin vegetales,2000,300,pollo,cincoKilos,perro");
+                streamWriter.WriteLine("4,gato vaca sin vegetales,2000,200,vaca,diezKilos,gato");
+                streamWriter.WriteLine("5,Cornalitos,2000,80,pollo,cincoKilos,complemento");
+                streamWriter.WriteLine("6,Sardinas,2000,134,vaca,diezKilos,complemento");
+                streamWriter.WriteLine("7,perro pollo,2000,122,pollo,cincoKilos,perro");
+                streamWriter.WriteLine("8,snack de pollo,2000,177,vaca,diezKilos,gato");
+                streamWriter.WriteLine("9,snack de higado,2000,77,pollo,cincoKilos,perro");
+                streamWriter.WriteLine("10,hueso recreativo,2000,99,vaca,diezKilos,gato");
             }
         }
 
 
+        /// <summary>
+        /// Este metodo crea el archivo de clientes y lo escribe.
+        /// </summary>
+        /// <param name="path"></param>
         public static void EscribirClienteEnArchivo(string path)
         {
             using (StreamWriter streamWriter = new StreamWriter(path))

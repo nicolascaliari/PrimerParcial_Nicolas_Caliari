@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Barfer.Entidades.Alimento;
 using static Barfer.Entidades.Usuarios.Usuario;
 
 namespace Vistas.FrmUsuarios
@@ -21,6 +22,24 @@ namespace Vistas.FrmUsuarios
         {
             InitializeComponent();
             this.editarUsuario = editarUsuario;
+        }
+
+        /// <summary>
+        /// Este evento deja el label en false, carga el comboBox con los tipos de usuarios que tengo
+        /// y muestra los datos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormEditarUsuario_Load(object sender, EventArgs e)
+        {
+            lblError.Visible = false;
+       
+            foreach (TipoUsuario item in Enum.GetValues(typeof(TipoUsuario)))
+            {
+                cmbTipo.Items.Add(item);
+            }
+            ObtenerDatos();
+
         }
 
 
@@ -35,19 +54,17 @@ namespace Vistas.FrmUsuarios
             txtBoxEditarContrasenia.Text = editarUsuario.contraseñaUsuario;
             txtBoxEdad.Text = editarUsuario.edadUsuario.ToString();
             cmbTipo.Text = editarUsuario.tipoUsuario.ToString();
+
+
+            cmbTipo.SelectedItem = editarUsuario.tipoUsuario;
         }
 
-        private void FormEditarUsuario_Load(object sender, EventArgs e)
-        {
-            lblError.Visible = false;
-            ObtenerDatos();
-            cmbTipo.Items.Add(TipoUsuario.Administrador);
-            cmbTipo.Items.Add(TipoUsuario.Empleado);
-            int id = Validador.EncontrarIdUsuario(editarUsuario.nombreUsuario, editarUsuario.contraseñaUsuario);
-            var usuario = GestorDeUsuarios.usuarios.FirstOrDefault(x => x.idUsuario == id);
 
-        }
-
+       /// <summary>
+       /// Evento en donde si no se arroja una excepcion se edita el usuario correctamente.
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void btnEditarUsuario_Click(object sender, EventArgs e)
         {
            string nombre = editarUsuario.nombreUsuario = txtBoxNombre.Text;
@@ -62,12 +79,12 @@ namespace Vistas.FrmUsuarios
                 Validador.ValidarUsuario(nombre);
                 Validador.ValidarPassword(password);
                 Validador.ValidarApellidoUsuario(apellido);
-                Validador.ValidarEdadUsuario(edad);
+                Validador.ValidarEdad(edad);
                 GestorDeUsuarios.ModificarUsuario(id, editarUsuario,tipo);
 
                 this.DialogResult = DialogResult.OK;
             }
-            catch(AltaFallidoException ex)
+            catch(ExceptionCampos ex)
             {
                 lblError.Visible = true;
                 lblError.Text = ex.Message;
@@ -75,7 +92,7 @@ namespace Vistas.FrmUsuarios
             {
                 lblError.Visible = true;
                 lblError.Text = ex.Message;
-            }
+            }finally { MessageBox.Show("listo"); }
                
 
         }

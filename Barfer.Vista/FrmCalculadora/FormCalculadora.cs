@@ -26,6 +26,12 @@ namespace Vistas
             InitializeComponent();
         }
 
+
+        /// <summary>
+        /// Carga en el comboBox los tipos de mascota que tengo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_Load(object sender, EventArgs e)
         {
             foreach (TipoMascota item in Enum.GetValues(typeof(TipoMascota)))
@@ -34,20 +40,27 @@ namespace Vistas
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
 
-        }
-
+        /// <summary>
+        /// Metodo que crea una mascota, le calcula la cantidad de alimento y envia esa informacion a otro Form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             string nombre = txtBoxNombre.Text;
             int edad = (int)numericUpDownEdad.Value;
             double peso = (double)numericUpDownPeso.Value;
 
-            if(Validador.ValidarCalculadora(nombre, edad , peso , cmbMascota.SelectedIndex))
+
+            try
             {
+                Validador.ValidarNombre(nombre);
+                Validador.ValidarEdad(edad);
+                Validador.ValidarPesoMascota(peso);
+
+
                 string tipoAnimal = cmbMascota.SelectedItem.ToString();
                 mascota = FactoryMethod.CrearMascota(tipoAnimal);
                 mascota.Nombre = nombre;
@@ -57,36 +70,32 @@ namespace Vistas
                 double cantidadAlimento = mascota.CalcularAlimento(tipoAnimal);
                 FormMostrarMascota mostrarComida = new FormMostrarMascota(nombre, edad, peso, cantidadAlimento, tipoAnimal);
                 mostrarComida.ShowDialog();
+
+
             }
-            else
+            catch (ExceptionCampos ex) 
             {
-                MessageBox.Show("Faltan datos o ingreso algo por error");
+                MessageBox.Show(ex.Message);
             }
 
         }
 
 
-        private void btnAbrir_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.Title = "Elige foto de tu peludo";
-            openFileDialog1.ShowDialog();
-
-            if (File.Exists(openFileDialog1.FileName))
-            {
-                pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
-            }
-        }
-
-
-        private void cmbEdad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
+        /// <summary>
+        /// evento que cierra la ventana actual
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
     }
 }

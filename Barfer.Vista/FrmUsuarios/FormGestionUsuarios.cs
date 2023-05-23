@@ -25,12 +25,17 @@ namespace Vistas
 
         }
 
+
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = GestorDeUsuarios.CargarUsuariosDesdeArchivo();
         }
 
 
+        /// <summary>
+        /// Metodo para actualizar el dataGrid
+        /// </summary>
+        /// <param name="dgvUsuario"></param>
         private void ActualizarUsuarios(DataGridView dgvUsuario)
         {
             if (GestorDeUsuarios.usuarios.Count > 0)
@@ -46,6 +51,11 @@ namespace Vistas
         }
 
 
+        /// <summary>
+        /// Evento click que da de alta un usuario y actualiza el dataGrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAltaUsuario_Click(object sender, EventArgs e)
         {
             var formAlta = new FormAltaUsuario();
@@ -53,12 +63,16 @@ namespace Vistas
             {
                 GestorDeUsuarios.AltaUsuario(formAlta.nuevoUsuario);
                 GuardarArchivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
-                //Archivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
                 ActualizarUsuarios(dataGridView1);
             }
         }
 
 
+        /// <summary>
+        /// Evento click que da de baja un usuario y actualiza el dataGrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBajaUsuario_Click(object sender, EventArgs e)
         {
             DialogResult respuesta = MessageBox.Show("¿Desea eliminar el producto?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -73,6 +87,12 @@ namespace Vistas
             }
         }
 
+
+        /// <summary>
+        /// Evento click que te envia a otro form para editar el usuario seleccionado con sus datos correspondientes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditarUsuario_Click(object sender, EventArgs e)
         {
             if (this.dataGridView1.RowCount == 0)
@@ -91,15 +111,16 @@ namespace Vistas
         }
 
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
         }
     }
 }

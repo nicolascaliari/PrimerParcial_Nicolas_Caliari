@@ -20,13 +20,9 @@ namespace Vistas
         public FormLogin()
         {
             InitializeComponent();
-
             GestorDeUsuarios.CargarUsuariosDesdeArchivo();
             GestorProductos.CargarAlimentoDesdeArchivo();
             GestorDeUsuarios.CargarClientesDesdeArchivo();
-            //Archivo.CrearArchivoAlimentos();
-           // Archivo.CrearArchivoClientes();
-
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -38,6 +34,11 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// Evento click que sirve para logearse de lo contrario da un mensaje de error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string nombre = txtBoxNombreUsuario.Text;
@@ -58,7 +59,11 @@ namespace Vistas
             }
         }
 
-
+        /// <summary>
+        /// Metodo para acceder al Menu principal
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="pass"></param>
         private void AccederMenuPrincipal(int id, string pass)
         {
             FormContenedor menuPrincipal = new FormContenedor(id, pass);
@@ -66,6 +71,11 @@ namespace Vistas
             menuPrincipal.ShowDialog();
         }
 
+        /// <summary>
+        /// Este evento completa los textBox automaticamente para un ingreso mas sencillo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             txtBoxNombreUsuario.Text = "nicolas";

@@ -14,13 +14,13 @@ namespace Barfer.Entidades.Usuarios
 
 
         /// <summary>
-        /// Meotodo que crea un usuario dependiendo su tipo
+        /// Metodo que crea un usuario dependiendo su tipo
         /// </summary>
         /// <param name="tipo"></param>
         /// <returns>Retorna el usuario</returns>
         public static Usuario CrearUsuario(TipoUsuario tipo)
         {
-            Usuario usuario = null;
+            Usuario? usuario = null;
             switch (tipo)
             {
                 case TipoUsuario.Administrador:

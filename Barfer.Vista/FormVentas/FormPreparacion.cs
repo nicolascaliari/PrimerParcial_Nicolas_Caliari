@@ -1,4 +1,5 @@
 ﻿using Barfer.Entidades;
+using Barfer.Entidades.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,16 @@ namespace Barfer.Vista.FormVentas
         private void FormPreparacion_Load(object sender, EventArgs e)
         {
             dtpFechaEntrega.Visible = false;
+            CargaDataGridConVentasEnPreparacion();
+
+        }
+
+
+        /// <summary>
+        /// Metodo que carga las ventas que estan en preparacion al DataGrid
+        /// </summary>
+        private void CargaDataGridConVentasEnPreparacion()
+        {
             if (Venta.ventasPreparacion.Count == 0)
             {
                 dtgPreparacion.Visible = false;
@@ -36,29 +47,56 @@ namespace Barfer.Vista.FormVentas
             }
         }
 
+
+
+        /// <summary>
+        /// Evento que si hay ventas en preparacion te envia al form de envio, de lo contrario te da una alerta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFinalizarPreparacion_Click(object sender, EventArgs e)
         {
-            if(Venta.ventasPreparacion.Count > 0)
+
+            try
             {
+                Validador.VerificarSiSeCargoFechaYHayEntregas();
                 FormEnvio frmEnvio = new FormEnvio();
                 frmEnvio.Show();
+
             }
-            else
+            catch (preparacionesCargadasException ex)
             {
-                MessageBox.Show("No hay pedidos cargados");
+                MessageBox.Show(ex.Message);
             }
         }
 
+        /// <summary>
+        /// Evento que cierra la ventana actual
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
+
+        /// <summary>
+        /// evento que si se le da click muestra el dtp para elegir una fecha
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEntrega_Click(object sender, EventArgs e)
         {
             dtpFechaEntrega.Visible = true;
         }
 
+
+        /// <summary>
+        /// Evento que setea la fecha de entrega
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             DateTime fechaEntrega = dtpFechaEntrega.Value;

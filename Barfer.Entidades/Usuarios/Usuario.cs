@@ -64,14 +64,7 @@ namespace Barfer.Entidades.Usuarios
         }
 
 
-        /// <summary>
-        /// Constructor de la clase Usuario
-        /// </summary>
-        public Usuario()
-        {
-        
-        }
-
+  
 
         /// <summary>
         /// Constructor de la clase Usuario
@@ -81,7 +74,7 @@ namespace Barfer.Entidades.Usuarios
         /// <param name="apellido"></param>
         /// <param name="edad"></param>
         /// <param name="tipoUsuario"></param>
-        public Usuario(string nombreUsuario, string contraseñaUsuario, string apellido, decimal edad, TipoUsuario tipoUsuario):this()
+        public Usuario(string nombreUsuario, string contraseñaUsuario, string apellido, decimal edad, TipoUsuario tipoUsuario)
         {
             _nombreUsuario = nombreUsuario;
             _contraseñaUsuario = contraseñaUsuario;
@@ -131,7 +124,7 @@ namespace Barfer.Entidades.Usuarios
         }
 
         /// <summary>
-        /// Metodo que busca a un usuaruo por su id y retorna su nombre y apellido
+        /// Metodo que busca a un usuario por su id y retorna su nombre y apellido
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="usuarios"></param>

@@ -52,7 +52,10 @@ namespace Barfer.Entidades.Archivos
 
 
 
-
+        /// <summary>
+        /// Metodo para guardar un nuevo cliente en el archivo
+        /// </summary>
+        /// <param name="clienteNuevo"></param>
         public static void GuardarClienteEnArchivo(List<Cliente> clienteNuevo)
         {
             using (StreamWriter sw = new StreamWriter(pathAlimento))

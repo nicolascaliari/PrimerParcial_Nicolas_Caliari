@@ -35,6 +35,10 @@ namespace Vistas
         }
 
 
+        /// <summary>
+        /// Metodo que actualiza el stock pasandole al DataGrid la lista de alimento
+        /// </summary>
+        /// <param name="dtg"></param>
         private static void ActualizarStock(DataGridView dtg)
         {
             if (GestorProductos.alimento.Count > 0)
@@ -50,7 +54,11 @@ namespace Vistas
         }
 
 
-
+        /// <summary>
+        /// Este evento permite agregar un producto a la lista y se ve reflejado en el dataGrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAltaProducto_Click(object sender, EventArgs e)
         {
 
@@ -74,7 +82,11 @@ namespace Vistas
 
 
 
-
+        /// <summary>
+        ///  Este evento permite al usuario eliminar un producto seleccionado en el DataGridView.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBajaProducto_Click(object sender, EventArgs e)
         {
             if (_tipo == 0)
@@ -105,6 +117,12 @@ namespace Vistas
         }
 
 
+
+        /// <summary>
+        ///  Este evento permite al usuario editar un producto seleccionado en el DataGridView y enviandolo a otro Form donde estaran sus datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditarProducto_Click(object sender, EventArgs e)
         {
             if (this.dataGrid.RowCount == 0)
@@ -122,12 +140,23 @@ namespace Vistas
             }
         }
 
-
+        /// <summary>
+        /// Evento para volver a la ventana anterior y cierra la actual
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
+
+
+        /// <summary>
+        /// Maneja el evento de cambio de texto en el TextBox de busqueda y me muestra el data grid dependiendo lo que le pase al TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtBoxBuscar_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(this.txtBoxBuscar.Text))
@@ -146,7 +175,10 @@ namespace Vistas
         }
 
 
-
+        /// <summary>
+        /// Este metodo filtra los datos de alimento segun el texto ingresado en el TextBox
+        /// </summary>
+        /// <param name="filtrado"></param>
         private void FiltrarDatosDeAlimento(List<Alimento> filtrado)
         {
             foreach (Alimento item in GestorProductos.alimento)

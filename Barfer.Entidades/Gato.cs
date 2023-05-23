@@ -8,7 +8,10 @@ namespace Barfer.Entidades
 {
     public class Gato : Mascota
     {
-
+        /// <summary>
+        /// Constrcutor usado para factoryMethod
+        /// </summary>
+        /// <param name="gato"></param>
         public Gato(TipoMascota gato) : this("", 1, 1, gato)
         {
         }
@@ -18,6 +21,12 @@ namespace Barfer.Entidades
         {
         }
 
+
+        /// <summary>
+        /// este método calcula la cantidad de alimento requerida para un gato en función de su edad y peso.
+        /// </summary>
+        /// <param name="tipoAnimal"></param>
+        /// <returns>Retorna double</returns>
         public override double CalcularAlimento(string tipoAnimal)
         {
             if (tipoAnimal == "Gato")
@@ -45,11 +54,6 @@ namespace Barfer.Entidades
             }
             return 0;
         }
-
-        //public override string MostrarMascota()
-        //{
-        //    return base.MostrarMascota();
-        //}
 
 
     }

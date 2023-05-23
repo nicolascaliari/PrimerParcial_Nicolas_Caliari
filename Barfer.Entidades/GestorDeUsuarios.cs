@@ -14,6 +14,10 @@ namespace Barfer.Entidades
         public static List<Usuario> usuarios;
         public static List<Cliente> clientes;
 
+
+        /// <summary>
+        /// Constructor estatico que cargar los usuarios y clientes desde el archivo
+        /// </summary>
         static GestorDeUsuarios()
         {
             CargarUsuariosDesdeArchivo();
@@ -41,16 +45,6 @@ namespace Barfer.Entidades
         }
 
 
-        public static bool VerificarSiArchivoEstaCreado(string rutas)
-        {
-            bool respuesta = false;
-            if (!File.Exists(rutas))
-            {
-                respuesta = true;
-            }
-
-            return respuesta;
-        }
 
         /// <summary>
         /// Metodo que agrega un usuario a la lista
@@ -61,7 +55,7 @@ namespace Barfer.Entidades
         {
             if (usuario == null)
             {
-                throw new Exception("No se pudo dar de alta");
+                throw new ArgumentNullException("Ocurrio un error al dar de alta usuario");
             }
             else
             {
@@ -85,7 +79,7 @@ namespace Barfer.Entidades
             }
             else
             {
-                throw new Exception("No se pudo eliminar");
+                throw new ArgumentNullException("Ocurrio un error al dar de baja usuario");
             }
         }
 

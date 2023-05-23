@@ -32,15 +32,30 @@ namespace Vistas.FrmUsuarios
             InitializeComponent();
         }
 
+
+        /// <summary>
+        /// Evento que setea el label de error en false y cargas el comboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormAltaUsuario_Load(object sender, EventArgs e)
         {
             lblError.Visible = false;
+
+            comboBoxAltaTipo.Items.Clear(); 
             foreach (TipoUsuario item in Enum.GetValues(typeof(TipoUsuario)))
             {
                 comboBoxAltaTipo.Items.Add(item);
             }
         }
 
+
+
+        /// <summary>
+        /// Evento que da de alta un usuario caso contrario muestro error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAltaUsuario_Click(object sender, EventArgs e)
         {
             string nombre = txtBoxAltaNombre.Text;
@@ -54,7 +69,7 @@ namespace Vistas.FrmUsuarios
                 Validador.ValidarUsuario(nombre);
                 Validador.ValidarApellidoUsuario(apellido);
                 Validador.ValidarPassword(password);
-                Validador.ValidarEdadUsuario(edad);
+                Validador.ValidarEdad(edad);
                 Validador.ValidarEnumsUsuario(comboBoxAltaTipo.SelectedIndex);
 
                 TipoUsuario usuario = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), comboBoxAltaTipo.SelectedItem.ToString());
@@ -67,7 +82,7 @@ namespace Vistas.FrmUsuarios
                 _nuevoUsuario.idUsuario = _nuevoUsuario.ObtenerUltimoId(GestorDeUsuarios.usuarios) + 1;
                 this.DialogResult = DialogResult.OK;
             }
-            catch (AltaFallidoException ex)
+            catch (ExceptionCampos ex)
             {
                 lblError.Visible = true;
                 lblError.Text = $"{ex.Message}";

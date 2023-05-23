@@ -8,7 +8,10 @@ namespace Barfer.Entidades
 {
     public class Perro : Mascota
     {
-
+        /// <summary>
+        /// Constructor usado para factoryMethod
+        /// </summary>
+        /// <param name="perro"></param>
         public Perro(TipoMascota perro) : this("", 1, 1, perro)
         {
         }
@@ -19,10 +22,10 @@ namespace Barfer.Entidades
 
 
         /// <summary>
-        /// Metodo para calcular el alimento del perro
+        /// este método calcula la cantidad de alimento requerida para un perro en función de su edad y peso.
         /// </summary>
         /// <param name="tipoAnimal"></param>
-        /// <returns>Retorna un double</returns>
+        /// <returns>Retorna double</returns>
         public override double CalcularAlimento(string tipoAnimal)
         {
             if (tipoAnimal == "Perro")

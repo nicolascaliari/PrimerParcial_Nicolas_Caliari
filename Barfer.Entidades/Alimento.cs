@@ -96,14 +96,24 @@ namespace Barfer.Entidades
             set { _id = value; }
         }
 
-
+        /// <summary>
+        /// Constructor usado para cargar los datos del archivo a un alimento
+        /// </summary>
         public Alimento()
         {
 
         }
 
-
-        public Alimento(string nombre, decimal precio, decimal cantidad, SaborAlimento saborAlimento, CantidadKilos kilos, TipoAlimento tipo):this()
+        /// <summary>
+        /// constructor parametrizado
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="precio"></param>
+        /// <param name="cantidad"></param>
+        /// <param name="saborAlimento"></param>
+        /// <param name="kilos"></param>
+        /// <param name="tipo"></param>
+        public Alimento(string nombre, decimal precio, decimal cantidad, SaborAlimento saborAlimento, CantidadKilos kilos, TipoAlimento tipo)
         {
             _nombre = nombre;         
             _precio = precio;
@@ -119,7 +129,7 @@ namespace Barfer.Entidades
         /// Metodo para obtener el ultimo id de la lista de alimentos
         /// </summary>
         /// <param name="listaAlimento"></param>
-        /// <returns>Retorna un entero</returns>
+        /// <returns>Retorna un int</returns>
         public int ObtenerUltimoIdAlimentos(List<Alimento> listaAlimento)
         {
             int ultimoId = 0;
@@ -139,18 +149,17 @@ namespace Barfer.Entidades
         }
 
 
+        /// <summary>
+        /// Sobreescritura del metodo ToString para mostrar el nombre del alimento
+        /// </summary>
+        /// <returns>Retorna string</returns>
         public override string ToString()
         {
-           
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"{nombre}");
-
-
             return sb.ToString();
         }
-
-
 
 
         /// <summary>

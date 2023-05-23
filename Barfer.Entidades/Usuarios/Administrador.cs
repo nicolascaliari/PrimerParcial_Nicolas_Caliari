@@ -10,7 +10,7 @@ namespace Barfer.Entidades.Usuarios
     {
 
         /// <summary>
-        /// Constructor
+        /// Constructor usado para el factoryMethod
         /// </summary>
         /// <param name="administrador"></param>
         public Administrador(TipoUsuario administrador) : this("", "", "", 1, administrador)

@@ -63,35 +63,40 @@ namespace Barfer.Entidades
         }
 
 
+        /// <summary>
+        /// Metodo para generar una venta aleatoria
+        /// </summary>
+        /// <param name="clientes"></param>
+        /// <param name="alimentos"></param>
+        /// <returns>Retorna Venta</returns>
         public static Venta GenerarVentas(List<Cliente> clientes, List<Alimento> alimentos)
         {
-            // Generar ventas aleatorias
             Random random = new Random();
-            // Obtener un cliente y un alimento aleatorios de las listas
             Cliente cliente = clientes[random.Next(clientes.Count)];
             Alimento alimento = alimentos[random.Next(alimentos.Count)];
 
-            // Generar una cantidad aleatoria entre 1 y 5
-            int cantidad = random.Next(1, 6);
 
+            int cantidad = random.Next(1, 8);
 
             int idVenta = random.Next(1, 1000);
 
-            // Calcular el precio total de la compra
             decimal precio = alimento.precio * cantidad;
 
-            // Generar una fecha aleatoria en el último mes
             DateTime fecha = DateTime.Now.AddDays(-random.Next(1, 31));
 
-
             DescontarDelStock(alimentos, alimento, cantidad);
-
 
             Venta venta = new Venta(idVenta,cliente,cliente.Localidad ,alimento, cantidad, precio,fecha);
 
             return venta;
         }
 
+        /// <summary>
+        /// Metodo que se le indica cuantas ventas aleatoria va a generar y las agrega a la lista de ventas
+        /// </summary>
+        /// <param name="cantidad"></param>
+        /// <param name="clientes"></param>
+        /// <param name="alimentos"></param>
         public static void GenerarVentasAleatorias(int cantidad, List<Cliente> clientes, List<Alimento> alimentos)
         {
             for (int i = 0; i < cantidad; i++)
@@ -102,7 +107,12 @@ namespace Barfer.Entidades
         }
 
 
-
+        /// <summary>
+        /// Metodo para descontar el stock
+        /// </summary>
+        /// <param name="alimentos"></param>
+        /// <param name="alimento"></param>
+        /// <param name="cantidad"></param>
         private static void DescontarDelStock(List<Alimento> alimentos, Alimento alimento, int cantidad)
         {
             Alimento productoVendido = alimentos.FirstOrDefault(p => p.nombre == alimento.nombre);

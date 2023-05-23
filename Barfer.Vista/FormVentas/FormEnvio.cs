@@ -21,7 +21,25 @@ namespace Barfer.Vista.FormVentas
             InitializeComponent();
         }
 
+
+        /// <summary>
+        ///Muestra fecha de entrega si es que hay, y muestra datos de envios si es que hay.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormEnvio_Load(object sender, EventArgs e)
+        {
+            MostrarFechaDeEntrega();
+            CargarDatosDeEnvios();
+        }
+
+
+
+
+        /// <summary>
+        /// Este metodo se encarga de mostrar la fecha de entrega de los pedidos.
+        /// </summary>
+        private void MostrarFechaDeEntrega()
         {
             if (Venta.ventasPreparacion.Count > 0)
             {
@@ -34,7 +52,16 @@ namespace Barfer.Vista.FormVentas
             {
                 lblTimer.Text = "No hay envios programados";
             }
+        }
 
+
+
+
+        /// <summary>
+        /// Este metodo se encarga de cargar los datos de los clientes que compraron en el ListBox
+        /// </summary>
+        private void CargarDatosDeEnvios()
+        {
 
             foreach (Venta cliente in Venta.ventasPreparacion)
             {
@@ -43,16 +70,23 @@ namespace Barfer.Vista.FormVentas
                 LbVentas.Items.Add(nombreCompleto);
 
             }
-
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-        }
 
+        /// <summary>
+        /// Evento para cerrar la ventana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
         }
     }
 }

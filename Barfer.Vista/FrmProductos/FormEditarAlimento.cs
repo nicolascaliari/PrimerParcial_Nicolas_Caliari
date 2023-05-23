@@ -23,7 +23,11 @@ namespace Barfer.Vista.FrmProductos
             this._editarAlimento = alimento;
         }
 
-
+        /// <summary>
+        /// Se cargan todos los comboBox con los tipos de alimento, sabor, cantidad y muestra los datos del alimento.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormEditarAlimento_Load(object sender, EventArgs e)
         {
             lblError.Visible = false;
@@ -48,6 +52,10 @@ namespace Barfer.Vista.FrmProductos
         }
 
 
+
+        /// <summary>
+        /// Metodo que muestra los datos del alimento
+        /// </summary>
         private void MostrarDatos()
         {
             txtBoxNombre.Text = _editarAlimento.nombre;
@@ -64,6 +72,12 @@ namespace Barfer.Vista.FrmProductos
 
         }
 
+
+        /// <summary>
+        /// Evento en donde si no se arroja una excepcion se edita el alimento correctamente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditar_Click(object sender, EventArgs e)
         {
             string nombre = _editarAlimento.nombre = txtBoxNombre.Text;
@@ -74,16 +88,15 @@ namespace Barfer.Vista.FrmProductos
             TipoAlimento tipoAlimento = _editarAlimento.tipoAlimento = (TipoAlimento)cboTipo.SelectedIndex;
 
 
-
             try
             {
-                Validador.ValidarNombreProducto(nombre);
+                Validador.ValidarNombre(nombre);
                 Validador.ValidarPrecioProducto(precio);
                 Validador.ValidarCantidadProducto(cantidad);
                 Validador.ValidarEnumsAlimento(cboSabor.SelectedIndex, cboCantidad.SelectedIndex, cboTipo.SelectedIndex);
                 this.DialogResult = DialogResult.OK;
             }
-            catch (AltaFallidoException ex)
+            catch (ExceptionCampos ex)
             {
                 lblError.Visible = true;
                 lblError.Text = ex.Message;

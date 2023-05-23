@@ -15,17 +15,29 @@ namespace Barfer.Entidades.Archivos
         private static string path = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Usuarios.csv";
         private static string pathAlimento = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Alimento.csv";
         private static string pathClientes = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Clientes.csv";
-        public static string[] LeerUsuariosDeArchivo()
+        
+        
+
+        /// <summary>
+        /// Este meotodo lee todas las lineas del archivo que se le pase por parametro
+        /// </summary>
+        /// <returns>Retorna un array de string</returns>
+        public static string[] LeerDeArchivo(string path)
         {
             string[] textoUsuario = File.ReadAllLines(path);
             return textoUsuario;    
         }
 
+
+        /// <summary>
+        /// Este metodo se encarga de cargar lo que esta en el archivo usuario a una lista de listaUsuarios.
+        /// </summary>
+        /// <returns>Retorna una lista de usuarios</returns>
         public static List<Usuario> CrearListaStringUsuario()
         {
             List<Usuario> listaUsuarios = new List<Usuario>();
         
-            string[] lineas = LeerUsuariosDeArchivo();
+            string[] lineas = LeerDeArchivo(path);
 
             for (int i = 1; i < lineas.Length; i++)
             {
@@ -48,21 +60,15 @@ namespace Barfer.Entidades.Archivos
 
 
 
-
-
-
-
-        public static string[] LeerAlimentoDeArchivo()
-        {
-            string[] lineas = File.ReadAllLines(pathAlimento);
-            return lineas;
-        }
-
+        /// <summary>
+        /// Este metodo se encarga de cargar lo que esta en el archivo alimento a una lista de listaAlimento.
+        /// </summary>
+        /// <returns>Retorna una lista de alimento</returns>
         public static List<Alimento> CrearListaStringAlimento()
         {
             List<Alimento> listaAlimento = new List<Alimento>();
 
-            string[] lineas = LeerAlimentoDeArchivo();
+            string[] lineas = LeerDeArchivo(pathAlimento);
 
             for (int i = 1; i < lineas.Length; i++)
             {
@@ -84,19 +90,15 @@ namespace Barfer.Entidades.Archivos
 
 
 
-
-
-        public static string[] LeerClienteDeArchivo()
-        {
-            string[] lineas = File.ReadAllLines(pathClientes);
-            return lineas;
-        }
-
+        /// <summary>
+        /// Este metodo se encarga de cargar lo que esta en el archivo cliente a una lista de listCliente.
+        /// </summary>
+        /// <returns>Retorna una lista de cliente</returns>
         public static List<Cliente> CrearListaStringCliente()
         {
             List<Cliente> listaCliente = new List<Cliente>();
 
-            string[] lineas = LeerClienteDeArchivo();
+            string[] lineas = LeerDeArchivo(pathClientes);
 
             for (int i = 1; i < lineas.Length; i++)
             {

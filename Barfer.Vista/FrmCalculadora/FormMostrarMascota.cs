@@ -28,11 +28,22 @@ namespace Barfer.Vista.FrmCalculadora
             _tipo = tipo;
         }
 
+
+        /// <summary>
+        /// En este evento se cargan en el txt los datos de la mascota.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormMostrarMascota_Load(object sender, EventArgs e)
         {
             txtNombre.Text = MostrarMascota();
         }
 
+
+        /// <summary>
+        /// Metodo para mostrar los datos de la mascota que vienen por parametro
+        /// </summary>
+        /// <returns>Retorna string</returns>
         private string MostrarMascota()
         {
             StringBuilder sb = new StringBuilder();
@@ -44,6 +55,13 @@ namespace Barfer.Vista.FrmCalculadora
             sb.AppendLine($"mi cantidad de comida diaria es {_cantidadKilosRedondeado}");
             return sb.ToString();
         }
+
+
+        /// <summary>
+        /// Metodo en donde se cierra esta ventana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnBack_Click(object sender, EventArgs e)
         {

@@ -26,10 +26,17 @@ namespace Barfer.Vista.Ventas
 
         private void FormGestorVentas_Load(object sender, EventArgs e)
         {
-            // Generar 10 ventas aleatorias
             Venta.GenerarVentasAleatorias(4, GestorDeUsuarios.clientes, GestorProductos.alimento);
 
-            // Llenar el ListBox con las ventas generadas
+            CargarVentas();
+        }
+
+
+        /// <summary>
+        /// Metodo encargado de cargar ventas al dataGrid
+        /// </summary>
+        private void CargarVentas()
+        {
             foreach (Venta venta in Venta.ventas)
             {
                 dataGridView1.DataSource = Venta.ventas;
@@ -37,6 +44,12 @@ namespace Barfer.Vista.Ventas
         }
 
 
+
+        /// <summary>
+        /// Prepara las ventas seleccionadas para su procesamiento y muestra el formulario de preparación.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPreparacion_Click(object sender, EventArgs e)
         {
             FormPreparacion frmPreparacion = new FormPreparacion();
@@ -49,9 +62,8 @@ namespace Barfer.Vista.Ventas
                 if (checkBoxCell != null && (bool)checkBoxCell.Value == true)
                 {
                     Venta venta = new Venta();
-                    // Obtener la fila correspondiente al checkbox
                     DataGridViewRow selectedRow = checkBoxCell.OwningRow;
-                    // Seleccionar la fila
+
                     selectedRow.Selected = true;
                     venta.idVenta = Convert.ToInt32(row.Cells[0].Value);
                     venta.cliente = (Cliente)row.Cells[1].Value;
@@ -78,6 +90,10 @@ namespace Barfer.Vista.Ventas
         }
 
 
+        /// <summary>
+        /// Metodo que se encarga de actualizar el dataGrid
+        /// </summary>
+        /// <param name="dtg"></param>
         private static void ActualizarDataGrid(DataGridView dtg)
         {
 
@@ -86,6 +102,21 @@ namespace Barfer.Vista.Ventas
             dtg.Refresh();
         }
 
+
+        /// <summary>
+        /// Evento que se encarga de cerrar la ventana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+
+
+
+
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
         }
@@ -93,14 +124,6 @@ namespace Barfer.Vista.Ventas
         private void FormGestorVentas_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
-
-
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
         }
     }
 

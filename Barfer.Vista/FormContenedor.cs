@@ -21,18 +21,16 @@ namespace Vistas
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var hijo = new FormLogin();
-            this.IsMdiContainer = true;
-            hijo.BackColor = Color.Black;
-            hijo.Height = 100;
-            hijo.MdiParent = this;
-
             lblDatosUsuario.Text = Usuario.GetNombreApellido(id, GestorDeUsuarios.usuarios);
         }
 
 
 
-
+        /// <summary>
+        /// Evento click que abre el Form de stock 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnProducto_Click(object sender, EventArgs e)
         {
             int tipo = (int)Validador.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
@@ -40,6 +38,12 @@ namespace Vistas
             formStock.ShowDialog();
         }
 
+
+        /// <summary>
+        /// Evento click que abre el Form de gestor de usuarios si el usuario tiene permisos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGestor_Click(object sender, EventArgs e)
         {
             int tipo = (int)Validador.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
@@ -55,6 +59,13 @@ namespace Vistas
 
         }
 
+
+
+        /// <summary>
+        /// Evento click que abre el Form de calculadora
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCalculadora_Click(object sender, EventArgs e)
         {
             var formCalculadora = new FormCalculadora();
@@ -62,6 +73,11 @@ namespace Vistas
         }
 
 
+        /// <summary>
+        /// Evento click que abre el Form de gestor de ventas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGestorVentas_Click(object sender, EventArgs e)
         {
             var formGestorVentas = new FormGestorVentas();
@@ -69,6 +85,12 @@ namespace Vistas
         }
 
 
+
+        /// <summary>
+        /// Evento click que abre el Form de preparacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPreparacion_Click(object sender, EventArgs e)
         {
             FormPreparacion formPreparacion = new FormPreparacion();
@@ -76,6 +98,11 @@ namespace Vistas
 
         }
 
+        /// <summary>
+        /// Evento click que abre el Form de envios
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEnvio_Click(object sender, EventArgs e)
         {
             var formEnvio = new FormEnvio();
@@ -85,7 +112,11 @@ namespace Vistas
 
 
 
-
+        /// <summary>
+        /// Evento que sirve para cerrar la ventana actual y volver a la anterior
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             var formLogin = new FormLogin();
@@ -93,17 +124,6 @@ namespace Vistas
             this.Hide();
         }
 
-
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
     }

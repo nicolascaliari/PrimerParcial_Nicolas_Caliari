@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades
 {
-    public  class Mascota
+    public abstract class Mascota
     {
         private string _nombre;
         private int _edad;
@@ -39,11 +39,7 @@ namespace Barfer.Entidades
         /// Metodo virtual para calcular el alimento de la mascota
         /// </summary>
         /// <param name="tipoAnimal"></param>
-        /// <returns>Retorna 0</returns>
-        public  virtual double CalcularAlimento(string tipoAnimal)
-        {
-            return 0;
-        }
+        public abstract double CalcularAlimento(string tipoAnimal);
 
 
         /// <summary>

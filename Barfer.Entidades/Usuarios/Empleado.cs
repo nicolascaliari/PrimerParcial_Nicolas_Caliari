@@ -12,7 +12,7 @@ namespace Barfer.Entidades.Usuarios
 
 
         /// <summary>
-        /// Constructor para el factory
+        /// Constructor para el factoryMethod
         /// </summary>
         /// <param name="empleado"></param>
         public Empleado(TipoUsuario empleado):this("","","",1,empleado)

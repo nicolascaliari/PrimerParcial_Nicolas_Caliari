@@ -11,6 +11,11 @@ namespace Barfer.Entidades
         public const int perro = 1;
         public const int gato = 2;
 
+        /// <summary>
+        /// Metodo que crea una mascota dependiendo su tipo
+        /// </summary>
+        /// <param name="tipo"></param>
+        /// <returns>Retorna la mascota</returns>
         public static Mascota CrearMascota(string tipo)
         {
             Mascota mascota = null;
