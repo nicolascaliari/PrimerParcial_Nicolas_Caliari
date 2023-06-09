@@ -1,11 +1,11 @@
 id,nombre producto,precio,cantidad,sabor,kilos,tipo
-1,perro pollo con vegetales,2000,100,pollo,cincoKilos,perro
-2,gato vaca con vegetales,2000,120,vaca,diezKilos,gato
-3,perro pollo sin vegetales,2000,300,pollo,cincoKilos,perro
-4,gato vaca sin vegetales,2000,200,vaca,diezKilos,gato
-5,Cornalitos,2000,80,pollo,cincoKilos,complemento
-6,Sardinas,2000,134,vaca,diezKilos,complemento
-7,perro pollo,2000,122,pollo,cincoKilos,perro
-8,snack de pollo,2000,177,vaca,diezKilos,gato
-9,snack de higado,2000,77,pollo,cincoKilos,perro
-10,hueso recreativo,2000,99,vaca,diezKilos,gato
+1,perro pollo con vegetales,2000,66,pollo,cincoKilos,perro
+2,gato vaca con vegetales,2000,100,vaca,diezKilos,gato
+3,perro pollo sin vegetales,2000,283,pollo,cincoKilos,perro
+4,gato vaca sin vegetales,2000,198,vaca,diezKilos,gato
+5,Cornalitos,2000,71,pollo,cincoKilos,complemento
+6,Sardinas,2000,107,vaca,diezKilos,complemento
+7,perro pollo,2000,101,pollo,cincoKilos,perro
+8,snack de pollo,2000,171,vaca,diezKilos,gato
+9,snack de higado,2000,53,pollo,cincoKilos,perro
+10,hueso recreativo,2000,83,vaca,diezKilos,gato

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Barfer.Entidades.Archivos;
+using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using DocumentFormat.OpenXml.Drawing;
 
@@ -31,6 +32,7 @@ namespace Barfer.Entidades
         public static List<Cliente> CargarClientesDesdeArchivo()
         {
             return clientes = Controlador.CargarClienteDesdeArchivo();
+
         }
 
 
@@ -41,7 +43,8 @@ namespace Barfer.Entidades
         /// <returns>una lista  de Usuario</returns>
         public static List<Usuario> CargarUsuariosDesdeArchivo()
         {
-            return usuarios = Controlador.CargarUsuariosDesdeArchivo();
+            var datos = new UsuarioDB();
+            return usuarios = datos.Traer();
         }
 
 
@@ -96,7 +99,7 @@ namespace Barfer.Entidades
 
 
             usuario.nombreUsuario = datos.nombreUsuario;
-            usuario.contraseñaUsuario = datos.contraseñaUsuario;
+            usuario.password = datos.password;
             usuario.apellidoUsuario = datos.apellidoUsuario;
             usuario.edadUsuario = datos.edadUsuario;
             usuario.idUsuario = datos.idUsuario;

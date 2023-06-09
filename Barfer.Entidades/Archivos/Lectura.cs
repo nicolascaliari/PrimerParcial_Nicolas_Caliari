@@ -49,7 +49,7 @@ namespace Barfer.Entidades.Archivos
                 usuario.idUsuario = int.Parse(datoUsuario[0]);
                 usuario.nombreUsuario = datoUsuario[1];
                 usuario.apellidoUsuario = datoUsuario[2];
-                usuario.contraseñaUsuario = datoUsuario[3];
+                usuario.password = datoUsuario[3];
                 usuario.edadUsuario = Decimal.Parse(datoUsuario[4]);
                 usuario.tipoUsuario = (TipoUsuario)Enum.Parse(typeof(TipoUsuario), datoUsuario[5]);
                 listaUsuarios.Add(usuario);

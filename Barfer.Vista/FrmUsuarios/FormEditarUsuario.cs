@@ -1,4 +1,5 @@
 ﻿using Barfer.Entidades;
+using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
 using System;
@@ -51,7 +52,7 @@ namespace Vistas.FrmUsuarios
         {
             txtBoxNombre.Text = editarUsuario.nombreUsuario;
             txtBoxApellido.Text = editarUsuario.apellidoUsuario;
-            txtBoxEditarContrasenia.Text = editarUsuario.contraseñaUsuario;
+            txtBoxEditarContrasenia.Text = editarUsuario.password;
             txtBoxEdad.Text = editarUsuario.edadUsuario.ToString();
             cmbTipo.Text = editarUsuario.tipoUsuario.ToString();
 
@@ -69,9 +70,9 @@ namespace Vistas.FrmUsuarios
         {
            string nombre = editarUsuario.nombreUsuario = txtBoxNombre.Text;
            string apellido = editarUsuario.apellidoUsuario = txtBoxApellido.Text;
-           string password =  editarUsuario.contraseñaUsuario = txtBoxEditarContrasenia.Text;
+           string password =  editarUsuario.password = txtBoxEditarContrasenia.Text;
            decimal edad =  editarUsuario.edadUsuario = int.Parse(txtBoxEdad.Text);
-           TipoUsuario tipo = (TipoUsuario)cmbTipo.SelectedIndex;
+           TipoUsuario tipo = (TipoUsuario)cmbTipo.SelectedItem;
             int id = Validador.EncontrarIdUsuario(nombre, password);
 
             try
@@ -81,7 +82,8 @@ namespace Vistas.FrmUsuarios
                 Validador.ValidarApellidoUsuario(apellido);
                 Validador.ValidarEdad(edad);
                 GestorDeUsuarios.ModificarUsuario(id, editarUsuario,tipo);
-
+                var usuario = new UsuarioDB();
+                usuario.Modificar(editarUsuario);
                 this.DialogResult = DialogResult.OK;
             }
             catch(ExceptionCampos ex)

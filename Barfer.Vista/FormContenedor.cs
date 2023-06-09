@@ -2,6 +2,7 @@ using Barfer.Entidades;
 using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
 using Barfer.Vista.FormVentas;
+using Barfer.Vista.FrmInformes;
 using Barfer.Vista.Ventas;
 using static Barfer.Entidades.Usuarios.Usuario;
 
@@ -11,6 +12,7 @@ namespace Vistas
     {
         private int id;
         private string pass;
+        private bool areButtonsVisible = false;
 
         public FormContenedor(int id, string pass)
         {
@@ -21,6 +23,7 @@ namespace Vistas
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            pnlVentas.Visible = false;
             lblDatosUsuario.Text = Usuario.GetNombreApellido(id, GestorDeUsuarios.usuarios);
         }
 
@@ -80,6 +83,7 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnGestorVentas_Click(object sender, EventArgs e)
         {
+            pnlVentas.Visible = false;
             var formGestorVentas = new FormGestorVentas();
             formGestorVentas.Show();
         }
@@ -93,6 +97,7 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnPreparacion_Click(object sender, EventArgs e)
         {
+            pnlVentas.Visible = false;
             FormPreparacion formPreparacion = new FormPreparacion();
             formPreparacion.Show();
 
@@ -105,6 +110,7 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnEnvio_Click(object sender, EventArgs e)
         {
+            pnlVentas.Visible = false;
             var formEnvio = new FormEnvio();
             formEnvio.Show();
 
@@ -124,7 +130,31 @@ namespace Vistas
             this.Hide();
         }
 
+        private void btn_submenuVentas_Click(object sender, EventArgs e)
+        {
+            MostrarSubMenu();
+        }
 
 
+
+        private void MostrarSubMenu()
+        {
+            if (areButtonsVisible)
+            {
+                pnlVentas.Visible = false;
+            }
+            else
+            {
+                pnlVentas.Visible = true;
+            }
+
+            areButtonsVisible = !areButtonsVisible;
+        }
+
+        private void btnInformes_Click(object sender, EventArgs e)
+        {
+            var formInformes = new FormInformes();
+            formInformes.Show();
+        }
     }
 }

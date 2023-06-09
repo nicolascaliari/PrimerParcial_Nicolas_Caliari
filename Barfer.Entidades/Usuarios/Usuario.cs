@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades.Usuarios
 {
-    public abstract class Usuario
+    public class Usuario
     {
 
         public enum TipoUsuario
         {
-            Administrador,
+            Administrador = 1,
             Empleado
         }
 
@@ -20,7 +20,7 @@ namespace Barfer.Entidades.Usuarios
         private string _nombreUsuario;
         private string _apellidoUsuario;
         private decimal _edadUsuario;
-        private string _contraseñaUsuario;
+        private string _password;
         private TipoUsuario _tipoUsuario;
         private int _idUsuario;
        
@@ -45,10 +45,10 @@ namespace Barfer.Entidades.Usuarios
             set { _nombreUsuario = value; }
         }
 
-        public string contraseñaUsuario
+        public string password
         {
-            get { return _contraseñaUsuario; }
-            set { _contraseñaUsuario = value; }
+            get { return _password; }
+            set { _password = value; }
         }
 
         public string apellidoUsuario
@@ -63,26 +63,24 @@ namespace Barfer.Entidades.Usuarios
             set { _edadUsuario = value; }
         }
 
-
+        public Usuario(int id, string nombre, string apellido, decimal edad, string password, int tipo)
+        {
+            this.nombreUsuario = nombre;
+            this.idUsuario = id;
+            this.edadUsuario = edad;
+            this.apellidoUsuario=apellido;
+            this.password = password;
+            if (Enum.IsDefined(typeof(TipoUsuario), tipo))
+            {
+                tipoUsuario = (TipoUsuario)tipo;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(tipoUsuario), "Índice de enum no válido");
+            }
+        }
   
 
-        /// <summary>
-        /// Constructor de la clase Usuario
-        /// </summary>
-        /// <param name="nombreUsuario"></param>
-        /// <param name="contraseñaUsuario"></param>
-        /// <param name="apellido"></param>
-        /// <param name="edad"></param>
-        /// <param name="tipoUsuario"></param>
-        public Usuario(string nombreUsuario, string contraseñaUsuario, string apellido, decimal edad, TipoUsuario tipoUsuario)
-        {
-            _nombreUsuario = nombreUsuario;
-            _contraseñaUsuario = contraseñaUsuario;
-            _tipoUsuario = tipoUsuario;
-            _apellidoUsuario = apellido;
-            _edadUsuario = edad;
-
-        }
 
 
         /// <summary>
@@ -117,9 +115,13 @@ namespace Barfer.Entidades.Usuarios
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append($"{nombreUsuario}");
-            sb.Append($" {apellidoUsuario}");
-
+            sb.AppendLine($"{idUsuario}");
+            sb.AppendLine($"{nombreUsuario}");
+            sb.AppendLine($" {apellidoUsuario}");
+            sb.AppendLine($" {edadUsuario}");
+            sb.AppendLine($" {password}");
+            sb.AppendLine($"{tipoUsuario}");
+    
             return sb.ToString();
         }
 

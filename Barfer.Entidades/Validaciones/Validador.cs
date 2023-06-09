@@ -116,7 +116,7 @@ namespace Barfer.Entidades.Validaciones
         {
             foreach (Usuario item in GestorDeUsuarios.usuarios)
             {
-                if (item.nombreUsuario == nombre && item.contraseñaUsuario == pass)
+                if (item.nombreUsuario == nombre && item.password == pass)
                 {
                     return item.idUsuario;
 

@@ -25,7 +25,7 @@ namespace Barfer.Entidades.Archivos
 
                 foreach (Usuario usuario in usuarioNuevo)
                 {
-                    sw.WriteLine($"{usuario.idUsuario},{usuario.nombreUsuario},{usuario.apellidoUsuario},{usuario.contraseñaUsuario},{usuario.edadUsuario},{usuario.tipoUsuario}");
+                    sw.WriteLine($"{usuario.idUsuario},{usuario.nombreUsuario},{usuario.apellidoUsuario},{usuario.password},{usuario.edadUsuario},{usuario.tipoUsuario}");
                 }
             }
         }

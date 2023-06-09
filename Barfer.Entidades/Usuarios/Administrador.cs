@@ -13,7 +13,7 @@ namespace Barfer.Entidades.Usuarios
         /// Constructor usado para el factoryMethod
         /// </summary>
         /// <param name="administrador"></param>
-        public Administrador(TipoUsuario administrador) : this("", "", "", 1, administrador)
+        public Administrador(TipoUsuario administrador) : this(1 ,"", "", 1, "",1)
         {
         }
 
@@ -26,10 +26,9 @@ namespace Barfer.Entidades.Usuarios
         /// <param name="apellidoUsuario"></param>
         /// <param name="edadUsuario"></param>
         /// <param name="tipo"></param>
-        public Administrador(string nombreUsuario, string contraseñaUsuario, string apellidoUsuario, decimal edadUsuario, TipoUsuario tipo)
-            : base(nombreUsuario, contraseñaUsuario, apellidoUsuario, edadUsuario, tipo)
+        public Administrador(int id, string nombreUsuario, string apellidoUsuario, decimal edadUsuario, string contraseñaUsuario, int tipo)
+            : base(id, nombreUsuario, apellidoUsuario, edadUsuario, contraseñaUsuario, tipo)
         {
-
         }
 
 
@@ -39,7 +38,7 @@ namespace Barfer.Entidades.Usuarios
         /// <param name="empleado"></param>
         public static explicit operator Administrador(Empleado empleado)
         {
-            return new Administrador(empleado.nombreUsuario, empleado.contraseñaUsuario, empleado.apellidoUsuario, empleado.edadUsuario, empleado.tipoUsuario);
+            return new Administrador(empleado.idUsuario, empleado.nombreUsuario, empleado.apellidoUsuario, empleado.edadUsuario,empleado.password, (int)empleado.tipoUsuario);
         }
 
     }

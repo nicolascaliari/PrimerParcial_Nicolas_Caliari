@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Barfer.Entidades;
 using Barfer.Entidades.Archivos;
+using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using SpreadsheetLight;
 using Vistas.FrmUsuarios;
@@ -79,11 +80,15 @@ namespace Vistas
 
             if (respuesta == DialogResult.Yes)
             {
-                GestorDeUsuarios.BajaUsuario((Usuario)dataGridView1.CurrentRow.DataBoundItem);
-                GuardarArchivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
+                Usuario producto = (Usuario)dataGridView1.CurrentRow.DataBoundItem;
+
+                int idProducto = producto.idUsuario;
+                GestorDeUsuarios.BajaUsuario(producto);
+                var usuario = new UsuarioDB();
+                usuario.Eliminar(idProducto);
+
+
                 ActualizarUsuarios(dataGridView1);
-
-
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using Barfer.Entidades;
+using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
 using System;
@@ -66,6 +67,7 @@ namespace Vistas.FrmUsuarios
 
             try
             {
+                UsuarioDB usuarioDB = new UsuarioDB();
                 Validador.ValidarUsuario(nombre);
                 Validador.ValidarApellidoUsuario(apellido);
                 Validador.ValidarPassword(password);
@@ -77,9 +79,10 @@ namespace Vistas.FrmUsuarios
                 _nuevoUsuario = FactoryMethodUsuario.CrearUsuario(usuario);
                 _nuevoUsuario.nombreUsuario = nombre;
                 _nuevoUsuario.apellidoUsuario = apellido;
-                _nuevoUsuario.contraseñaUsuario = password;
+                _nuevoUsuario.password = password;
                 _nuevoUsuario.edadUsuario = edad;
-                _nuevoUsuario.idUsuario = _nuevoUsuario.ObtenerUltimoId(GestorDeUsuarios.usuarios) + 1;
+                usuarioDB.Agregar(_nuevoUsuario);
+
                 this.DialogResult = DialogResult.OK;
             }
             catch (ExceptionCampos ex)

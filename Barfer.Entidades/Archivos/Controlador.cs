@@ -9,65 +9,8 @@ namespace Barfer.Entidades.Archivos
 {
     public class Controlador
     {
-        private static string path = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Usuarios.csv";
         private static string pathAlimento = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Alimento.csv";
         private static string pathClientes = @"C:\\Users\\nicolas\\Desktop\\PrimerParcial_Nicolas_Caliari\Clientes.csv";
-
-
-
-
-
-
-        //public static List<T> CargarElementosDesdeArchivo<T>(string path, string tipo)
-        //{
-        //    List<T> elementos = new List<T>();
-
-        //    if (VerificarSiArchivoEstaCreado(path) == false)
-        //    {
-
-
-
-        //        Escritura.EscribirElementosEnArchivo(path);
-        //        List<T> listaElementos = Lectura.CrearListaString<T>();
-        //        elementos = listaElementos;
-        //    }
-        //    else
-        //    {
-        //        elementos = Lectura.CrearListaString<T>();
-        //    }
-
-        //    return elementos;
-        //}
-
-
-
-
-
-        /// <summary>
-        /// Este método si el archivo no existe, primero lo crea y luego carga los usuarios.
-        /// Si el archivo ya existe,simplemente carga los usuarios.
-        /// </summary>
-        /// <returns>Retorna lista de usuarios</returns>
-        public static List<Usuario> CargarUsuariosDesdeArchivo()
-        {
-           List<Usuario> usuarios = new List<Usuario>();
-
-            if (VerificarSiArchivoEstaCreado(path) == false)
-            {
-                Escritura.EscribirUsuariosEnArchivo(path);
-                List<Usuario> listaString = Lectura.CrearListaStringUsuario();
-                usuarios = listaString;
-               // usuarios = Parser.ParserUsuario(listaString);
-            }
-            else
-            {
-                usuarios = Lectura.CrearListaStringUsuario();
-            }
-
-            return usuarios;
-        }
-
-
 
 
         /// <summary>

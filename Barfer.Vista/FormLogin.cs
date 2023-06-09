@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Barfer.Entidades;
 using Barfer.Entidades.Archivos;
+using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
 
@@ -32,6 +33,16 @@ namespace Vistas
                 MessageBox.Show("No hay usuarios cargados al sistema");
                 Application.Exit();
             }
+
+
+            //var producto = new UsuarioDB();
+
+            //var productos = producto.Traer();
+
+            //foreach (var item in productos)
+            //{
+            //    MessageBox.Show(item.ToString());
+            //}
         }
 
         /// <summary>
@@ -79,7 +90,7 @@ namespace Vistas
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             txtBoxNombreUsuario.Text = "nicolas";
-            txtBoxContraseñaUsuario.Text = "Agunic1004";
+            txtBoxContraseñaUsuario.Text = "Nico123";
         }
 
 
