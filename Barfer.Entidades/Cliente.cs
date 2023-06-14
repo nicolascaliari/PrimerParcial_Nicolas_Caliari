@@ -5,12 +5,13 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using static Barfer.Entidades.Usuarios.Usuario;
 
 namespace Barfer.Entidades
 {
     public class Cliente
     {
-
+        private int _id;
         private string _nombreCliente;
         private string _apellido;
         private Localidades _localidad;
@@ -25,7 +26,7 @@ namespace Barfer.Entidades
         }
 
 
-
+        public int id { get => _id; set => _id = value; }
         public string NombreCliente { get => _nombreCliente; set => _nombreCliente = value; }
         public string Apellido { get => _apellido; set => _apellido = value; }
         public Localidades Localidad { get => _localidad; set => _localidad = value; }
@@ -45,12 +46,20 @@ namespace Barfer.Entidades
         /// <param name="nombre"></param>
         /// <param name="apellido"></param>
         /// <param name="localidad"></param>
-        public Cliente(string nombre, string apellido, Localidades localidad):this()
+        public Cliente(int id,string nombre, string apellido, int localidad):this()
         {
-
+            _id = id;
             _nombreCliente = nombre;
             _apellido = apellido;
-            _localidad = localidad;
+
+            if (Enum.IsDefined(typeof(Localidades), localidad))
+            {
+                Localidad = (Localidades)localidad;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(Localidad), "Índice de enum no válido");
+            }
         }
 
         /// <summary>

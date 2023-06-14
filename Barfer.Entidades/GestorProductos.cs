@@ -1,4 +1,4 @@
-﻿using Barfer.Entidades.Archivos;
+﻿using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
 using System;
@@ -30,7 +30,8 @@ namespace Barfer.Entidades
         /// <returns>Retorna la lista</returns>
         public static List<Alimento> CargarAlimentoDesdeArchivo()
         {
-           return alimento = Controlador.CargarAlimentoDesdeArchivo();
+            var datos = new AlimentoDB();
+            return alimento = datos.Traer();
         }
 
 
@@ -78,17 +79,14 @@ namespace Barfer.Entidades
         /// <returns>Retorna string</returns>
         public static string TotalStock()
         {
-            StringBuilder sb = new StringBuilder();
-            decimal total = 0;
-            foreach (Alimento item in alimento)
-            {
-                total += item.cantidad;
-            }
+            decimal total = alimento.Sum(item => item.cantidad);
 
-            sb.AppendLine($"Total:{total.ToString()}");
+            Func<decimal, string> formatTotal = value => $"Total: {value}";
 
-            return sb.ToString();
+            return formatTotal(total);
         }
+
+
     }
 
 }

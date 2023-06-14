@@ -10,13 +10,15 @@ namespace Barfer.Entidades.SQL
     public class ConexionDB
     {
         protected SqlConnection _connection;
-        //private  SqlCommand _command;
-        private string _connectionString;
+        private static string _connectionString;
 
-        public ConexionDB(string connectionString)
+        static ConexionDB()
         {
-            _connectionString = connectionString;
-            //_connection = new SqlConnection(connectionString);
+            _connectionString = "Server=.\\SQLEXPRESS;Database=BARFER;Trusted_Connection=True;";
+        }
+
+        public ConexionDB()
+        {
         }
 
         protected void Abrir()

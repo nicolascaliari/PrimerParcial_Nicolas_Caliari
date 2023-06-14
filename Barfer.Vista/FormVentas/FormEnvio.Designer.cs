@@ -36,6 +36,7 @@
             btnBack = new PictureBox();
             LbVentas = new ListBox();
             lblTituloVentas = new Label();
+            timer2 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnBack).BeginInit();
             SuspendLayout();
@@ -60,9 +61,9 @@
             lblTimer.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblTimer.Location = new Point(12, 505);
             lblTimer.Name = "lblTimer";
-            lblTimer.Size = new Size(90, 40);
+            lblTimer.Size = new Size(321, 40);
             lblTimer.TabIndex = 2;
-            lblTimer.Text = "Fecha";
+            lblTimer.Text = "DD/MM/YYYY HH:MI:SS";
             // 
             // btnBack
             // 
@@ -100,6 +101,10 @@
             lblTituloVentas.TabIndex = 6;
             lblTituloVentas.Text = "Ventas ";
             // 
+            // timer2
+            // 
+            timer2.Tick += timer1_Tick;
+            // 
             // FormEnvio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -128,5 +133,6 @@
         private PictureBox btnBack;
         private ListBox LbVentas;
         private Label lblTituloVentas;
+        private System.Windows.Forms.Timer timer2;
     }
 }

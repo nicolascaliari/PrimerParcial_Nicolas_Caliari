@@ -1,4 +1,5 @@
 ﻿using Barfer.Entidades;
+using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
 using System;
@@ -83,9 +84,9 @@ namespace Barfer.Vista.FrmProductos
             string nombre = _editarAlimento.nombre = txtBoxNombre.Text;
             decimal precio = _editarAlimento.precio = decimal.Parse(txtBoxPrecio.Text);
             decimal cantidad = _editarAlimento.cantidad = decimal.Parse(txtBoxCantidad.Text);
-            SaborAlimento sabor = _editarAlimento.sabor = (SaborAlimento)cboSabor.SelectedIndex;
-            CantidadKilos cantidadKilos = _editarAlimento.cantidadKilos = (CantidadKilos)cboCantidad.SelectedIndex;
-            TipoAlimento tipoAlimento = _editarAlimento.tipoAlimento = (TipoAlimento)cboTipo.SelectedIndex;
+            _editarAlimento.sabor = (SaborAlimento)cboSabor.SelectedItem;
+             _editarAlimento.cantidadKilos = (CantidadKilos)cboCantidad.SelectedItem;
+            _editarAlimento.tipoAlimento = (TipoAlimento)cboTipo.SelectedItem;
 
 
             try
@@ -94,6 +95,8 @@ namespace Barfer.Vista.FrmProductos
                 Validador.ValidarPrecioProducto(precio);
                 Validador.ValidarCantidadProducto(cantidad);
                 Validador.ValidarEnumsAlimento(cboSabor.SelectedIndex, cboCantidad.SelectedIndex, cboTipo.SelectedIndex);
+                var alimentoDB = new AlimentoDB();
+                alimentoDB.Modificar(_editarAlimento);
                 this.DialogResult = DialogResult.OK;
             }
             catch (ExceptionCampos ex)

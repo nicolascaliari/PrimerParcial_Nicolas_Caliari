@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Barfer.Entidades;
-using Barfer.Entidades.Archivos;
 using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using SpreadsheetLight;
@@ -63,7 +62,6 @@ namespace Vistas
             if (formAlta.ShowDialog() == DialogResult.OK)
             {
                 GestorDeUsuarios.AltaUsuario(formAlta.nuevoUsuario);
-                GuardarArchivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
                 ActualizarUsuarios(dataGridView1);
             }
         }
@@ -110,7 +108,6 @@ namespace Vistas
                 if (formModificacion.ShowDialog() == DialogResult.OK)
                 {
                     ActualizarUsuarios(dataGridView1);
-                    GuardarArchivo.GuardarUsuarioEnArchivo(GestorDeUsuarios.usuarios);
                 }
             }
         }

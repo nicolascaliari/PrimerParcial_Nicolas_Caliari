@@ -8,29 +8,35 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades.SQL
 {
-    public class ConsultasSQL: ConexionDB
+    public class ConsultasSQL : ConexionDB
     {
-        public ConsultasSQL(string connectionString) : base(connectionString)
-        {
-        }
 
-        public ConsultasSQL() : base("Server=.\\SQLEXPRESS;Database=BARFER;Trusted_Connection=True;") { }
-
-        protected  DataTable EjecutarConsulta(string consulta)
+        public SqlCommand CrearComando(string query)
         {
             Abrir();
+            var comando = new SqlCommand(query, _connection);
+            return comando;
+        }
 
-            var command = new SqlCommand(consulta, _connection);
-            var reader = command.ExecuteReader();
+        public DataTable EjecutarConsulta(SqlCommand consulta)
+        {
+            //Abrir();
+            // var command = new SqlCommand(consulta, _connection);
+            var reader = consulta.ExecuteReader();
 
             var dataTable = new DataTable();
 
             dataTable.Load(reader);
 
             reader.Close();
-            Cerrar();
+            // Cerrar();
 
             return dataTable;
+        }
+
+        public void ExcuteNonQuery(SqlCommand consulta)
+        {
+            consulta.ExecuteNonQuery();
         }
     }
 }

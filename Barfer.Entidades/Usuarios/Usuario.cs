@@ -1,5 +1,6 @@
 ﻿ using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,7 +64,12 @@ namespace Barfer.Entidades.Usuarios
             set { _edadUsuario = value; }
         }
 
-        public Usuario(int id, string nombre, string apellido, decimal edad, string password, int tipo)
+        public Usuario()
+        {
+
+        }
+
+        public Usuario(int id, string nombre, string apellido, decimal edad, string password, int tipo):this()
         {
             this.nombreUsuario = nombre;
             this.idUsuario = id;
@@ -151,6 +157,19 @@ namespace Barfer.Entidades.Usuarios
             {
                 return "No se encontró ningún usuario con ese ID";
             }
+        }
+
+        public static explicit operator Usuario(DataRow row)
+        {
+            var id = Convert.ToInt32(row["id"].ToString());
+            var nombre = row["nombre"].ToString();
+            var apellido = row["apellido"].ToString();
+            var edad = Convert.ToInt32(row["edad"].ToString());
+            var password = row["password"].ToString();
+            var tipo = Convert.ToInt32(row["idTipoUsuario"].ToString());
+
+            Usuario usuario = new Usuario(id, nombre, apellido,edad,password,tipo);
+            return usuario;
         }
     }
 }

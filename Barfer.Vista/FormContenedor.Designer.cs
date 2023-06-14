@@ -57,6 +57,7 @@
             panel2 = new Panel();
             pictureBox7 = new PictureBox();
             label1 = new Label();
+            btnNotificacion = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -74,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnNotificacion).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -397,6 +399,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(49, 66, 82);
+            panel2.Controls.Add(btnNotificacion);
             panel2.Controls.Add(pictureBox7);
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Fill;
@@ -425,6 +428,17 @@
             label1.Size = new Size(459, 52);
             label1.TabIndex = 1;
             label1.Text = "Bienvenido a Barfer";
+            // 
+            // btnNotificacion
+            // 
+            btnNotificacion.Image = Barfer.Vista.Properties.Resources.notification;
+            btnNotificacion.Location = new Point(49, 12);
+            btnNotificacion.Name = "btnNotificacion";
+            btnNotificacion.Size = new Size(56, 41);
+            btnNotificacion.SizeMode = PictureBoxSizeMode.Zoom;
+            btnNotificacion.TabIndex = 3;
+            btnNotificacion.TabStop = false;
+            btnNotificacion.Click += btnNotificacion_Click;
             // 
             // FormContenedor
             // 
@@ -458,6 +472,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnNotificacion).EndInit();
             ResumeLayout(false);
         }
 
@@ -490,5 +505,6 @@
         private Button button2;
         private PictureBox pictureBox11;
         private PictureBox pictureBox12;
+        private PictureBox btnNotificacion;
     }
 }

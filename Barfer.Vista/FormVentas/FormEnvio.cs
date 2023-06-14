@@ -16,6 +16,9 @@ namespace Barfer.Vista.FormVentas
 {
     public partial class FormEnvio : Form
     {
+        //public delegate void pasarDatos(string dato);
+        //public static event pasarDatos pasarDatoEvento;
+        private DateTime fechaEntrega;
         public FormEnvio()
         {
             InitializeComponent();
@@ -31,6 +34,8 @@ namespace Barfer.Vista.FormVentas
         {
             MostrarFechaDeEntrega();
             CargarDatosDeEnvios();
+
+            Venta.NotificarVenta("Ya se llamo al camion para entregar los productos");
         }
 
 
@@ -44,9 +49,9 @@ namespace Barfer.Vista.FormVentas
             if (Venta.ventasPreparacion.Count > 0)
             {
                 MessageBox.Show("Ya le hemos enviado un mail con la informacion de los pedidos al camion de envio.");
-                DateTime fecha = Venta.entregasProgramadas[0];
-                string fechaa = fecha.ToString("dd/MM/yyyy hh:mm:ss tt");
-                lblTimer.Text = $"El camion vendra a buscar la entrega el dia:{fechaa}";
+                fechaEntrega = Venta.entregasProgramadas[0];
+                string fechaa = fechaEntrega.ToString("dd/MM/yyyy hh:mm:ss tt");
+                lblTimer.Text = $"El camion vendra a buscar la entrega el dia: {fechaa}";
             }
             else
             {
@@ -87,6 +92,13 @@ namespace Barfer.Vista.FormVentas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+        }
+
+
+        private void OnTiempoFinalizado()
+        {
+         
         }
     }
 }

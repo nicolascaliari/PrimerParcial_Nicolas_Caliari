@@ -1,5 +1,5 @@
-﻿using Barfer.Entidades.Archivos;
-using Barfer.Entidades.Usuarios;
+﻿using Barfer.Entidades.Usuarios;
+using Newtonsoft.Json.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,8 @@ namespace Barfer.Entidades
 {
     public class Venta
     {
+        public delegate void pasarDatos(string venta);
+        public static event pasarDatos pasarDatoEvento;
         public static List<Venta> ventas = new List<Venta>();
         public static List<Venta> ventasPreparacion = new List<Venta>();
         public static List<DateTime> entregasProgramadas = new List<DateTime>();
@@ -42,14 +44,11 @@ namespace Barfer.Entidades
 
 
 
-
-
         public Venta()
         {
 
         }
-
-        public Venta(int idVenta,Cliente cliente, Cliente.Localidades localidad, Alimento alimento, int cantidad, decimal precioTotal, DateTime fecha)
+        public Venta(int idVenta, Cliente cliente, Cliente.Localidades localidad, Alimento alimento, int cantidad, decimal precioTotal, DateTime fecha)
         {
             _idVenta = idVenta;
             _cliente = cliente;
@@ -60,6 +59,13 @@ namespace Barfer.Entidades
             _fecha = fecha;
             _estado = "Sin preparar";
             _enviar = false;
+        }
+
+
+
+        public static void NotificarVenta(string venta)
+        {
+            pasarDatoEvento?.Invoke(venta);
         }
 
 
@@ -86,7 +92,7 @@ namespace Barfer.Entidades
 
             DescontarDelStock(alimentos, alimento, cantidad);
 
-            Venta venta = new Venta(idVenta,cliente,cliente.Localidad ,alimento, cantidad, precio,fecha);
+            Venta venta = new Venta(idVenta, cliente, cliente.Localidad, alimento, cantidad, precio, fecha);
 
             return venta;
         }
@@ -120,10 +126,8 @@ namespace Barfer.Entidades
             {
                 decimal nuevoStock = productoVendido.cantidad -= cantidad;
                 alimento.cantidad = nuevoStock;
-                GuardarArchivo.GuardarAlimentoEnArchivo(GestorProductos.alimento);
 
             }
         }
-
     }
 }

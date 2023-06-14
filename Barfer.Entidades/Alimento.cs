@@ -3,9 +3,12 @@ using DocumentFormat.OpenXml.Math;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Barfer.Entidades.Alimento;
+using static Barfer.Entidades.Usuarios.Usuario;
 
 namespace Barfer.Entidades
 {
@@ -23,7 +26,7 @@ namespace Barfer.Entidades
 
         public enum TipoAlimento
         {
-            perro,
+            perro = 1,
             gato,
             complemento,
         }
@@ -31,7 +34,7 @@ namespace Barfer.Entidades
 
         public enum SaborAlimento
         {
-            cerdo,
+            cerdo = 1,
             vaca,
             pollo,
             cornalito,
@@ -40,7 +43,7 @@ namespace Barfer.Entidades
 
         public enum CantidadKilos
         {
-            cincoKilos,
+            cincoKilos = 1,
             diezKilos,
         }
 
@@ -104,6 +107,56 @@ namespace Barfer.Entidades
 
         }
 
+
+        public Alimento(string nombre, decimal precio, decimal cantidad, int saborAlimento, int kilos, int tipo)
+        {
+            _nombre = nombre;
+            _precio = precio;
+            _cantidad = cantidad;
+
+
+            if (Enum.IsDefined(typeof(SaborAlimento), saborAlimento))
+            {
+                sabor = (SaborAlimento)saborAlimento;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(sabor), "Índice de enum no válido");
+            }
+
+
+            if (Enum.IsDefined(typeof(CantidadKilos), kilos))
+            {
+                cantidadKilos = (CantidadKilos)kilos;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(cantidadKilos), "Índice de enum no válido");
+            }
+
+
+            if (Enum.IsDefined(typeof(TipoAlimento), tipo))
+            {
+                tipoAlimento = (TipoAlimento)tipo;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(tipoAlimento), "Índice de enum no válido");
+            }
+            //MetodoGenerico(SaborAlimento, saborAlimento);
+            //MetodoGenerico();
+            //MetodoGenerico();
+
+
+
+
+        }
+
+
+
+
+
+
         /// <summary>
         /// constructor parametrizado
         /// </summary>
@@ -113,17 +166,67 @@ namespace Barfer.Entidades
         /// <param name="saborAlimento"></param>
         /// <param name="kilos"></param>
         /// <param name="tipo"></param>
-        public Alimento(string nombre, decimal precio, decimal cantidad, SaborAlimento saborAlimento, CantidadKilos kilos, TipoAlimento tipo)
+        public Alimento(int id , string nombre, decimal precio, decimal cantidad, int saborAlimento, int kilos, int tipo)
         {
+            _id = id;
             _nombre = nombre;         
             _precio = precio;
             _cantidad = cantidad;
-            _sabor = saborAlimento;
-            _cantidadKilos = kilos;
-            _tipoAlimento = tipo;
+
+
+            if (Enum.IsDefined(typeof(SaborAlimento), saborAlimento))
+            {
+                sabor = (SaborAlimento)saborAlimento;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(sabor), "Índice de enum no válido");
+            }
+
+
+            if (Enum.IsDefined(typeof(CantidadKilos), kilos))
+            {
+                cantidadKilos = (CantidadKilos)kilos;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(cantidadKilos), "Índice de enum no válido");
+            }
+
+
+            if (Enum.IsDefined(typeof(TipoAlimento), tipo))
+            {
+                tipoAlimento = (TipoAlimento)tipo;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(tipoAlimento), "Índice de enum no válido");
+            }
+            //MetodoGenerico(SaborAlimento, saborAlimento);
+            //MetodoGenerico();
+            //MetodoGenerico();
+
+
          
 
         }
+
+
+        //public void MetodoGenerico<T>(T saborAlimento, out T sabor) where T : struct, Enum
+        //{
+        //    // Código del método que utiliza el parámetro genérico
+        //    if (Enum.IsDefined(typeof(T), saborAlimento))
+        //    {
+        //        sabor = (T)saborAlimento;
+        //    }
+        //    else
+        //    {
+        //        throw new ArgumentOutOfRangeException(nameof(sabor), "Índice de enum no válido");
+        //    }
+        //}
+
+
+
 
         /// <summary>
         /// Metodo para obtener el ultimo id de la lista de alimentos
@@ -183,7 +286,18 @@ namespace Barfer.Entidades
 
         }
 
+        public static explicit operator Alimento(DataRow row)
+        {
 
-     
+            var id = Convert.ToInt32(row["id"].ToString());
+            var nombre = row["nombre"].ToString();
+            var precio = Convert.ToInt32(row["precio"].ToString());
+            var cantidad = Convert.ToInt32(row["cantidad"].ToString());
+            var tipo = Convert.ToInt32(row["idTipoAlimento"].ToString());
+            var sabor = Convert.ToInt32(row["idSaborAlimento"].ToString());
+            var kilos = Convert.ToInt32(row["idKilos"].ToString());
+            Alimento alimento = new Alimento(id, nombre, precio, cantidad, sabor, kilos,tipo);
+            return alimento;
+        }
     }
 }

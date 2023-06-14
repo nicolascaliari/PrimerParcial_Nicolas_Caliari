@@ -3,16 +3,19 @@ using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
 using Barfer.Vista.FormVentas;
 using Barfer.Vista.FrmInformes;
+using Barfer.Vista.FrmNotificacion;
 using Barfer.Vista.Ventas;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using static Barfer.Entidades.Usuarios.Usuario;
 
 namespace Vistas
 {
     public partial class FormContenedor : Form
     {
-        private int id;
+        public int id;
         private string pass;
         private bool areButtonsVisible = false;
+        private Form notificaiones;
 
         public FormContenedor(int id, string pass)
         {
@@ -24,10 +27,14 @@ namespace Vistas
         private void Form1_Load(object sender, EventArgs e)
         {
             pnlVentas.Visible = false;
-            lblDatosUsuario.Text = Usuario.GetNombreApellido(id, GestorDeUsuarios.usuarios);
+            // lblDatosUsuario.Text = Usuario.GetNombreApellido(id, GestorDeUsuarios.usuarios);
+            Saludar(id);
         }
 
-
+        Action<int> Saludar = (id) =>
+        {
+            MessageBox.Show($"Hola que bueno es encontrarte {Usuario.GetNombreApellido(id, GestorDeUsuarios.usuarios)}");
+        };
 
         /// <summary>
         /// Evento click que abre el Form de stock 
@@ -155,6 +162,16 @@ namespace Vistas
         {
             var formInformes = new FormInformes();
             formInformes.Show();
+        }
+
+        private void btnNotificacion_Click(object sender, EventArgs e)
+        {
+
+            if (notificaiones == null)
+            {
+                notificaiones = new FormNotificaciones();
+            }
+            notificaiones.Show();
         }
     }
 }

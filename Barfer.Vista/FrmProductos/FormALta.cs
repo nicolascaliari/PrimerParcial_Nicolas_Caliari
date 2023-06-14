@@ -1,4 +1,5 @@
 ﻿using Barfer.Entidades;
+using Barfer.Entidades.SQL;
 using Barfer.Entidades.Validaciones;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static Barfer.Entidades.Alimento;
 
 namespace Vistas
@@ -72,33 +74,76 @@ namespace Vistas
         private void btnAlta_Click(object sender, EventArgs e)
         {
 
-            string nombre = txtBoxNombreAlta.Text;
-            decimal precio = numericPrecioAlta.Value;
-            decimal cantidad = numericUpDownCantidad.Value;
 
-
-
+            AlimentoDB alimentDB = new AlimentoDB();
             try
             {
-                Validador.ValidarNombre(nombre);
-                Validador.ValidarPrecioProducto(precio); ;
-                Validador.ValidarCantidadProducto(cantidad);
-                Validador.ValidarEnumsAlimento(cboSabores.SelectedIndex, cboCantidades.SelectedIndex, cboTipos.SelectedIndex);
-                SaborAlimento sabor = (SaborAlimento)Enum.Parse(typeof(SaborAlimento), cboSabores.SelectedItem.ToString());
-                CantidadKilos cantidadKilos = (CantidadKilos)Enum.Parse(typeof(CantidadKilos), cboCantidades.SelectedItem.ToString());
-                TipoAlimento tipoAlimento = (TipoAlimento)Enum.Parse(typeof(TipoAlimento), cboTipos.SelectedItem.ToString());
+                if (_nuevoAlimento == null)
+                    _nuevoAlimento = new Alimento();
 
 
+                _nuevoAlimento.nombre = txtBoxNombreAlta.Text;
+                _nuevoAlimento.precio = numericPrecioAlta.Value;
+                _nuevoAlimento.cantidad = numericUpDownCantidad.Value;
+                _nuevoAlimento.tipoAlimento = (TipoAlimento)cboTipos.SelectedItem;
+                _nuevoAlimento.sabor = (SaborAlimento)cboSabores.SelectedItem;
+                _nuevoAlimento.cantidadKilos = (CantidadKilos)cboCantidades.SelectedItem;
 
-                _nuevoAlimento = new Alimento(nombre, precio, cantidad, sabor, cantidadKilos, tipoAlimento);
-                _nuevoAlimento.id = _nuevoAlimento.ObtenerUltimoIdAlimentos(GestorProductos.alimento) + 1;
+
+                alimentDB.Agregar(_nuevoAlimento);
+                MessageBox.Show($"agregado exitosamente {_nuevoAlimento}");
                 this.DialogResult = DialogResult.OK;
+
+                Close();
             }
-            catch (ExceptionCampos ex)
+            catch (Exception ex)
             {
-                lblError.Visible = true;
-                lblError.Text = $"{ex.Message}";
+                MessageBox.Show(ex.ToString());
             }
+
+
+
+
+
+
+
+
+
+
+
+            //string nombre = txtBoxNombreAlta.Text;
+            //decimal precio = numericPrecioAlta.Value;
+            //decimal cantidad = numericUpDownCantidad.Value;
+
+
+
+            //try
+            //{
+            //    AlimentoDB alimentoDB = new AlimentoDB();
+            //    Validador.ValidarNombre(nombre);
+            //    Validador.ValidarPrecioProducto(precio); ;
+            //    Validador.ValidarCantidadProducto(cantidad);
+            //    Validador.ValidarEnumsAlimento(cboSabores.SelectedIndex, cboCantidades.SelectedIndex, cboTipos.SelectedIndex);
+
+            //    int tipo = cboTipos.SelectedIndex;
+            //    int sabor = cboSabores.SelectedIndex;
+            //    int kilos = cboCantidades.SelectedIndex;
+            //    //SaborAlimento sabor = (SaborAlimento)Enum.Parse(typeof(SaborAlimento), cboSabores.SelectedItem.ToString());
+            //    //CantidadKilos cantidadKilos = (CantidadKilos)Enum.Parse(typeof(CantidadKilos), cboCantidades.SelectedItem.ToString());
+            //    //TipoAlimento tipoAlimento = (TipoAlimento)Enum.Parse(typeof(TipoAlimento), cboTipos.SelectedItem.ToString());
+            //    _nuevoAlimento = new Alimento(nombre, precio, cantidad, sabor, kilos, tipo);
+            //    alimentoDB.Agregar(_nuevoAlimento);
+
+
+
+            //    //_nuevoAlimento.id = _nuevoAlimento.ObtenerUltimoIdAlimentos(GestorProductos.alimento) + 1;
+            //    this.DialogResult = DialogResult.OK;
+            //}
+            //catch (ExceptionCampos ex)
+            //{
+            //    lblError.Visible = true;
+            //    lblError.Text = $"{ex.Message}";
+            //}
         }
 
 

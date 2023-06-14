@@ -94,21 +94,17 @@ namespace Barfer.Entidades.SQL
         {
             var personas = new List<Usuario>();
 
-            using (var table = EjecutarConsulta("SELECT * FROM Usuarios u INNER JOIN tipoUsuarios t ON u.idTipoUsuario = t.id;"))
+            string query = "SELECT *FROM Usuarios;";
+            using (var comando = CrearComando(query))
             {
-                foreach (System.Data.DataRow row in table.Rows)
+                using (var table = EjecutarConsulta(comando))
                 {
-                    var _id = Convert.ToInt32(row["id"].ToString());
-                    var nombre = row["nombre"].ToString() ?? "";
-                    var apellido = row["apellido"].ToString() ?? "";
-                    var edad = Convert.ToInt32(row["edad"].ToString());
-                    var password = row["password"].ToString() ?? "";
-                    var tipoUsuario = Convert.ToInt32(row["idTipoUsuario"].ToString());
-
-                    personas.Add(new Usuario(_id, nombre, apellido, edad, password, tipoUsuario));
+                    foreach (DataRow row in table.Rows)
+                    {
+                        personas.Add((Usuario)row);
+                    }
                 }
             }
-
             return personas;
 
         }

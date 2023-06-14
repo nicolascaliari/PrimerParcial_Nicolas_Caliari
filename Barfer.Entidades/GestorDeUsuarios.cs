@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Barfer.Entidades.Archivos;
 using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using DocumentFormat.OpenXml.Drawing;
@@ -31,10 +30,9 @@ namespace Barfer.Entidades
         /// <returns>una lista de Cliente</returns>
         public static List<Cliente> CargarClientesDesdeArchivo()
         {
-            return clientes = Controlador.CargarClienteDesdeArchivo();
-
+            ClienteDB datos = new ClienteDB();
+            return clientes = datos.Traer();
         }
-
 
 
         /// <summary>

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Barfer.Entidades;
-using Barfer.Entidades.Archivos;
+using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using Barfer.Vista.FrmProductos;
 using DocumentFormat.OpenXml.Office2010.Excel;
@@ -29,11 +29,13 @@ namespace Vistas
 
         private void FormStock_Load(object sender, EventArgs e)
         {
-            dataGrid.DataSource = GestorProductos.CargarAlimentoDesdeArchivo();
+            // dataGrid.DataSource = GestorProductos.CargarAlimentoDesdeArchivo();
+            ActualizarStock(dataGrid);
             lblTotalStock.Text = GestorProductos.TotalStock();
 
         }
 
+       
 
         /// <summary>
         /// Metodo que actualiza el stock pasandole al DataGrid la lista de alimento
@@ -43,8 +45,9 @@ namespace Vistas
         {
             if (GestorProductos.alimento.Count > 0)
             {
+                AlimentoDB alimento = new AlimentoDB();
                 dtg.DataSource = null;
-                dtg.DataSource = GestorProductos.alimento;
+                dtg.DataSource = alimento.Traer();
                 dtg.Visible = true;
             }
             else
@@ -68,10 +71,9 @@ namespace Vistas
                 if (altaProducto.ShowDialog() == DialogResult.OK)
                 {
                     GestorProductos.AltaAlimento(altaProducto.nuevoAlimento);
-                    GuardarArchivo.GuardarAlimentoEnArchivo(GestorProductos.alimento);
                     ActualizarStock(dataGrid);
                     lblTotalStock.Text = GestorProductos.TotalStock();
-                   
+
                 }
             }
             else
@@ -95,12 +97,18 @@ namespace Vistas
                 {
                     DialogResult respuesta = MessageBox.Show("¿Desea eliminar el producto?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+
                     if (respuesta == DialogResult.Yes)
                     {
-                        GestorProductos.BajaProducto((Alimento)dataGrid.CurrentRow.DataBoundItem);
-                        ActualizarStock(dataGrid);
-                        GuardarArchivo.GuardarAlimentoEnArchivo(GestorProductos.alimento);
+                        Alimento alimento = (Alimento)dataGrid.CurrentRow.DataBoundItem;
+
+                        int idProducto = alimento.id;
+                        GestorProductos.BajaProducto(alimento);
+                        AlimentoDB alimentoDB = new AlimentoDB();
+                        alimentoDB.Eliminar(idProducto);
+
                         lblTotalStock.Text = GestorProductos.TotalStock();
+                        ActualizarStock(dataGrid);
                         string mostrar = Alimento.MostrarProductoEliminado((Alimento)dataGrid.CurrentRow.DataBoundItem);
                         MessageBox.Show(mostrar);
                     }
@@ -135,7 +143,6 @@ namespace Vistas
                 if (formModificacion.ShowDialog() == DialogResult.OK)
                 {
                     ActualizarStock(dataGrid);
-                    GuardarArchivo.GuardarAlimentoEnArchivo(GestorProductos.alimento);
                 }
             }
         }
