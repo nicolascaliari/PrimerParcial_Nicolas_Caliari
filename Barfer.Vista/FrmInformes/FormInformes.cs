@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Barfer.Entidades.Informes.ExportadorJSON;
 using static Barfer.Entidades.Informes.ExportadorCSV;
+using Barfer.Entidades.Logs;
+using Barfer.Entidades.Usuarios;
 
 namespace Barfer.Vista.FrmInformes
 {
@@ -23,18 +25,42 @@ namespace Barfer.Vista.FrmInformes
             InitializeComponent();
         }
 
+        private void FormInformes_Load(object sender, EventArgs e)
+        {
+            lblError.Visible = false;
+            RegistroActividad registro = new RegistroActividad(Usuario.name, " el usuario ingreso a los informes", DateTime.Now);
+            RegistroActividad.OnMovimientoRealizado(registro);
+        }
+
         private void btnDescargarCsv_Click(object sender, EventArgs e)
         {
             List<Venta> ventas = Venta.ventas;
-            string contenidoCSV = GenerarContenidoCSV(ventas);
-            DescargarArchivoCSV(contenidoCSV);
+            if (ventas.Count > 0)
+            {
+                string contenidoCSV = GenerarContenidoCSV(ventas);
+                DescargarArchivoCSV(contenidoCSV);
+            }
+            else
+            {
+                lblError.Text = "Error, no hay ventas generadas";
+                lblError.Visible = true;
+            }
+
         }
 
         private void btnDescargarJson_Click(object sender, EventArgs e)
         {
             List<Venta> dataList = Venta.ventas;
-            string json = SerializarListaToJson(dataList);
-            DescargarJson(json);
+            if (dataList.Count > 0)
+            {
+                string json = SerializarListaToJson(dataList);
+                DescargarJson(json);
+            }
+            else
+            {
+                lblError.Text = "Error, no hay ventas generadas";
+                lblError.Visible = true;
+            }
         }
 
         private void DescargarJson(string jsonData)
@@ -93,11 +119,5 @@ namespace Barfer.Vista.FrmInformes
                 Console.WriteLine("No se pudo obtener el contenido del archivo CSV.");
             }
         }
-
-
-
-
-
-
     }
 }

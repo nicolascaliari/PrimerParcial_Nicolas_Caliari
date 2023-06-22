@@ -1,6 +1,7 @@
 ﻿using Barfer.Entidades.Usuarios;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -19,7 +20,7 @@ namespace Barfer.Entidades
 
         public enum Localidades
         {
-            CABA,
+            CABA = 1,
             ZonaNorte,
             ZonaSur,
             ZonaOeste
@@ -46,7 +47,7 @@ namespace Barfer.Entidades
         /// <param name="nombre"></param>
         /// <param name="apellido"></param>
         /// <param name="localidad"></param>
-        public Cliente(int id,string nombre, string apellido, int localidad):this()
+        public Cliente(int id,string nombre, string apellido, int localidad)
         {
             _id = id;
             _nombreCliente = nombre;
@@ -75,7 +76,15 @@ namespace Barfer.Entidades
             return sb.ToString();
         }
 
+        public static explicit operator Cliente(DataRow row)
+        {
+            var id = Convert.ToInt32(row["id"].ToString());
+            var nombre = row["nombre"].ToString();
+            var apellido = row["apellido"].ToString();
+            var localidad = Convert.ToInt32(row["idLocalidad"].ToString());
 
-
+            Cliente cliente = new Cliente(id, nombre, apellido, localidad);
+            return cliente;
+        }
     }
 }

@@ -10,7 +10,8 @@ namespace Barfer.Entidades.Usuarios
 {
     public class Usuario
     {
-
+        public static string name;
+        public static int idVerificador { get; set; }
         public enum TipoUsuario
         {
             Administrador = 1,

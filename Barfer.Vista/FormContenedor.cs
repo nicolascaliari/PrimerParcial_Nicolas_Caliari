@@ -1,11 +1,15 @@
 using Barfer.Entidades;
+using Barfer.Entidades.Logs;
+using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
 using Barfer.Vista.FormVentas;
 using Barfer.Vista.FrmInformes;
+using Barfer.Vista.FrmLogs;
 using Barfer.Vista.FrmNotificacion;
 using Barfer.Vista.Ventas;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using Microsoft.Win32;
 using static Barfer.Entidades.Usuarios.Usuario;
 
 namespace Vistas
@@ -16,20 +20,27 @@ namespace Vistas
         private string pass;
         private bool areButtonsVisible = false;
         private Form notificaiones;
+        private Form logs;
 
         public FormContenedor(int id, string pass)
         {
             InitializeComponent();
             this.id = id;
             this.pass = pass;
+            logs = new FormLogs();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             pnlVentas.Visible = false;
-            // lblDatosUsuario.Text = Usuario.GetNombreApellido(id, GestorDeUsuarios.usuarios);
-            Saludar(id);
+            lblDatosUsuario.Text = Usuario.GetNombreApellido(id, GestorDeUsuarios.usuarios);
+
+            RegistroActividad registro = new RegistroActividad(Usuario.name, " el usuario ingreso al menu principal", DateTime.Now);
+            RegistroActividad.OnMovimientoRealizado(registro);
         }
+
+
+
 
         Action<int> Saludar = (id) =>
         {
@@ -57,7 +68,7 @@ namespace Vistas
         private void btnGestor_Click(object sender, EventArgs e)
         {
             int tipo = (int)Validador.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
-            if (tipo == 0)
+            if (tipo == 1)
             {
                 var formGestionUsuarios = new FormGestionUsuarios();
                 formGestionUsuarios.Show();
@@ -172,6 +183,26 @@ namespace Vistas
                 notificaiones = new FormNotificaciones();
             }
             notificaiones.Show();
+        }
+
+        private void btnLogs_Click(object sender, EventArgs e)
+        {
+            if (logs == null)
+            {
+                logs = new FormLogs();
+            }
+            logs.Show();
+            //int tipo = (int)Validador.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
+            //if (tipo == 1)
+            //{
+            //    FormLogs frmLogs = new FormLogs();
+            //    frmLogs.Show();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Solo los administradores tienen acceso");
+            //}
+
         }
     }
 }

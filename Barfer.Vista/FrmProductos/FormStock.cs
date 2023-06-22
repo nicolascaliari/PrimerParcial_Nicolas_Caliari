@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Barfer.Entidades;
+using Barfer.Entidades.Logs;
 using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using Barfer.Vista.FrmProductos;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using Microsoft.Win32;
 using Vistas.FrmUsuarios;
 
 namespace Vistas
@@ -29,13 +31,13 @@ namespace Vistas
 
         private void FormStock_Load(object sender, EventArgs e)
         {
-            // dataGrid.DataSource = GestorProductos.CargarAlimentoDesdeArchivo();
             ActualizarStock(dataGrid);
             lblTotalStock.Text = GestorProductos.TotalStock();
-
+            RegistroActividad registro = new RegistroActividad(Usuario.name, " el usuario ingreso al gestor de stock", DateTime.Now);
+            RegistroActividad.OnMovimientoRealizado(registro);
         }
 
-       
+
 
         /// <summary>
         /// Metodo que actualiza el stock pasandole al DataGrid la lista de alimento
@@ -212,7 +214,9 @@ namespace Vistas
 
         }
 
+        private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-
+        }
     }
 }

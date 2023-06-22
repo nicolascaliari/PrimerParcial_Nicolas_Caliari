@@ -30,7 +30,7 @@ namespace Barfer.Entidades
         /// <returns>una lista de Cliente</returns>
         public static List<Cliente> CargarClientesDesdeArchivo()
         {
-            ClienteDB datos = new ClienteDB();
+            var datos = new ClienteDB();
             return clientes = datos.Traer();
         }
 

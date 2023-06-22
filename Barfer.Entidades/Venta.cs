@@ -68,6 +68,11 @@ namespace Barfer.Entidades
             pasarDatoEvento?.Invoke(venta);
         }
 
+        public static void NotificarCamion(string horario)
+        {
+            pasarDatoEvento?.Invoke(horario);
+        }
+
 
         /// <summary>
         /// Metodo para generar una venta aleatoria

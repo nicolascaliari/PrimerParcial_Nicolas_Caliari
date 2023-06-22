@@ -14,8 +14,8 @@ namespace Barfer.Entidades.Validaciones
 
         public enum OpcionTipo
         {
-            administrador = 0,
-            empleado = 1,
+            administrador = 1,
+            empleado = 2,
             error = -1,
         }
 

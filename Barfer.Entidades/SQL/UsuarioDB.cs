@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Barfer.Entidades.Usuarios.Usuario;
 
 namespace Barfer.Entidades.SQL
 {
@@ -18,73 +19,45 @@ namespace Barfer.Entidades.SQL
 
         public void Agregar(Usuario usuario)
         {
-           AccesoDatos datos = new AccesoDatos();
 
-            try
+            string query = "INSERT INTO Usuarios (nombre, apellido, edad, password, idTipoUsuario) VALUES (@nombre, @apellido, @edad, @password, @idTipoUsuario)";
+
+            using (var comando = CrearComando(query))
             {
-
-                datos.SetearConsulta("INSERT INTO Usuarios (nombre, apellido, edad, password, idTipoUsuario) VALUES (@nombre, @apellido, @edad, @password, @idTipoUsuario)");
-                datos.SetearParametro("@nombre" , usuario.nombreUsuario);
-                datos.SetearParametro("@apellido", usuario.apellidoUsuario);
-                datos.SetearParametro("@edad", usuario.edadUsuario);
-                datos.SetearParametro("@password", usuario.password);
-                datos.SetearParametro("@idTipoUsuario", usuario.tipoUsuario);
-                datos.EjecutarAccion();
-
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                datos.CerrarConexion();
-            }
+                comando.Parameters.AddWithValue("@nombre", usuario.nombreUsuario);
+                comando.Parameters.AddWithValue("@apellido", usuario.apellidoUsuario);
+                comando.Parameters.AddWithValue("@edad", usuario.edadUsuario);
+                comando.Parameters.AddWithValue("@password", usuario.password);
+                comando.Parameters.AddWithValue("@idTipoUsuario", usuario.idUsuario);
+                ExcuteNonQuery(comando);
+            }  
         }
 
         public void Eliminar(int id)
         {
-            try
+            string query = "DELETE FROM Usuarios where id = @id";
+            using (var comando = CrearComando(query))
             {
-                AccesoDatos datos = new AccesoDatos();
-                datos.SetearConsulta("DELETE FROM Usuarios where id = @id");
-                datos.SetearParametro("@id", id);
-                datos.EjecutarAccion();
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+                comando.Parameters.AddWithValue("@id", id);
+                ExcuteNonQuery(comando);
             }
         }
 
 
         public void Modificar(Usuario usuario)
         {
-            AccesoDatos datos = new AccesoDatos();
 
-            try
+            string query ="UPDATE Usuarios SET nombre = @nombre, apellido = @apellido, edad = @edad, password = @password, idTipoUsuario = @idTipoUsuario WHERE id = @id";
+
+            using (var comando = CrearComando(query))
             {
-                datos.SetearConsulta("UPDATE Usuarios SET nombre = @nombre, apellido = @apellido, edad = @edad, password = @password, idTipoUsuario = @idTipoUsuario WHERE id = @id");
-                datos.SetearParametro("@id", usuario.idUsuario);
-                datos.SetearParametro("@nombre", usuario.nombreUsuario);
-                datos.SetearParametro("@apellido", usuario.apellidoUsuario);
-                datos.SetearParametro("@edad", usuario.edadUsuario);
-                datos.SetearParametro("@password", usuario.password);
-                datos.SetearParametro("@idTipoUsuario", usuario.tipoUsuario);
-
-                datos.EjecutarAccion();
-
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                datos.CerrarConexion();
+                comando.Parameters.AddWithValue("@id", usuario.idUsuario);
+                comando.Parameters.AddWithValue("@nombre", usuario.nombreUsuario);
+                comando.Parameters.AddWithValue("@apellido", usuario.apellidoUsuario);
+                comando.Parameters.AddWithValue("@edad", usuario.edadUsuario);
+                comando.Parameters.AddWithValue("@password", usuario.password);
+                comando.Parameters.AddWithValue("@idTipoUsuario", usuario.idUsuario);
+                ExcuteNonQuery(comando);
             }
         }
 

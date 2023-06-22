@@ -53,7 +53,6 @@
             // 
             // timer1
             // 
-            timer1.Tick += timer1_Tick;
             // 
             // lblTimer
             // 
@@ -103,7 +102,7 @@
             // 
             // timer2
             // 
-            timer2.Tick += timer1_Tick;
+            
             // 
             // FormEnvio
             // 

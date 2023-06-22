@@ -16,9 +16,9 @@ namespace Barfer.Vista.FormVentas
 {
     public partial class FormEnvio : Form
     {
-        //public delegate void pasarDatos(string dato);
-        //public static event pasarDatos pasarDatoEvento;
         private DateTime fechaEntrega;
+        private string fecha;
+        private Timer timer;
         public FormEnvio()
         {
             InitializeComponent();
@@ -30,12 +30,15 @@ namespace Barfer.Vista.FormVentas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FormEnvio_Load(object sender, EventArgs e)
+        private async void FormEnvio_Load(object sender, EventArgs e)
         {
             MostrarFechaDeEntrega();
             CargarDatosDeEnvios();
 
             Venta.NotificarVenta("Ya se llamo al camion para entregar los productos");
+            Venta.NotificarCamion(fecha);
+            await EsperarHastaFechaEntrega();
+            MostrarNotificacion();
         }
 
 
@@ -49,9 +52,10 @@ namespace Barfer.Vista.FormVentas
             if (Venta.ventasPreparacion.Count > 0)
             {
                 MessageBox.Show("Ya le hemos enviado un mail con la informacion de los pedidos al camion de envio.");
-                fechaEntrega = Venta.entregasProgramadas[0];
-                string fechaa = fechaEntrega.ToString("dd/MM/yyyy hh:mm:ss tt");
-                lblTimer.Text = $"El camion vendra a buscar la entrega el dia: {fechaa}";
+                 fechaEntrega = Venta.entregasProgramadas[0];
+                //fechaEntrega = new DateTime(2023, 6, 27, 19, 30, 0);
+                fecha = fechaEntrega.ToString("dd/MM/yyyy hh:mm:ss tt");
+                lblTimer.Text = $"El camion vendra a buscar la entrega el dia: {fecha}";
             }
             else
             {
@@ -89,16 +93,28 @@ namespace Barfer.Vista.FormVentas
         }
 
 
-
-        private void timer1_Tick(object sender, EventArgs e)
+        private async Task EsperarHastaFechaEntrega()
         {
+            DateTime now = DateTime.Now;
+            DateTime fechaEntregaSinSegundos = fechaEntrega.Date.AddHours(fechaEntrega.Hour).AddMinutes(fechaEntrega.Minute);
+            DateTime nowSinSegundos = now.Date.AddHours(now.Hour).AddMinutes(now.Minute);
 
+            if (fechaEntregaSinSegundos == nowSinSegundos)
+            {
+                await Task.Delay(0); // No hay espera, se muestra la notificación de inmediato
+            }
+            else if (fechaEntregaSinSegundos > nowSinSegundos)
+            {
+                TimeSpan tiempoEspera = fechaEntregaSinSegundos - nowSinSegundos;
+                await Task.Delay(tiempoEspera);
+            }
         }
 
 
-        private void OnTiempoFinalizado()
+
+        private void MostrarNotificacion()
         {
-         
+            MessageBox.Show("¡El camión está en camino para recoger la entrega!");
         }
     }
 }

@@ -47,6 +47,7 @@ namespace Vistas
                 Validador.ValidarPassword(contrasenia);
 
                 int id = Validador.EncontrarIdUsuario(nombre, contrasenia);
+                Usuario.idVerificador = id;
                 AccederMenuPrincipal(id, contrasenia);
 
             }

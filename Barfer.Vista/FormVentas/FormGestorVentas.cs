@@ -1,6 +1,8 @@
 ﻿using Barfer.Entidades;
+using Barfer.Entidades.Logs;
 using Barfer.Entidades.Usuarios;
 using Barfer.Vista.FormVentas;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +31,9 @@ namespace Barfer.Vista.Ventas
             Venta.GenerarVentasAleatorias(4, GestorDeUsuarios.clientes, GestorProductos.alimento);
 
             CargarVentas();
+            string usuario = Usuario.name;
+            RegistroActividad registro = new RegistroActividad(usuario, " el usuario ingreso al gestor de ventas", DateTime.Now);
+            RegistroActividad.OnMovimientoRealizado(registro);
         }
 
 

@@ -15,6 +15,8 @@ using static Barfer.Entidades.Gato;
 using static Barfer.Entidades.Mascota;
 using static Barfer.Entidades.Perro;
 using Barfer.Entidades;
+using Barfer.Entidades.Logs;
+using Barfer.Entidades.Usuarios;
 
 namespace Vistas
 {
@@ -38,6 +40,9 @@ namespace Vistas
             {
                 cmbMascota.Items.Add(item);
             }
+
+            RegistroActividad registro = new RegistroActividad(Usuario.name, " el usuario ingreso a la calculadora", DateTime.Now);
+            RegistroActividad.OnMovimientoRealizado(registro);
         }
 
 

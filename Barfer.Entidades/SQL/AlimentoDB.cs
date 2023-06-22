@@ -44,30 +44,18 @@ namespace Barfer.Entidades.SQL
 
         public void Modificar(Alimento alimento)
         {
-            AccesoDatos datos = new AccesoDatos();
+            string query = "UPDATE Alimentos SET nombre = @nombre, precio = @precio, cantidad = @cantidad, idTipoAlimento = @idTipoAlimento, idSaborAlimento = @idSaborAlimento, idKilos = @idKilos WHERE id = @id";
 
-            try
+            using (var comando = CrearComando(query))
             {
-                datos.SetearConsulta("UPDATE Alimentos SET nombre = @nombre, precio = @precio, cantidad = @cantidad, idTipoAlimento = @idTipoAlimento, idSaborAlimento = @idSaborAlimento, idKilos = @idKilos WHERE id = @id");
-                datos.SetearParametro("@id", alimento.id);
-                datos.SetearParametro("@nombre", alimento.nombre);
-                datos.SetearParametro("@precio", alimento.precio);
-                datos.SetearParametro("@cantidad", alimento.cantidad);
-                datos.SetearParametro("@idTipoAlimento", alimento.tipoAlimento);
-                datos.SetearParametro("@idSaborAlimento", alimento.sabor);
-                datos.SetearParametro("@idKilos", alimento.cantidadKilos);
-
-                datos.EjecutarAccion();
-
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                datos.CerrarConexion();
+                comando.Parameters.AddWithValue("@id", alimento.id);
+                comando.Parameters.AddWithValue("@nombre", alimento.nombre);
+                comando.Parameters.AddWithValue("@precio", alimento.precio);
+                comando.Parameters.AddWithValue("@cantidad", alimento.cantidad);
+                comando.Parameters.AddWithValue("@idTipoAlimento", alimento.tipoAlimento);
+                comando.Parameters.AddWithValue("@idSaborAlimento", alimento.sabor);
+                comando.Parameters.AddWithValue("@idKilos", alimento.cantidadKilos);
+                ExcuteNonQuery(comando);
             }
         }
 
@@ -76,7 +64,7 @@ namespace Barfer.Entidades.SQL
         public List<Alimento> Traer()
         {
             var alimento = new List<Alimento>();
-            string query = "SELECT *FROM Alimentos;";
+            string query = "SELECT * FROM Alimentos;";
             using (var comando = CrearComando(query))
             {
                 using(var table = EjecutarConsulta(comando))
@@ -87,8 +75,6 @@ namespace Barfer.Entidades.SQL
                     }
                 }
             }
-        
-
             return alimento;
 
         }
