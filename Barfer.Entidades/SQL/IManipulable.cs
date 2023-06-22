@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Barfer.Entidades.SQL
 {
     public interface IManipulable<T>
     {
-        public List<T> Traer();
-        public T Traer(int id);
+        Task<List<T>> TraerAsync();
+        Task<T> TraerAsync(int id);
 
-        public void Agregar(T objeto);
-        public void Modificar(T objeto);
-        public void Eliminar(int id);
+        Task AgregarAsync(T objeto);
+        Task ModificarAsync(T objeto);
+        Task EliminarAsync(int id);
     }
 }

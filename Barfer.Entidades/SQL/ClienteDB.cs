@@ -14,7 +14,7 @@ namespace Barfer.Entidades.SQL
         {
         }
 
-        public void Agregar(Cliente usuario)
+        public async Task AgregarAsync(Cliente usuario)
         {
 
 
@@ -28,18 +28,18 @@ namespace Barfer.Entidades.SQL
 
         }
 
-        public void Eliminar(int id)
+        public async Task EliminarAsync(int id)
         {
             string query = "DELETE FROM Clientes where id = @id";
-            using (var comando = CrearComando(query))
+            using (var comando = await CrearComandoAsync(query))
             {
-                comando.Parameters.AddWithValue("@id", id);
-                ExcuteNonQuery(comando);
+                comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                await ExcuteNonQueryAsync(comando);
             }
         }
 
 
-        public void Modificar(Cliente venta)
+        public async Task ModificarAsync(Cliente usuario)
         {
 
                 //datos.SetearConsulta("UPDATE Ventas SET idCliente = @idCliente, idLocalidad = @idLocalidad, idAlimento = @idAlimento, cantidad = @cantidad, estado = @estado, enviar = @enviar WHERE id = @id");
@@ -55,26 +55,26 @@ namespace Barfer.Entidades.SQL
         }
 
 
-
-        public List<Cliente> Traer()
+        public async Task<List<Cliente>> TraerAsync()
         {
-            var clientes = new List<Cliente>();
+            var personas = new List<Cliente>();
 
             string query = "SELECT * FROM Clientes;";
-            using (var comando = CrearComando(query))
+            using (var comando = await CrearComandoAsync(query))
             {
-                using (var table = EjecutarConsulta(comando))
+                using (var table = await EjecutarConsultaAsync(comando))
                 {
                     foreach (DataRow row in table.Rows)
                     {
-                        clientes.Add((Cliente)row);
+                        personas.Add((Cliente)row);
                     }
                 }
             }
-            return clientes;
+            return personas;
         }
 
-        public Cliente Traer(int id)
+
+        public async Task<Cliente> TraerAsync(int id)
         {
             throw new NotImplementedException();
         }

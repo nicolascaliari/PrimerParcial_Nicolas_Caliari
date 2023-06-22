@@ -19,19 +19,22 @@ namespace Barfer.Entidades
         /// </summary>
         static GestorProductos()
         {
-            CargarAlimentoDesdeArchivo();
+           
         }
 
-
+        public static async Task Inicializar()
+        {
+            await CargarAlimentoDesdeArchivo();
+        }
 
         /// <summary>
         /// Metodo que carga los productos desde el archivo a la lista alimento
         /// </summary>
         /// <returns>Retorna la lista</returns>
-        public static List<Alimento> CargarAlimentoDesdeArchivo()
+        public static async Task CargarAlimentoDesdeArchivo()
         {
             var datos = new AlimentoDB();
-            return alimento = datos.Traer();
+             alimento = await datos.TraerAsync();
         }
 
 

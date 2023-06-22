@@ -28,7 +28,7 @@ namespace Vistas
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = GestorDeUsuarios.CargarUsuariosDesdeArchivo();
+            dataGridView1.DataSource = GestorDeUsuarios.usuarios;
         }
 
 
@@ -83,7 +83,7 @@ namespace Vistas
                 int idProducto = producto.idUsuario;
                 GestorDeUsuarios.BajaUsuario(producto);
                 var usuario = new UsuarioDB();
-                usuario.Eliminar(idProducto);
+                usuario.EliminarAsync(idProducto);
 
 
                 ActualizarUsuarios(dataGridView1);

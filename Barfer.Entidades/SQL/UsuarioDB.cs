@@ -17,60 +17,58 @@ namespace Barfer.Entidades.SQL
         {
         }
 
-        public void Agregar(Usuario usuario)
+        public async Task AgregarAsync(Usuario usuario)
         {
-
             string query = "INSERT INTO Usuarios (nombre, apellido, edad, password, idTipoUsuario) VALUES (@nombre, @apellido, @edad, @password, @idTipoUsuario)";
 
-            using (var comando = CrearComando(query))
+            using (var comando = await CrearComandoAsync(query))
             {
-                comando.Parameters.AddWithValue("@nombre", usuario.nombreUsuario);
-                comando.Parameters.AddWithValue("@apellido", usuario.apellidoUsuario);
-                comando.Parameters.AddWithValue("@edad", usuario.edadUsuario);
-                comando.Parameters.AddWithValue("@password", usuario.password);
-                comando.Parameters.AddWithValue("@idTipoUsuario", usuario.idUsuario);
-                ExcuteNonQuery(comando);
-            }  
+                comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = usuario.nombreUsuario;
+                comando.Parameters.Add("@apellido", SqlDbType.VarChar).Value = usuario.apellidoUsuario;
+                comando.Parameters.Add("@edad", SqlDbType.Int).Value = usuario.edadUsuario;
+                comando.Parameters.Add("@password", SqlDbType.VarChar).Value = usuario.password;
+                comando.Parameters.Add("@idTipoUsuario", SqlDbType.Int).Value = usuario.idUsuario;
+                await ExcuteNonQueryAsync(comando);
+            }
         }
 
-        public void Eliminar(int id)
+
+        public async Task EliminarAsync(int id)
         {
             string query = "DELETE FROM Usuarios where id = @id";
-            using (var comando = CrearComando(query))
+            using (var comando = await CrearComandoAsync(query))
             {
-                comando.Parameters.AddWithValue("@id", id);
-                ExcuteNonQuery(comando);
+                comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                await ExcuteNonQueryAsync(comando);
             }
         }
 
 
-        public void Modificar(Usuario usuario)
+        public async Task ModificarAsync(Usuario usuario)
         {
+            string query = "UPDATE Usuarios SET nombre = @nombre, apellido = @apellido, edad = @edad, password = @password, idTipoUsuario = @idTipoUsuario WHERE id = @id";
 
-            string query ="UPDATE Usuarios SET nombre = @nombre, apellido = @apellido, edad = @edad, password = @password, idTipoUsuario = @idTipoUsuario WHERE id = @id";
-
-            using (var comando = CrearComando(query))
+            using (var comando = await CrearComandoAsync(query))
             {
-                comando.Parameters.AddWithValue("@id", usuario.idUsuario);
-                comando.Parameters.AddWithValue("@nombre", usuario.nombreUsuario);
-                comando.Parameters.AddWithValue("@apellido", usuario.apellidoUsuario);
-                comando.Parameters.AddWithValue("@edad", usuario.edadUsuario);
-                comando.Parameters.AddWithValue("@password", usuario.password);
-                comando.Parameters.AddWithValue("@idTipoUsuario", usuario.idUsuario);
-                ExcuteNonQuery(comando);
+                comando.Parameters.Add("@id", SqlDbType.Int).Value = usuario.idUsuario;
+                comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = usuario.nombreUsuario;
+                comando.Parameters.Add("@apellido", SqlDbType.VarChar).Value = usuario.apellidoUsuario;
+                comando.Parameters.Add("@edad", SqlDbType.Int).Value = usuario.edadUsuario;
+                comando.Parameters.Add("@password", SqlDbType.VarChar).Value = usuario.password;
+                comando.Parameters.Add("@idTipoUsuario", SqlDbType.Int).Value = usuario.idUsuario;
+                await ExcuteNonQueryAsync(comando);
             }
         }
 
 
-
-        public List<Usuario> Traer()
+        public async Task<List<Usuario>> TraerAsync()
         {
             var personas = new List<Usuario>();
 
-            string query = "SELECT *FROM Usuarios;";
-            using (var comando = CrearComando(query))
+            string query = "SELECT * FROM Usuarios;";
+            using (var comando = await CrearComandoAsync(query))
             {
-                using (var table = EjecutarConsulta(comando))
+                using (var table = await EjecutarConsultaAsync(comando))
                 {
                     foreach (DataRow row in table.Rows)
                     {
@@ -79,10 +77,10 @@ namespace Barfer.Entidades.SQL
                 }
             }
             return personas;
-
         }
 
-        public Usuario Traer(int id)
+
+        public async Task<Usuario> TraerAsync(int id)
         {
             throw new NotImplementedException();
         }

@@ -21,10 +21,10 @@ namespace Barfer.Entidades.SQL
         {
         }
 
-        protected void Abrir()
+        protected async Task AbrirAsync()
         {
             _connection = new SqlConnection(_connectionString);
-            _connection.Open();
+            await _connection.OpenAsync();
         }
 
         protected void Cerrar()

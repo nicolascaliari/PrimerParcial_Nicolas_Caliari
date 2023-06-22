@@ -40,13 +40,6 @@ namespace Vistas
         }
 
 
-
-
-        Action<int> Saludar = (id) =>
-        {
-            MessageBox.Show($"Hola que bueno es encontrarte {Usuario.GetNombreApellido(id, GestorDeUsuarios.usuarios)}");
-        };
-
         /// <summary>
         /// Evento click que abre el Form de stock 
         /// </summary>

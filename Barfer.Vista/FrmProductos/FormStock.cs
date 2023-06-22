@@ -49,7 +49,7 @@ namespace Vistas
             {
                 AlimentoDB alimento = new AlimentoDB();
                 dtg.DataSource = null;
-                dtg.DataSource = alimento.Traer();
+                dtg.DataSource = GestorProductos.alimento;
                 dtg.Visible = true;
             }
             else
@@ -107,7 +107,7 @@ namespace Vistas
                         int idProducto = alimento.id;
                         GestorProductos.BajaProducto(alimento);
                         AlimentoDB alimentoDB = new AlimentoDB();
-                        alimentoDB.Eliminar(idProducto);
+                        alimentoDB.EliminarAsync(idProducto);
 
                         lblTotalStock.Text = GestorProductos.TotalStock();
                         ActualizarStock(dataGrid);

@@ -10,33 +10,32 @@ namespace Barfer.Entidades.SQL
 {
     public class ConsultasSQL : ConexionDB
     {
-
-        public SqlCommand CrearComando(string query)
+        public async Task<SqlCommand> CrearComandoAsync(string query)
         {
-            Abrir();
+            await AbrirAsync();
             var comando = new SqlCommand(query, _connection);
             return comando;
         }
 
-        public DataTable EjecutarConsulta(SqlCommand consulta)
+        public async Task<DataTable> EjecutarConsultaAsync(SqlCommand consulta)
         {
-            //Abrir();
-            // var command = new SqlCommand(consulta, _connection);
-            var reader = consulta.ExecuteReader();
+            //await AbrirAsync();
+            //var command = new SqlCommand(consulta, _connection);
+            var reader = await consulta.ExecuteReaderAsync();
 
             var dataTable = new DataTable();
 
             dataTable.Load(reader);
 
             reader.Close();
-            // Cerrar();
+            //Cerrar();
 
             return dataTable;
         }
 
-        public void ExcuteNonQuery(SqlCommand consulta)
+        public async Task ExcuteNonQueryAsync(SqlCommand consulta)
         {
-            consulta.ExecuteNonQuery();
+            await consulta.ExecuteNonQueryAsync();
         }
     }
 }

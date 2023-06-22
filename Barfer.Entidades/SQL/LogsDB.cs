@@ -15,29 +15,25 @@ namespace Barfer.Entidades.SQL
         {
         }
 
-        public void Agregar(RegistroActividad logs)
+        public async Task AgregarAsync(RegistroActividad logs)
         {
             string query = "INSERT INTO Logs (usuario, registro, fecha) VALUES (@usuario, @registro, @fecha)";
 
-            using (var comando = CrearComando(query))
+            using (var comando = await CrearComandoAsync(query))
             {
                 comando.Parameters.AddWithValue("@usuario", logs.Usuarioo);
                 comando.Parameters.AddWithValue("@registro", logs.Registro);
                 comando.Parameters.AddWithValue("@fecha", logs.Fecha);
 
-                ExcuteNonQuery(comando);
+                await ExcuteNonQueryAsync(comando);
             }
         }
 
-        public void Eliminar(int id)
+        public async Task EliminarAsync(int id)
         {
             try
             {
-                //AccesoDatos datos = new AccesoDatos();
-                //datos.SetearConsulta("DELETE FROM Usuarios where id = @id");
-                //datos.SetearParametro("@id", id);
-                //datos.EjecutarAccion();
-
+                // Código para eliminar registros asincrónicamente
             }
             catch (Exception ex)
             {
@@ -45,31 +41,25 @@ namespace Barfer.Entidades.SQL
             }
         }
 
-
-        public void Modificar(RegistroActividad usuario)
+        public async Task ModificarAsync(RegistroActividad usuario)
         {
-
-                //datos.SetearConsulta("UPDATE Usuarios SET nombre = @nombre, apellido = @apellido, edad = @edad, password = @password, idTipoUsuario = @idTipoUsuario WHERE id = @id");
-                //datos.SetearParametro("@id", usuario.idUsuario);
-                //datos.SetearParametro("@nombre", usuario.nombreUsuario);
-                //datos.SetearParametro("@apellido", usuario.apellidoUsuario);
-                //datos.SetearParametro("@edad", usuario.edadUsuario);
-                //datos.SetearParametro("@password", usuario.password);
-                //datos.SetearParametro("@idTipoUsuario", usuario.tipoUsuario);
-
-                //datos.EjecutarAccion();
-
+            try
+            {
+                // Código para modificar registros asincrónicamente
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-
-
-        public List<RegistroActividad> Traer()
+        public async Task<List<RegistroActividad>> TraerAsync()
         {
             var logs = new List<RegistroActividad>();
             string query = "SELECT * FROM Logs;";
-            using (var comando = CrearComando(query))
+            using (var comando = await CrearComandoAsync(query))
             {
-                using (var table = EjecutarConsulta(comando))
+                using (var table = await EjecutarConsultaAsync(comando))
                 {
                     foreach (DataRow row in table.Rows)
                     {
@@ -78,10 +68,9 @@ namespace Barfer.Entidades.SQL
                 }
             }
             return logs;
-
         }
 
-        public RegistroActividad Traer(int id)
+        public async Task<RegistroActividad> TraerAsync(int id)
         {
             throw new NotImplementedException();
         }

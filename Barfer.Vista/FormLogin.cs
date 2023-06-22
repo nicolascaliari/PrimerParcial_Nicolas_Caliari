@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Barfer.Entidades;
+using Barfer.Entidades.Logs;
 using Barfer.Entidades.SQL;
 using Barfer.Entidades.Usuarios;
 using Barfer.Entidades.Validaciones;
@@ -22,13 +23,11 @@ namespace Vistas
             InitializeComponent();
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
+        private async void FormLogin_Load(object sender, EventArgs e)
         {
-            if (GestorDeUsuarios.usuarios.Count <= 0)
-            {
-                MessageBox.Show("No hay usuarios cargados al sistema");
-                Application.Exit();
-            }
+            await GestorDeUsuarios.Inicializar();
+            await GestorProductos.Inicializar();
+            await RegistroActividad.Inicializar();
         }
 
         /// <summary>

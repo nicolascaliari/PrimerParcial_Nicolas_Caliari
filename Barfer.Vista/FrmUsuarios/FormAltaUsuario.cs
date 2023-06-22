@@ -81,7 +81,7 @@ namespace Vistas.FrmUsuarios
                 _nuevoUsuario.apellidoUsuario = apellido;
                 _nuevoUsuario.password = password;
                 _nuevoUsuario.edadUsuario = edad;
-                usuarioDB.Agregar(_nuevoUsuario);
+                usuarioDB.AgregarAsync(_nuevoUsuario);
 
                 this.DialogResult = DialogResult.OK;
             }

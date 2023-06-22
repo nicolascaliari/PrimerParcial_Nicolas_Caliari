@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace Barfer.Entidades.SQL
 {
-    public class AlimentoDB: ConsultasSQL, IManipulable<Alimento>
+    public class AlimentoDB : ConsultasSQL, IManipulable<Alimento>
     {
         public AlimentoDB() : base()
         {
         }
 
-        public void Agregar(Alimento alimento)
+        public async Task AgregarAsync(Alimento alimento)
         {
-
             string query = "INSERT INTO Alimentos (nombre, precio, cantidad, idTipoAlimento, idSaborAlimento, idKilos) VALUES (@nombre, @precio, @cantidad, @idTipoAlimento, @idSaborAlimento, @idKilos)";
-            
-            using(var comando = CrearComando(query))
+
+            using (var comando = await CrearComandoAsync(query))
             {
                 comando.Parameters.AddWithValue("@nombre", alimento.nombre);
                 comando.Parameters.AddWithValue("@precio", alimento.precio);
@@ -27,26 +26,25 @@ namespace Barfer.Entidades.SQL
                 comando.Parameters.AddWithValue("@idTipoAlimento", alimento.tipoAlimento);
                 comando.Parameters.AddWithValue("@idSaborAlimento", alimento.sabor);
                 comando.Parameters.AddWithValue("@idKilos", alimento.cantidadKilos);
-                ExcuteNonQuery(comando);
+                await ExcuteNonQueryAsync(comando);
             }
         }
 
-        public void Eliminar(int id)
+        public async Task EliminarAsync(int id)
         {
             string query = "DELETE FROM Alimentos where id = @id";
-            using(var comando = CrearComando(query))
+            using (var comando = await CrearComandoAsync(query))
             {
                 comando.Parameters.AddWithValue("@id", id);
-                ExcuteNonQuery(comando);
+                await ExcuteNonQueryAsync(comando);
             }
         }
 
-
-        public void Modificar(Alimento alimento)
+        public async Task ModificarAsync(Alimento alimento)
         {
             string query = "UPDATE Alimentos SET nombre = @nombre, precio = @precio, cantidad = @cantidad, idTipoAlimento = @idTipoAlimento, idSaborAlimento = @idSaborAlimento, idKilos = @idKilos WHERE id = @id";
 
-            using (var comando = CrearComando(query))
+            using (var comando = await CrearComandoAsync(query))
             {
                 comando.Parameters.AddWithValue("@id", alimento.id);
                 comando.Parameters.AddWithValue("@nombre", alimento.nombre);
@@ -55,31 +53,28 @@ namespace Barfer.Entidades.SQL
                 comando.Parameters.AddWithValue("@idTipoAlimento", alimento.tipoAlimento);
                 comando.Parameters.AddWithValue("@idSaborAlimento", alimento.sabor);
                 comando.Parameters.AddWithValue("@idKilos", alimento.cantidadKilos);
-                ExcuteNonQuery(comando);
+                await ExcuteNonQueryAsync(comando);
             }
         }
 
-
-
-        public List<Alimento> Traer()
+        public async Task<List<Alimento>> TraerAsync()
         {
-            var alimento = new List<Alimento>();
+            var alimentos = new List<Alimento>();
             string query = "SELECT * FROM Alimentos;";
-            using (var comando = CrearComando(query))
+            using (var comando = await CrearComandoAsync(query))
             {
-                using(var table = EjecutarConsulta(comando))
+                using (var table = await EjecutarConsultaAsync(comando))
                 {
                     foreach (DataRow row in table.Rows)
                     {
-                        alimento.Add((Alimento)row);
+                        alimentos.Add((Alimento)row);
                     }
                 }
             }
-            return alimento;
-
+            return alimentos;
         }
 
-        public Alimento Traer(int id)
+        public async Task<Alimento> TraerAsync(int id)
         {
             throw new NotImplementedException();
         }

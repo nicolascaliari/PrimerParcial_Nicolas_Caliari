@@ -96,7 +96,7 @@ namespace Barfer.Vista.FrmProductos
                 Validador.ValidarCantidadProducto(cantidad);
                 Validador.ValidarEnumsAlimento(cboSabor.SelectedIndex, cboCantidad.SelectedIndex, cboTipo.SelectedIndex);
                 var alimentoDB = new AlimentoDB();
-                alimentoDB.Modificar(_editarAlimento);
+                alimentoDB.ModificarAsync(_editarAlimento);
                 this.DialogResult = DialogResult.OK;
             }
             catch (ExceptionCampos ex)

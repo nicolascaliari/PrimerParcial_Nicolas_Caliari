@@ -90,7 +90,7 @@ namespace Vistas
                 _nuevoAlimento.cantidadKilos = (CantidadKilos)cboCantidades.SelectedItem;
 
 
-                alimentDB.Agregar(_nuevoAlimento);
+                alimentDB.AgregarAsync(_nuevoAlimento);
                 MessageBox.Show($"agregado exitosamente {_nuevoAlimento}");
                 this.DialogResult = DialogResult.OK;
 

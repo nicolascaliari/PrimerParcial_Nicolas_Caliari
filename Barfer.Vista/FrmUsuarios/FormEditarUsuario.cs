@@ -83,7 +83,7 @@ namespace Vistas.FrmUsuarios
                 Validador.ValidarEdad(edad);
                 GestorDeUsuarios.ModificarUsuario(id, editarUsuario,tipo);
                 var usuario = new UsuarioDB();
-                usuario.Modificar(editarUsuario);
+                usuario.ModificarAsync(editarUsuario);
                 this.DialogResult = DialogResult.OK;
             }
             catch(ExceptionCampos ex)
