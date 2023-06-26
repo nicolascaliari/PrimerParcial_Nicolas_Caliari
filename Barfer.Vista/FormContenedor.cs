@@ -35,7 +35,7 @@ namespace Vistas
             pnlVentas.Visible = false;
             lblDatosUsuario.Text = Usuario.GetNombreApellido(id, GestorDeUsuarios.usuarios);
 
-            RegistroActividad registro = new RegistroActividad(Usuario.name, " el usuario ingreso al menu principal", DateTime.Now);
+            RegistroActividad registro = new RegistroActividad(name, " el usuario ingreso al menu principal", DateTime.Now);
             RegistroActividad.OnMovimientoRealizado(registro);
         }
 

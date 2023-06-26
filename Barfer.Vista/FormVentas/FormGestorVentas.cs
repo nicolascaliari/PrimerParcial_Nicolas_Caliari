@@ -62,7 +62,7 @@ namespace Barfer.Vista.Ventas
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                
+
                 DataGridViewCheckBoxCell checkBoxCell = row.Cells[8] as DataGridViewCheckBoxCell;
                 if (checkBoxCell != null && (bool)checkBoxCell.Value == true)
                 {
@@ -73,7 +73,7 @@ namespace Barfer.Vista.Ventas
                     venta.idVenta = Convert.ToInt32(row.Cells[0].Value);
                     venta.cliente = (Cliente)row.Cells[1].Value;
                     venta.localidades = (Cliente.Localidades)row.Cells[2].Value;
-                    venta.alimento = (Alimento)row.Cells[3].Value;    
+                    venta.alimento = (Alimento)row.Cells[3].Value;
                     venta.cantidad = Convert.ToInt32(row.Cells[4].Value);
                     venta.precioTotal = Convert.ToDecimal(row.Cells[5].Value);
                     venta.fecha = Convert.ToDateTime(row.Cells[6].Value);
@@ -83,7 +83,7 @@ namespace Barfer.Vista.Ventas
 
                     Venta.ventasPreparacion.Add(venta);
                     ventasEliminar.Add((Venta)row.DataBoundItem);
-                   
+
                 }
             }
             foreach (Venta venta in ventasEliminar)

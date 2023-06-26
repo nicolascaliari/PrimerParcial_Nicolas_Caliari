@@ -47,10 +47,11 @@ namespace Vistas
 
                 int id = Validador.EncontrarIdUsuario(nombre, contrasenia);
                 Usuario.idVerificador = id;
+                Usuario.name = nombre;
                 AccederMenuPrincipal(id, contrasenia);
 
             }
-            catch(LoginFallidoException ex)
+            catch (LoginFallidoException ex)
             {
                 MessageBox.Show($"Error {ex.Message}");
             }

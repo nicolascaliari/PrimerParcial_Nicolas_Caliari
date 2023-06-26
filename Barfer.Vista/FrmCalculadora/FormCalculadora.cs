@@ -62,7 +62,7 @@ namespace Vistas
             try
             {
                 Validador.ValidarNombre(nombre);
-                Validador.ValidarEdad(edad);
+                Validador.ValidarEdadMascota(edad);
                 Validador.ValidarPesoMascota(peso);
 
 

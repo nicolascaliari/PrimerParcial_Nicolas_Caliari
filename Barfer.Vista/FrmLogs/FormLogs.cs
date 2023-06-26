@@ -25,6 +25,9 @@ namespace Barfer.Vista.FrmLogs
 
         private void FormLogs_Load(object sender, EventArgs e)
         {
+            dgvLogs.DataSource = null;
+            dgvLogs.DataSource = RegistroActividad.registros;
+
         }
 
 
@@ -38,6 +41,50 @@ namespace Barfer.Vista.FrmLogs
         {
             e.Cancel = true;
             this.Hide();
+        }
+
+
+
+
+        /// <summary>
+        /// Este metodo filtra los datos de alimento segun el texto ingresado en el TextBox
+        /// </summary>
+        /// <param name="filtrado"></param>
+        private void FiltrarDatosDeAlimento(List<RegistroActividad> filtrado)
+        {
+            foreach (RegistroActividad item in RegistroActividad.registros)
+            {
+                if (item.Registro.ToString().ToUpper().StartsWith(this.txtBoxBuscar.Text.ToUpper()))
+                {
+                    filtrado.Add(item);
+                }
+                else if (item.Usuarioo.ToString().ToUpper().StartsWith(this.txtBoxBuscar.Text.ToUpper()))
+                {
+                    filtrado.Add(item);
+                }
+                else if (item.Fecha.ToString().ToUpper().StartsWith(this.txtBoxBuscar.Text.ToUpper()))
+                {
+                    filtrado.Add(item);
+                }
+
+            }
+        }
+
+        private void txtBoxBuscar_TextChanged_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.txtBoxBuscar.Text))
+            {
+                List<RegistroActividad> filtrado = new List<RegistroActividad>();
+                FiltrarDatosDeAlimento(filtrado);
+                this.dgvLogs.DataSource = filtrado;
+            }
+            else
+            {
+                if (RegistroActividad.registros.Count > 0)
+                {
+                    dgvLogs.DataSource = RegistroActividad.registros;
+                }
+            }
         }
     }
 }

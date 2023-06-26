@@ -41,9 +41,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(155, 26);
+            label1.Location = new Point(177, 35);
             label1.Name = "label1";
-            label1.Size = new Size(193, 32);
+            label1.Size = new Size(241, 41);
             label1.TabIndex = 1;
             label1.Text = "Gestor de ventas";
             // 
@@ -52,29 +52,37 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.FromArgb(45, 66, 91);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(21, 113);
+            dataGridView1.Location = new Point(24, 151);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1508, 536);
+            dataGridView1.Size = new Size(1723, 715);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             // 
             // btnPreparacion
             // 
-            btnPreparacion.Location = new Point(672, 737);
+            btnPreparacion.BackColor = Color.FromArgb(40, 40, 40);
+            btnPreparacion.FlatAppearance.BorderSize = 0;
+            btnPreparacion.FlatStyle = FlatStyle.Flat;
+            btnPreparacion.ForeColor = SystemColors.ButtonFace;
+            btnPreparacion.Location = new Point(768, 983);
+            btnPreparacion.Margin = new Padding(3, 4, 3, 4);
             btnPreparacion.Name = "btnPreparacion";
-            btnPreparacion.Size = new Size(196, 49);
+            btnPreparacion.Size = new Size(224, 65);
             btnPreparacion.TabIndex = 3;
             btnPreparacion.Text = "Enviar a preparacion";
-            btnPreparacion.UseVisualStyleBackColor = true;
+            btnPreparacion.UseVisualStyleBackColor = false;
             btnPreparacion.Click += btnPreparacion_Click;
             // 
             // btnBack
             // 
             btnBack.Image = Properties.Resources.back;
-            btnBack.Location = new Point(12, 830);
+            btnBack.Location = new Point(14, 1107);
+            btnBack.Margin = new Padding(3, 4, 3, 4);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(100, 51);
+            btnBack.Size = new Size(114, 68);
             btnBack.SizeMode = PictureBoxSizeMode.Zoom;
             btnBack.TabIndex = 4;
             btnBack.TabStop = false;
@@ -82,14 +90,16 @@
             // 
             // FormGestorVentas
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(49, 66, 82);
-            ClientSize = new Size(1568, 893);
+            ClientSize = new Size(1835, 1162);
             Controls.Add(btnBack);
             Controls.Add(btnPreparacion);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormGestorVentas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormGestorVentas";

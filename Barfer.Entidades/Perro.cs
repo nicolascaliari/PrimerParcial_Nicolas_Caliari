@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Barfer.Entidades.Validaciones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace Barfer.Entidades
         /// <returns>Retorna double</returns>
         public override double CalcularAlimento(string tipoAnimal)
         {
-            if (tipoAnimal == "Perro")
+            if (Validador.ValidarString(tipoAnimal))
             {
                 if (Edad >= 2 && Edad <= 4)
                 {
@@ -51,7 +52,7 @@ namespace Barfer.Entidades
                     return 0.05 * Peso;
                 }
             }
-            return 0;
+                return 0;
         }
 
         /// <summary>

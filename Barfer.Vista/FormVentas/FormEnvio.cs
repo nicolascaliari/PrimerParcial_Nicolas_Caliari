@@ -38,7 +38,7 @@ namespace Barfer.Vista.FormVentas
             Venta.NotificarVenta("Ya se llamo al camion para entregar los productos");
             Venta.NotificarCamion(fecha);
             await EsperarHastaFechaEntrega();
-            MostrarNotificacion();
+            // MostrarNotificacion();
         }
 
 
@@ -52,7 +52,7 @@ namespace Barfer.Vista.FormVentas
             if (Venta.ventasPreparacion.Count > 0)
             {
                 MessageBox.Show("Ya le hemos enviado un mail con la informacion de los pedidos al camion de envio.");
-                 fechaEntrega = Venta.entregasProgramadas[0];
+                fechaEntrega = Venta.entregasProgramadas[0];
                 //fechaEntrega = new DateTime(2023, 6, 27, 19, 30, 0);
                 fecha = fechaEntrega.ToString("dd/MM/yyyy hh:mm:ss tt");
                 lblTimer.Text = $"El camion vendra a buscar la entrega el dia: {fecha}";
@@ -108,13 +108,6 @@ namespace Barfer.Vista.FormVentas
                 TimeSpan tiempoEspera = fechaEntregaSinSegundos - nowSinSegundos;
                 await Task.Delay(tiempoEspera);
             }
-        }
-
-
-
-        private void MostrarNotificacion()
-        {
-            MessageBox.Show("¡El camión está en camino para recoger la entrega!");
         }
     }
 }

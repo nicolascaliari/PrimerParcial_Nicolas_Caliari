@@ -119,7 +119,6 @@ namespace Barfer.Entidades.Validaciones
                 if (item.nombreUsuario == nombre && item.password == pass)
                 {
                     return item.idUsuario;
-
                 }
             }
             throw new LoginFallidoException("usuario no encontrado");
@@ -183,6 +182,19 @@ namespace Barfer.Entidades.Validaciones
             }
         }
 
+
+        /// <summary>
+        /// Metodo que valida la edad de un mascota.
+        /// </summary>
+        /// <param name="edad"></param>
+        /// <exception cref="ExceptionCampos"></exception>
+        public static void ValidarEdadMascota(decimal edad)
+        {
+            if (!EsDecimalValido(edad) || edad <= 2 || edad > 12)
+            {
+                throw new ExceptionCampos("Error de edad, la edad no puede ser\n menor a 2 o mayor a 12");
+            }
+        }
 
 
         /// <summary>

@@ -41,7 +41,7 @@ namespace Vistas
 
         /// <summary>
         /// Metodo que actualiza el stock pasandole al DataGrid la lista de alimento
-        /// </summary>
+        /// </summary> 
         /// <param name="dtg"></param>
         private static void ActualizarStock(DataGridView dtg)
         {

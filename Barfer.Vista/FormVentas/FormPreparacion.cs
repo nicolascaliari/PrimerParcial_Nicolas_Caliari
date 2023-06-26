@@ -100,9 +100,8 @@ namespace Barfer.Vista.FormVentas
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             DateTime fechaEntrega = dtpFechaEntrega.Value;
-
             Venta.entregasProgramadas.Add(fechaEntrega);
-            MessageBox.Show("La fecha se programo correctamente");
+            lblHorarioConfirmado.Text = $"Horario confirmado para {fechaEntrega.ToString()}";
         }
     }
 }

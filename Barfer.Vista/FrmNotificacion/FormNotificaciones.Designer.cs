@@ -35,21 +35,21 @@
             // lbNotificaciones
             // 
             lbNotificaciones.BackColor = Color.FromArgb(26, 32, 40);
-            lbNotificaciones.Font = new Font("Stencil", 13.8F, FontStyle.Italic, GraphicsUnit.Point);
+            lbNotificaciones.Font = new Font("Segoe UI Historic", 13.8F, FontStyle.Italic, GraphicsUnit.Point);
             lbNotificaciones.ForeColor = SystemColors.ButtonHighlight;
             lbNotificaciones.FormattingEnabled = true;
-            lbNotificaciones.ItemHeight = 27;
+            lbNotificaciones.ItemHeight = 31;
             lbNotificaciones.Location = new Point(51, 60);
             lbNotificaciones.Margin = new Padding(3, 4, 3, 4);
             lbNotificaciones.Name = "lbNotificaciones";
-            lbNotificaciones.Size = new Size(780, 463);
+            lbNotificaciones.Size = new Size(780, 438);
             lbNotificaciones.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(381, 88);
+            label1.Location = new Point(327, 19);
             label1.Name = "label1";
             label1.Size = new Size(185, 37);
             label1.TabIndex = 1;
