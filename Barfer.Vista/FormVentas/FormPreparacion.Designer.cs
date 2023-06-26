@@ -193,10 +193,10 @@
             // lblHorarioConfirmado
             // 
             lblHorarioConfirmado.AutoSize = true;
-            lblHorarioConfirmado.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lblHorarioConfirmado.Location = new Point(1026, 397);
+            lblHorarioConfirmado.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            lblHorarioConfirmado.Location = new Point(1012, 397);
             lblHorarioConfirmado.Name = "lblHorarioConfirmado";
-            lblHorarioConfirmado.Size = new Size(288, 31);
+            lblHorarioConfirmado.Size = new Size(228, 25);
             lblHorarioConfirmado.TabIndex = 8;
             lblHorarioConfirmado.Text = "No hay horario confirmado";
             // 
