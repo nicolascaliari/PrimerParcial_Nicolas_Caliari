@@ -103,5 +103,10 @@ namespace Barfer.Vista.FormVentas
             Venta.entregasProgramadas.Add(fechaEntrega);
             lblHorarioConfirmado.Text = $"Horario confirmado para {fechaEntrega.ToString()}";
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

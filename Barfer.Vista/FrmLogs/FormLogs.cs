@@ -47,10 +47,11 @@ namespace Barfer.Vista.FrmLogs
 
 
         /// <summary>
-        /// Este metodo filtra los datos de alimento segun el texto ingresado en el TextBox
+        /// Filtra los datos de los registros de actividad dependiendo del texto ingresado
+        /// Los registros que coinciden con el texto de búsqueda en los campos Registro, Usuarioo o Fecha se agregan a la lista filtrado.
         /// </summary>
-        /// <param name="filtrado"></param>
-        private void FiltrarDatosDeAlimento(List<RegistroActividad> filtrado)
+        /// <param name="filtrado">La lista donde se agregarán los registros filtrados.</param>
+        private void FiltrarDatosDeLogs(List<RegistroActividad> filtrado)
         {
             foreach (RegistroActividad item in RegistroActividad.registros)
             {
@@ -70,12 +71,19 @@ namespace Barfer.Vista.FrmLogs
             }
         }
 
+
+        /// <summary>
+        /// Evento que se ejecuta cuando se realiza un cambio en el texto del cuadro de búsqueda
+        /// Filtra los datos de los registros de actividad dependiendo lo que escribas
+        /// </summary>
+        /// <param name="sender">El objeto que desencadenó el evento.</param>
+        /// <param name="e">Argumentos del evento de cambio de texto.</param>
         private void txtBoxBuscar_TextChanged_1(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(this.txtBoxBuscar.Text))
             {
                 List<RegistroActividad> filtrado = new List<RegistroActividad>();
-                FiltrarDatosDeAlimento(filtrado);
+                FiltrarDatosDeLogs(filtrado);
                 this.dgvLogs.DataSource = filtrado;
             }
             else

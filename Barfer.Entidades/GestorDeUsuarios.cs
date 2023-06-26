@@ -16,24 +16,20 @@ namespace Barfer.Entidades
 
 
         /// <summary>
-        /// Constructor estatico que cargar los usuarios y clientes desde el archivo
+        /// Inicializa la carga de datos de usuarios y clientes.
         /// </summary>
-        static  GestorDeUsuarios()
-        {
-        }
-
-
+        /// <returns>Una tarea que representa la operación asincrónica.</returns>
         public static async Task Inicializar()
         {
-            await CargarUsuariosDesdeArchivo();
-            await CargarClientesDesdeArchivo();
+            await CargarUsuarios();
+            await CargarClientes();
         }
 
         /// <summary>
-        /// Metodo que carga los clientes desde el archivo a la lista
+        /// Carga los datos de los clientes desde la base de datos.
         /// </summary>
-        /// <returns>una lista de Cliente</returns>
-        public static async Task CargarClientesDesdeArchivo()
+        /// <returns>Una tarea que representa la operación asincrónica.</returns>
+        public static async Task CargarClientes()
         {
             var datos = new ClienteDB();
             clientes = await datos.TraerAsync();
@@ -41,10 +37,10 @@ namespace Barfer.Entidades
 
 
         /// <summary>
-        /// Metodo que carga los Usuarios desde el archivo a la lista
+        /// Carga los datos de los usuarios desde la base de datos.
         /// </summary>
-        /// <returns>una lista  de Usuario</returns>
-        public static async Task CargarUsuariosDesdeArchivo()
+        /// <returns>Una tarea que representa la operación asincrónica.</returns>
+        public static async Task CargarUsuarios()
         {
             var datos = new UsuarioDB();
             usuarios = await datos.TraerAsync();

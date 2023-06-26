@@ -22,21 +22,17 @@ namespace TestProducto
             string pass = "Nico123";
             int idEsperado = 1;
 
-            // Act
             int idObtenido = Validador.EncontrarIdUsuario(nombre, pass);
 
-            // Assert
             Assert.AreEqual(idEsperado, idObtenido);
         }
 
         [TestMethod]
         public void EncontrarIdUsuario_DebeLanzarExcepcionSiUsuarioNoEncontrado()
         {
-            // Arrange
             string nombre = "usuario_inexistente";
             string pass = "contraseña_incorrecta";
 
-            // Assert
             Assert.ThrowsException<LoginFallidoException>(() => Validador.EncontrarIdUsuario(nombre, pass));
         }
     }

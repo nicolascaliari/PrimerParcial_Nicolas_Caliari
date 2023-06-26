@@ -17,6 +17,11 @@ namespace Barfer.Entidades.SQL
         {
         }
 
+        /// <summary>
+        /// Agrega un usuario a la base de datos
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public async Task AgregarAsync(Usuario usuario)
         {
             string query = "INSERT INTO Usuarios (nombre, apellido, edad, password, idTipoUsuario) VALUES (@nombre, @apellido, @edad, @password, @idTipoUsuario)";
@@ -32,7 +37,11 @@ namespace Barfer.Entidades.SQL
             }
         }
 
-
+        /// <summary>
+        /// Elimina un usuario de la base de datos por su ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task EliminarAsync(int id)
         {
             string query = "DELETE FROM Usuarios where id = @id";
@@ -44,6 +53,11 @@ namespace Barfer.Entidades.SQL
         }
 
 
+        /// <summary>
+        ///  Modifica un usuario en la base de datos.
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public async Task ModificarAsync(Usuario usuario)
         {
             string query = "UPDATE Usuarios SET nombre = @nombre, apellido = @apellido, edad = @edad, password = @password, idTipoUsuario = @idTipoUsuario WHERE id = @id";
@@ -61,6 +75,10 @@ namespace Barfer.Entidades.SQL
         }
 
 
+        /// <summary>
+        /// Obtiene todos los usuarios de la base de datos
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Usuario>> TraerAsync()
         {
             var personas = new List<Usuario>();
@@ -77,12 +95,6 @@ namespace Barfer.Entidades.SQL
                 }
             }
             return personas;
-        }
-
-
-        public async Task<Usuario> TraerAsync(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

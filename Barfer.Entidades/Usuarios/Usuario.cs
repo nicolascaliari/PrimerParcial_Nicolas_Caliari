@@ -160,6 +160,13 @@ namespace Barfer.Entidades.Usuarios
             }
         }
 
+
+
+        /// <summary>
+        /// Convierte un objeto DataRow en un objeto de la clase Usuario de forma explícita.
+        /// </summary>
+        /// <param name="row">El objeto DataRow a convertir.</param>
+        /// <returns>Un objeto de la clase Usuario que se ha creado a partir de los datos del DataRow.</returns>
         public static explicit operator Usuario(DataRow row)
         {
             var id = Convert.ToInt32(row["id"].ToString());

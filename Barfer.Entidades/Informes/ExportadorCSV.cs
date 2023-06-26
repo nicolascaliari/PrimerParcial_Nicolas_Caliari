@@ -8,11 +8,17 @@ namespace Barfer.Entidades.Informes
 {
     public class ExportadorCSV
     {
+        /// <summary>
+        /// Genera el contenido de un archivo CSV a partir de una lista de objetos.
+        /// </summary>
+        /// <typeparam name="T">El tipo de los objetos en la lista.</typeparam>
+        /// <param name="dataList">La lista de objetos para generar el contenido CSV.</param>
+        /// <returns>Una cadena que representa el contenido del archivo CSV generado.</returns>
         public static string GenerarContenidoCSV<T>(List<T> dataList)
         {
             StringBuilder csvContent = new StringBuilder();
 
-            // Construir el encabezado CSV
+
             var properties = typeof(T).GetProperties();
             foreach (var property in properties)
             {
@@ -20,7 +26,7 @@ namespace Barfer.Entidades.Informes
             }
             csvContent.AppendLine();
 
-            // Construir los registros CSV
+
             foreach (var data in dataList)
             {
                 foreach (var property in properties)
@@ -33,5 +39,6 @@ namespace Barfer.Entidades.Informes
 
             return csvContent.ToString();
         }
+       
     }
 }

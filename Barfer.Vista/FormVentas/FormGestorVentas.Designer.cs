@@ -32,8 +32,10 @@
             dataGridView1 = new DataGridView();
             btnPreparacion = new Button();
             btnBack = new PictureBox();
+            btnVolver = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnBack).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnVolver).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -52,12 +54,12 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.FromArgb(45, 66, 91);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(24, 151);
+            dataGridView1.Location = new Point(36, 110);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1723, 715);
+            dataGridView1.Size = new Size(1053, 494);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             // 
@@ -67,7 +69,7 @@
             btnPreparacion.FlatAppearance.BorderSize = 0;
             btnPreparacion.FlatStyle = FlatStyle.Flat;
             btnPreparacion.ForeColor = SystemColors.ButtonFace;
-            btnPreparacion.Location = new Point(768, 983);
+            btnPreparacion.Location = new Point(1153, 110);
             btnPreparacion.Margin = new Padding(3, 4, 3, 4);
             btnPreparacion.Name = "btnPreparacion";
             btnPreparacion.Size = new Size(224, 65);
@@ -88,12 +90,24 @@
             btnBack.TabStop = false;
             btnBack.Click += btnBack_Click;
             // 
+            // btnVolver
+            // 
+            btnVolver.Image = Properties.Resources.back;
+            btnVolver.Location = new Point(1350, 583);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(60, 47);
+            btnVolver.SizeMode = PictureBoxSizeMode.Zoom;
+            btnVolver.TabIndex = 5;
+            btnVolver.TabStop = false;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // FormGestorVentas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(49, 66, 82);
-            ClientSize = new Size(1835, 1162);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(1422, 642);
+            Controls.Add(btnVolver);
             Controls.Add(btnBack);
             Controls.Add(btnPreparacion);
             Controls.Add(dataGridView1);
@@ -107,6 +121,7 @@
             Paint += FormGestorVentas_Paint;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnBack).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnVolver).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -116,5 +131,6 @@
         private DataGridView dataGridView1;
         private Button btnPreparacion;
         private PictureBox btnBack;
+        private PictureBox btnVolver;
     }
 }

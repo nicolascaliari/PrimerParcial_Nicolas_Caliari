@@ -14,6 +14,11 @@ namespace Barfer.Entidades.SQL
         {
         }
 
+        /// <summary>
+        /// Agrega un alimento a la base de datos
+        /// </summary>
+        /// <param name="alimento"></param>
+        /// <returns></returns>
         public async Task AgregarAsync(Alimento alimento)
         {
             string query = "INSERT INTO Alimentos (nombre, precio, cantidad, idTipoAlimento, idSaborAlimento, idKilos) VALUES (@nombre, @precio, @cantidad, @idTipoAlimento, @idSaborAlimento, @idKilos)";
@@ -30,6 +35,11 @@ namespace Barfer.Entidades.SQL
             }
         }
 
+        /// <summary>
+        /// Elimina un alimento de la base de datos por su ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task EliminarAsync(int id)
         {
             string query = "DELETE FROM Alimentos where id = @id";
@@ -40,6 +50,11 @@ namespace Barfer.Entidades.SQL
             }
         }
 
+        /// <summary>
+        /// Modifica un alimento en la base de datos.
+        /// </summary>
+        /// <param name="alimento"></param>
+        /// <returns></returns>
         public async Task ModificarAsync(Alimento alimento)
         {
             string query = "UPDATE Alimentos SET nombre = @nombre, precio = @precio, cantidad = @cantidad, idTipoAlimento = @idTipoAlimento, idSaborAlimento = @idSaborAlimento, idKilos = @idKilos WHERE id = @id";
@@ -57,6 +72,11 @@ namespace Barfer.Entidades.SQL
             }
         }
 
+
+        /// <summary>
+        /// Obtiene todos los alimentos de la base de datos.
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Alimento>> TraerAsync()
         {
             var alimentos = new List<Alimento>();
@@ -72,11 +92,6 @@ namespace Barfer.Entidades.SQL
                 }
             }
             return alimentos;
-        }
-
-        public async Task<Alimento> TraerAsync(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

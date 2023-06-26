@@ -21,12 +21,19 @@ namespace Barfer.Entidades.SQL
         {
         }
 
+        /// <summary>
+        /// Abre la conexión con la base de datos de forma asincrónica.
+        /// </summary>
+        /// <returns>Una tarea que representa la operación asincrónica de apertura de la conexión.</returns>
         protected async Task AbrirAsync()
         {
             _connection = new SqlConnection(_connectionString);
             await _connection.OpenAsync();
         }
 
+        /// <summary>
+        /// Cierra la conexión con la base de datos.
+        /// </summary>
         protected void Cerrar()
         {
             _connection.Close();

@@ -25,20 +25,17 @@ namespace Barfer.Vista.FormVentas
         }
 
 
-        /// <summary>
-        ///Muestra fecha de entrega si es que hay, y muestra datos de envios si es que hay.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private async void FormEnvio_Load(object sender, EventArgs e)
         {
             MostrarFechaDeEntrega();
             CargarDatosDeEnvios();
+            if (Venta.ventasPreparacion.Count > 0)
+            {
+                Venta.NotificarVenta("Ya se llamo al camion para entregar los productos");
+                Venta.NotificarCamion(fecha);
+                await EsperarHastaFechaEntrega();
+            }
 
-            Venta.NotificarVenta("Ya se llamo al camion para entregar los productos");
-            Venta.NotificarCamion(fecha);
-            await EsperarHastaFechaEntrega();
-            // MostrarNotificacion();
         }
 
 
@@ -51,7 +48,6 @@ namespace Barfer.Vista.FormVentas
         {
             if (Venta.ventasPreparacion.Count > 0)
             {
-                MessageBox.Show("Ya le hemos enviado un mail con la informacion de los pedidos al camion de envio.");
                 fechaEntrega = Venta.entregasProgramadas[0];
                 //fechaEntrega = new DateTime(2023, 6, 27, 19, 30, 0);
                 fecha = fechaEntrega.ToString("dd/MM/yyyy hh:mm:ss tt");
@@ -101,13 +97,18 @@ namespace Barfer.Vista.FormVentas
 
             if (fechaEntregaSinSegundos == nowSinSegundos)
             {
-                await Task.Delay(0); // No hay espera, se muestra la notificación de inmediato
+                await Task.Delay(0);
             }
             else if (fechaEntregaSinSegundos > nowSinSegundos)
             {
                 TimeSpan tiempoEspera = fechaEntregaSinSegundos - nowSinSegundos;
                 await Task.Delay(tiempoEspera);
             }
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

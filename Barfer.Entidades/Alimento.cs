@@ -143,13 +143,6 @@ namespace Barfer.Entidades
             {
                 throw new ArgumentOutOfRangeException(nameof(tipoAlimento), "Índice de enum no válido");
             }
-            //MetodoGenerico(SaborAlimento, saborAlimento);
-            //MetodoGenerico();
-            //MetodoGenerico();
-
-
-
-
         }
 
 
@@ -202,30 +195,7 @@ namespace Barfer.Entidades
             {
                 throw new ArgumentOutOfRangeException(nameof(tipoAlimento), "Índice de enum no válido");
             }
-            //MetodoGenerico(SaborAlimento, saborAlimento);
-            //MetodoGenerico();
-            //MetodoGenerico();
-
-
-         
-
         }
-
-
-        //public void MetodoGenerico<T>(T saborAlimento, out T sabor) where T : struct, Enum
-        //{
-        //    // Código del método que utiliza el parámetro genérico
-        //    if (Enum.IsDefined(typeof(T), saborAlimento))
-        //    {
-        //        sabor = (T)saborAlimento;
-        //    }
-        //    else
-        //    {
-        //        throw new ArgumentOutOfRangeException(nameof(sabor), "Índice de enum no válido");
-        //    }
-        //}
-
-
 
 
         /// <summary>
@@ -286,6 +256,11 @@ namespace Barfer.Entidades
 
         }
 
+        /// <summary>
+        /// Convierte un objeto DataRow en un objeto de la clase Alimento de forma explícita.
+        /// </summary>
+        /// <param name="row">El objeto DataRow a convertir.</param>
+        /// <returns>Un objeto de la clase Alimento que se ha creado a partir de los datos del DataRow.</returns>
         public static explicit operator Alimento(DataRow row)
         {
 

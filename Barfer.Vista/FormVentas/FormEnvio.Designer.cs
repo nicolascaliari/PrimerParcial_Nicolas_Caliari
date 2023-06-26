@@ -37,17 +37,19 @@
             LbVentas = new ListBox();
             lblTituloVentas = new Label();
             timer2 = new System.Windows.Forms.Timer(components);
+            btnVolver = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnBack).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnVolver).BeginInit();
             SuspendLayout();
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(1071, 108);
+            pictureBox2.Location = new Point(910, 116);
             pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(577, 390);
+            pictureBox2.Size = new Size(414, 250);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -56,7 +58,7 @@
             // 
             lblTimer.AutoSize = true;
             lblTimer.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTimer.Location = new Point(71, 726);
+            lblTimer.Location = new Point(71, 533);
             lblTimer.Name = "lblTimer";
             lblTimer.Size = new Size(409, 50);
             lblTimer.TabIndex = 2;
@@ -82,7 +84,7 @@
             LbVentas.FormattingEnabled = true;
             LbVentas.HorizontalScrollbar = true;
             LbVentas.ItemHeight = 36;
-            LbVentas.Location = new Point(71, 134);
+            LbVentas.Location = new Point(71, 116);
             LbVentas.Margin = new Padding(3, 4, 3, 4);
             LbVentas.Name = "LbVentas";
             LbVentas.ScrollAlwaysVisible = true;
@@ -94,19 +96,31 @@
             lblTituloVentas.AutoSize = true;
             lblTituloVentas.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             lblTituloVentas.ForeColor = SystemColors.ButtonFace;
-            lblTituloVentas.Location = new Point(172, 37);
+            lblTituloVentas.Location = new Point(71, 21);
             lblTituloVentas.Name = "lblTituloVentas";
             lblTituloVentas.Size = new Size(114, 41);
             lblTituloVentas.TabIndex = 6;
             lblTituloVentas.Text = "Ventas ";
             // 
+            // btnVolver
+            // 
+            btnVolver.Image = Properties.Resources.back;
+            btnVolver.Location = new Point(1345, 581);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(65, 49);
+            btnVolver.SizeMode = PictureBoxSizeMode.Zoom;
+            btnVolver.TabIndex = 7;
+            btnVolver.TabStop = false;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // FormEnvio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(49, 66, 82);
-            ClientSize = new Size(1835, 1162);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(1422, 642);
             ControlBox = false;
+            Controls.Add(btnVolver);
             Controls.Add(lblTituloVentas);
             Controls.Add(LbVentas);
             Controls.Add(btnBack);
@@ -120,6 +134,7 @@
             Load += FormEnvio_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnBack).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnVolver).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -132,5 +147,6 @@
         private ListBox LbVentas;
         private Label lblTituloVentas;
         private System.Windows.Forms.Timer timer2;
+        private PictureBox btnVolver;
     }
 }

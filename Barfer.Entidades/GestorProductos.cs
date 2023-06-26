@@ -15,23 +15,19 @@ namespace Barfer.Entidades
 
 
         /// <summary>
-        /// constructor estatico que carga los alimentos desde el archivo
+        /// Inicializa la carga de datos de los alimentos.
         /// </summary>
-        static GestorProductos()
-        {
-           
-        }
-
+        /// <returns>Una tarea que representa la operación asincrónica.</returns>
         public static async Task Inicializar()
         {
-            await CargarAlimentoDesdeArchivo();
+            await CargarAlimento();
         }
 
         /// <summary>
-        /// Metodo que carga los productos desde el archivo a la lista alimento
+        /// Carga los datos de los alimentos desde la base de datos.
         /// </summary>
-        /// <returns>Retorna la lista</returns>
-        public static async Task CargarAlimentoDesdeArchivo()
+        /// <returns>Una tarea que representa la operación asincrónica.</returns>
+        public static async Task CargarAlimento()
         {
             var datos = new AlimentoDB();
              alimento = await datos.TraerAsync();

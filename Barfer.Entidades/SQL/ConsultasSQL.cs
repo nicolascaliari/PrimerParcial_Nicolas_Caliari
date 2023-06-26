@@ -10,6 +10,12 @@ namespace Barfer.Entidades.SQL
 {
     public class ConsultasSQL : ConexionDB
     {
+
+        /// <summary>
+        /// Crea un objeto SqlCommand con la consulta especificada.
+        /// </summary>
+        /// <param name="query">La consulta SQL.</param>
+        /// <returns>Un objeto SqlCommand con la consulta y la conexión establecidas.</returns>
         public async Task<SqlCommand> CrearComandoAsync(string query)
         {
             await AbrirAsync();
@@ -17,10 +23,14 @@ namespace Barfer.Entidades.SQL
             return comando;
         }
 
+
+        /// <summary>
+        /// Ejecuta una consulta SQL y devuelve los resultados como un DataTable.
+        /// </summary>
+        /// <param name="consulta">El objeto SqlCommand que representa la consulta.</param>
+        /// <returns>Un DataTable con los resultados de la consulta.</returns>
         public async Task<DataTable> EjecutarConsultaAsync(SqlCommand consulta)
         {
-            //await AbrirAsync();
-            //var command = new SqlCommand(consulta, _connection);
             var reader = await consulta.ExecuteReaderAsync();
 
             var dataTable = new DataTable();
@@ -28,11 +38,14 @@ namespace Barfer.Entidades.SQL
             dataTable.Load(reader);
 
             reader.Close();
-            //Cerrar();
-
             return dataTable;
         }
 
+
+        /// <summary>
+        /// Ejecuta una consulta SQL que no devuelve ningún resultado.
+        /// </summary>
+        /// <param name="consulta">El objeto SqlCommand que representa la consulta.</param>
         public async Task ExcuteNonQueryAsync(SqlCommand consulta)
         {
             await consulta.ExecuteNonQueryAsync();

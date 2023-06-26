@@ -185,16 +185,10 @@ namespace Vistas
                 logs = new FormLogs();
             }
             logs.Show();
-            //int tipo = (int)Validador.VerificarSiEsAdmin(id, GestorDeUsuarios.usuarios);
-            //if (tipo == 1)
-            //{
-            //    FormLogs frmLogs = new FormLogs();
-            //    frmLogs.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Solo los administradores tienen acceso");
-            //}
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

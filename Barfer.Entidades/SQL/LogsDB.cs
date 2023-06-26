@@ -15,6 +15,12 @@ namespace Barfer.Entidades.SQL
         {
         }
 
+
+        /// <summary>
+        /// Agrega un log a la base de datos
+        /// </summary>
+        /// <param name="logs"></param>
+        /// <returns></returns>
         public async Task AgregarAsync(RegistroActividad logs)
         {
             string query = "INSERT INTO Logs (usuario, registro, fecha) VALUES (@usuario, @registro, @fecha)";
@@ -53,6 +59,10 @@ namespace Barfer.Entidades.SQL
             }
         }
 
+        /// <summary>
+        /// Obtiene todos los logs de la base de datos.
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<RegistroActividad>> TraerAsync()
         {
             var logs = new List<RegistroActividad>();
@@ -68,11 +78,6 @@ namespace Barfer.Entidades.SQL
                 }
             }
             return logs;
-        }
-
-        public async Task<RegistroActividad> TraerAsync(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

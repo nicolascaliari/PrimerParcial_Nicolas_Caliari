@@ -99,7 +99,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(247, 1115);
+            panel1.Size = new Size(247, 1000);
             panel1.TabIndex = 5;
             // 
             // pictureBox11
@@ -316,7 +316,7 @@
             // 
             btnSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSalir.Image = Barfer.Vista.Properties.Resources._13163802951582793675_128;
-            btnSalir.Location = new Point(1495, 16);
+            btnSalir.Location = new Point(1278, 16);
             btnSalir.Margin = new Padding(3, 4, 3, 4);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(63, 59);
@@ -433,8 +433,9 @@
             panel2.Location = new Point(247, 0);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1570, 1115);
+            panel2.Size = new Size(1353, 1000);
             panel2.TabIndex = 6;
+            panel2.Paint += panel2_Paint;
             // 
             // btnNotificacion
             // 
@@ -451,10 +452,10 @@
             // pictureBox7
             // 
             pictureBox7.Image = Barfer.Vista.Properties.Resources.a20c4957_7df7_4574_92d0_d2c95067f156;
-            pictureBox7.Location = new Point(683, 16);
+            pictureBox7.Location = new Point(661, 83);
             pictureBox7.Margin = new Padding(3, 4, 3, 4);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(689, 1108);
+            pictureBox7.Size = new Size(689, 1027);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 2;
             pictureBox7.TabStop = false;
@@ -475,10 +476,11 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1817, 1115);
+            ClientSize = new Size(1600, 1000);
             ControlBox = false;
             Controls.Add(panel2);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormContenedor";
             StartPosition = FormStartPosition.CenterScreen;

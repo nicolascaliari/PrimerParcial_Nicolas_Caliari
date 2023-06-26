@@ -32,15 +32,6 @@ namespace Barfer.Entidades
         public string Apellido { get => _apellido; set => _apellido = value; }
         public Localidades Localidad { get => _localidad; set => _localidad = value; }
 
-
-        /// <summary>
-        /// Constructor usado para cargar los datos del archivo a un cliente
-        /// </summary>
-        public Cliente()
-        {
-        
-        }
-
         /// <summary>
         /// constructor parametrizado
         /// </summary>
@@ -76,6 +67,12 @@ namespace Barfer.Entidades
             return sb.ToString();
         }
 
+
+        /// <summary>
+        /// Convierte un objeto DataRow en un objeto de la clase Cliente de forma explícita.
+        /// </summary>
+        /// <param name="row">El objeto DataRow a convertir.</param>
+        /// <returns>Un objeto de la clase Cliente que se ha creado a partir de los datos del DataRow.</returns>
         public static explicit operator Cliente(DataRow row)
         {
             var id = Convert.ToInt32(row["id"].ToString());

@@ -43,8 +43,10 @@
             btnConfirmar = new Button();
             lblNoHayPreparaciones = new Label();
             lblHorarioConfirmado = new Label();
+            btnVolver = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dtgPreparacion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnBack).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnVolver).BeginInit();
             SuspendLayout();
             // 
             // dtgPreparacion
@@ -53,12 +55,12 @@
             dtgPreparacion.BackgroundColor = Color.FromArgb(45, 66, 91);
             dtgPreparacion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgPreparacion.Columns.AddRange(new DataGridViewColumn[] { Cliente, Alimento, Cantidad, Precio, Fecha, Estado });
-            dtgPreparacion.Location = new Point(35, 221);
+            dtgPreparacion.Location = new Point(12, 111);
             dtgPreparacion.Margin = new Padding(3, 4, 3, 4);
             dtgPreparacion.Name = "dtgPreparacion";
             dtgPreparacion.RowHeadersWidth = 51;
             dtgPreparacion.RowTemplate.Height = 25;
-            dtgPreparacion.Size = new Size(1115, 836);
+            dtgPreparacion.Size = new Size(999, 518);
             dtgPreparacion.TabIndex = 0;
             // 
             // Cliente
@@ -102,7 +104,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(216, 61);
+            label1.Location = new Point(76, 33);
             label1.Name = "label1";
             label1.Size = new Size(310, 41);
             label1.TabIndex = 1;
@@ -141,7 +143,7 @@
             btnEntrega.FlatAppearance.BorderSize = 0;
             btnEntrega.FlatStyle = FlatStyle.Flat;
             btnEntrega.ForeColor = SystemColors.ButtonFace;
-            btnEntrega.Location = new Point(1346, 437);
+            btnEntrega.Location = new Point(1117, 111);
             btnEntrega.Margin = new Padding(3, 4, 3, 4);
             btnEntrega.Name = "btnEntrega";
             btnEntrega.Size = new Size(243, 55);
@@ -157,7 +159,7 @@
             dtpFechaEntrega.CalendarTitleBackColor = SystemColors.ButtonShadow;
             dtpFechaEntrega.CalendarTitleForeColor = SystemColors.ControlDark;
             dtpFechaEntrega.CalendarTrailingForeColor = SystemColors.ControlText;
-            dtpFechaEntrega.Location = new Point(1330, 526);
+            dtpFechaEntrega.Location = new Point(1105, 211);
             dtpFechaEntrega.Margin = new Padding(3, 4, 3, 4);
             dtpFechaEntrega.Name = "dtpFechaEntrega";
             dtpFechaEntrega.Size = new Size(281, 27);
@@ -169,7 +171,7 @@
             btnConfirmar.FlatAppearance.BorderSize = 0;
             btnConfirmar.FlatStyle = FlatStyle.Flat;
             btnConfirmar.ForeColor = SystemColors.ButtonFace;
-            btnConfirmar.Location = new Point(1395, 623);
+            btnConfirmar.Location = new Point(1173, 280);
             btnConfirmar.Margin = new Padding(3, 4, 3, 4);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(150, 49);
@@ -182,7 +184,7 @@
             // 
             lblNoHayPreparaciones.AutoSize = true;
             lblNoHayPreparaciones.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNoHayPreparaciones.Location = new Point(442, 612);
+            lblNoHayPreparaciones.Location = new Point(395, 368);
             lblNoHayPreparaciones.Name = "lblNoHayPreparaciones";
             lblNoHayPreparaciones.Size = new Size(142, 60);
             lblNoHayPreparaciones.TabIndex = 7;
@@ -192,18 +194,30 @@
             // 
             lblHorarioConfirmado.AutoSize = true;
             lblHorarioConfirmado.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lblHorarioConfirmado.Location = new Point(1293, 741);
+            lblHorarioConfirmado.Location = new Point(1026, 397);
             lblHorarioConfirmado.Name = "lblHorarioConfirmado";
             lblHorarioConfirmado.Size = new Size(288, 31);
             lblHorarioConfirmado.TabIndex = 8;
             lblHorarioConfirmado.Text = "No hay horario confirmado";
             // 
+            // btnVolver
+            // 
+            btnVolver.Image = Properties.Resources.back;
+            btnVolver.Location = new Point(1340, 582);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(70, 47);
+            btnVolver.SizeMode = PictureBoxSizeMode.Zoom;
+            btnVolver.TabIndex = 9;
+            btnVolver.TabStop = false;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // FormPreparacion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(49, 66, 82);
-            ClientSize = new Size(1835, 1162);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(1422, 642);
+            Controls.Add(btnVolver);
             Controls.Add(lblHorarioConfirmado);
             Controls.Add(lblNoHayPreparaciones);
             Controls.Add(btnConfirmar);
@@ -221,6 +235,7 @@
             Load += FormPreparacion_Load;
             ((System.ComponentModel.ISupportInitialize)dtgPreparacion).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnBack).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnVolver).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -242,5 +257,6 @@
         private Button btnConfirmar;
         private Label lblNoHayPreparaciones;
         private Label lblHorarioConfirmado;
+        private PictureBox btnVolver;
     }
 }
